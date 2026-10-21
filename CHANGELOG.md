@@ -6,7 +6,7 @@ All notable changes to the Xargon's Revenge C16 preservation project. Dates are 
 
 ## [1.0.0] 21-10-2026
 
-Preservation checkpoint: the surviving Xargon's Revenge source reassembled for the Commodore 16 and Plus/4.
+Preservation checkpoint (commit `8327b9c`, annotated tag `v1.0.0`): the surviving Xargon's Revenge source reassembled for the Commodore 16 and Plus/4.
 
 ### Added
 
