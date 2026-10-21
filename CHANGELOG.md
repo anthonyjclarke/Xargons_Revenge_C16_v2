@@ -6,7 +6,7 @@ All notable changes to the Xargon's Revenge C16 preservation project. Dates are 
 
 ## [1.1.0] 21-10-2026
 
-Documentation, analysis, graphics and handbook release. The game PRG is unchanged (SHA-256 `32c13c88…adce33`).
+Documentation, analysis, graphics and handbook release (commit `5336112`, annotated tag `v1.1.0`). The game PRG is unchanged (SHA-256 `32c13c88…adce33`).
 
 ### Added
 
