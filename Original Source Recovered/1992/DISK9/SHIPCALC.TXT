@@ -1,0 +1,142 @@
+; >s:ship-calcs
+; put "ship-calcs"
+;
+; with the info in ypix & shipy
+; print the ship on
+;
+prship
+;
+jsr clrshp    ;* clear old data
+;
+ldx #0        ;* pixels high count
+ldy ypix      ;* y pos
+;
+prs2
+;
+lda shpdt1,x        ;* data col #1
+sta shipch,y
+;
+lda shpdt1+16,x     ;* data col #2
+sta shipch+24,y
+;
+lda shpdt1+32,x     ;* data col #3
+sta shipch+48,y
+;
+lda shpdt1+48,x     ;* data col #4
+sta shipch+72,y
+;
+iny
+inx
+cpx #16
+bne prs2
+;
+; now lets print it on
+;
+shipon
+;
+jsr chkshp      ;* check
+;
+ldx #11
+;
+prs3
+;
+ldy yship,x
+lda shpchr,x
+;
+sta (shpscr),y
+;
+lda shpink      ;* colour
+sta (shpcol),y
+;
+dex
+bpl prs3
+;
+rts
+;
+;---------------------------------
+;
+; check ship
+;
+; if ypix = 0 then is at top of
+; char so only check top 2 rows.
+;
+; similar or ypix = 6 except check
+; the bottom two rows.
+;
+chkshp
+;
+ldx #0          ;* start check
+ldy #12         ;* end check
+;
+lda ypix
+bne shop1       ;* not at top
+;
+ldy #8          ;* only 2 rows
+;
+shop1
+;
+cmp #6
+bne shop2       ;* not at bottom
+;
+ldx #4
+;
+shop2
+;
+sty irqwrk
+;
+shop4
+;
+ldy yship,x     ;* y val
+lda (shpscr),y
+;
+cmp #179
+bcc shop3      ;* ok.
+;
+cmp #221
+bcs shop3      ;* explosion
+;
+cmp #186
+bcs shop5
+;
+; hit a fuel pod
+;
+lda #1
+sta kilful     ;* kill fuel pod
+bne shop6
+;
+shop5
+;
+lda #1
+sta dead
+;
+shop3
+;
+inx
+cpx irqwrk
+bne shop4       ;* all chars
+;
+shop6
+;
+rts
+;
+;---------------------------------
+;
+clrshp
+;
+ldx #95
+lda #0
+;
+prs1
+;
+sta shipch,x
+;
+dex
+bpl prs1
+;
+; cleared old data
+;
+rts
+;
+;
+;
+.end

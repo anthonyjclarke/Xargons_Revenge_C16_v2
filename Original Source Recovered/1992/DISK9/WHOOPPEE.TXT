@@ -1,0 +1,21 @@
+; >s:whooppee-message
+; put "whooppee-message"
+;
+;
+messt
+;
+.byte ' xargon',39,'s revenge'
+.byte ' @ micro projects 1985    '
+.byte '         look out for these other '
+.byte 'c16/plus4 games from gremlin graphics - '
+.byte 'xargon wars ...... petals of doom ......'
+.byte ' tycoon tex ...... dork',39,'s dilemma '
+.byte '...... sword of destiny ......         '
+.byte '      many thanks for all those who '
+.byte 'helped in the production and design '
+.byte 'of this game ........... '
+;
+.byte $ff
+;
+;
+.end

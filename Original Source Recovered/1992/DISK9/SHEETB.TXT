@@ -1,0 +1,22 @@
+; >s:sheetb
+; put "sheetb"
+;
+; info for sheet 11
+;
+patdb
+;
+.byte 9,9,9,12,12,12,9,9,9
+.byte 8,8,8,12,12,12,1,1
+.byte $ff
+;
+; movement data
+;
+lba = 74   ;* foreground
+lbb = 225  ;* outline
+lbc = 184  ;* 2nd depth col
+;
+; 3 land colours
+;
+bbb = $00  ;* background col.
+;
+.end

@@ -1,0 +1,148 @@
+; >s:pause/escape
+; put"pause/escape"
+;
+; scan pause and escape keys
+;
+chkesc
+;
+; escape
+;
+lda #$10
+ldy #$bf
+jmp keyit  ;* scan key
+;
+;---------------------------------
+;
+chkpas
+;
+; pause
+;
+jsr scanp
+bcs la     ;* help to pause
+;
+rts        ;* not pressed
+;
+la
+;
+ldx #1
+stx pause
+stx stop
+stx stpstr ;* stop stars
+;
+dex
+stx jup
+stx jdown
+stx jfire  ;* kill all move
+;
+lda vol
+sta work   ;* save volume stat.
+;
+stx vol    ;* snd off
+;
+ldx #4
+;
+wind1
+;
+txa
+clc
+adc #250
+sta $0dc9,x      ;* 'pause on'
+;
+lda #$71
+sta $09c9,x      ;* new colour
+;
+txa
+clc
+adc #34
+sta $0dc9+40,x   ;* 'g' to play
+;
+lda #$67
+sta $09c9+40,x   ;* colour
+;
+dex
+bpl wind1
+;
+nyc1
+;
+jsr rusras
+;
+jsr nobbly
+;
+jsr scang
+bcc nyc1   ;* g to go again
+;
+lda #0
+sta stop
+sta pause
+sta stpstr ;* stars go again
+;
+lda work
+sta vol    ;* sound on again
+;
+ldx #4
+lda #32
+;
+nyc2a
+;
+sta $0dc9,x
+sta $0dc9+40,x
+;
+dex
+bpl nyc2a
+;
+; clear the message
+;
+rts        ;* all over !
+;
+;---------------------------------
+;
+scanp
+;
+lda #$10
+ldy #$7f
+jmp keyit
+;
+;---------------------------------
+;
+scang
+;
+lda #$04
+ldy #$f7
+jmp keyit
+;
+;---------------------------------
+;
+nobbly
+;
+inc work+1
+;
+lda work+1
+lsr a
+lsr a
+lsr a
+lsr a
+;
+and #1
+tay
+;
+ldx #4
+;
+nobb1
+;
+lda flid1,y
+sta $09c9,x
+;
+lda flid2,y
+sta $09c9+40,x
+;
+dex
+bpl nobb1
+;
+rts
+;
+flid1 .byte $67,$71
+flid2 .byte $71,$67
+;
+;
+;
+.end

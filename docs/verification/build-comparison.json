@@ -1,0 +1,93 @@
+{
+  "load_address": "$0400",
+  "entry_address": "$1800",
+  "code_bytes": 8094,
+  "code_end": "$379D",
+  "output_bytes": 15362,
+  "sha256": "32c13c8867ea97bb4fd60ac9a73e5d7a600c04ece5699ac37680143c12adce33",
+  "object_listing_bytes": 8094,
+  "object_listing_differences": 0,
+  "first_object_differences": [],
+  "landscape_comparison": {
+    "source_bytes": {
+      "$1000": 1536,
+      "$1600": 512
+    },
+    "differences_vs_LANDSCAPE-2": [
+      "$1196",
+      "$1197",
+      "$11B6",
+      "$11B7",
+      "$143B",
+      "$143C",
+      "$143F",
+      "$151F",
+      "$1530",
+      "$1531",
+      "$1532",
+      "$1533",
+      "$1534",
+      "$1535",
+      "$1536",
+      "$1537",
+      "$153E",
+      "$153F",
+      "$1550",
+      "$1551",
+      "$1552",
+      "$1553",
+      "$1554",
+      "$1555",
+      "$1556",
+      "$1557",
+      "$155E",
+      "$155F",
+      "$157F"
+    ],
+    "differences_vs_LANDSCAPE-1": [
+      "$1196",
+      "$1197",
+      "$11B6",
+      "$11B7",
+      "$143B",
+      "$143C",
+      "$143F"
+    ],
+    "LANDSCAPE-1_vs_LANDSCAPE-2": [
+      "$151F",
+      "$1530",
+      "$1531",
+      "$1532",
+      "$1533",
+      "$1534",
+      "$1535",
+      "$1536",
+      "$1537",
+      "$153E",
+      "$153F",
+      "$1550",
+      "$1551",
+      "$1552",
+      "$1553",
+      "$1554",
+      "$1555",
+      "$1556",
+      "$1557",
+      "$155E",
+      "$155F",
+      "$157F"
+    ]
+  },
+  "alien_comparison": {
+    "BJH_load_header": "$2000",
+    "BJH_equals_ALIBUM8_first_1024": true,
+    "O.ALI_equals_ALIBUM5_first_1024": true,
+    "O.ALI_vs_BJH_differences": 339
+  },
+  "padding": {
+    "$0800-$0FFF": "zero; colour and screen RAM, initialized by the game",
+    "$379E-$37FF": "zero; unused gap below the font"
+  },
+  "packed_reference_sha256": "8f50988e867e54b2ce77cc1ebd89e4f575adcd69fd026cc836c7ec3940ef3b91",
+  "packed_reference_comparison": "run scripts/verify_vice.py for runtime comparison"
+}

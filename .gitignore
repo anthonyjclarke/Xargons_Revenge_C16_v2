@@ -1,0 +1,20 @@
+# Generated output only. Original PRGs, BINs, disk images and art are preserved.
+/build/
+/.pio/
+/.pioenvs/
+/.piolibdeps/
+/.venv/
+node_modules/
+__pycache__/
+*.py[cod]
+.DS_Store
+._*
+*.swp
+*~
+.vscode/*.log
+
+# VICE may create this before its explicit log path is applied.
+/monitor.log
+
+# Working brief for this restoration; kept locally, not published.
+/Xargons Revenge Prompt(Claude).md

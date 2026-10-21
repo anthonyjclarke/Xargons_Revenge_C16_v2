@@ -1,0 +1,34 @@
+; >s:char-anim
+; put "char-anim
+;
+; animate land chars
+;
+lanani
+;
+inc landan
+lda landan
+;
+and #%00001100
+asl a
+;
+tax         ;* times 8
+;
+ldy #0
+;
+lanan1
+;
+lda chr87,x
+sta $12b8,y
+;
+lda chr91,x
+sta $12d8,y
+;
+inx
+iny
+cpy #8
+bne lanan1
+;
+rts
+;
+;
+.end

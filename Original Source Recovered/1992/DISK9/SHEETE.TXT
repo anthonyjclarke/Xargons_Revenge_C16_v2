@@ -1,0 +1,22 @@
+; >s:sheete
+; put "sheete"
+;
+; info for sheet 14
+;
+patde
+;
+.byte 8,8,9,9,12,12,8,8,8,1,1,1
+.byte 12,12,12,8,8,8,9,9,9,4,4,4
+.byte $ff
+;
+; movement data
+;
+lea = 95   ;* foreground
+leb = 241  ;* outline
+lec = 200  ;* 2nd depth col
+;
+; 3 land colours
+;
+beb = $00  ;* background col.
+;
+.end

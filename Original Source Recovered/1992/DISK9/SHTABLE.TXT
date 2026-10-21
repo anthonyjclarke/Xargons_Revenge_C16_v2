@@ -1,0 +1,220 @@
+; >s:shtable
+; put "shtable"
+;
+; alien sheet table
+;
+;
+shtabl
+;
+;--------
+;
+; sheet1
+;
+;--------
+;
+.word patd1     ;* movement data
+.byte l1a       ;* land col 3
+.byte l1b       ;* land col 2
+.byte l1c       ;* land col 3
+.byte b1b       ;* bakcol
+.byte 0,0       ;* spare
+;
+;--------
+;
+; sheet2
+;
+;--------
+;
+.word patd2     ;* movement data
+.byte l2a       ;* land col 3
+.byte l2b       ;* land col 2
+.byte l2c       ;* land col 3
+.byte b2b       ;* bakcol
+.byte 0,0       ;* spare
+;
+;--------
+;
+; sheet3
+;
+;--------
+;
+.word patd3     ;* movement data
+.byte l3a       ;* land col 3
+.byte l3b       ;* land col 2
+.byte l3c       ;* land col 3
+.byte b3b       ;* bakcol
+.byte 0,0       ;* spare
+;
+;--------
+;
+; sheet4
+;
+;--------
+;
+.word patd4     ;* movement data
+.byte l4a       ;* land col 3
+.byte l4b       ;* land col 2
+.byte l4c       ;* land col 3
+.byte b4b       ;* bakcol
+.byte 0,0       ;* spare
+;
+;--------
+;
+; sheet5
+;
+;--------
+;
+.word patd5     ;* movement data
+.byte l5a       ;* land col 3
+.byte l5b       ;* land col 2
+.byte l5c       ;* land col 3
+.byte b5b       ;* bakcol
+.byte 0,0       ;* spare
+;
+;--------
+;
+; sheet6
+;
+;--------
+;
+.word patd6     ;* movement data
+.byte l6a       ;* land col 3
+.byte l6b       ;* land col 2
+.byte l6c       ;* land col 3
+.byte b6b       ;* bakcol
+.byte 0,0       ;* spare
+;
+;--------
+;
+; sheet7
+;
+;--------
+;
+.word patd7     ;* movement data
+.byte l7a       ;* land col 3
+.byte l7b       ;* land col 2
+.byte l7c       ;* land col 3
+.byte b7b       ;* bakcol
+.byte 0,0       ;* spare
+;
+;--------
+;
+; sheet8
+;
+;--------
+;
+.word patd8     ;* movement data
+.byte l8a       ;* land col 3
+.byte l8b       ;* land col 2
+.byte l8c       ;* land col 3
+.byte b8b       ;* bakcol
+.byte 0,0       ;* spare
+;
+;--------
+;
+; sheet9
+;
+;--------
+;
+.word patd9     ;* movement data
+.byte l9a       ;* land col 3
+.byte l9b       ;* land col 2
+.byte l9c       ;* land col 3
+.byte b9b       ;* bakcol
+.byte 0,0       ;* spare
+;
+;--------
+;
+; sheet10
+;
+;--------
+;
+.word patda     ;* movement data
+.byte laa       ;* land col 3
+.byte lab       ;* land col 2
+.byte lac       ;* land col 3
+.byte bab       ;* bakcol
+.byte 0,0       ;* spare
+;
+;--------
+;
+; sheet11
+;
+;--------
+;
+.word patdb     ;* movement data
+.byte lba       ;* land col 3
+.byte lbb       ;* land col 2
+.byte lbc       ;* land col 3
+.byte bbb       ;* bakcol
+.byte 0,0       ;* spare
+;
+;--------
+;
+; sheet12
+;
+;--------
+;
+.word patdc     ;* movement data
+.byte lca       ;* land col 3
+.byte lcb       ;* land col 2
+.byte lcc       ;* land col 3
+.byte bcb       ;* bakcol
+.byte 0,0       ;* spare
+;
+;--------
+;
+; sheet13
+;
+;--------
+;
+.word patdd     ;* movement data
+.byte lza       ;* land col 3
+.byte ldb       ;* land col 2
+.byte ldc       ;* land col 3
+.byte bdb       ;* bakcol
+.byte 0,0       ;* spare
+;
+;--------
+;
+; sheet14
+;
+;--------
+;
+.word patde     ;* movement data
+.byte lea       ;* land col 3
+.byte leb       ;* land col 2
+.byte lec       ;* land col 3
+.byte beb       ;* bakcol
+.byte 0,0       ;* spare
+;
+;--------
+;
+; sheet15
+;
+;--------
+;
+.word patdf     ;* movement data
+.byte lfa       ;* land col 3
+.byte lfb       ;* land col 2
+.byte lfc       ;* land col 3
+.byte bfb       ;* bakcol
+.byte 0,0       ;* spare
+;
+;--------
+;
+; sheet16
+;
+;--------
+;
+.word patdg     ;* movement data
+.byte lga       ;* land col 3
+.byte lgb       ;* land col 2
+.byte lgc       ;* land col 3
+.byte bgb       ;* bakcol
+.byte 0,0       ;* spare
+;
+;
+;
+;
+.end

@@ -1,0 +1,153 @@
+; >s:score-routines
+; put "score-routines"
+;
+score
+;
+ldy #7       ;* lsb digit
+;
+; second entry point
+;
+sta scradd
+;
+addlop
+;
+lda scradd
+;
+madona
+;
+clc
+adc scrbuf,y
+cmp #10
+bmi scorel
+;
+sec
+sbc #10
+sta scrbuf,y
+;
+lda #1
+dey
+bpl madona
+;
+scorel
+;
+sta scrbuf,y
+;
+lda scrbuf+3   ;* 10,000
+beq xtr1
+cmp #5         ;* 50,000
+bne nolife
+;
+ldy xtra
+bne nolife
+;
+puslif         ;* add 1 life
+;
+sta xtra
+;
+bonlif         ;* entry point
+;
+inc lives
+;
+jsr prlive     ;* print them
+;
+lda #31
+sta bonus
+;
+lda bakcol
+sta bonus+1    ;* save colour
+;
+jsr num1t7
+sta magers
+;
+nolife
+;
+rts
+;
+xtr1
+;
+ldy xtra
+cpy #5
+bne nolife
+;
+beq puslif     ;* add 1 life
+;
+;---------------------------------
+;
+; print scrbuf to the screen.
+;
+scorpt
+;
+inc scorct        ;* colour
+lda scorct
+;
+lsr a
+lsr a
+lsr a
+;
+and #3
+tay
+;
+lda scorcl,y
+ora #$60
+sta shipc2        ;* ship m/c
+;
+ldx #7
+;
+scrprt
+;
+lda scrbuf,x
+clc
+adc #82
+sta scorps,x      ;* top half
+;
+clc
+adc #10
+sta scorps+40,x   ;* bottom bit.
+;
+lda scorcl,y
+ora #$50
+;
+sta scorps-$400,x
+;
+and #$0f
+ora #$40
+;
+sta scorps-$400+40,x
+;
+dex
+bpl scrprt
+;
+lda bonus
+beq nobons    ;* over before
+;
+dec bonus
+beq stpbon    ;* stop bonus
+;
+lda bonus
+and #15
+tax
+;
+lda magers    ;* colour
+and #15
+;
+ora luminx,x  ;* add luminence
+sta bakcol    ;* pulsate bak col
+;
+rts
+;
+stpbon
+;
+lda bonus+1
+sta bakcol    ;* restore col.
+;
+nobons
+;
+rts
+;
+;---------------------------------
+;
+scorcl
+;
+.byte 2,3,5,6
+;
+.end

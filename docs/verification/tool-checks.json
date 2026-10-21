@@ -1,0 +1,21 @@
+{
+  "host": "Darwin arm64",
+  "minimums": {
+    "python": "3.9",
+    "ca65": "2.18",
+    "ld65": "2.18",
+    "vice": "3.10",
+    "platformio": "6.1",
+    "node": "18",
+    "pillow": "10.1"
+  },
+  "found": {
+    "python": "3.11.7",
+    "ca65": "2.18",
+    "ld65": "2.18",
+    "vice": "3.10",
+    "platformio": "6.1.19",
+    "node": "26.12.0",
+    "pillow": "11.3.0"
+  }
+}

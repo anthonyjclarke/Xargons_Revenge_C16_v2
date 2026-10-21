@@ -1,0 +1,21 @@
+; >s:sheetg
+; put "sheetg"
+;
+; info for sheet 16
+;
+patdg
+;
+.byte 9,9,9,9,9,9,12,12,12,12,12
+.byte $ff
+;
+; movement data
+;
+lga = 60   ;* foreground
+lgb = 241  ;* outline
+lgc = 199  ;* 2nd depth col
+;
+; 3 land colours
+;
+bgb = $00  ;* background col.
+;
+.end

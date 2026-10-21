@@ -1,0 +1,114 @@
+; >s:irq
+; put "irq"
+;
+;*********************
+;
+; all the irq routines
+;
+;*********************
+;
+setirq
+;
+sei
+;
+lda #<serv
+sta $fffe
+lda #>serv
+sta $ffff
+;
+lda #<reset
+sta $fffa
+sta $fffc
+;
+lda #>reset
+sta $fffb
+sta $fffd
+;
+lda #%00000010
+sta irqmsk
+;
+; enable irq's from raster
+;
+lda #0
+sta intype
+;
+cli
+;
+rts
+;
+;---------------------------------
+;
+serv
+;
+;    irq comes here - wow !!!
+;
+pha
+;
+txa
+pha
+;
+tya
+pha
+;
+lda irqreg
+sta irqreg ;* reset bits
+;
+ldx intype ;* raster number
+;
+inx
+cpx #5
+bne nolast
+;
+ldx #0
+;
+nolast
+;
+stx intype
+;
+;
+;*************************
+;
+; raster service routine
+;
+;*************************
+;
+txa
+asl a
+clc
+adc intype
+;
+sta bran+1
+;
+bran
+;
+bne bran
+;
+jmp rast1
+jmp rast2
+jmp rast3
+jmp rast4
+jmp rast5
+;
+;************
+;
+;  irq exit
+;
+;************
+;
+irqend
+;
+sta rascom
+;
+pla
+tay
+;
+pla
+tax
+;
+pla
+;
+rti
+;
+;
+;
+.end

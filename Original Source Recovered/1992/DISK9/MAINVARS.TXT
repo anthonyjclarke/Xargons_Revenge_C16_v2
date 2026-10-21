@@ -1,0 +1,63 @@
+; >s:main-vars
+; put "main-vars"
+;
+; main system variables
+;
+ted    = $ff00
+;
+irqreg = ted+9
+irqmsk = ted+10
+rascom = ted+11
+rasthi = ted+$1c
+;
+backgr = ted+$15
+border = ted+$19
+;
+jport  = ted+8
+;
+multi1 = ted+$16
+multi2 = ted+$17
+;
+sou1lo = ted+14
+sou2lo = ted+15
+sou1hi = ted+18
+sou2hi = ted+16
+;
+vol    = ted+17
+;
+;-----------------------------
+;
+shipch = $3be0
+;
+; ship char base (#124)
+;
+lazchr = $39f8
+;
+; lazer base char data #63
+;
+scorps = $0c06
+;
+; score pos on screen
+;
+colsh1 = $2a   ;* ink
+;
+; set ship colours
+;
+alinum = 16
+;
+starnm = 16
+;
+fulchr = $3da0
+;
+; char data for fuel
+;
+wright = $e13-40
+;
+; where to put ready,steady etc.
+;
+aldata = $0400
+;
+; alien graphics data
+;
+;
+.end

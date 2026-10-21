@@ -1,0 +1,72 @@
+; >s:joystik
+; put "joystik"
+;
+;*******************
+;
+; read the joystick
+;
+;*******************
+;
+redjos
+;
+lda killco
+beq okyak
+;
+rts
+;
+okyak
+;
+lda joysel
+bne readdk      ;* joy selected
+;
+jmp key
+;
+readdk
+;
+lda #$fd        ;* port 0
+sta jport
+;
+lda #$4a
+sta xtrcde      ;* 'lsr a'
+;
+lda jport
+eor #$ff
+bne naye
+;
+; try port 1
+;
+lda #$fa        ;* port 1
+sta jport
+;
+lda #$ea
+sta xtrcde      ;* 'nop'
+;
+lda jport
+eor #$ff
+;
+naye
+;
+sta jmove
+;
+ror a
+ror jup
+;
+ror a
+ror jdown
+;
+lsr a
+lsr a
+lsr a
+lsr a
+lsr a
+;
+xtrcde
+;
+nop
+;
+ror jfire
+;
+rts
+;
+;
+.end

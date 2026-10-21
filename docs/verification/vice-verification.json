@@ -1,0 +1,60 @@
+{
+  "emulator": "VICE xplus4",
+  "model": "c16pal",
+  "ram_kib": 16,
+  "sound": "off",
+  "warp": true,
+  "title_rendered": true,
+  "title_passes_before_input": 24,
+  "gameplay_loop_reached": true,
+  "title_flag": 0,
+  "lives": 5,
+  "sheet": 0,
+  "level": 0,
+  "input": "scripted JFIRE=$80 at the original TITTER BIT test, cleared at LOOP; no instruction patches",
+  "manual_keyboard_joystick_sound_and_full_playthrough": "not verified",
+  "reference_sha256": "8f50988e867e54b2ce77cc1ebd89e4f575adcd69fd026cc836c7ec3940ef3b91",
+  "reference_compared_at": "$1800 before the first game instruction",
+  "reference_unpacked_sha256": "1b22b632ee826b7825e73b004d2ce02c02e182e4c46e7c6e7d9408c671e4576a",
+  "reference_reached_gameplay_loop": true,
+  "reference_lives": 5,
+  "object_listing_bytes_compared": 8094,
+  "initialized_code_differences": 0,
+  "total_memory_differences": 2681,
+  "differences_by_region": {
+    "alien graphics (ALDATA)": {
+      "bytes": 735,
+      "first": "$0501",
+      "last": "$07FF"
+    },
+    "colour/screen RAM work area": {
+      "bytes": 1859,
+      "first": "$0804",
+      "last": "$0FFF"
+    },
+    "padding below the font": {
+      "bytes": 87,
+      "first": "$379E",
+      "last": "$37FE"
+    }
+  },
+  "alien_pages_in_reference": [
+    {
+      "page": "$0400",
+      "equals_BJH_offset": "$000"
+    },
+    {
+      "page": "$0500",
+      "equals_BJH_offset": "$001"
+    },
+    {
+      "page": "$0600",
+      "equals_BJH_offset": "$002"
+    },
+    {
+      "page": "$0700",
+      "equals_BJH_offset": "$003"
+    }
+  ],
+  "byte_identical_to_running_version": false
+}

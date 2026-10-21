@@ -1,0 +1,205 @@
+; >s:raster-routines
+; put "raster-routines"
+;
+; these are the routines called
+; by the raster irq programme
+;
+rast1
+;
+; top pixel land
+;
+nop
+;
+ldx #9
+;
+shity
+;
+dex
+bpl shity
+;
+lda ted+7
+and #%11110000 ;*back to 38 cols
+ora #%10010000 ;*dnt invert chrs
+ora toplx      ;*x pixel pos.
+sta ted+7
+;
+lda #$10       ;* chars at $1000
+sta ted+19
+;
+lda bakcol     ;* window col
+sta backgr
+sta border
+;
+jsr redjos     ;* read dik
+;
+lda #$21       ;* next raster pos
+;
+jmp irqend
+;
+;********************************
+;
+rast2
+;
+; play area - no scrolling
+;
+ldx #12
+;
+srp
+;
+dex
+bpl srp
+;
+lda ted+7
+and #%11111000   ;* steady all
+sta ted+7
+;
+lda #$38
+sta ted+19   ;* char set at $3800
+;
+lda shipc1
+sta multi1
+;
+lda shipc2
+sta multi2   ;* ship multi cols
+;
+lda pause
+bne stp1     ;* pause on
+;
+jsr topmve   ;* scroll top land
+jsr botmve   ;* scroll bot land
+jsr tvpic    ;* glop tv picture
+jsr refrsh   ;* refresh sfx
+jsr lanani   ;* animate land
+;
+lda stop
+bne stp1
+;
+jsr fueldo   ;* fuel down
+jsr adfuel   ;* add some ?
+jsr upfuel   ;* print gauge
+jsr scorpt   ;* print score
+;
+stp1
+;
+lda title
+beq stp5
+;
+jsr alter    ;* select k/j & q/s
+;
+stp5
+;
+jsr messve   ;* glop message
+;
+lda #$a2     ;* next raster pos
+;
+jmp irqend
+;
+;********************************
+;
+rast3
+;
+; bottom hills pixel scrolling
+;
+lda ted+7
+and #%11111000
+ora botlx       ;* pixel mvement
+sta ted+7
+;
+lda #$10
+sta ted+19 ;* char set at $1000
+;
+lda lancl2
+sta multi1
+;
+lda lancl3
+sta multi2      ;* land colours
+;
+lda title
+beq stp4
+;
+jsr pulsat
+sta shipc1      ;* pulsate m/col
+;
+jsr flstop      ;* flash top
+;
+stp4
+;
+lda stop
+bne stp2
+;
+jsr mvelaz      ;* move lazer
+;
+stp2
+;
+lda #$c1        ;* next raster pos
+;
+jmp irqend
+;
+;*******************************
+;
+rast4
+;
+; bottom line pixel scrolling
+; for the gloppy message !!
+;
+ldx #$0a
+;
+r5l
+;
+dex
+bpl r5l
+;
+lda ted+7
+and #%11111000
+ora messx     ;* message x pos.
+sta ted+7
+;
+lda #$38
+sta ted+19
+;
+lda #$32
+sta backgr
+sta border
+;
+lda #$cb       ;* next raster pos
+;
+jmp irqend
+;
+;*******************************
+;
+rast5
+;
+; steady for top status line
+;
+ldx #$10
+;
+rs5d
+;
+dex
+bpl rs5d
+;
+lda ted+7
+and #%11110000 ;* steady pixel
+ora #%00001000 ;* 40 columns
+sta ted+7
+;
+lda #$01
+sta backgr
+sta border
+;
+lda stop
+bne stp3
+;
+jsr fulcod     ;* fuel code
+jsr ship       ;* move ship
+;
+stp3
+;
+jsr stars      ;* move stars
+;
+lda #$11       ;* next raster pos
+;
+jmp irqend
+;
+;
+.end

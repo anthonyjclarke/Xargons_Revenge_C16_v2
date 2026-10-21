@@ -1,0 +1,106 @@
+; >s:tv-picture
+; put "tv-picture"
+;
+; do a bit of a do-dah in the tv !
+;
+tvpic
+;
+bit pichit
+jsr scrtvp     ;* scrol tv picture
+;
+lda shipy
+and #15
+tax
+;
+lda hittbl,x
+tax            ;* calc height
+;
+ldy #7         ;* set right vars
+;
+lda #%11000000 ;* bar val
+sta irqwrk
+lda #%10000000 ;* top val
+sta irqwrk+1
+;
+bit pichit
+bpl tv3        ;* go right
+;
+ldy #$27       ;* here going left
+;
+lda #%00000011 ;* bar val
+sta irqwrk
+lda #%00000010 ;* top val
+sta irqwrk+1
+;
+tv3
+;
+lda irqwrk     ;* bar bits
+;
+ora $1530,y
+sta $1530,y
+;
+dey
+dex
+;
+bpl tv3
+;
+lda irqwrk+1   ;* top bit
+;
+ora $1530,y
+sta $1530,y
+;
+rts
+;
+;
+;---------------------------------
+;
+scrtvp         ;* scroll picture
+;
+bmi sclpcl     ;* scroll left
+;
+; scroll picture right
+;
+ldx #7
+;
+tv1
+;
+lsr $1530,x
+ror $1550,x
+;
+lsr $1530,x
+ror $1550,x
+;
+dex
+bpl tv1
+;
+rts
+;
+;---------------------------------
+;
+sclpcl
+;
+; scroll picture to left
+;
+ldx #7
+;
+tv2
+;
+asl $1550,x
+rol $1530,x
+;
+asl $1550,x
+rol $1530,x
+;
+dex
+bpl tv2
+;
+rts
+;
+;---------------------------------
+;
+hittbl
+;
+.byte 6,5,4,3,2,1,0,0,1,2,3,4,5,6
+.byte 5,4,3,2,1,0
+;
+.end

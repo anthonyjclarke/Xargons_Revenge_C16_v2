@@ -1,0 +1,48 @@
+; >s:title-generate
+; put"title-generate
+;
+; scroll on the title subroutine
+;
+revtit
+;
+lda #0
+sta work         ;* row count
+;
+ldx #15
+;
+rever
+;
+sta alixps,x
+;
+dex
+bpl rever        ;* clear used tab
+;
+revlp
+;
+jsr random
+lda rnd+2
+sta scrdir       ;* random dir.
+;
+lda rnd+1
+and #15
+tax
+;
+lda alixps,x     ;* this one done?
+bne revlp        ;* yes
+;
+lda #1
+sta alixps,x     ;* done now
+;
+txa
+;
+jsr scrlit       ;* scroll it on
+;
+inc work
+lda work
+cmp #16
+bne revlp        ;* do 16 lines
+;
+rts
+;
+;
+.end

@@ -1,0 +1,24 @@
+; >s:land-go
+; put "land-go"
+;
+landgo
+;
+; start land cleanly
+;
+lda #40
+sta work
+;
+lndgo
+;
+jsr hartop
+jsr harbot  ;* block scroll
+jsr meshil  ;* message
+;
+dec work
+bpl lndgo
+;
+rts
+;
+;
+;
+.end

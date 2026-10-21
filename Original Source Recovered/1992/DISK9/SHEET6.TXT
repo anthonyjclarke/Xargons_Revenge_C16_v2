@@ -1,0 +1,22 @@
+; >s:sheet6
+; put "sheet6"
+;
+; info for sheet6
+;
+patd6
+;
+.byte 8,8,8,8,4,4,8,8,8,8
+.byte 1,1,1,1,1,12,12,12,12,12,12
+.byte $ff
+;
+; movement data
+;
+l6a = 76   ;* foreground
+l6b = 241  ;* outline
+l6c = 187  ;* 2nd depth col
+;
+; 3 land colours
+;
+b6b = $31  ;* background col.
+;
+.end

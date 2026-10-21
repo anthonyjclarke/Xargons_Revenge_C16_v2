@@ -1,0 +1,76 @@
+{
+  "source": "/Users/anthonyjclarke/Temp/CBM_Disk_Copies_2026/XargonsRevenge-C16.d64",
+  "status": "complete",
+  "files": [
+    {
+      "directory_index": 1,
+      "directory_entry_hex": "8211004c4f41444552a0a0a0a0a0a0a0a0a0a00000000000000000000100",
+      "petscii_name_hex": "4c4f41444552a0a0a0a0a0a0a0a0a0a0",
+      "type": "prg",
+      "type_byte": 130,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "001_LOADER.prg",
+      "expected_bytes": 162,
+      "expected_sha256": "7f4d182db98fa88157455f0e79c7a309a582ae3c1a94d74c9a86fe5ed8d6acb5",
+      "bytes": 162,
+      "sha256": "7f4d182db98fa88157455f0e79c7a309a582ae3c1a94d74c9a86fe5ed8d6acb5"
+    },
+    {
+      "directory_index": 2,
+      "directory_entry_hex": "82110150312f24304330302d2431303030a0a00000000000000000000500",
+      "petscii_name_hex": "50312f24304330302d2431303030a0a0",
+      "type": "prg",
+      "type_byte": 130,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "002_P1~2F~240C00-~241000.prg",
+      "expected_bytes": 1026,
+      "expected_sha256": "2381b44fb64da389280558d8262c53b84ecc63e56a5d921cafc317cbd2ba79f9",
+      "bytes": 1026,
+      "sha256": "2381b44fb64da389280558d8262c53b84ecc63e56a5d921cafc317cbd2ba79f9"
+    },
+    {
+      "directory_index": 3,
+      "directory_entry_hex": "82110450322f24303830302d2430433030a0a00000000000000000000500",
+      "petscii_name_hex": "50322f24303830302d2430433030a0a0",
+      "type": "prg",
+      "type_byte": 130,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "003_P2~2F~240800-~240C00.prg",
+      "expected_bytes": 1026,
+      "expected_sha256": "3306b5794a68b6d876005055237ba7310fc1b5b8180bed830123818199527c0b",
+      "bytes": 1026,
+      "sha256": "3306b5794a68b6d876005055237ba7310fc1b5b8180bed830123818199527c0b"
+    }
+  ],
+  "warnings": [],
+  "source_sha256": "9a52459f0a393b59dd4908263ef3fe38eed2404798a480cc4cb4f4089b4dfea9",
+  "c1541_command": [
+    "/opt/homebrew/Cellar/vice/3.10/bin/c1541",
+    "<private working image>",
+    "-p00save",
+    "0",
+    "-extract"
+  ],
+  "c1541_exit_code": 0
+}

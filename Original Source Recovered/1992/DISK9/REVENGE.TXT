@@ -1,0 +1,123 @@
+; >s:revenge
+; put "revenge"
+;
+; xargon ii written by the mega
+; being himself !!!
+;
+; (c) micro projects 1985
+;
+; started on a drizzly saturday
+; afternoon 30/march at 5.00 pm
+;
+;
+.opt nol
+;
+.lib main-vars*   ;*
+.lib vars*        ;* vars
+.lib extra*       ;* table mem
+;
+*=$1800
+;
+sei
+;
+ldx #$fe
+txs
+;
+sta $ff3f       ;* kernel out
+;
+lda #<messt
+ldx #>messt
+;
+sta mesl
+stx mesl+1
+;
+lda #0
+sta topcnt
+sta botcnt      ;* reset top
+;
+jsr landgo      ;* start land
+;
+lda ted+18
+and #%11111011  ;* char from ram
+sta ted+18
+;
+jmp titlop      ;* title page
+;
+;---------------------------------
+;
+sndflg .byte 0  ;* sound on/off
+joysel .byte 1  ;* 1=joystick
+;
+;---------------------------------
+;
+.lib level*     ;* level stuff
+.lib explosion* ;* calc explos.
+.lib completed* ;* clear sheet
+.lib init-sheet*;* get aliens
+.lib set-sheet* ;* set up sheet
+.lib alien-cod* ;* move aliens
+.lib reset*     ;* hack protect
+.lib fizzle*    ;* not again !
+.lib game-over* ;* game over
+.lib death-code*;* do death
+.lib char-anim* ;* animate land
+.lib data-land* ;* land anim data
+.lib sound*     ;* sfx
+.lib raster*    ;* do raster stuff
+.lib high-scor* ;* high score ?
+.lib alter*     ;* alterables
+.lib land-go*   ;* start land
+.lib starter*   ;* glop starter
+.lib fuel-char* ;* fuel char data
+.lib fuel-code* ;* fuel move
+.lib print-liv* ;* print lives
+.lib pause/esc* ;* pause & esc chk
+.lib pulsate*   ;* err !!
+.lib banner*    ;* data for banner
+.lib title-wor* ;* title work
+.lib title-loo* ;* title loop
+.lib title-gen* ;* title scroll
+.lib tv-pictur* ;* tv glop
+.lib irq*       ;* main irq
+.lib joystik*   ;* read dick
+.lib key-scan*  ;* read keys
+.lib utils*     ;* utilities
+.lib play*      ;* play loop
+.lib whoop*     ;* message
+.lib messa*     ;* scroll message
+.lib star-code* ;* nice stars
+.lib topland-*  ;* top land stuff
+.lib botland-*  ;* bot land stuff
+.lib move-ship* ;* move xargonia 2
+.lib ship-calc* ;* calc ship chars
+.lib tables*    ;* mega tables
+.lib firing*    ;* lazer stuff
+.lib screen*    ;* init screen
+.lib fuel-g*    ;* fuel gauge
+.lib shtable*   ;* sheet table
+.lib ali-print* ;* print aliens
+.lib ship-def*  ;* ship data
+.lib score*     ;* score stuff
+;
+;---------------------------------
+;
+.lib sheet1*    ;* screen data
+.lib sheet2*    ;* screen data
+.lib sheet3*    ;* screen data
+.lib sheet4*    ;* screen data
+.lib sheet5*    ;* screen data
+.lib sheet6*    ;* screen data
+.lib sheet7*    ;* screen data
+.lib sheet8*    ;* screen data
+.lib sheet9*    ;* screen data
+.lib sheeta*    ;* screen data
+.lib sheetb*    ;* screen data
+.lib sheetc*    ;* screen data
+.lib sheetd*    ;* screen data
+.lib sheete*    ;* screen data
+.lib sheetf*    ;* screen data
+.lib sheetg*    ;* screen data
+;
+; .lib alien-dat* ;* ali-bums
+;
+.end

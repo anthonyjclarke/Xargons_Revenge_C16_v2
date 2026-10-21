@@ -1,0 +1,238 @@
+; >s:title-work
+; put "title-work"
+;
+scrlit
+;
+; acc=no to scroll on
+;
+pha
+;
+; first set up the scroll vars
+;
+asl a
+tax
+;
+lda scrpos,x      ;* lo byte
+sta work+2
+clc
+adc #1
+sta work+4
+;
+lda scrpos+1,x    ;* hi byte
+sta work+3
+sta work+5
+;
+; now find start of data to scroll
+;
+pla
+asl a
+tax
+;
+lda tim20,x
+clc
+adc #<banner
+sta work+7        ;* lo byte
+;
+lda #>banner
+adc tim20+1,x
+sta work+8        ;* hi byte
+;
+;---------------------------------
+;
+lda #0
+sta work+6        ;* count
+;
+direst
+;
+inc shipy
+;
+lda work+6
+jsr calcby        ;* calc char
+;
+ldy #39
+ldx #38           ;* compare val
+;
+bit scrdir        ;* direction
+bpl same1
+;
+ldy #0            ;* at left
+ldx #40           ;* compare val
+;
+same1
+;
+sta (work+2),y    ;* put on
+;
+stx journy+1      ;* self mod !
+;
+jsr bring         ;* scroll across
+;
+inc work+6
+lda work+6
+;
+journy
+;
+cmp #38
+;
+bne direst        ;* 40 columns
+;
+rts
+;
+;---------------------------------
+;
+calcby
+;
+bit scrdir        ;* direction
+bpl same2
+;
+lda #39
+sec
+sbc work+6        ;* other end
+;
+same2
+;
+pha
+;
+and #1
+tax
+;
+pla
+;
+lsr a
+tay
+;
+lda (work+7),y    ;* get byte
+;
+cpx #0
+bne kids          ;* pull down ?
+;
+lsr a
+lsr a
+lsr a
+lsr a
+;
+kids
+;
+and #$0f
+;
+clc
+adc #136          ;* add base char
+;
+cmp #136
+bne zztop
+;
+lda #32
+;
+zztop
+;
+rts
+;
+;---------------------------------
+;
+bring
+;
+; scroll column across 1 char
+;
+bit jfire
+bpl brin3
+;
+jmp ready      ;* start game
+;
+brin3
+;
+; ldx #3
+; jsr delay+2      ;* small delay
+;
+jsr rusras
+;
+bit scrdir
+bmi same3
+;
+ldy #0
+;
+brin1
+;
+lda (work+4),y
+sta (work+2),y
+;
+iny
+cpy #39
+bne brin1
+;
+rts
+;
+same3
+;
+ldy #38
+;
+brin2
+;
+lda (work+2),y
+sta (work+4),y
+;
+dey
+bpl brin2
+;
+rts
+;
+;---------------------------------
+;
+fadoff
+;
+; fade out the title - slowly
+;
+lda #64
+sta work       ;* count
+;
+fad1
+;
+lda #<$0ca0
+sta work+1
+lda #>$0ca0
+sta work+2     ;* tl corner
+;
+ldy #0
+;
+fad2
+;
+lda ted
+cmp #32
+bcs fad3       ;* don't rub this
+;
+lda #32
+sta (work+1),y
+;
+fad3
+;
+inc work+1
+bne fad4
+;
+inc work+2
+;
+fad4
+;
+bit jfire
+bpl fad5
+;
+jmp ready      ;* start game
+;
+fad5
+;
+lda work+2
+cmp #$0f       ;* hi byte at end
+bne fad2
+;
+lda work+1
+cmp #$20
+bne fad2       ;* lo byte same ?
+;
+ldx #$14
+jsr delay+2    ;* delay
+;
+dec work
+bne fad1       ;* loop
+;
+rts
+;
+;
+;
+.end

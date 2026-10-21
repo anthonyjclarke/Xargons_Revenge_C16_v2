@@ -1,0 +1,82 @@
+; >s:fizzle
+; put "fizzle"
+;
+; fizzle plane at death.
+;
+fizzle
+;
+jsr prship    ;* ship on
+;
+lda #1
+jsr mveall    ;* print aliens
+;
+lda #4
+jsr sfx       ;* start sfx
+;
+ldx #95
+;
+fiz1
+;
+lda shipch,x
+sta bigbuf,x
+;
+dex
+bpl fiz1
+;
+; save current ship data for mask
+;
+;---------------------------------
+;
+lda #64
+sta work          ;* loop
+;
+fiz2
+;
+ldx #95
+;
+fiz3
+;
+lda shipch,x
+eor ted           ;* rnd #
+and bigbuf,x
+sta shipch,x
+;
+dex
+bpl fiz3          ;* whole char
+;
+inc shipc1
+inc shipc2
+;
+jsr rusras        ;* delay
+;
+dec work
+bne fiz2          ;* count
+;
+lda #10
+sta work          ;* fade out now
+;                
+fiz4
+;
+ldx #95
+;
+fiz5
+;
+lda ted
+and shipch,x
+sta shipch,x      ;* fade out
+;
+dex
+bpl fiz5
+;
+ldx #24
+jsr delay+2
+;
+jsr rusras
+;
+dec work
+bpl fiz4
+;
+rts
+;
+;
+.end

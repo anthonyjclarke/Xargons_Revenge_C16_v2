@@ -1,0 +1,94 @@
+; >s:explosions
+; put "explosions"
+;
+; generate explosion chars from
+; alien chars for this sheet
+;
+calexp
+;
+lda #0
+sta work      ;* count, 4 anims
+;
+explop
+;
+;---------------------------------
+;
+; get alien animation to work on
+;
+lda work
+and #1
+tay
+;
+ldx tim32,y
+ldy #0
+;
+exp1
+;
+lda $3ea8,x      ;* alien data
+sta bigbuf,y
+sta bigbuf+32,y  ;* save mask
+;
+inx
+iny
+cpy #32
+bne exp1
+;
+;---------------------------------
+;
+lda work
+; asl a
+tay
+;
+; number of times to fizzle
+;
+exp2
+;
+ldx #31
+;
+exp3
+;
+lda ted
+and bigbuf+32,x  ;* mask
+sta bigbuf,x
+sta bigbuf+32,x
+;
+dex
+bpl exp3
+;
+dey
+bpl exp2
+;
+;---------------------------------
+;
+; save explosion to expchar
+;
+lda work
+eor #3
+tay
+;
+ldx tim32,y
+;
+ldy #0
+;
+exp4
+;
+lda bigbuf,y
+sta $3ee8,x
+;
+inx
+iny
+cpy #32
+bne exp4
+;
+;---------------------------------
+;
+inc work
+lda work
+cmp #4
+bne explop
+;
+rts
+;
+;
+;
+.end

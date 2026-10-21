@@ -1,0 +1,167 @@
+; >s:alterables
+; put "alterables
+;
+; by pressing j or k on the
+; title page you can select
+; either joystick or keyboard
+;
+; and q or s select sound on/off
+;
+alter
+;
+lda #$04
+ldy #$ef
+jsr keyit   ;* check 'j'
+;
+bcc noj
+;
+; selected joystick
+;
+lda #1
+sta joysel
+;
+noj
+;
+lda #$20
+ldy #$ef
+jsr keyit   ;* check 'k'
+;
+bcc nok
+;
+; selected keyboard
+;
+lda #0
+sta joysel
+;
+nok
+;
+lda #$20
+ldy #$fd
+jsr keyit   ;* check 's'
+;
+bcc nos
+;
+; sound on
+;
+lda #1
+sta sndflg
+;
+nos
+;
+lda #$40
+ldy #$7f
+jsr keyit   ;* check 'q'
+;
+bcc noq
+;
+; sound off
+;
+lda #0
+sta sndflg
+;
+noq
+;
+;---------------------------------
+;
+ldx joysel
+lda frak1,x   ;* k/j cols
+sta irqwrk
+;
+txa
+;
+asl a
+asl a
+asl a
+tay
+;
+ldx #0
+;
+trace
+;
+lda ctltog,y
+sta tpbuff,x
+;
+lda irqwrk
+sta tpcols,x
+;
+iny
+inx
+cpx #8
+bne trace
+;
+; key/joy now in buffer
+;
+ldx sndflg
+lda frak1,x
+sta irqwrk
+;
+txa
+;
+asl a
+asl a
+tay
+;
+ldx #0
+;
+trice
+;
+lda sndtog,y
+sta tpbuff+16,x
+;
+lda irqwrk
+sta tpcols+16,x
+;
+iny
+inx
+cpx #4
+bne trice
+;
+; sound on/off in
+;
+;---------------------------------
+;
+; now print line to the screen
+;
+ldx #39
+;
+trece
+;
+lda tpbuff,x
+and #$3f
+sta $0c00,x
+;
+lda tpcols,x
+sta $0800,x
+;
+dex
+bpl trece
+;
+rts
+;
+;---------------------------------
+;
+tpbuff
+;
+.byte 'keyboard  sound:on   high-score:00000000'
+;
+tpcols
+;
+.byte 0,0,0,0,0,0,0,0,0,0
+.byte $67,$67,$67,$67,$67,$71
+.byte 0,0,0,0,0
+.byte $44,$44,$44,$44,$44,$44,$44,$44,$44,$44,$71
+.byte $57,$57,$57,$57,$57,$57,$57,$57
+;
+sndtog
+;
+.byte 'off on  '
+;
+ctltog
+;
+.byte 'keyboardjoystick'
+;
+frak1 .byte $42,$45
+;
+;
+;
+.end

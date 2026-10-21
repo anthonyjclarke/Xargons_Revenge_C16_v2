@@ -1,0 +1,41 @@
+; >s:extra-memory
+; put "extra-memory"
+;
+; find some room for some tables
+;
+;  memory free       # of bytes
+;
+;  $0200-$07b8       1464
+;  $0be8-$0bff         24
+;  $0fe8-$0fff         24
+;
+*=$200
+;
+alicol
+;
+; alien colours
+;
+*=*+16
+;
+;---------------------------------
+;
+starsp
+;
+; star speeds
+;
+*=*+16
+;
+;---------------------------------
+;
+bigbuf
+;
+*=*+160
+;
+; save ship char data for fizzle
+; & save top lines during pause
+;
+;
+;
+;
+;
+.end

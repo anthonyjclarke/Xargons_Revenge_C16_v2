@@ -1,0 +1,201 @@
+; >s:set-sheet
+; put "set-sheet"
+;
+; set up all info for screen to be
+; played
+;
+setsht
+;
+ldx #3
+;
+bjh
+;
+lda ted,x
+sta rnd,x
+;
+dex
+bpl bjh
+;
+; set random seed
+;
+;---------------------------------
+;
+lda sheet
+;
+asl a
+asl a
+asl a
+;
+; x8
+;
+tax
+;
+lda shtabl,x
+sta patd
+lda shtabl+1,x
+sta patd+1
+;
+; move-ment data
+;
+lda shtabl+2,x
+sta lancl1
+;
+lda shtabl+3,x
+sta lancl2
+sta shipc1     ;* ship outline
+;
+lda shtabl+4,x
+sta lancl3
+;
+; colours for the land
+;
+lda shtabl+5,x
+sta bakcol
+;
+; background colour
+;
+; lda shtabl+6,x
+; lda shtabl+7,x
+;
+; un-used at present
+;
+;---------------------------------
+;
+; now lets set alien positions
+;
+ldx #alinum-1
+;
+fltb
+;
+lda ted
+and #1
+sta alstat,x  ;* it's alive
+;
+jsr alrndp    ;* get random pos
+;
+lda temp1
+sta alixps,x
+;
+lda temp2
+sta aliyps,x
+;
+lda temp3
+sta aliind,x
+;
+lda temp4
+sta alicol,x
+;
+dex
+bpl fltb
+;
+; fill status table
+;
+ldx level
+lda tokill,x
+tay              ;* number to kill
+;
+cpx #0
+bne benorm       ;* not first lvl
+;
+lda sheet        ;* not first sht
+bne benorm
+;
+ldy #16          ;* 16 aliens only
+;
+benorm
+;
+sty numali
+;
+lda sheet
+lsr a
+clc
+adc numali
+sta numali
+;
+sec
+sbc #16
+sta regen        ;* # to regen
+;
+lda sheet
+and #%00001100
+lsr a
+lsr a            ;* 0-3
+sta work
+;
+lda #8
+sec
+sbc work         ;* 5-8 speed
+;
+sta alispd
+;
+lda mpgvil,x     ;* fuel down
+sta mpgval
+;
+rts
+;
+;---------------------------------
+;
+tokill .byte 24,24,32,32,48,48
+;
+mpgvil .byte 28,24,20,18,16,14
+;
+;---------------------------------
+;
+alrndp
+;
+; calculate a random pos for a
+; new alien .
+;
+; temp1 = x pos
+; temp2 = y pos
+; temp3 = index
+; temp4 = colour
+;
+txa
+pha
+;
+doctor
+;
+jsr random
+;
+lda rnd+1
+and #31
+cmp #26
+bcs doctor
+;
+clc
+adc #14
+;
+sta temp1       ;* x pos
+;
+gobak
+;
+jsr random
+;
+lda rnd+2
+and #15
+cmp #14
+bcs gobak
+;
+sta temp2       ;* y pos
+;
+lda rnd
+and #7
+sta temp3
+;
+jsr num1t7      ;* get number 1-7
+sta work
+lda rnd
+and #%01110000
+ora #%01000000  ;* min $40
+ora work        ;* + colour
+sta temp4
+;
+pla
+tax
+;
+rts
+;
+;
+;
+.end

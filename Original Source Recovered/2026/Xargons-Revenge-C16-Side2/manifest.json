@@ -1,0 +1,1896 @@
+{
+  "source": "/Users/anthonyjclarke/Temp/CBM_Disk_Copies_2026/Xargon'sRevenge-C16.d64",
+  "status": "complete",
+  "files": [
+    {
+      "directory_index": 1,
+      "directory_entry_hex": "811100414c49454e2d434f4445a0a0a0a0a0a00000000000000000001200",
+      "petscii_name_hex": "414c49454e2d434f4445a0a0a0a0a0a0",
+      "type": "seq",
+      "type_byte": 129,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "001_ALIEN-CODE.seq",
+      "expected_bytes": 4382,
+      "expected_sha256": "4e7a7daabad59659b7fce8f0b66aa51c4a986113a375ca03a48a506b3d9e4493",
+      "bytes": 4382,
+      "sha256": "4e7a7daabad59659b7fce8f0b66aa51c4a986113a375ca03a48a506b3d9e4493"
+    },
+    {
+      "directory_index": 2,
+      "directory_entry_hex": "811109414c54455241424c4553a0a0a0a0a0a00000000000000000000600",
+      "petscii_name_hex": "414c54455241424c4553a0a0a0a0a0a0",
+      "type": "seq",
+      "type_byte": 129,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "002_ALTERABLES.seq",
+      "expected_bytes": 1523,
+      "expected_sha256": "2c54f468f72393a3570bd4832dae9a5fdc32c8bcb2b97dd4a100965ac0b4bce3",
+      "bytes": 1523,
+      "sha256": "2c54f468f72393a3570bd4832dae9a5fdc32c8bcb2b97dd4a100965ac0b4bce3"
+    },
+    {
+      "directory_index": 3,
+      "directory_entry_hex": "811300415353454d2d475241504853a0a0a0a00000000000000000000100",
+      "petscii_name_hex": "415353454d2d475241504853a0a0a0a0",
+      "type": "seq",
+      "type_byte": 129,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "003_ASSEM-GRAPHS.seq",
+      "expected_bytes": 110,
+      "expected_sha256": "557c3e8abd8c62a6a60552ae0c5beb9159ec5f9455f20571532beec2681d3541",
+      "bytes": 110,
+      "sha256": "557c3e8abd8c62a6a60552ae0c5beb9159ec5f9455f20571532beec2681d3541"
+    },
+    {
+      "directory_index": 4,
+      "directory_entry_hex": "81130142414e4e45522d44415441a0a0a0a0a00000000000000000000700",
+      "petscii_name_hex": "42414e4e45522d44415441a0a0a0a0a0",
+      "type": "seq",
+      "type_byte": 129,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "004_BANNER-DATA.seq",
+      "expected_bytes": 1576,
+      "expected_sha256": "b696447c9baeeb447ab3223486fc4ad7cab0ffc3ff3d261a0f23780092389f7c",
+      "bytes": 1576,
+      "sha256": "b696447c9baeeb447ab3223486fc4ad7cab0ffc3ff3d261a0f23780092389f7c"
+    },
+    {
+      "directory_index": 5,
+      "directory_entry_hex": "811305424c4f422d4d4f5645a0a0a0a0a0a0a00000000000000000000400",
+      "petscii_name_hex": "424c4f422d4d4f5645a0a0a0a0a0a0a0",
+      "type": "seq",
+      "type_byte": 129,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "005_BLOB-MOVE.seq",
+      "expected_bytes": 830,
+      "expected_sha256": "127400cd2e2f6e0ac3f9b1468321ad42eec1d1380e955b1441b516667979eea4",
+      "bytes": 830,
+      "sha256": "127400cd2e2f6e0ac3f9b1468321ad42eec1d1380e955b1441b516667979eea4"
+    },
+    {
+      "directory_index": 6,
+      "directory_entry_hex": "811307424f544c414e442d504958454ca0a0a00000000000000000000400",
+      "petscii_name_hex": "424f544c414e442d504958454ca0a0a0",
+      "type": "seq",
+      "type_byte": 129,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "006_BOTLAND-PIXEL.seq",
+      "expected_bytes": 968,
+      "expected_sha256": "928c9d49bdc73be47a2d343ed92e95d7fbc64c1194cb3cb4a5a6fee9998735dc",
+      "bytes": 968,
+      "sha256": "928c9d49bdc73be47a2d343ed92e95d7fbc64c1194cb3cb4a5a6fee9998735dc"
+    },
+    {
+      "directory_index": 7,
+      "directory_entry_hex": "8113094348415223312d424f54a0a0a0a0a0a00000000000000000001d00",
+      "petscii_name_hex": "4348415223312d424f54a0a0a0a0a0a0",
+      "type": "seq",
+      "type_byte": 129,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "007_CHAR~231-BOT.seq",
+      "expected_bytes": 7308,
+      "expected_sha256": "9adf7eb0f9df7ad4928afbda351ee5116cd944f1049f6a668d8fdfc4b3ceed79",
+      "bytes": 7308,
+      "sha256": "9adf7eb0f9df7ad4928afbda351ee5116cd944f1049f6a668d8fdfc4b3ceed79"
+    },
+    {
+      "directory_index": 8,
+      "directory_entry_hex": "8110014348415223312d544f50a0a0a0a0a0a00000000000000000000b00",
+      "petscii_name_hex": "4348415223312d544f50a0a0a0a0a0a0",
+      "type": "seq",
+      "type_byte": 129,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "008_CHAR~231-TOP.seq",
+      "expected_bytes": 2554,
+      "expected_sha256": "473a1ae052979ff5b9366d6f6bb8fe7070c6b1fa4349845b6a00ddd06d523810",
+      "bytes": 2554,
+      "sha256": "473a1ae052979ff5b9366d6f6bb8fe7070c6b1fa4349845b6a00ddd06d523810"
+    },
+    {
+      "directory_index": 9,
+      "directory_entry_hex": "811007434841522d414e494da0a0a0a0a0a0a00000000000000000000100",
+      "petscii_name_hex": "434841522d414e494da0a0a0a0a0a0a0",
+      "type": "seq",
+      "type_byte": 129,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "009_CHAR-ANIM.seq",
+      "expected_bytes": 249,
+      "expected_sha256": "126724c63d256177390fe123f1360deb1a5bea93430da264ed499368ec103bbf",
+      "bytes": 249,
+      "sha256": "126724c63d256177390fe123f1360deb1a5bea93430da264ed499368ec103bbf"
+    },
+    {
+      "directory_index": 10,
+      "directory_entry_hex": "81100844454154482d434f4445a0a0a0a0a0a00000000000000000000300",
+      "petscii_name_hex": "44454154482d434f4445a0a0a0a0a0a0",
+      "type": "seq",
+      "type_byte": 129,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "010_DEATH-CODE.seq",
+      "expected_bytes": 721,
+      "expected_sha256": "918f0e3b26648edcc931421ee0b30e3ad1aa1bce9acaca9e27a8a7cb864675a2",
+      "bytes": 721,
+      "sha256": "918f0e3b26648edcc931421ee0b30e3ad1aa1bce9acaca9e27a8a7cb864675a2"
+    },
+    {
+      "directory_index": 11,
+      "directory_entry_hex": "81101045585452412d4d454d4f5259a0a0a0a00000000000000000000200",
+      "petscii_name_hex": "45585452412d4d454d4f5259a0a0a0a0",
+      "type": "seq",
+      "type_byte": 129,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "011_EXTRA-MEMORY.seq",
+      "expected_bytes": 442,
+      "expected_sha256": "801b472926681b250bdda65a6b519e987885d45f0ca9ee2e6b2811db5e7e52f6",
+      "bytes": 442,
+      "sha256": "801b472926681b250bdda65a6b519e987885d45f0ca9ee2e6b2811db5e7e52f6"
+    },
+    {
+      "directory_index": 12,
+      "directory_entry_hex": "81101346495a5a4c45a0a0a0a0a0a0a0a0a0a00000000000000000000400",
+      "petscii_name_hex": "46495a5a4c45a0a0a0a0a0a0a0a0a0a0",
+      "type": "seq",
+      "type_byte": 129,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "012_FIZZLE.seq",
+      "expected_bytes": 777,
+      "expected_sha256": "4389333f8ee8f50bb3a654d1a9233764baf5a59a813bc0b8b8128fe2a136511e",
+      "bytes": 777,
+      "sha256": "4389333f8ee8f50bb3a654d1a9233764baf5a59a813bc0b8b8128fe2a136511e"
+    },
+    {
+      "directory_index": 13,
+      "directory_entry_hex": "810f014655454c2d434841522f44415441a0a00000000000000000000200",
+      "petscii_name_hex": "4655454c2d434841522f44415441a0a0",
+      "type": "seq",
+      "type_byte": 129,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "013_FUEL-CHAR~2FDATA.seq",
+      "expected_bytes": 292,
+      "expected_sha256": "f18eaff5a038501a8a02ce6cc671179060ce9489decbfb59675d4f8048d8265d",
+      "bytes": 292,
+      "sha256": "f18eaff5a038501a8a02ce6cc671179060ce9489decbfb59675d4f8048d8265d"
+    },
+    {
+      "directory_index": 14,
+      "directory_entry_hex": "810f024655454c2d434f4445a0a0a0a0a0a0a00000000000000000000a00",
+      "petscii_name_hex": "4655454c2d434f4445a0a0a0a0a0a0a0",
+      "type": "seq",
+      "type_byte": 129,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "014_FUEL-CODE.seq",
+      "expected_bytes": 2433,
+      "expected_sha256": "0d262dac7dd53ab001be11b42dac27d09bde47d9510f3425020884a47999e049",
+      "bytes": 2433,
+      "sha256": "0d262dac7dd53ab001be11b42dac27d09bde47d9510f3425020884a47999e049"
+    },
+    {
+      "directory_index": 15,
+      "directory_entry_hex": "810f074655454c2d4741554745a0a0a0a0a0a00000000000000000000a00",
+      "petscii_name_hex": "4655454c2d4741554745a0a0a0a0a0a0",
+      "type": "seq",
+      "type_byte": 129,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "015_FUEL-GAUGE.seq",
+      "expected_bytes": 2357,
+      "expected_sha256": "ae53bd2a6562c8fb7df602c7703fd194e7843820e0e8d8f39268ae9b6abd760b",
+      "bytes": 2357,
+      "sha256": "ae53bd2a6562c8fb7df602c7703fd194e7843820e0e8d8f39268ae9b6abd760b"
+    },
+    {
+      "directory_index": 16,
+      "directory_entry_hex": "81150447414d452d4f564552a0a0a0a0a0a0a00000000000000000000400",
+      "petscii_name_hex": "47414d452d4f564552a0a0a0a0a0a0a0",
+      "type": "seq",
+      "type_byte": 129,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "016_GAME-OVER.seq",
+      "expected_bytes": 931,
+      "expected_sha256": "b4a249583594f441f5a51138207506b55e5ce986e91d55fdb99361985bf0bcd8",
+      "bytes": 931,
+      "sha256": "b4a249583594f441f5a51138207506b55e5ce986e91d55fdb99361985bf0bcd8"
+    },
+    {
+      "directory_index": 17,
+      "directory_entry_hex": "811506484947482d53434f5245a0a0a0a0a0a00000000000000000000300",
+      "petscii_name_hex": "484947482d53434f5245a0a0a0a0a0a0",
+      "type": "seq",
+      "type_byte": 129,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "017_HIGH-SCORE.seq",
+      "expected_bytes": 695,
+      "expected_sha256": "6036ff8fab5142b746caa5f009b0ff79a93adce07710eed03d820595ceec7936",
+      "bytes": 695,
+      "sha256": "6036ff8fab5142b746caa5f009b0ff79a93adce07710eed03d820595ceec7936"
+    },
+    {
+      "directory_index": 18,
+      "directory_entry_hex": "8115085441424c4553a0a0a0a0a0a0a0a0a0a00000000000000000000300",
+      "petscii_name_hex": "5441424c4553a0a0a0a0a0a0a0a0a0a0",
+      "type": "seq",
+      "type_byte": 129,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "018_TABLES.seq",
+      "expected_bytes": 527,
+      "expected_sha256": "e74bb542d063f9b835fe17d9b24ac96d1718a6340208d59f9613310439585f46",
+      "bytes": 527,
+      "sha256": "e74bb542d063f9b835fe17d9b24ac96d1718a6340208d59f9613310439585f46"
+    },
+    {
+      "directory_index": 19,
+      "directory_entry_hex": "81150d495251a0a0a0a0a0a0a0a0a0a0a0a0a00000000000000000000400",
+      "petscii_name_hex": "495251a0a0a0a0a0a0a0a0a0a0a0a0a0",
+      "type": "seq",
+      "type_byte": 129,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "019_IRQ.seq",
+      "expected_bytes": 845,
+      "expected_sha256": "1136eddef2b2a0b050721c310f573b8b1d66af486f42f66e5e6041df76f56518",
+      "bytes": 845,
+      "sha256": "1136eddef2b2a0b050721c310f573b8b1d66af486f42f66e5e6041df76f56518"
+    },
+    {
+      "directory_index": 20,
+      "directory_entry_hex": "810e014a4f595354494ba0a0a0a0a0a0a0a0a00000000000000000000300",
+      "petscii_name_hex": "4a4f595354494ba0a0a0a0a0a0a0a0a0",
+      "type": "seq",
+      "type_byte": 129,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "020_JOYSTIK.seq",
+      "expected_bytes": 550,
+      "expected_sha256": "d57b96a317db98bf70d59049bab5b6e2fcc8310191cbf7b30558ff2f0ddce9c0",
+      "bytes": 550,
+      "sha256": "d57b96a317db98bf70d59049bab5b6e2fcc8310191cbf7b30558ff2f0ddce9c0"
+    },
+    {
+      "directory_index": 21,
+      "directory_entry_hex": "810e034b45592d5343414ea0a0a0a0a0a0a0a00000000000000000000300",
+      "petscii_name_hex": "4b45592d5343414ea0a0a0a0a0a0a0a0",
+      "type": "seq",
+      "type_byte": 129,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "021_KEY-SCAN.seq",
+      "expected_bytes": 600,
+      "expected_sha256": "6069f4bb627041ca24bf96b55f7660e11937b59fcec360d9174ea72a0d977b1b",
+      "bytes": 600,
+      "sha256": "6069f4bb627041ca24bf96b55f7660e11937b59fcec360d9174ea72a0d977b1b"
+    },
+    {
+      "directory_index": 22,
+      "directory_entry_hex": "810e054c414e442d474fa0a0a0a0a0a0a0a0a00000000000000000000100",
+      "petscii_name_hex": "4c414e442d474fa0a0a0a0a0a0a0a0a0",
+      "type": "seq",
+      "type_byte": 129,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "022_LAND-GO.seq",
+      "expected_bytes": 190,
+      "expected_sha256": "dcea72ee6ec49c74c2a56635c71f23aa7da73a0362a07687c9635d9145181021",
+      "bytes": 190,
+      "sha256": "dcea72ee6ec49c74c2a56635c71f23aa7da73a0362a07687c9635d9145181021"
+    },
+    {
+      "directory_index": 23,
+      "directory_entry_hex": "810e06524556454e4745a0a0a0a0a0a0a0a0a00000000000000000000b00",
+      "petscii_name_hex": "524556454e4745a0a0a0a0a0a0a0a0a0",
+      "type": "seq",
+      "type_byte": 129,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "023_REVENGE.seq",
+      "expected_bytes": 2748,
+      "expected_sha256": "903e397674c8a5e3ecc2f401931037b9fa17c3bb5162e36e341efbf21a51e6c9",
+      "bytes": 2748,
+      "sha256": "903e397674c8a5e3ecc2f401931037b9fa17c3bb5162e36e341efbf21a51e6c9"
+    },
+    {
+      "directory_index": 24,
+      "directory_entry_hex": "8116014d41494e2d56415253a0a0a0a0a0a0a00000000000000000000300",
+      "petscii_name_hex": "4d41494e2d56415253a0a0a0a0a0a0a0",
+      "type": "seq",
+      "type_byte": 129,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "024_MAIN-VARS.seq",
+      "expected_bytes": 695,
+      "expected_sha256": "2cf926509647eac61eff7d2c8e1b22026368276ad9922cad024476a84608a426",
+      "bytes": 695,
+      "sha256": "2cf926509647eac61eff7d2c8e1b22026368276ad9922cad024476a84608a426"
+    },
+    {
+      "directory_index": 25,
+      "directory_entry_hex": "8116034d4553534147452d5354554646a0a0a00000000000000000000200",
+      "petscii_name_hex": "4d4553534147452d5354554646a0a0a0",
+      "type": "seq",
+      "type_byte": 129,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "025_MESSAGE-STUFF.seq",
+      "expected_bytes": 496,
+      "expected_sha256": "f5b31e329578cc37eb4b34f0e7f663594b89206d83a7c24fdd1d9beecabd5a15",
+      "bytes": 496,
+      "sha256": "f5b31e329578cc37eb4b34f0e7f663594b89206d83a7c24fdd1d9beecabd5a15"
+    },
+    {
+      "directory_index": 26,
+      "directory_entry_hex": "8116044d4f56452d53484950a0a0a0a0a0a0a00000000000000000000800",
+      "petscii_name_hex": "4d4f56452d53484950a0a0a0a0a0a0a0",
+      "type": "seq",
+      "type_byte": 129,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "026_MOVE-SHIP.seq",
+      "expected_bytes": 2013,
+      "expected_sha256": "e10b86c5cf39930f42bde4f26bac0545888d03822f3a789ef483de7dcab7860b",
+      "bytes": 2013,
+      "sha256": "e10b86c5cf39930f42bde4f26bac0545888d03822f3a789ef483de7dcab7860b"
+    },
+    {
+      "directory_index": 27,
+      "directory_entry_hex": "81160850415553452f455343415045a0a0a0a00000000000000000000600",
+      "petscii_name_hex": "50415553452f455343415045a0a0a0a0",
+      "type": "seq",
+      "type_byte": 129,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "027_PAUSE~2FESCAPE.seq",
+      "expected_bytes": 1340,
+      "expected_sha256": "edf5a768b99f8af318792cc39fa6f9f5fe45df213da7855904c820f6333ffe44",
+      "bytes": 1340,
+      "sha256": "edf5a768b99f8af318792cc39fa6f9f5fe45df213da7855904c820f6333ffe44"
+    },
+    {
+      "directory_index": 28,
+      "directory_entry_hex": "810d01504c414e455453a0a0a0a0a0a0a0a0a00000000000000000000200",
+      "petscii_name_hex": "504c414e455453a0a0a0a0a0a0a0a0a0",
+      "type": "seq",
+      "type_byte": 129,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "028_PLANETS.seq",
+      "expected_bytes": 481,
+      "expected_sha256": "2bc51c985cbb6cf805a2bab8091e15ada59f1ef97ccddb16b6a2f3a8912e9365",
+      "bytes": 481,
+      "sha256": "2bc51c985cbb6cf805a2bab8091e15ada59f1ef97ccddb16b6a2f3a8912e9365"
+    },
+    {
+      "directory_index": 29,
+      "directory_entry_hex": "810d02504c41592d47414d45a0a0a0a0a0a0a00000000000000000000600",
+      "petscii_name_hex": "504c41592d47414d45a0a0a0a0a0a0a0",
+      "type": "seq",
+      "type_byte": 129,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "029_PLAY-GAME.seq",
+      "expected_bytes": 1341,
+      "expected_sha256": "b02a5a60baba5ddc50f81ad95484a3812ab6cb9c884e5c0528b8d5bcd4bca9ba",
+      "bytes": 1341,
+      "sha256": "b02a5a60baba5ddc50f81ad95484a3812ab6cb9c884e5c0528b8d5bcd4bca9ba"
+    },
+    {
+      "directory_index": 30,
+      "directory_entry_hex": "810d055052494e542d4c49564553a0a0a0a0a00000000000000000000300",
+      "petscii_name_hex": "5052494e542d4c49564553a0a0a0a0a0",
+      "type": "seq",
+      "type_byte": 129,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "030_PRINT-LIVES.seq",
+      "expected_bytes": 602,
+      "expected_sha256": "c7c8a3a896569bbae906e33de2b1a54978a5d3eb088132dd45d2f848a4588a00",
+      "bytes": 602,
+      "sha256": "c7c8a3a896569bbae906e33de2b1a54978a5d3eb088132dd45d2f848a4588a00"
+    },
+    {
+      "directory_index": 31,
+      "directory_entry_hex": "810d0750554c53415445a0a0a0a0a0a0a0a0a00000000000000000000200",
+      "petscii_name_hex": "50554c53415445a0a0a0a0a0a0a0a0a0",
+      "type": "seq",
+      "type_byte": 129,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "031_PULSATE.seq",
+      "expected_bytes": 278,
+      "expected_sha256": "b5087a8ae17da0ef4ceb9f5e6aa2e6071514e711a4ab881a533c80e8fdb18670",
+      "bytes": 278,
+      "sha256": "b5087a8ae17da0ef4ceb9f5e6aa2e6071514e711a4ab881a533c80e8fdb18670"
+    },
+    {
+      "directory_index": 32,
+      "directory_entry_hex": "810d0852455345542d434f4445a0a0a0a0a0a00000000000000000000400",
+      "petscii_name_hex": "52455345542d434f4445a0a0a0a0a0a0",
+      "type": "seq",
+      "type_byte": 129,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "032_RESET-CODE.seq",
+      "expected_bytes": 941,
+      "expected_sha256": "bccacf9b41a1b39a21627ae5c05559bb81a6d8193c88f3beb7c1b543a0fb69b6",
+      "bytes": 941,
+      "sha256": "bccacf9b41a1b39a21627ae5c05559bb81a6d8193c88f3beb7c1b543a0fb69b6"
+    },
+    {
+      "directory_index": 33,
+      "directory_entry_hex": "810d0a4c4556454c2d434f4445a0a0a0a0a0a00000000000000000000f00",
+      "petscii_name_hex": "4c4556454c2d434f4445a0a0a0a0a0a0",
+      "type": "seq",
+      "type_byte": 129,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "033_LEVEL-CODE.seq",
+      "expected_bytes": 3651,
+      "expected_sha256": "390b76c44bb183688ba8986561148a89b5e767216431ef9350fb4abeb14d7df8",
+      "bytes": 3651,
+      "sha256": "390b76c44bb183688ba8986561148a89b5e767216431ef9350fb4abeb14d7df8"
+    },
+    {
+      "directory_index": 34,
+      "directory_entry_hex": "81170153434f52452d524f5554494e4553a0a00000000000000000000600",
+      "petscii_name_hex": "53434f52452d524f5554494e4553a0a0",
+      "type": "seq",
+      "type_byte": 129,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "034_SCORE-ROUTINES.seq",
+      "expected_bytes": 1419,
+      "expected_sha256": "09a215c6a6d332d2d4fbb4c2fa39dc4f102bf501f4578014bcb02aa2ea092bce",
+      "bytes": 1419,
+      "sha256": "09a215c6a6d332d2d4fbb4c2fa39dc4f102bf501f4578014bcb02aa2ea092bce"
+    },
+    {
+      "directory_index": 35,
+      "directory_entry_hex": "81170453435245454e2d5345545550a0a0a0a00000000000000000000900",
+      "petscii_name_hex": "53435245454e2d5345545550a0a0a0a0",
+      "type": "seq",
+      "type_byte": 129,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "035_SCREEN-SETUP.seq",
+      "expected_bytes": 2277,
+      "expected_sha256": "b1813ca8757ff3fab18eeebaa98464251c5d8d66c78c6eb9901ee4889b64c8ac",
+      "bytes": 2277,
+      "sha256": "b1813ca8757ff3fab18eeebaa98464251c5d8d66c78c6eb9901ee4889b64c8ac"
+    },
+    {
+      "directory_index": 36,
+      "directory_entry_hex": "821709414c4942554d35a0a0a0a0a0a0a0a0a00000000000000000000900",
+      "petscii_name_hex": "414c4942554d35a0a0a0a0a0a0a0a0a0",
+      "type": "prg",
+      "type_byte": 130,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "036_ALIBUM5.prg",
+      "expected_bytes": 2050,
+      "expected_sha256": "c4de32690756e9a9f47b1bb0935a13ef0a6cb59f346a199d222d8700b710de6b",
+      "bytes": 2050,
+      "sha256": "c4de32690756e9a9f47b1bb0935a13ef0a6cb59f346a199d222d8700b710de6b"
+    },
+    {
+      "directory_index": 37,
+      "directory_entry_hex": "810c035345542d5348454554a0a0a0a0a0a0a00000000000000000000800",
+      "petscii_name_hex": "5345542d5348454554a0a0a0a0a0a0a0",
+      "type": "seq",
+      "type_byte": 129,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "037_SET-SHEET.seq",
+      "expected_bytes": 1985,
+      "expected_sha256": "f8ec58862b1e303f727030b7971c1cab960361bd742c42c6dea283e4047e6555",
+      "bytes": 1985,
+      "sha256": "f8ec58862b1e303f727030b7971c1cab960361bd742c42c6dea283e4047e6555"
+    },
+    {
+      "directory_index": 38,
+      "directory_entry_hex": "810c0b494e49542d5348454554a0a0a0a0a0a00000000000000000000300",
+      "petscii_name_hex": "494e49542d5348454554a0a0a0a0a0a0",
+      "type": "seq",
+      "type_byte": 129,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "038_INIT-SHEET.seq",
+      "expected_bytes": 678,
+      "expected_sha256": "d948a75b765fece24d756cc76665a0bd81fc141c9f6b93a53942c731d9ba3aaf",
+      "bytes": 678,
+      "sha256": "d948a75b765fece24d756cc76665a0bd81fc141c9f6b93a53942c731d9ba3aaf"
+    },
+    {
+      "directory_index": 39,
+      "directory_entry_hex": "811804534845455431a0a0a0a0a0a0a0a0a0a00000000000000000000100",
+      "petscii_name_hex": "534845455431a0a0a0a0a0a0a0a0a0a0",
+      "type": "seq",
+      "type_byte": 129,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "039_SHEET1.seq",
+      "expected_bytes": 253,
+      "expected_sha256": "7abbbd5cafef88e43c5cee50c5d458a7e79480d3d29af6ae7d2b02bd9db57576",
+      "bytes": 253,
+      "sha256": "7abbbd5cafef88e43c5cee50c5d458a7e79480d3d29af6ae7d2b02bd9db57576"
+    },
+    {
+      "directory_index": 40,
+      "directory_entry_hex": "811805534845455432a0a0a0a0a0a0a0a0a0a00000000000000000000100",
+      "petscii_name_hex": "534845455432a0a0a0a0a0a0a0a0a0a0",
+      "type": "seq",
+      "type_byte": 129,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "040_SHEET2.seq",
+      "expected_bytes": 253,
+      "expected_sha256": "ddc283e0147e655d171ce4a6e70a66e312273df4c2462a58c75c8f9837151153",
+      "bytes": 253,
+      "sha256": "ddc283e0147e655d171ce4a6e70a66e312273df4c2462a58c75c8f9837151153"
+    },
+    {
+      "directory_index": 41,
+      "directory_entry_hex": "811806534845455433a0a0a0a0a0a0a0a0a0a00000000000000000000200",
+      "petscii_name_hex": "534845455433a0a0a0a0a0a0a0a0a0a0",
+      "type": "seq",
+      "type_byte": 129,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "041_SHEET3.seq",
+      "expected_bytes": 280,
+      "expected_sha256": "34de69c0b444c6dbb65c6b28195995677fed5e55ec98c5814a7eb459c4775f95",
+      "bytes": 280,
+      "sha256": "34de69c0b444c6dbb65c6b28195995677fed5e55ec98c5814a7eb459c4775f95"
+    },
+    {
+      "directory_index": 42,
+      "directory_entry_hex": "811807534845455434a0a0a0a0a0a0a0a0a0a00000000000000000000200",
+      "petscii_name_hex": "534845455434a0a0a0a0a0a0a0a0a0a0",
+      "type": "seq",
+      "type_byte": 129,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "042_SHEET4.seq",
+      "expected_bytes": 272,
+      "expected_sha256": "c0c7923a7d0db7d66e159cb6d00363df0577cee845a37c328d46f66d5a59250a",
+      "bytes": 272,
+      "sha256": "c0c7923a7d0db7d66e159cb6d00363df0577cee845a37c328d46f66d5a59250a"
+    },
+    {
+      "directory_index": 43,
+      "directory_entry_hex": "811808534845455436a0a0a0a0a0a0a0a0a0a00000000000000000000200",
+      "petscii_name_hex": "534845455436a0a0a0a0a0a0a0a0a0a0",
+      "type": "seq",
+      "type_byte": 129,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "043_SHEET6.seq",
+      "expected_bytes": 280,
+      "expected_sha256": "7749e18d8d21395ae915c364b59c1a385855db9798662244e29f4ab69dd369e8",
+      "bytes": 280,
+      "sha256": "7749e18d8d21395ae915c364b59c1a385855db9798662244e29f4ab69dd369e8"
+    },
+    {
+      "directory_index": 44,
+      "directory_entry_hex": "811809534845455435a0a0a0a0a0a0a0a0a0a00000000000000000000200",
+      "petscii_name_hex": "534845455435a0a0a0a0a0a0a0a0a0a0",
+      "type": "seq",
+      "type_byte": 129,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "044_SHEET5.seq",
+      "expected_bytes": 312,
+      "expected_sha256": "28cc6aa1edbbde11e11b1940d370a5fa88065214b12a6efdad6a454d06671797",
+      "bytes": 312,
+      "sha256": "28cc6aa1edbbde11e11b1940d370a5fa88065214b12a6efdad6a454d06671797"
+    },
+    {
+      "directory_index": 45,
+      "directory_entry_hex": "81180e534845455437a0a0a0a0a0a0a0a0a0a00000000000000000000200",
+      "petscii_name_hex": "534845455437a0a0a0a0a0a0a0a0a0a0",
+      "type": "seq",
+      "type_byte": 129,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "045_SHEET7.seq",
+      "expected_bytes": 278,
+      "expected_sha256": "3bf721d5e0f4520677171c3d7f35e4a6013ca35a8c620a14b7eec434a276c781",
+      "bytes": 278,
+      "sha256": "3bf721d5e0f4520677171c3d7f35e4a6013ca35a8c620a14b7eec434a276c781"
+    },
+    {
+      "directory_index": 46,
+      "directory_entry_hex": "810b01534845455438a0a0a0a0a0a0a0a0a0a00000000000000000000200",
+      "petscii_name_hex": "534845455438a0a0a0a0a0a0a0a0a0a0",
+      "type": "seq",
+      "type_byte": 129,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "046_SHEET8.seq",
+      "expected_bytes": 271,
+      "expected_sha256": "2c9bc397486169434ebb36a80ae19d0528a04497fcc0df45f0a7fae80d036172",
+      "bytes": 271,
+      "sha256": "2c9bc397486169434ebb36a80ae19d0528a04497fcc0df45f0a7fae80d036172"
+    },
+    {
+      "directory_index": 47,
+      "directory_entry_hex": "810b02534845455439a0a0a0a0a0a0a0a0a0a00000000000000000000200",
+      "petscii_name_hex": "534845455439a0a0a0a0a0a0a0a0a0a0",
+      "type": "seq",
+      "type_byte": 129,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "047_SHEET9.seq",
+      "expected_bytes": 268,
+      "expected_sha256": "3f2c52cd3b4ad2a453a3906d979df79cda5ecdbf4f8db251d06163bf3439db35",
+      "bytes": 268,
+      "sha256": "3f2c52cd3b4ad2a453a3906d979df79cda5ecdbf4f8db251d06163bf3439db35"
+    },
+    {
+      "directory_index": 48,
+      "directory_entry_hex": "810b03534845455441a0a0a0a0a0a0a0a0a0a00000000000000000000200",
+      "petscii_name_hex": "534845455441a0a0a0a0a0a0a0a0a0a0",
+      "type": "seq",
+      "type_byte": 129,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "048_SHEETA.seq",
+      "expected_bytes": 282,
+      "expected_sha256": "724d8751eb0b99ebcb7071c8be14983a052be525aba613d98d349e1c642d9888",
+      "bytes": 282,
+      "sha256": "724d8751eb0b99ebcb7071c8be14983a052be525aba613d98d349e1c642d9888"
+    },
+    {
+      "directory_index": 49,
+      "directory_entry_hex": "810b04534845455442a0a0a0a0a0a0a0a0a0a00000000000000000000200",
+      "petscii_name_hex": "534845455442a0a0a0a0a0a0a0a0a0a0",
+      "type": "seq",
+      "type_byte": 129,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "049_SHEETB.seq",
+      "expected_bytes": 274,
+      "expected_sha256": "7e487236e40aa82dd589ed90b300ce3e31760cedf82cbd0be703a163993fc821",
+      "bytes": 274,
+      "sha256": "7e487236e40aa82dd589ed90b300ce3e31760cedf82cbd0be703a163993fc821"
+    },
+    {
+      "directory_index": 50,
+      "directory_entry_hex": "810b05534845455443a0a0a0a0a0a0a0a0a0a00000000000000000000200",
+      "petscii_name_hex": "534845455443a0a0a0a0a0a0a0a0a0a0",
+      "type": "seq",
+      "type_byte": 129,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "050_SHEETC.seq",
+      "expected_bytes": 276,
+      "expected_sha256": "9d204ac8429575f9c680078743f4fa1589eb6ee129264adb3b824722d636cd04",
+      "bytes": 276,
+      "sha256": "9d204ac8429575f9c680078743f4fa1589eb6ee129264adb3b824722d636cd04"
+    },
+    {
+      "directory_index": 51,
+      "directory_entry_hex": "810b06534845455444a0a0a0a0a0a0a0a0a0a00000000000000000000200",
+      "petscii_name_hex": "534845455444a0a0a0a0a0a0a0a0a0a0",
+      "type": "seq",
+      "type_byte": 129,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "051_SHEETD.seq",
+      "expected_bytes": 272,
+      "expected_sha256": "d7b90cf4c208f58026adfc97954ea7ce007f4d3ba64ba83c274668b2e527427b",
+      "bytes": 272,
+      "sha256": "d7b90cf4c208f58026adfc97954ea7ce007f4d3ba64ba83c274668b2e527427b"
+    },
+    {
+      "directory_index": 52,
+      "directory_entry_hex": "810b07534845455445a0a0a0a0a0a0a0a0a0a00000000000000000000200",
+      "petscii_name_hex": "534845455445a0a0a0a0a0a0a0a0a0a0",
+      "type": "seq",
+      "type_byte": 129,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "052_SHEETE.seq",
+      "expected_bytes": 287,
+      "expected_sha256": "e17028933f6f294ac3328e9e6eb838b883b91d9d092bdb7f8673546afb7133c6",
+      "bytes": 287,
+      "sha256": "e17028933f6f294ac3328e9e6eb838b883b91d9d092bdb7f8673546afb7133c6"
+    },
+    {
+      "directory_index": 53,
+      "directory_entry_hex": "810b08534845455446a0a0a0a0a0a0a0a0a0a00000000000000000000200",
+      "petscii_name_hex": "534845455446a0a0a0a0a0a0a0a0a0a0",
+      "type": "seq",
+      "type_byte": 129,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "053_SHEETF.seq",
+      "expected_bytes": 281,
+      "expected_sha256": "6263c7839dd3f44c0a1c788d5a96de72aed0f0b76e40671ba97cdc69bfba97db",
+      "bytes": 281,
+      "sha256": "6263c7839dd3f44c0a1c788d5a96de72aed0f0b76e40671ba97cdc69bfba97db"
+    },
+    {
+      "directory_index": 54,
+      "directory_entry_hex": "810b09534845455447a0a0a0a0a0a0a0a0a0a00000000000000000000200",
+      "petscii_name_hex": "534845455447a0a0a0a0a0a0a0a0a0a0",
+      "type": "seq",
+      "type_byte": 129,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "054_SHEETG.seq",
+      "expected_bytes": 255,
+      "expected_sha256": "24d9529f71236c01fd470f2733534836a3b71e2bb8325d54f6ae99e2e478a241",
+      "bytes": 255,
+      "sha256": "24d9529f71236c01fd470f2733534836a3b71e2bb8325d54f6ae99e2e478a241"
+    },
+    {
+      "directory_index": 55,
+      "directory_entry_hex": "810b14534849502d43414c4353a0a0a0a0a0a00000000000000000000600",
+      "petscii_name_hex": "534849502d43414c4353a0a0a0a0a0a0",
+      "type": "seq",
+      "type_byte": 129,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "055_SHIP-CALCS.seq",
+      "expected_bytes": 1470,
+      "expected_sha256": "5efeea0a92de08b1db2118329b0dad60387bad4d7c27cfb4ddd43d91d5eb167e",
+      "bytes": 1470,
+      "sha256": "5efeea0a92de08b1db2118329b0dad60387bad4d7c27cfb4ddd43d91d5eb167e"
+    },
+    {
+      "directory_index": 56,
+      "directory_entry_hex": "811900534849502d444546a0a0a0a0a0a0a0a00000000000000000000200",
+      "petscii_name_hex": "534849502d444546a0a0a0a0a0a0a0a0",
+      "type": "seq",
+      "type_byte": 129,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "056_SHIP-DEF.seq",
+      "expected_bytes": 357,
+      "expected_sha256": "ebaa136a87724f17a0b8fccb6057cb803303cf447cd764fa830f834f5830b30b",
+      "bytes": 357,
+      "sha256": "ebaa136a87724f17a0b8fccb6057cb803303cf447cd764fa830f834f5830b30b"
+    },
+    {
+      "directory_index": 57,
+      "directory_entry_hex": "81190153485441424c45a0a0a0a0a0a0a0a0a00000000000000000000e00",
+      "petscii_name_hex": "53485441424c45a0a0a0a0a0a0a0a0a0",
+      "type": "seq",
+      "type_byte": 129,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "057_SHTABLE.seq",
+      "expected_bytes": 3458,
+      "expected_sha256": "9a0b66d2dd62c546ec0a1767102512be767d97b67329523a3e56b48b5a0b9017",
+      "bytes": 3458,
+      "sha256": "9a0b66d2dd62c546ec0a1767102512be767d97b67329523a3e56b48b5a0b9017"
+    },
+    {
+      "directory_index": 58,
+      "directory_entry_hex": "811908534f554e442d45464645435453a0a0a00000000000000000001000",
+      "petscii_name_hex": "534f554e442d45464645435453a0a0a0",
+      "type": "seq",
+      "type_byte": 129,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "058_SOUND-EFFECTS.seq",
+      "expected_bytes": 3977,
+      "expected_sha256": "8e6aeb5ed2179ad9368a660c09b66aca2963f3b284f57af376c800979aa72451",
+      "bytes": 3977,
+      "sha256": "8e6aeb5ed2179ad9368a660c09b66aca2963f3b284f57af376c800979aa72451"
+    },
+    {
+      "directory_index": 59,
+      "directory_entry_hex": "810a01535441522d434f4445a0a0a0a0a0a0a00000000000000000000a00",
+      "petscii_name_hex": "535441522d434f4445a0a0a0a0a0a0a0",
+      "type": "seq",
+      "type_byte": 129,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "059_STAR-CODE.seq",
+      "expected_bytes": 2430,
+      "expected_sha256": "00c6b0461f64c164410f41cb338655aff3c1fc6897dd9a7193a83c61ffbf48e9",
+      "bytes": 2430,
+      "sha256": "00c6b0461f64c164410f41cb338655aff3c1fc6897dd9a7193a83c61ffbf48e9"
+    },
+    {
+      "directory_index": 60,
+      "directory_entry_hex": "810a0653544152544552a0a0a0a0a0a0a0a0a00000000000000000000700",
+      "petscii_name_hex": "53544152544552a0a0a0a0a0a0a0a0a0",
+      "type": "seq",
+      "type_byte": 129,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "060_STARTER.seq",
+      "expected_bytes": 1592,
+      "expected_sha256": "4311c12816336ac11cdf8a20f3bbba696873c88df6d1ca8165a5a04bd95f0bfc",
+      "bytes": 1592,
+      "sha256": "4311c12816336ac11cdf8a20f3bbba696873c88df6d1ca8165a5a04bd95f0bfc"
+    },
+    {
+      "directory_index": 61,
+      "directory_entry_hex": "811a075449544c452d4c4f4f50a0a0a0a0a0a00000000000000000000400",
+      "petscii_name_hex": "5449544c452d4c4f4f50a0a0a0a0a0a0",
+      "type": "seq",
+      "type_byte": 129,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "061_TITLE-LOOP.seq",
+      "expected_bytes": 938,
+      "expected_sha256": "fc00441db821b84375be1121ec59624cc9b914c5ff0cc5f2957fa2d478fc86b0",
+      "bytes": 938,
+      "sha256": "fc00441db821b84375be1121ec59624cc9b914c5ff0cc5f2957fa2d478fc86b0"
+    },
+    {
+      "directory_index": 62,
+      "directory_entry_hex": "8109015449544c452d47454e4552415445a0a00000000000000000000200",
+      "petscii_name_hex": "5449544c452d47454e4552415445a0a0",
+      "type": "seq",
+      "type_byte": 129,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "062_TITLE-GENERATE.seq",
+      "expected_bytes": 500,
+      "expected_sha256": "38341d2595f0da20e104cf0f75f664dd9f6e7e7d462b8f1ead82a8dea00b6a8b",
+      "bytes": 500,
+      "sha256": "38341d2595f0da20e104cf0f75f664dd9f6e7e7d462b8f1ead82a8dea00b6a8b"
+    },
+    {
+      "directory_index": 63,
+      "directory_entry_hex": "8109024f2e414c49a0a0a0a0a0a0a0a0a0a0a00000000000000000000b00",
+      "petscii_name_hex": "4f2e414c49a0a0a0a0a0a0a0a0a0a0a0",
+      "type": "seq",
+      "type_byte": 129,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "063_O~2EALI.seq",
+      "expected_bytes": 2576,
+      "expected_sha256": "b49f07fc5c940a1a5ee255a62828cde1345955844a03f02983ea5526772082c7",
+      "bytes": 2576,
+      "sha256": "b49f07fc5c940a1a5ee255a62828cde1345955844a03f02983ea5526772082c7"
+    },
+    {
+      "directory_index": 64,
+      "directory_entry_hex": "8109085449544c452d574f524ba0a0a0a0a0a00000000000000000000900",
+      "petscii_name_hex": "5449544c452d574f524ba0a0a0a0a0a0",
+      "type": "seq",
+      "type_byte": 129,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "064_TITLE-WORK.seq",
+      "expected_bytes": 2228,
+      "expected_sha256": "c1d4a0e408ecbc23a98e57f79ad09bbae4546a409c4c5f4729a564e9cc9b91ae",
+      "bytes": 2228,
+      "sha256": "c1d4a0e408ecbc23a98e57f79ad09bbae4546a409c4c5f4729a564e9cc9b91ae"
+    },
+    {
+      "directory_index": 65,
+      "directory_entry_hex": "811b00544f504c414e442d504958454ca0a0a00000000000000000000400",
+      "petscii_name_hex": "544f504c414e442d504958454ca0a0a0",
+      "type": "seq",
+      "type_byte": 129,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "065_TOPLAND-PIXEL.seq",
+      "expected_bytes": 833,
+      "expected_sha256": "8a543813064e9b88cfe72e2d184889a854e783395510729f8a3ceb63f7926adb",
+      "bytes": 833,
+      "sha256": "8a543813064e9b88cfe72e2d184889a854e783395510729f8a3ceb63f7926adb"
+    },
+    {
+      "directory_index": 66,
+      "directory_entry_hex": "811b0254562d50494354555245a0a0a0a0a0a00000000000000000000500",
+      "petscii_name_hex": "54562d50494354555245a0a0a0a0a0a0",
+      "type": "seq",
+      "type_byte": 129,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "066_TV-PICTURE.seq",
+      "expected_bytes": 1090,
+      "expected_sha256": "cf86bc98f99251398d88899c72091acaa79750febfea874dcfdb063a001334ce",
+      "bytes": 1090,
+      "sha256": "cf86bc98f99251398d88899c72091acaa79750febfea874dcfdb063a001334ce"
+    },
+    {
+      "directory_index": 67,
+      "directory_entry_hex": "811b055554494c53a0a0a0a0a0a0a0a0a0a0a00000000000000000000500",
+      "petscii_name_hex": "5554494c53a0a0a0a0a0a0a0a0a0a0a0",
+      "type": "seq",
+      "type_byte": 129,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "067_UTILS.seq",
+      "expected_bytes": 1195,
+      "expected_sha256": "87eff8d741e595e85984bb1efdac7df7cd8cdee313b81d9936da2537a359729d",
+      "bytes": 1195,
+      "sha256": "87eff8d741e595e85984bb1efdac7df7cd8cdee313b81d9936da2537a359729d"
+    },
+    {
+      "directory_index": 68,
+      "directory_entry_hex": "811b0856415253a0a0a0a0a0a0a0a0a0a0a0a00000000000000000001000",
+      "petscii_name_hex": "56415253a0a0a0a0a0a0a0a0a0a0a0a0",
+      "type": "seq",
+      "type_byte": 129,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "068_VARS.seq",
+      "expected_bytes": 3813,
+      "expected_sha256": "4aa473d3a63368f0ff4ead2ecb9709db2baceb67525f25519567e224377ac0ec",
+      "bytes": 3813,
+      "sha256": "4aa473d3a63368f0ff4ead2ecb9709db2baceb67525f25519567e224377ac0ec"
+    },
+    {
+      "directory_index": 69,
+      "directory_entry_hex": "8208014249472d5052494e54a0a0a0a0a0a0a00000000000000000000200",
+      "petscii_name_hex": "4249472d5052494e54a0a0a0a0a0a0a0",
+      "type": "prg",
+      "type_byte": 130,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "069_BIG-PRINT.prg",
+      "expected_bytes": 385,
+      "expected_sha256": "ad8e340712f16c492ed7a552060b793eb231166ddc90b585f4ccf8247fc5cd2f",
+      "bytes": 385,
+      "sha256": "ad8e340712f16c492ed7a552060b793eb231166ddc90b585f4ccf8247fc5cd2f"
+    },
+    {
+      "directory_index": 70,
+      "directory_entry_hex": "820802424f4f5420414c4ca0a0a0a0a0a0a0a00000000000000000000100",
+      "petscii_name_hex": "424f4f5420414c4ca0a0a0a0a0a0a0a0",
+      "type": "prg",
+      "type_byte": 130,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "070_BOOT_ALL.prg",
+      "expected_bytes": 155,
+      "expected_sha256": "7fb6f5c1e35f4ee685a1b0eeda8aa165e37e811f74961ea959db57ac42b8acd7",
+      "bytes": 155,
+      "sha256": "7fb6f5c1e35f4ee685a1b0eeda8aa165e37e811f74961ea959db57ac42b8acd7"
+    },
+    {
+      "directory_index": 71,
+      "directory_entry_hex": "820803433136a0a0a0a0a0a0a0a0a0a0a0a0a00000000000000000000200",
+      "petscii_name_hex": "433136a0a0a0a0a0a0a0a0a0a0a0a0a0",
+      "type": "prg",
+      "type_byte": 130,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "071_C16.prg",
+      "expected_bytes": 335,
+      "expected_sha256": "f080d75a47acfaf24581ecef03b347d26cb16f0aa9ba2bf42cf858fcb71bc575",
+      "bytes": 335,
+      "sha256": "f080d75a47acfaf24581ecef03b347d26cb16f0aa9ba2bf42cf858fcb71bc575"
+    },
+    {
+      "directory_index": 72,
+      "directory_entry_hex": "8108044558504c4f53494f4e53a0a0a0a0a0a00000000000000000000400",
+      "petscii_name_hex": "4558504c4f53494f4e53a0a0a0a0a0a0",
+      "type": "seq",
+      "type_byte": 129,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "072_EXPLOSIONS.seq",
+      "expected_bytes": 855,
+      "expected_sha256": "68be9b9047483c4355e1f5bdceaacf86994d28aac9139b0d1999531224768ee6",
+      "bytes": 855,
+      "sha256": "68be9b9047483c4355e1f5bdceaacf86994d28aac9139b0d1999531224768ee6"
+    },
+    {
+      "directory_index": 73,
+      "directory_entry_hex": "820806434f4c4f55522d534554544552a0a0a00000000000000000000400",
+      "petscii_name_hex": "434f4c4f55522d534554544552a0a0a0",
+      "type": "prg",
+      "type_byte": 130,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "073_COLOUR-SETTER.prg",
+      "expected_bytes": 885,
+      "expected_sha256": "c3f8e2bec1f7130e7ab3699e272ab3d0c60ec614b3e6c30675563b0d587cff3c",
+      "bytes": 885,
+      "sha256": "c3f8e2bec1f7130e7ab3699e272ab3d0c60ec614b3e6c30675563b0d587cff3c"
+    },
+    {
+      "directory_index": 74,
+      "directory_entry_hex": "820808434f4d504143544f52a0a0a0a0a0a0a00000000000000000000200",
+      "petscii_name_hex": "434f4d504143544f52a0a0a0a0a0a0a0",
+      "type": "prg",
+      "type_byte": 130,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "074_COMPACTOR.prg",
+      "expected_bytes": 286,
+      "expected_sha256": "03740d30d3de041699b9b7141005284136e39e2b4970a6c2a6fa27472ddcadf2",
+      "bytes": 286,
+      "sha256": "03740d30d3de041699b9b7141005284136e39e2b4970a6c2a6fa27472ddcadf2"
+    },
+    {
+      "directory_index": 75,
+      "directory_entry_hex": "82080944455349474e4552a0a0a0a0a0a0a0a00000000000000000000500",
+      "petscii_name_hex": "44455349474e4552a0a0a0a0a0a0a0a0",
+      "type": "prg",
+      "type_byte": 130,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "075_DESIGNER.prg",
+      "expected_bytes": 1151,
+      "expected_sha256": "085face9f802abc185668fc0e445178b06e9350515918ab7c7d9415b02ef7f86",
+      "bytes": 1151,
+      "sha256": "085face9f802abc185668fc0e445178b06e9350515918ab7c7d9415b02ef7f86"
+    },
+    {
+      "directory_index": 76,
+      "directory_entry_hex": "821c06444f53352e32a0a0a0a0a0a0a0a0a0a00000000000000000000400",
+      "petscii_name_hex": "444f53352e32a0a0a0a0a0a0a0a0a0a0",
+      "type": "prg",
+      "type_byte": 130,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "076_DOS5~2E2.prg",
+      "expected_bytes": 866,
+      "expected_sha256": "bc3d8fa6eda201ad7a430585d624f9b309ffc000fac4bfbc93299d03bd7bd27d",
+      "bytes": 866,
+      "sha256": "bc3d8fa6eda201ad7a430585d624f9b309ffc000fac4bfbc93299d03bd7bd27d"
+    },
+    {
+      "directory_index": 77,
+      "directory_entry_hex": "821c08444f55424c452d47454e455241544f520000000000000000000300",
+      "petscii_name_hex": "444f55424c452d47454e455241544f52",
+      "type": "prg",
+      "type_byte": 130,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "077_DOUBLE-GENERATOR.prg",
+      "expected_bytes": 616,
+      "expected_sha256": "e8b37bbc6b87700b297dc5bf6044338bfbc244eb358497fec4a9a76b969bb936",
+      "bytes": 616,
+      "sha256": "e8b37bbc6b87700b297dc5bf6044338bfbc244eb358497fec4a9a76b969bb936"
+    },
+    {
+      "directory_index": 78,
+      "directory_entry_hex": "820701444f55424c452d5749445448a0a0a0a00000000000000000000200",
+      "petscii_name_hex": "444f55424c452d5749445448a0a0a0a0",
+      "type": "prg",
+      "type_byte": 130,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "078_DOUBLE-WIDTH.prg",
+      "expected_bytes": 457,
+      "expected_sha256": "b422091b7b9ea8bb922743af3d2d467834b38d1f69a3ff7f586437b2fc1e06e2",
+      "bytes": 457,
+      "sha256": "b422091b7b9ea8bb922743af3d2d467834b38d1f69a3ff7f586437b2fc1e06e2"
+    },
+    {
+      "directory_index": 79,
+      "directory_entry_hex": "820702454449544f523634a0a0a0a0a0a0a0a00000000000000000000700",
+      "petscii_name_hex": "454449544f523634a0a0a0a0a0a0a0a0",
+      "type": "prg",
+      "type_byte": 130,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "079_EDITOR64.prg",
+      "expected_bytes": 1612,
+      "expected_sha256": "bf990fff7896b4f73ff39e01d2020aeec7630221da982c81889407051a798c16",
+      "bytes": 1612,
+      "sha256": "bf990fff7896b4f73ff39e01d2020aeec7630221da982c81889407051a798c16"
+    },
+    {
+      "directory_index": 80,
+      "directory_entry_hex": "82070648494c4c53a0a0a0a0a0a0a0a0a0a0a00000000000000000000300",
+      "petscii_name_hex": "48494c4c53a0a0a0a0a0a0a0a0a0a0a0",
+      "type": "prg",
+      "type_byte": 130,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "080_HILLS.prg",
+      "expected_bytes": 658,
+      "expected_sha256": "f4cb36e820017087d813c17e9ae9dd23853aa0ae117c6f386b47bb149723ff95",
+      "bytes": 658,
+      "sha256": "f4cb36e820017087d813c17e9ae9dd23853aa0ae117c6f386b47bb149723ff95"
+    },
+    {
+      "directory_index": 81,
+      "directory_entry_hex": "8207084652414b21a0a0a0a0a0a0a0a0a0a0a00000000000000000000900",
+      "petscii_name_hex": "4652414b21a0a0a0a0a0a0a0a0a0a0a0",
+      "type": "prg",
+      "type_byte": 130,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "081_FRAK~21.prg",
+      "expected_bytes": 2050,
+      "expected_sha256": "c079558302ccc7f818198a468a9f96df90d37fb16cec8801d4cb399638181faa",
+      "bytes": 2050,
+      "sha256": "c079558302ccc7f818198a468a9f96df90d37fb16cec8801d4cb399638181faa"
+    },
+    {
+      "directory_index": 82,
+      "directory_entry_hex": "821d014c414e4453434150452d31a0a0a0a0a00000000000000000000900",
+      "petscii_name_hex": "4c414e4453434150452d31a0a0a0a0a0",
+      "type": "prg",
+      "type_byte": 130,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "082_LANDSCAPE-1.prg",
+      "expected_bytes": 2050,
+      "expected_sha256": "757c4ce9fffb484e7bbb353bba9b7d570f3829f1ef5369fe5b314dca0421a7b2",
+      "bytes": 2050,
+      "sha256": "757c4ce9fffb484e7bbb353bba9b7d570f3829f1ef5369fe5b314dca0421a7b2"
+    },
+    {
+      "directory_index": 83,
+      "directory_entry_hex": "821d064c414e4453434150452d32a0a0a0a0a00000000000000000000900",
+      "petscii_name_hex": "4c414e4453434150452d32a0a0a0a0a0",
+      "type": "prg",
+      "type_byte": 130,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "083_LANDSCAPE-2.prg",
+      "expected_bytes": 2050,
+      "expected_sha256": "0dcb05a919b4146d239856e9d82948b8046a146d6438a3a4ed6ae695ccd64182",
+      "bytes": 2050,
+      "sha256": "0dcb05a919b4146d239856e9d82948b8046a146d6438a3a4ed6ae695ccd64182"
+    },
+    {
+      "directory_index": 84,
+      "directory_entry_hex": "8206014d4547412d5355504552a0a0a0a0a0a00000000000000000000500",
+      "petscii_name_hex": "4d4547412d5355504552a0a0a0a0a0a0",
+      "type": "prg",
+      "type_byte": 130,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "084_MEGA-SUPER.prg",
+      "expected_bytes": 1026,
+      "expected_sha256": "6115ee51712a0bd86576d14209e97bd05d859bff6f91c47c4b2e0a9032e4ba87",
+      "bytes": 1026,
+      "sha256": "6115ee51712a0bd86576d14209e97bd05d859bff6f91c47c4b2e0a9032e4ba87"
+    },
+    {
+      "directory_index": 85,
+      "directory_entry_hex": "82060453555045522d4c4f4144a0a0a0a0a0a00000000000000000000400",
+      "petscii_name_hex": "53555045522d4c4f4144a0a0a0a0a0a0",
+      "type": "prg",
+      "type_byte": 130,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "085_SUPER-LOAD.prg",
+      "expected_bytes": 946,
+      "expected_sha256": "8ad18afb13a8216648049c6466a1f41eb003f1e0152d12235880e6318d762d9b",
+      "bytes": 946,
+      "sha256": "8ad18afb13a8216648049c6466a1f41eb003f1e0152d12235880e6318d762d9b"
+    },
+    {
+      "directory_index": 86,
+      "directory_entry_hex": "8206065449544c452d44415441a0a0a0a0a0a00000000000000000000300",
+      "petscii_name_hex": "5449544c452d44415441a0a0a0a0a0a0",
+      "type": "prg",
+      "type_byte": 130,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "086_TITLE-DATA.prg",
+      "expected_bytes": 754,
+      "expected_sha256": "86db146d86c552d25c6df53f3971c78cc4623bae82dc0a0b03298401b2697fec",
+      "bytes": 754,
+      "sha256": "86db146d86c552d25c6df53f3971c78cc4623bae82dc0a0b03298401b2697fec"
+    },
+    {
+      "directory_index": 87,
+      "directory_entry_hex": "820608584152472d53435245454ea0a0a0a0a00000000000000000000500",
+      "petscii_name_hex": "584152472d53435245454ea0a0a0a0a0",
+      "type": "prg",
+      "type_byte": 130,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "087_XARG-SCREEN.prg",
+      "expected_bytes": 1026,
+      "expected_sha256": "6cdf25b41aafb6fda5577ce9032f537a540721675481fddf7703065569df152b",
+      "bytes": 1026,
+      "sha256": "6cdf25b41aafb6fda5577ce9032f537a540721675481fddf7703065569df152b"
+    },
+    {
+      "directory_index": 88,
+      "directory_entry_hex": "82060d41534d2e433634a0a0a0a0a0a0a0a0a00000000000000000002900",
+      "petscii_name_hex": "41534d2e433634a0a0a0a0a0a0a0a0a0",
+      "type": "prg",
+      "type_byte": 130,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "088_ASM~2EC64.prg",
+      "expected_bytes": 10241,
+      "expected_sha256": "becc56940ab3fc21251ac962218f4d15bf74d2e0152a12d65e35c685689f677f",
+      "bytes": 10241,
+      "sha256": "becc56940ab3fc21251ac962218f4d15bf74d2e0152a12d65e35c685689f677f"
+    },
+    {
+      "directory_index": 89,
+      "directory_entry_hex": "821e01424a48a0a0a0a0a0a0a0a0a0a0a0a0a00000000000000000000500",
+      "petscii_name_hex": "424a48a0a0a0a0a0a0a0a0a0a0a0a0a0",
+      "type": "prg",
+      "type_byte": 130,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "089_BJH.prg",
+      "expected_bytes": 1026,
+      "expected_sha256": "e2bb69c027df487ab191b26df18ec77e2b070a904394b3a119556c1596febf2f",
+      "bytes": 1026,
+      "sha256": "e2bb69c027df487ab191b26df18ec77e2b070a904394b3a119556c1596febf2f"
+    },
+    {
+      "directory_index": 90,
+      "directory_entry_hex": "821e04414c4942554d36a0a0a0a0a0a0a0a0a00000000000000000000900",
+      "petscii_name_hex": "414c4942554d36a0a0a0a0a0a0a0a0a0",
+      "type": "prg",
+      "type_byte": 130,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "090_ALIBUM6.prg",
+      "expected_bytes": 2050,
+      "expected_sha256": "cdd86433012bbe0cb4d1a83170255b795ddc6e50b537107c0382353366fa5395",
+      "bytes": 2050,
+      "sha256": "cdd86433012bbe0cb4d1a83170255b795ddc6e50b537107c0382353366fa5395"
+    },
+    {
+      "directory_index": 91,
+      "directory_entry_hex": "821e094c4f41444552a0a0a0a0a0a0a0a0a0a00000000000000000000100",
+      "petscii_name_hex": "4c4f41444552a0a0a0a0a0a0a0a0a0a0",
+      "type": "prg",
+      "type_byte": 130,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "091_LOADER.prg",
+      "expected_bytes": 86,
+      "expected_sha256": "f1ac6827d5536bbd90f2091b274bb83ff24af6f6eccea16e339695ef565ec6ad",
+      "bytes": 86,
+      "sha256": "f1ac6827d5536bbd90f2091b274bb83ff24af6f6eccea16e339695ef565ec6ad"
+    },
+    {
+      "directory_index": 92,
+      "directory_entry_hex": "811e0a4f424aa0a0a0a0a0a0a0a0a0a0a0a0a00000000000000000005000",
+      "petscii_name_hex": "4f424aa0a0a0a0a0a0a0a0a0a0a0a0a0",
+      "type": "seq",
+      "type_byte": 129,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "092_OBJ.seq",
+      "expected_bytes": 20256,
+      "expected_sha256": "d360e774bef07eaace5a397c908ea64a3124776cb0266b5f2944af7f694c53cf",
+      "bytes": 20256,
+      "sha256": "d360e774bef07eaace5a397c908ea64a3124776cb0266b5f2944af7f694c53cf"
+    },
+    {
+      "directory_index": 93,
+      "directory_entry_hex": "820407414c4942554d37a0a0a0a0a0a0a0a0a00000000000000000000900",
+      "petscii_name_hex": "414c4942554d37a0a0a0a0a0a0a0a0a0",
+      "type": "prg",
+      "type_byte": 130,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "093_ALIBUM7.prg",
+      "expected_bytes": 2050,
+      "expected_sha256": "1abc6676f19f445db18682375b1f2f15f96284b115ce6878aa8fddc56a7b6440",
+      "bytes": 2050,
+      "sha256": "1abc6676f19f445db18682375b1f2f15f96284b115ce6878aa8fddc56a7b6440"
+    },
+    {
+      "directory_index": 94,
+      "directory_entry_hex": "820301414c4942554d38a0a0a0a0a0a0a0a0a00000000000000000000900",
+      "petscii_name_hex": "414c4942554d38a0a0a0a0a0a0a0a0a0",
+      "type": "prg",
+      "type_byte": 130,
+      "closed": true,
+      "locked": false,
+      "rel_record_length": 0,
+      "rel_side_sector": [
+        0,
+        0
+      ],
+      "status": "extracted",
+      "output": "094_ALIBUM8.prg",
+      "expected_bytes": 2050,
+      "expected_sha256": "6fa7b128c0eefdac80e945b726fc455f089d115c5b1c06fefd4de04c9845d642",
+      "bytes": 2050,
+      "sha256": "6fa7b128c0eefdac80e945b726fc455f089d115c5b1c06fefd4de04c9845d642"
+    }
+  ],
+  "warnings": [],
+  "source_sha256": "738824f125fab0995ba9995d6f4643f845fabe16f163b3671cbfc988e603ec3e",
+  "c1541_command": [
+    "/opt/homebrew/Cellar/vice/3.10/bin/c1541",
+    "<private working image>",
+    "-p00save",
+    "0",
+    "-extract"
+  ],
+  "c1541_exit_code": 0
+}

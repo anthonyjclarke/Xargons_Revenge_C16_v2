@@ -1,0 +1,50 @@
+; >s:death-code
+; put "death-code"
+;
+death
+;
+; has died !
+;
+ldx #1
+stx stop        ;* stop it all
+stx ststop      ;* stop stars
+stx ststop+1    ;*
+stx ststop+2    ;*
+stx ststop+3    ;*
+;
+dex
+stx dead
+stx lasers      ;* laser off
+stx fuelon      ;* fuel off
+stx fuel        ;* fuel
+stx topspd      ;* scroll speed
+stx botspd      ;* scroll speed
+;
+jsr clsful      ;* clear fuel chr
+jsr lazclr      ;* clear lazer chr
+jsr endn1       ;* clear sound#1
+;
+jsr fizzle      ;* die !
+;
+dec lives       ;* 1 life less
+lda lives
+beq allovr      ;* lost all lives
+;
+lda #0
+sta stop
+;
+lda #111
+sta fulinc      ;* re-fill
+;
+jmp stloop      ;* back to game
+;
+allovr
+;
+jsr screen      ;* cls
+;
+jmp gamovr      ;* game over
+;
+;
+;
+;
+.end

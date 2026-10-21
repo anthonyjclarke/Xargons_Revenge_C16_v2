@@ -1,0 +1,103 @@
+; >s:play-game
+; put "play-game"
+;
+; hold all the routines together
+;
+start
+;
+jsr clvars  ;* clear vars
+;
+jsr instar  ;* init stars
+;
+;---------------------------------
+;
+;      set ship start vars
+;
+lda #7
+sta shipy
+;
+lda #3
+sta ypix
+;
+lda #<$0db9
+sta shpscr
+sta shpcol
+;
+lda #>$0db9
+sta shpscr+1
+;
+lda #>$09b9
+sta shpcol+1
+;
+lda #colsh1
+sta shpink
+;
+;---------------------------------
+;
+lda #1
+sta fircnt
+sta futem
+sta altem
+sta messpd
+sta stflag  ;* do starter ?
+;
+lda #5
+sta lives   ;* # lives
+;
+lda #111
+sta fulinc  ;* have some fuel
+;
+replay
+;
+lda #0
+sta stop    ;* all go
+sta sheet   ;* start sheet number
+sta level   ;* start level number
+;
+stloop      ;* restart loop
+;
+ldx #1
+stx dntfir  ;* no shooting
+stx stpstr  ;* no stars
+;
+dex
+stx killco  ;* enable dik
+;
+jsr setsht  ;* set sheet
+jsr alidef  ;* get alien chars
+jsr screen  ;* set screen
+jsr prship  ;* print ship
+;
+lda #0
+sta dead    ;* clear dead flag
+sta ctlful  ;* allow fuel flow
+sta alihit  ;* number hit.
+sta fueltm  ;* fuel pod tempo
+;
+jsr starte  ;* ready,steady,go
+;
+lda #0
+sta dntfir  ;* start firing
+sta stflag  ;* only start once !
+;
+loop
+;
+jsr chkpas  ;* check for pause
+;
+jsr chkesc  ;* check escape
+bcc fleetw  ;* no
+;
+jmp titlop  ;* go to title page
+;
+fleetw
+;
+jsr aliens
+;
+lda dead    ;* died ?
+beq loop    ;* no go back
+;
+jmp death   ;* do death
+;
+;
+;
+.end

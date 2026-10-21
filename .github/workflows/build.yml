@@ -1,0 +1,47 @@
+name: Reassemble Xargon's Revenge
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  assemble:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install cc65 and PlatformIO
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y cc65 unzip
+          python -m pip install platformio==6.1.19
+      - name: Record tool versions
+        run: python scripts/tool_check.py
+      - name: Build from preserved sources
+        run: python scripts/restore_c16.py
+      - name: Test syntax, provenance and object records (VICE tests skip without xplus4)
+        run: python -m unittest discover -s test -p 'test_*.py' -v
+      - name: Build both PlatformIO environments
+        run: pio run -e c16 -e c16_debug
+      - name: Check output agreement
+        run: |
+          cmp build/xargons-revenge.prg build/platformio/c16/xargons-revenge.prg
+          cmp build/xargons-revenge.prg build/platformio/c16_debug/xargons-revenge.prg
+      - uses: actions/upload-artifact@v4
+        with:
+          name: xargons-revenge-c16
+          path: |
+            build/xargons-revenge.prg
+            build/comparison.json
+            build/recovery-manifest.json
+            build/tool-checks.json
+            build/revenge.s
+            build/revenge.labels
+            build/revenge.map
+            build/revenge.dbg
