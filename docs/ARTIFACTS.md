@@ -42,7 +42,7 @@ All the images in `Original Artifacts/` show Xargon's Revenge. I checked each on
 
 ## Running Version and Loading Screen
 
-`xargons_revenge.prg`, in the project root, is the compressed running version. I downloaded it and don't know who prepared it; its file is dated 10 August 2014. It runs in VICE, and [Source and Validation](SOURCE_AND_VALIDATION.md#comparison-with-the-running-version) compares it with the rebuild.
+`xargons_revenge.prg`, in the project root, is the compressed running version. I downloaded it and don't know who prepared it; its file is dated 10 August 2014. It is byte-identical to the main download on the [Plus/4 World entry](https://plus4world.powweb.com/software/Xargons_Revenge) for the game, checked by SHA-256 on 22 October 2026 ([Other Versions, A1](OTHER_VERSIONS.md#a1-download)). Decompressed, it matches the original release tape at the game's entry apart from 19 bytes of screen RAM, so it is a packed copy of the released game. It runs in VICE, and [Source and Validation](SOURCE_AND_VALIDATION.md#comparison-with-the-running-version) compares it with the rebuild.
 
 The [loading screen](images/loading-screen.png) is rendered from the second 2026 disk image in VICE; it isn't a separate artifact file. See [Illustrated Graphics](GRAPHICS.md#loading-screen).
 

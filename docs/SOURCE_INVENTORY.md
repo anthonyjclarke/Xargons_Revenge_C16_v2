@@ -9,12 +9,15 @@
 | `Original Source Recovered/1992/*.ZIP`  | The same export as a 1992 ZIP    |
 | `Original Artifacts/`                   | Packaging, scans, leaflet, photo |
 | `xargons_revenge.prg`                   | Compressed running version       |
+| `Other Versions/`                       | Plus/4 World downloads, compared |
 
 `Xargon'sRevenge-C16.d64` is the source disk: 94 files in its live directory, 69 sequential and 25 program files. `Xargons-Revenge-C16-Side2/` is its 2026 extraction, with one file per directory entry and a `manifest.json` of hashes. Both 2026 images have the disk name `TITLE`. The 1992 `INDEX` lists the same disk as `XARGON'S REVENGE`, ID `MP`, with 100 files.
 
 `XargonsRevenge-C16.d64` and `Xargons-Revenge-C16-Side1/` hold three files: `LOADER` at `$0300`, `P1/$0C00-$1000` and `P2/$0800-$0C00`. They make a loading screen that says "written by micro projects limited", and the loader expects `P3` and `P4`, which aren't there. The build checks this disk against its extraction but doesn't use it.
 
-`DISK9 - Xargon's Revenge.ZIP` is a PKZIP 1.x archive (Implode and Shrink) dated 7 October 1992. Its 101 members are byte-identical to the 101 files in `DISK9/`, ignoring `.DS_Store`. The build checks this with `unzip -p`, or by CRC-32 and length when `unzip` isn't installed, and says which method it used. Text exports in `DISK9/` are lower case with CRLF line endings; the build normalises them in memory only.
+`DISK9 - Xargon's Revenge.ZIP` is a PKZIP 1.x archive (Implode and Shrink) dated 7 October 1992. It is also published as `DISK9.ZIP` in Mark Hardisty's Gremlin Graphics Archive, with the same CRC-32 and size ([Gremlin Archive and the Book](GREMLIN_ARCHIVE.md#in-this-project)). Its 101 members are byte-identical to the 101 files in `DISK9/`, ignoring `.DS_Store`. The build checks this with `unzip -p`, or by CRC-32 and length when `unzip` isn't installed, and says which method it used. Text exports in `DISK9/` are lower case with CRLF line endings; the build normalises them in memory only.
+
+`Other Versions/` holds six copies downloaded from Plus/4 World, including a tape of the original release, and a VICE snapshot of one of them. They are compared only, never used to build. [Other Versions](OTHER_VERSIONS.md) gives the source link and hash of each file.
 
 Host metadata (`.DS_Store`) is left out of every manifest and comparison.
 

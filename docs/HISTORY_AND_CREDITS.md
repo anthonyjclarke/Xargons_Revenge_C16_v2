@@ -40,6 +40,12 @@ Beyond that I don't remember much about making it. Anything else in this reposit
 
 ---
 
+## The Gremlin Archive and the Book
+
+Mark Hardisty's book *A Gremlin in the Works* (Bitmap Books), the officially endorsed history of Gremlin Graphics, tells the Micro Projects story, and I contributed to it. His [Gremlin Graphics Archive](https://www.gremlinarchive.com/) publishes my 1992 export of the development disks, including this game's `DISK9`, and introduces my part in [A Gremlin in the Works – Anthony Clarke](https://www.gremlinarchive.com/index.php/2017/07/31/a-gremlin-in-the-works-anthony-clarke/). [Gremlin Archive and the Book](GREMLIN_ARCHIVE.md) has the references and the archive's disk list.
+
+---
+
 ## What the Evidence Shows
 
 The two development disks are labelled "Revenge of Xargon (Xargon Wars II) (c) Micro Projects 1985" and "Xargon's Revenge (c) Micro Projects '85". The first suggests the working title. I don't know which label belongs to which 2026 disk image.

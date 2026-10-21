@@ -4,6 +4,32 @@ All notable changes to the Xargon's Revenge C16 preservation project. Dates are 
 
 ---
 
+## [1.3.0] 22-10-2026
+
+Comparison with copies of the game downloaded from Plus/4 World, including a tape of the original 1985 cassette, and the Gremlin Archive reference. Game v1 and v2 are unchanged (SHA-256 `32c13c88…adce33` and `0ee0a823…397665`).
+
+### Added
+
+- `docs/OTHER_VERSIONS.md`: what each of six downloaded copies contains, compared with game v1 and v2 and with `BJH`, `LANDSCAPE-1`, `LANDSCAPE-2` and `FRAK!`. The original release tape is byte-identical to game v2 when the game starts, and its own `$0C00` loader was traced making the faulty alien copy. Appendix A gives the Plus/4 World link, mirrors and SHA-256 for every file, plus the Gremlin Archive source of the development copies; Appendix B lists the site's entries not yet examined.
+- `docs/GREMLIN_ARCHIVE.md`: Mark Hardisty's book *A Gremlin in the Works* and his Gremlin Graphics Archive, the 1992 disk list from the archive's `READ.ME`, how to cite them, and how this project's files match the archive's `DISK9` and `DISK10`. The first five sections are written for reuse in the other Micro Projects reconstructions.
+- `scripts/compare_other_versions.py` and `scripts/other_versions_template.html`: place each copy in memory as its own loader would, load both tapes in VICE to the game's entry, and write `docs/analysis/other-versions.html`, a self-contained page decoding the aliens, landscape, font, banner and ship of every copy.
+- VICE captures of every copy, including both Novaload loading screens, in `docs/images/other-versions/`.
+- The `Other Versions/` folder as a read-only comparison input (`CLAUDE.md`, Source Inventory), and a `CLAUDE.md` note on loading C16 tapes in VICE.
+- History: a section on the Gremlin Archive and the book.
+
+### Changed
+
+- Game Versions: v2 is now confirmed as the released game from the original cassette, not just inferred from the running version. Open questions updated, including the archive's "Xargon's Revenge – 5 lives" disk.
+- Artifacts: the running version is byte-identical to Plus/4 World's main download, and a packed copy of the original release.
+- Source Inventory: the 1992 ZIP is also the archive's `DISK9.ZIP`.
+
+### Known limits
+
+- My own original disks, the archive's `DISK8` and `DISK10`, the Omnibus II and OPI copies haven't been examined yet.
+- Plus/4 World lists two Gremlin cassette releases; which one the tape image is isn't recorded.
+
+---
+
 ## [1.2.0] 21-10-2026
 
 Two playable game versions, built from the same preserved source (commit `11b5b37`, annotated tag `v1.2.0`). Game v1 (development) is unchanged (SHA-256 `32c13c88…adce33`).

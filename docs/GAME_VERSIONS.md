@@ -116,17 +116,20 @@ Collisions are decided by character codes, not by pixels, so the different shape
 The evidence shows:
 
 - v1 is what my source and my own boot program produced.
-- v2 is what the downloaded running version contains, and that copy carries a cassette loader, so v2 is most likely the released cassette game. I haven't seen an original cassette to confirm it.
+- v2 is the released game. A tape of the original 1985 Gremlin cassette, loaded in VICE, starts the game with memory byte-identical to v2 in the aliens, landscape, code and font. Its own loader at `$0C00`, the same bytes as the one in the running version, was caught making the faulty copy.
+- Gremlin's *C16 Classics II* compilation tape is the same release, apart from 7 bytes of screen RAM. The running version is a packed copy of it.
+- The v1 copies on Plus/4 World were built from my development disks in the Gremlin Archive ([Gremlin Archive and the Book](GREMLIN_ARCHIVE.md)), so they don't show that v1 was ever sold. [Other Versions](OTHER_VERSIONS.md) has the comparison, with the source of each file.
 - The difference comes from one `INC` operand in that loader. It looks like a typing slip rather than a deliberate change: the rest of the game is identical, and the source has sixteen designs that v2 never shows.
 
 As I recorded on 21 October 2026, I have no recollection of why there might be two versions. Maybe Gremlin Graphics, who published the game, gave us some feedback and wanted a different version. That is my speculation, not evidence; nothing in the source or on the disks shows a second build.
 
-Game v1 stays the default because it is the source as written. Game v2 is preserved because it is what people actually played, if the downloaded copy is the release.
+Game v1 stays the default because it is the source as written. Game v2 is preserved because it is what people actually played.
 
 ---
 
 ## Open Questions
 
 - Which development disk label goes with which 2026 disk image. I need to plug the hardware in and check.
-- Whether an original cassette shows the v2 aliens, which would confirm v2 as the release.
-- Why the packaging says 3 lives and 96 levels.
+- Answered 22 October 2026: the original release tape shows the v2 aliens. Imaging my own original disks is the final check ([Still to Check](OTHER_VERSIONS.md#still-to-check)).
+- Plus/4 World lists an original and an alternative Gremlin cassette release; which one the tape image is, isn't recorded.
+- Why the packaging says 3 lives and 96 levels. My 1992 archive names one disk "Xargon's Revenge – 5 lives", which suggests a version with a different number of lives existed, but every build I have starts with 5.

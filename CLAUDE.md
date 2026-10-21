@@ -23,6 +23,7 @@ Single entry point: `scripts/restore_c16.py`, which always builds both versions 
 ## Preservation Rules
 
 - Never modify, rename, re-encode or tidy anything in `Original Source Recovered/`, `Original Artifacts/` or `xargons_revenge.prg`. `.gitattributes` disables text conversion there; tests hash every input.
+- `Other Versions/` (Plus/4 World downloads plus a VICE snapshot) is read-only and compared only, never a build input. Its sources and hashes are recorded in `docs/OTHER_VERSIONS.md` Appendix A. `docs/GREMLIN_ARCHIVE.md` is shared with the other Micro Projects reconstructions; keep its first five sections project-neutral.
 - Never copy bytes from the running version into the build. Game v2 is derived from `BJH` by rule and only compared with the running version.
 - Gameplay changes go in a separate variant (not yet implemented), never into the preservation build. Tests fail on any output change by design.
 - `Xargons Revenge Prompt(Claude).md` is a local brief, git-ignored.
@@ -35,6 +36,7 @@ Single entry point: `scripts/restore_c16.py`, which always builds both versions 
 - VICE monitor numbers are hex (`ignore 1 24` = 36). After `delete`, the next breakpoint reuses #1. `BREAK:` lines only echo a set breakpoint; real stops are `#n (Stop on exec xxxx)`.
 - `scripts/capture_versions.py` forces `SHEET` at `STLOOP` and needs ≤48 loop passes so no capture catches a death.
 - VICE screenshots use `-TEDfilter 0`; colours match `docs/verification/ted-palette.json`, not any `.vpl` file.
+- VICE `-autostart` doesn't press Play for C16 tapes: attach with `-1`, type `LOAD` via `-keybuf`, then `tapectrl 1` in the monitor (`compare_other_versions.py`).
 - A machine reset ends VICE command playback, so the reset probe exits on its cycle limit (`check=False`).
 - Comments lie: `KEY-SCAN` says A/Z (code uses S/X), pause says HELP (code uses SPACE).
 - Packaging says 3 lives / 96 levels; code gives 5 lives and ends after 80 waves (probed).
