@@ -6,7 +6,7 @@ All notable changes to the Xargon's Revenge C16 preservation project. Dates are 
 
 ## [1.2.0] 21-10-2026
 
-Two playable game versions, built from the same preserved source. Game v1 (development) is unchanged (SHA-256 `32c13c88…adce33`).
+Two playable game versions, built from the same preserved source (commit `11b5b37`, annotated tag `v1.2.0`). Game v1 (development) is unchanged (SHA-256 `32c13c88…adce33`).
 
 ### Added
 
