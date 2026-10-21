@@ -38,7 +38,7 @@ The watcher reacts to Markdown, images, configuration and templates. It doesn't 
 
 ## Chapter Selection and Presentation
 
-`docs/handbook.json` sets the output path, the title and brand text, and the chapter order in two groups: the project guide (history, artwork, quick start, build, testing, validation, analysis, graphics, porting) and the reference and maintenance material. Every chapter is listed explicitly, so a new guide has to be added there before it appears. Machine instructions such as `CLAUDE.md` aren't chapters.
+`docs/handbook.json` sets the output path, the title and brand text, and the chapter order in two groups: the project guide (history, artwork, quick start, build, testing, validation, game versions, analysis, graphics, porting) and the reference and maintenance material. Every chapter is listed explicitly, so a new guide has to be added there before it appears. Machine instructions such as `CLAUDE.md` aren't chapters.
 
 `scripts/build_docs.mjs` gives each heading an ID namespaced by its document, rewrites links to included Markdown files, embeds local images as data URIs and fails on any broken link, missing section, missing file or remote image. Raw HTML in Markdown is escaped. Mermaid code blocks become diagrams in the browser, with their source in a collapsible block.
 

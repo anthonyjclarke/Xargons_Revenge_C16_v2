@@ -72,7 +72,7 @@ class Graphics:
         self.landscape = bytes.fromhex(assets['landscape']['hex'])
         self.font = bytes.fromhex(assets['font']['hex'])
         self.aliens = bytes.fromhex(assets['aliens']['hex'])
-        self.running = bytes.fromhex(assets['aliens_running_version']['hex'])
+        self.running = bytes.fromhex(assets['aliens_v2']['hex'])
         self.capture = assets['gameplay_capture']
         self.reg = self.capture['registers']
         assert len(self.landscape) == len(self.font) == 2048 and len(self.aliens) == 1024
@@ -127,11 +127,11 @@ def alien_rows(frame):
 
 
 def aliens(g, output):
-    im = canvas('Aliens: 16 waves, source graphics against the running version',
+    im = canvas('Aliens: game v1 (development) against game v2 (cassette release)',
                 'ALIDEF copies 64 bytes per sheet from ALDATA ($0400) to characters 213-220 ($3EA8).', 1180)
     assert list(g.table('YVAL1')[:4]) == [0, 1, 40, 41]
-    for half, (title, data) in enumerate((('Source build (BJH)', g.aliens),
-                                          ('Running version (tape-loader copy)', g.running))):
+    for half, (title, data) in enumerate((('Game v1: BJH as stored', g.aliens),
+                                          ('Game v2: tape-loader copy', g.running))):
         x0 = 40 + half * 580
         label(im, (x0, 118), title, 24)
         for alien in range(16):
@@ -145,9 +145,11 @@ def aliens(g, output):
             label(im, (x, y + 56), f'sheet {alien + 1}', 17)
             label(im, (x, y + 80), f'${0x400 + alien * 64:04X}', 15, MUTED)
             if half:
-                label(im, (x, y + 102), 'same' if same else 'shifted', 15, MUTED if same else '#b42318')
-    label(im, (40, 1040), 'Running version: page p ($0400 + p*256) holds BJH bytes from offset p, so sheets 5-16', 19)
-    label(im, (40, 1070), 'lose their top 1-3 pixel rows and gain bytes from the next character.', 19)
+                page, base = divmod(alien, 4)
+                text = 'same as v1' if same else f'= sheet {base + 1}, up {page}'
+                label(im, (x, y + 102), text, 15, MUTED if same else '#b42318')
+    label(im, (40, 1040), 'Game v2: page p ($0400 + p*256) holds BJH from offset p, so sheets 5-16 reuse the', 19)
+    label(im, (40, 1070), 'sheet 1-4 designs raised 1-3 pixel rows; the other 12 designs never appear.', 19)
     label(im, (40, 1110), 'Colour $47 on $31 is illustrative: each alien gets a random hue 1-7 and luminance 4-7.', 17, MUTED)
     im.save(output / 'alien-waves.png')
     frames = []
@@ -314,6 +316,61 @@ def banner(g, screenshot, output):
             'first_matching_direction_per_row': directions}
 
 
+PLAY = (ORIGIN[0], ORIGIN[1] + 32, ORIGIN[0] + 320, ORIGIN[1] + 160)  # rows 4-19
+
+
+def versions_overview(g, captures, report, output, first):
+    """Side-by-side VICE captures of both game versions on eight sheets."""
+    sheets = report['sheets'][first:first + 8]
+    im = canvas(f'Game v1 and v2 in play: sheets {first + 1}-{first + 8}',
+                f"VICE, same scripted start; SHEET set at STLOOP, then {report['loop_passes']} passes without input.",
+                150 + 8 * 150, 820)
+    label(im, (130, 112), 'Game v1 (development)', 20)
+    label(im, (470, 112), 'Game v2 (cassette release)', 20)
+    for i, row in enumerate(sheets):
+        y = 145 + i * 150
+        label(im, (32, y + 40), f"Sheet {row['sheet']}", 20)
+        diff = row['differing_pixels']
+        label(im, (32, y + 70), 'identical' if not diff else f'{diff} px differ', 15, MUTED if not diff else '#b42318')
+        for v, x in ((1, 130), (2, 470)):
+            shot = Image.open(captures / row[f'v{v}']['screenshot']).convert('RGB').crop(PLAY)
+            im.paste(shot, (x, y))
+    im.save(output / f"versions-sheets-{first + 1:02d}-{first + 8:02d}.png")
+
+
+def versions_detail(g, captures, report, output):
+    """Zoom on one alien per shift: sheet 1, 5, 9, 13 share a design in v2."""
+    im = canvas('One alien, four sheets: what the tape loader did',
+                'Crops from the VICE captures (x6) beside the decoded frame-0 glyphs for each version.', 820)
+    label(im, (220, 115), 'v1 capture', 18)
+    label(im, (380, 115), 'v2 capture', 18)
+    label(im, (560, 115), 'v1 glyphs', 18)
+    label(im, (720, 115), 'v2 glyphs', 18)
+    chosen = []
+    for k, sheet in enumerate((1, 5, 9, 13)):
+        row = report['sheets'][sheet - 1]
+        y = 150 + k * 150
+        page = (sheet - 1) // 4
+        label(im, (32, y + 20), f'Sheet {sheet}', 22)
+        label(im, (32, y + 52), 'v2 = v1 sheet 1' + (f', up {page}' if page else ''), 16, MUTED)
+        index = next(i for i, (x, yy, s) in enumerate(row['v1']['aliens_x_y_status'])
+                     if s in (0, 1) and 1 <= x <= 37 and yy <= 14)
+        x, yy, s = row['v1']['aliens_x_y_status'][index]
+        chosen.append({'sheet': sheet, 'alien': index, 'column': x, 'window_row': yy})
+        box = (PLAY[0] + x * 8, PLAY[1] + yy * 8, PLAY[0] + x * 8 + 16, PLAY[1] + yy * 8 + 16)
+        for v, x0 in ((1, 220), (2, 380)):
+            crop = Image.open(captures / row[f'v{v}']['screenshot']).convert('RGB').crop(box)
+            im.paste(enlarged(crop, 6), (x0, y))
+        for data, x0 in ((g.aliens, 560), (g.running, 720)):
+            bank = g.alien_bank(data, sheet - 1)
+            sprite = g.render(alien_rows(0), bank, 0x71, 0x00, 0, 0)
+            im.paste(enlarged(sprite, 6), (x0, y))
+            tile_grid(im, (x0, y), 2, 2, 6)
+    label(im, (32, 760), 'Live crops include whichever animation frame and colour the alien had at capture time.', 16, MUTED)
+    im.save(output / 'versions-detail.png')
+    return chosen
+
+
 def screen(g, screenshot, output):
     """Rebuild the captured frame's play window from RAM and compare pixel classes."""
     capture = Image.open(screenshot).convert('RGB')
@@ -389,6 +446,8 @@ def main():
     parser.add_argument('--output-dir', type=Path, default=ROOT / 'docs/analysis/graphics')
     parser.add_argument('--screenshot', type=Path, default=ROOT / 'docs/images/restored-later.png')
     parser.add_argument('--title-screenshot', type=Path, default=ROOT / 'docs/images/restored-title.png')
+    parser.add_argument('--versions', type=Path, default=ROOT / 'docs/verification/game-versions.json')
+    parser.add_argument('--captures', type=Path, default=ROOT / 'docs/images/versions')
     args = parser.parse_args()
     args.output_dir.mkdir(parents=True, exist_ok=True)
     assets = json.loads(args.assets.read_text())
@@ -400,6 +459,10 @@ def main():
     ship(g, args.output_dir)
     landscape(g, args.output_dir)
     check = screen(g, args.screenshot, args.output_dir)
+    version_report = json.loads(args.versions.read_text())
+    for first in (0, 8):
+        versions_overview(g, args.captures, version_report, args.output_dir, first)
+    detail = versions_detail(g, args.captures, version_report, args.output_dir)
     check.append(banner(g, args.title_screenshot, args.output_dir))
     manifest = {'method': 'Original glyph bits and tables; nearest-neighbour enlargement; schematic diagrams.',
                 'asset_data_sha256': digest(args.assets.read_bytes()),
@@ -408,6 +471,10 @@ def main():
                 'screenshot_sha256': digest(args.screenshot.read_bytes()),
                 'title_screenshot_sha256': digest(args.title_screenshot.read_bytes()),
                 'pixel_check': check,
+                'game_versions_sha256': digest(args.versions.read_bytes()),
+                'version_capture_sha256': {p.name: digest(p.read_bytes())
+                                           for p in sorted(args.captures.glob('*.png'))},
+                'version_detail_aliens': detail,
                 'gif_frame_order': [0, 1], 'gif_frame_duration_ms': 250,
                 'gif_timing': 'Illustration only; aliens change frame every ALISPD (5-8) main-loop passes.',
                 'images': {p.name: {'size': list(Image.open(p).size), 'sha256': digest(p.read_bytes())}

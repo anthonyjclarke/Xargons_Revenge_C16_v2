@@ -2,7 +2,7 @@
 
 ## Purpose, Scope and Evidence
 
-This analysis explains how the surviving Xargon's Revenge source works, so that someone can learn it, change it safely or carry it to another platform. It describes the reassembled source build, `build/xargons-revenge.prg`, whose code matches all 8,094 bytes of the original `OBJ` listing.
+This analysis explains how the surviving Xargon's Revenge source works, so that someone can learn it, change it safely or carry it to another platform. It describes the reassembled source build, whose code matches all 8,094 bytes of the original `OBJ` listing. The two playable versions, `build/xargons-revenge-v1.prg` (development) and `build/xargons-revenge-v2.prg` (cassette release), run identical code and differ only in the alien data at `$0400`; see [Game Versions](docs/GAME_VERSIONS.md).
 
 Four kinds of statement appear below, and they are kept apart:
 
@@ -301,7 +301,7 @@ Hits are detected by the aliens, not the laser: `PRTALI` sets `HITIT` if any of 
 
 `ALIDEF` takes `CONVTB[SHEET & 15]` (an identity table), multiplies by 64 and copies 64 bytes from `ALDATA` into chars 213–220: frame 0 in 213–216 and frame 1 in 217–220. It then calls `CALEXP`, which builds four explosion frames in chars 221–236 by repeatedly ANDing the alien glyphs with TED timer bytes. **Inference:** the explosion shapes therefore differ from run to run.
 
-**Observed:** the `alien-characters-per-sheet` probe shows chars 213–220 are identical between the rebuild and the running version for sheets 0–3, and different for sheets 4–15. See [Comparison with the Running Version](docs/SOURCE_AND_VALIDATION.md#comparison-with-the-running-version).
+**Observed:** the `alien-characters-per-sheet` probe shows chars 213–220 are identical between game v1 and the running version for sheets 0–3, and different for sheets 4–15. In the running version, and so in game v2, sheets 4–15 receive the sheet 0–3 designs raised 1–3 rows. See [Game Versions](docs/GAME_VERSIONS.md).
 
 ### Movement and Drawing
 
@@ -605,7 +605,7 @@ To watch it run, start VICE with `python3 scripts/run_vice.py`, open the monitor
 Verified:
 
 - The code matches all 8,094 `OBJ` bytes, and the running version's code is the same.
-- The running version's alien pages 1–3 are shifted by 1–3 bytes, changing sheets 5–16.
+- The running version's alien pages 1–3 start 1–3 bytes into `BJH`, so sheets 5–16 reuse the first four designs; game v2 reproduces this from source.
 - Extra lives arrive every 50,000 points; the game ends after wave 80.
 - Play starts with 5 lives in both versions.
 - Resets in VICE go to the ROM, not the trap.

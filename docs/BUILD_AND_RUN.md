@@ -38,16 +38,18 @@ python3 -m venv .venv && .venv/bin/pip install pillow
 
 ### Output Files
 
-| File                           | Contents                            |
-| :----------------------------- | :---------------------------------- |
-| `build/xargons-revenge.prg`    | The game, load `$0400`, run `$1800` |
-| `build/revenge.s`              | Generated ca65 source with markers  |
-| `build/revenge.lst`            | Assembler listing                   |
-| `build/revenge.labels`         | VICE monitor labels                 |
-| `build/revenge.map`, `.dbg`    | Linker map and debug information    |
-| `build/landscape.*`            | `ASSEM-GRAPHS` comparison build     |
-| `build/comparison.json`        | Sizes, hashes, `OBJ` comparison     |
-| `build/recovery-manifest.json` | Source selection and provenance     |
+| File                               | Contents                           |
+| :--------------------------------- | :--------------------------------- |
+| `build/xargons-revenge-v1.prg`     | Game v1 (development)              |
+| `build/xargons-revenge-v2.prg`     | Game v2 (cassette release)         |
+| `build/aliens-v1.s`, `aliens-v2.s` | Generated alien data source        |
+| `build/revenge.s`                  | Generated ca65 source with markers |
+| `build/revenge.lst`                | Assembler listing                  |
+| `build/revenge.labels`             | VICE monitor labels                |
+| `build/revenge.map`, `.dbg`        | Linker map and debug information   |
+| `build/landscape.*`                | `ASSEM-GRAPHS` comparison build    |
+| `build/comparison.json`            | Sizes, hashes, `OBJ` comparison    |
+| `build/recovery-manifest.json`     | Source selection and provenance    |
 
 Every module in `build/revenge.s` starts with a `; SOURCE: name:line` marker, so any generated line can be traced back to its original file.
 
@@ -61,7 +63,7 @@ pio run -e c16_debug
 pio run -e c16 -t upload
 ```
 
-The project pins `platformio/native@1.2.1` and replaces the native builder with `scripts/platformio_build.py`. `c16` writes `build/platformio/c16/xargons-revenge.prg`. `c16_debug` produces identical game bytes in its own folder, and the debug information is the same set of listing, labels, map and `.dbg` files. The `upload` target launches VICE with the built program.
+The project pins `platformio/native@1.2.1` and replaces the native builder with `scripts/platformio_build.py`. Every environment writes both game versions to `build/platformio/<environment>/`. `c16_debug` produces identical game bytes in its own folder, and the debug information is the same set of listing, labels, map and `.dbg` files. The `upload` target launches VICE: `c16` runs game v1 and `c16_v2` runs game v2.
 
 ### VS Code
 
@@ -72,7 +74,8 @@ Open the folder in VS Code and install the recommended extensions: PlatformIO, c
 ## Running the Game
 
 ```bash
-python3 scripts/run_vice.py
+python3 scripts/run_vice.py --game-version 1
+python3 scripts/run_vice.py --game-version 2
 python3 scripts/run_vice.py --original
 ```
 

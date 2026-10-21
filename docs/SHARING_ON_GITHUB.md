@@ -15,9 +15,9 @@ The public repository is [anthonyjclarke/Xargons_Revenge_C16_v2](https://github.
 1. records tool versions;
 2. builds from the preserved sources;
 3. runs the regression tests (the VICE test is skipped, because the runner has no `xplus4`);
-4. builds both PlatformIO environments and compares their bytes with the direct build;
+4. builds the three PlatformIO environments and compares both game versions in each with the direct build;
 5. checks the HTML handbook is up to date with Node 20;
-6. uploads the PRG, reports, generated source, labels, map and debug file.
+6. uploads both game PRGs, the generated alien sources, reports, generated source, labels, map and debug file.
 
 The VICE verification, rule probes and graphics are run locally and their results committed under `docs/`. CI doesn't repeat them.
 

@@ -34,6 +34,11 @@ class ViceTests(unittest.TestCase):
                               'padding below the font'})
             self.assertEqual([p['equals_BJH_offset'] for p in report['alien_pages_in_reference']],
                              ['$000', '$001', '$002', '$003'])
+            v2 = report['game_v2_vs_running_version']
+            self.assertEqual(set(v2['differences_by_region']),
+                             {'colour/screen RAM work area', 'padding below the font'})
+            self.assertTrue(v2['gameplay_loop_reached'])
+            self.assertEqual(report['release_tape_loader']['copy_loop']['inc_targets'], ['$0C34', '$0C38'])
             for name in ('restored-title.png', 'restored-gameplay.png', 'restored-later.png',
                          'loading-screen.png'):
                 self.assertTrue((build / name).read_bytes().startswith(b'\x89PNG'))

@@ -5,6 +5,41 @@
   "code_end": "$379D",
   "output_bytes": 15362,
   "sha256": "32c13c8867ea97bb4fd60ac9a73e5d7a600c04ece5699ac37680143c12adce33",
+  "game_versions": {
+    "v1": {
+      "name": "development",
+      "file": "xargons-revenge-v1.prg",
+      "bytes": 15362,
+      "sha256": "32c13c8867ea97bb4fd60ac9a73e5d7a600c04ece5699ac37680143c12adce33",
+      "aliens_sha256": "b2e1116533032e0c68d3cc2671261cc4d894b0373f88d27a2d005c04baefb9a0"
+    },
+    "v2": {
+      "name": "cassette release",
+      "file": "xargons-revenge-v2.prg",
+      "bytes": 15362,
+      "sha256": "0ee0a82306583c8bf4a17f44731eaeb411f098ba9c00d20885b26879cd397665",
+      "aliens_sha256": "9cc2811248583392a1bfef109fc8a790d29632e5a9cb8499dda6e03bea416c49"
+    },
+    "differences": {
+      "bytes": 735,
+      "first": "$0501",
+      "last": "$07FF",
+      "sheets_affected": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ]
+    }
+  },
   "object_listing_bytes": 8094,
   "object_listing_differences": 0,
   "first_object_differences": [],

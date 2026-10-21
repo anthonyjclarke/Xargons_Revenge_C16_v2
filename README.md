@@ -10,9 +10,20 @@ Open the [complete HTML handbook](docs/XARGONS_REVENGE.html) for the history, ar
 
 ## Verified Build
 
-The assembled code matches all **8,094 bytes in the original `OBJ` object listing**, with zero differences. The PRG is 15,362 bytes. It loads at `$0400`, where the alien graphics live, and the game starts at `$1800`. The landscape characters at `$1000` and the font at `$3800` are the binaries my own 1985 boot program loaded.
+The assembled code matches all **8,094 bytes in the original `OBJ` object listing**, with zero differences. Each PRG is 15,362 bytes, loads at `$0400`, where the alien graphics live, and starts at `$1800`. The landscape characters at `$1000` and the font at `$3800` are the binaries my own 1985 boot program loaded.
 
-In VICE, on a PAL C16 with 16 KB RAM, the rebuild draws its title, gets into gameplay and keeps playing. The running version I have is compressed; once it decompresses, its code, landscape and font are byte-identical to the rebuild. Its alien graphics aren't. A tape loader in that copy shifts three of the four alien pages by one, two and three bytes, so the aliens on sheets 5–16 look different. The rebuild keeps the source layout. [Source and Validation](docs/SOURCE_AND_VALIDATION.md) has the comparisons and limits.
+The build produces **two playable versions**, which differ only in their alien graphics:
+
+| Version | File                           | Aliens on sheets 5–16              |
+| :------ | :----------------------------- | :--------------------------------- |
+| Game v1 | `build/xargons-revenge-v1.prg` | Twelve more designs, as drawn      |
+| Game v2 | `build/xargons-revenge-v2.prg` | Sheet 1–4 designs, raised 1–3 rows |
+
+Game v1 (development) is my source as my boot program loaded it. Game v2 (cassette release) is what the downloaded running version contains: the way its tape loader copies the alien graphics means sheets 5–16 reuse the first four designs. Once that copy decompresses in VICE, v2 matches it byte for byte in the aliens, code, landscape and font. [Game Versions](docs/GAME_VERSIONS.md) explains the difference with screenshots of both versions on every sheet, and [Source and Validation](docs/SOURCE_AND_VALIDATION.md) has the other comparisons and limits.
+
+In VICE, on a PAL C16 with 16 KB RAM, both versions draw their title, get into gameplay and keep playing.
+
+![Game v1, sheet 9](docs/images/versions/v1-sheet09.png) ![Game v2, sheet 9](docs/images/versions/v2-sheet09.png)
 
 ![Restored title in VICE](docs/images/restored-title.png) ![Restored gameplay in VICE](docs/images/restored-later.png)
 
@@ -25,19 +36,21 @@ You need Python 3.9 or later and the cc65 tools (`ca65` and `ld65`), plus VICE (
 ```bash
 brew install cc65 vice
 ./build.sh
-python3 scripts/run_vice.py
+python3 scripts/run_vice.py --game-version 1
+python3 scripts/run_vice.py --game-version 2
 ```
 
-The output is `build/xargons-revenge.prg`. The launcher loads it at its saved address once the C16 has reset and jumps to `$1800`; the PRG has no BASIC `RUN` stub. `python3 scripts/run_vice.py --original` runs the compressed running version through its own `SYS 4109`.
+The outputs are `build/xargons-revenge-v1.prg` and `build/xargons-revenge-v2.prg`. The launcher loads the chosen version at its saved address once the C16 has reset and jumps to `$1800`; the PRGs have no BASIC `RUN` stub. `python3 scripts/run_vice.py --original` runs the compressed running version through its own `SYS 4109`.
 
 With PlatformIO Core installed, or from the PlatformIO terminal in VS Code:
 
 ```bash
 pio run -e c16
 pio run -e c16 -t upload
+pio run -e c16_v2 -t upload
 ```
 
-PlatformIO writes `build/platformio/c16/xargons-revenge.prg`, and the upload target launches VICE. The `c16_debug` environment produces identical game bytes, and every entry point runs the same `scripts/restore_c16.py` pipeline. [Quick Start](QUICKSTART.md) and [Build and Run](docs/BUILD_AND_RUN.md) have the details.
+Every environment writes both versions to `build/platformio/<environment>/`. The `c16` upload target launches game v1 in VICE and `c16_v2` launches game v2. The `c16_debug` environment produces identical game bytes, and every entry point runs the same `scripts/restore_c16.py` pipeline. [Quick Start](QUICKSTART.md) and [Build and Run](docs/BUILD_AND_RUN.md) have the details.
 
 The keys are **S** up, **X** down and **Return** fire, or a joystick in either port; SPACE pauses, G resumes and ESC returns to the title. On the title page J and K choose joystick or keyboard, and S and Q turn sound on and off. That matches the cassette inlay. I still need to test the keys and a joystick by hand.
 
@@ -55,7 +68,7 @@ The keys are **S** up, **X** down and **Return** fire, or a joystick in either p
 
 ## History and Recovery Background
 
-I was always a fan of Scramble, so I wanted to write a scrolling game, and this became the sequel to Xargon Wars. The source header says it was "written by the Mega" (a pseudonym for me, I think) and started "on a drizzly Saturday afternoon, 30 March". [History and Credits](docs/HISTORY_AND_CREDITS.md) separates what I remember from what the disks and packaging show.
+I was always a fan of Scramble, so I wanted to write a scrolling game, and this became the sequel to Xargon Wars. The source header says it was "written by the Mega" (possibly a pseudonym for me; I'm not sure) and started "on a drizzly Saturday afternoon, 30 March". [History and Credits](docs/HISTORY_AND_CREDITS.md) separates what I remember from what the disks and packaging show.
 
 The recovery story, my original development set-up and the recovery-tool acknowledgements are in my companion [Dorks Dilemma C16 repository](https://github.com/anthonyjclarke/Dorks_Dilemma_C16), especially its [Development History](https://github.com/anthonyjclarke/Dorks_Dilemma_C16/blob/main/docs/DEVELOPMENT_HISTORY.md). This project reuses that restoration's build approach, so I haven't repeated the story here.
 

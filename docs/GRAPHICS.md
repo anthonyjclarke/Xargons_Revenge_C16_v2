@@ -24,13 +24,13 @@ To check the decoding, the script rebuilds the status rows and play-window rows 
 
 ![Sixteen alien waves, source against the running version](analysis/graphics/alien-waves.png)
 
-`ALIDEF` copies one 64-byte entry from `ALDATA` (`$0400`) into codes 213–220 at the start of every wave: frame 0 into 213–216 and frame 1 into 217–220, drawn as a 2 × 2 block. The left half shows the source graphics, `BJH`, as the rebuild loads them.
+`ALIDEF` copies one 64-byte entry from `ALDATA` (`$0400`) into codes 213–220 at the start of every wave: frame 0 into 213–216 and frame 1 into 217–220, drawn as a 2 × 2 block. The left half shows game v1: the source graphics, `BJH`, as my development loader placed them.
 
-The right half shows the running version I have. Its tape loader copies page *p* of the alien data from offset *p* instead of *p* × 256, so pages 1–3 are shifted by one, two and three bytes. Sheets 1–4 are unaffected; the aliens on sheets 5–16 lose their top rows and pick up bytes from the next character. This is the only graphics difference between the two versions.
+The right half shows game v2, the cassette release found in the running version I have. Its tape loader copies page *p* of the alien data from `BJH` offset *p* instead of *p* × 256, so every page comes from the first 259 bytes. Sheets 5–16 reuse the sheet 1–4 designs, raised one, two or three pixel rows with rows wrapped in from the next character, and twelve designs never appear. This is the only graphics difference between the two versions; [Game Versions](GAME_VERSIONS.md) shows both in play on every sheet.
 
-![Alien 5 animating, source left and running version right](analysis/graphics/alien-animation.gif)
+![Sheet 5 alien animating, game v1 left and game v2 right](analysis/graphics/alien-animation.gif)
 
-The animation alternates the two frames of the alien for sheet 5. Its 250 ms frame time is for illustration; in the game an alien changes frame each time it steps, every 5–8 main-loop passes.
+The animation alternates the two frames of the alien for sheet 5: its own design in v1, and the sheet 1 arrow raised one row in v2. Its 250 ms frame time is for illustration; in the game an alien changes frame each time it steps, every 5–8 main-loop passes.
 
 The atlas below shows all 128 source glyphs with their addresses, one alien per row, labelled with the play-area code each is copied to. Its colours are neutral index keys.
 

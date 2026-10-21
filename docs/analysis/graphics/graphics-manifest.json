@@ -1,6 +1,6 @@
 {
   "method": "Original glyph bits and tables; nearest-neighbour enlargement; schematic diagrams.",
-  "asset_data_sha256": "609d026af57bc5983c9f15535322d7b7ddfe55324570d79dfab3af5539da569f",
+  "asset_data_sha256": "d87184c574dbd876640f807a4ee73cbff99042fe5cc83dd954a12d09afe7a208",
   "palette_sha256": "58403385a20f3c8ec19fe2947e987616c010128cc9e9430128930bfbe0274a40",
   "palette_source": "VICE xplus4 c16pal, -TEDfilter 0, internal palette; ROM code 160 cells with colour RAM 0-127 at screen origin (32, 40)",
   "screenshot_sha256": "249c4afd3a85e7a51afd9a8e36ce3ffff48ef29cb53182401e3835bacfdcf95d",
@@ -59,6 +59,67 @@
       ]
     }
   ],
+  "game_versions_sha256": "736e2c663565f232764de65558249aa2a82318d9cfcb3875ade6abae11800401",
+  "version_capture_sha256": {
+    "v1-sheet01.png": "b729fc292e51e1a85838c30678d2116bc9b6b8ee7131b83e3316fa8d08945e64",
+    "v1-sheet02.png": "07cfcc89c34ca5fab8c0fb3f00c00655883a7e9d29223fed640954789857a457",
+    "v1-sheet03.png": "3c4588ebfe20082c19bf073cf0fb3092ad1c996f49cf4c07c295172809530a41",
+    "v1-sheet04.png": "3ad6ce1a97acde3eb4966ebd23f6b644776382d0657f04272e88bc164316caba",
+    "v1-sheet05.png": "e69210fce77d04b2eb1253568180579b54eb2b47415f9c095589b460068a7489",
+    "v1-sheet06.png": "bb1ca76436148035f22b08c76532a9760cf33c9b688fec6562dbca64bd1195cb",
+    "v1-sheet07.png": "168708c2d91922523157c7264cbfa639840d37e44dc7117628bda5c7748995b6",
+    "v1-sheet08.png": "198e3ba152ec46e35f8f73bf2466729551265a5b0e7b3a6eb4243bb25fb83867",
+    "v1-sheet09.png": "e707ab6957919d23295c2a1828a8b01d92fa240ccad98b4af8e6eb3e2ff5b461",
+    "v1-sheet10.png": "0734a7d6ad0249aef0a560d9c1e503d0ebf4257cff83fffbeb824ef00785114b",
+    "v1-sheet11.png": "02fde6da296d9341ee91c4848cdd3e8c616f59e7760327638cf42d9b240ee4a6",
+    "v1-sheet12.png": "c37784f3168fd744912fb9108d737b7d3bf717ac3c0f9646eff96b3a7b17d6d9",
+    "v1-sheet13.png": "d61818e12e3c943232af2789b0bcd28d7178eadc0139d2d8076174b08f3224f9",
+    "v1-sheet14.png": "1ef2f0b21470b64f575f2320e9db03a40d7ad49a6806d86448db09e6f0213f51",
+    "v1-sheet15.png": "14f1c4fa920f692d7f8cdaf64efd09506f0f30e3fc35b10aed118e8a4aaff376",
+    "v1-sheet16.png": "63fadb98ad492e3a6498abd5d0e69b16dd80326de4350b647a970ec8581eee8e",
+    "v2-sheet01.png": "b729fc292e51e1a85838c30678d2116bc9b6b8ee7131b83e3316fa8d08945e64",
+    "v2-sheet02.png": "07cfcc89c34ca5fab8c0fb3f00c00655883a7e9d29223fed640954789857a457",
+    "v2-sheet03.png": "3c4588ebfe20082c19bf073cf0fb3092ad1c996f49cf4c07c295172809530a41",
+    "v2-sheet04.png": "3ad6ce1a97acde3eb4966ebd23f6b644776382d0657f04272e88bc164316caba",
+    "v2-sheet05.png": "680418224d695c7357bf9ca5fd62498ca944ae6cc487942589e1150d6c9e47a3",
+    "v2-sheet06.png": "7474b0602d73bfc9a6d1ed44054a127d314e0b56b83c529a8b54e397d37a8e17",
+    "v2-sheet07.png": "7949dc0cda435a26d3478aa557fe9d322d2b526874a180de076d3c774c9a1280",
+    "v2-sheet08.png": "115041c0b202df8b1e5481203312592d7f17857f6473acc07884a6646a83c920",
+    "v2-sheet09.png": "70f9aaff80db89accc5ccebdc3cb55ff3a378e28cd7dc11cfd7ab6f7dcbc1ff7",
+    "v2-sheet10.png": "c75a96dfef638e3cf61ba7ddea100e34a4e8d5c99ce4d6b6a7849a08358470b1",
+    "v2-sheet11.png": "9718c0a7461da5382a9e2ebf3bf1ddd5c67a05720d3e61b450c539dae0c4d7a9",
+    "v2-sheet12.png": "34c25e12430d9bd3ca3e951c348469131bc076b5d2262a93a50954b4455f129f",
+    "v2-sheet13.png": "bd8f72570ba4baec76a582f503acd8a9d2dfa2bfe0a56c50f1d02cabe97f3e01",
+    "v2-sheet14.png": "0061bc4fcf1be85cce09960d5137bd2593a362428396d56d382018dcfb8d63ed",
+    "v2-sheet15.png": "1c335c2db56cf4163317d0bdaf02b784083928d260bc63ba3923b840755f026a",
+    "v2-sheet16.png": "8af7d8cfbe894bb45c25e78bb5a293ce20d63aaa3365628c8e9d9af9d7ea958b"
+  },
+  "version_detail_aliens": [
+    {
+      "sheet": 1,
+      "alien": 0,
+      "column": 17,
+      "window_row": 4
+    },
+    {
+      "sheet": 5,
+      "alien": 0,
+      "column": 24,
+      "window_row": 0
+    },
+    {
+      "sheet": 9,
+      "alien": 0,
+      "column": 19,
+      "window_row": 5
+    },
+    {
+      "sheet": 13,
+      "alien": 0,
+      "column": 18,
+      "window_row": 9
+    }
+  ],
   "gif_frame_order": [
     0,
     1
@@ -78,7 +139,7 @@
         1200,
         1180
       ],
-      "sha256": "206d2c42340e35ff31a7f7e375034b62a7593431378f69d115d99f4cbb051d07"
+      "sha256": "2dd6564fe95db939111b81ccfba873e164ce5f728eec71bdad5790d59b531b51"
     },
     "landscape-motifs.png": {
       "size": [
@@ -107,6 +168,27 @@
         660
       ],
       "sha256": "2c0e599f323e498f795baadce00bd04f28448c6b5f90cfadbbec8cf4f42b8994"
+    },
+    "versions-detail.png": {
+      "size": [
+        1200,
+        820
+      ],
+      "sha256": "33fe5313ab478951790e4fe09bd5b004fd0f0948286f4716663d19d704c0eac6"
+    },
+    "versions-sheets-01-08.png": {
+      "size": [
+        820,
+        1350
+      ],
+      "sha256": "551dbd3be1292e00ee3a703e9b04a6e49bf774971ad8e97a43935917b2271dbb"
+    },
+    "versions-sheets-09-16.png": {
+      "size": [
+        820,
+        1350
+      ],
+      "sha256": "f72f9174dbd2dd155c115f7d7d2ba9a440338a79bae11f5d9fe1208ddb581270"
     }
   }
 }

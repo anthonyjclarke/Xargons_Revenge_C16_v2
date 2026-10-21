@@ -8,18 +8,19 @@ make test
 
 This runs `python3 -m unittest discover -s test -p 'test_*.py' -v`. `test/test_restoration.py` builds into a temporary folder and checks:
 
-| Test                        | What it protects                        |
-| :-------------------------- | :-------------------------------------- |
-| PRG baseline                | Size, `$0400` header, SHA-256           |
-| Object records              | All 8,094 `OBJ` bytes, padding          |
-| Fresh modules and fallbacks | 94 disk files, exactly six fallbacks    |
-| Older export agreement      | One comment byte, ZIP equals folder     |
-| Graphics provenance         | `BJH`, `LANDSCAPE-2`, `FRAK!` placement |
-| Inputs unchanged            | Hashes of every preserved file          |
-| Includes                    | Missing, ambiguous, recursive fail      |
-| Historical syntax           | Labels, equates, strings, reservations  |
-| Conversion hazards          | CR-only splitting, case folding         |
-| Malformed inputs            | Bad hex records, cyclic or short disks  |
+| Test                        | What it protects                         |
+| :-------------------------- | :--------------------------------------- |
+| PRG baseline                | Size, `$0400` header, SHA-256            |
+| Game v2                     | Hash, loader rule, only 735 bytes differ |
+| Object records              | All 8,094 `OBJ` bytes, padding           |
+| Fresh modules and fallbacks | 94 disk files, exactly six fallbacks     |
+| Older export agreement      | One comment byte, ZIP equals folder      |
+| Graphics provenance         | `BJH`, `LANDSCAPE-2`, `FRAK!` placement  |
+| Inputs unchanged            | Hashes of every preserved file           |
+| Includes                    | Missing, ambiguous, recursive fail       |
+| Historical syntax           | Labels, equates, strings, reservations   |
+| Conversion hazards          | CR-only splitting, case folding          |
+| Malformed inputs            | Bad hex records, cyclic or short disks   |
 
 `test/test_vice.py` builds into a temporary folder and runs the whole VICE verification. When `xplus4` isn't installed it is reported as **skipped**, never as passed, and the skip message says the title, gameplay and reference checks weren't run.
 
@@ -30,11 +31,11 @@ This runs `python3 -m unittest discover -s test -p 'test_*.py' -v`. `test/test_r
 ```bash
 ./build.sh
 pio run -e c16 -e c16_debug
-cmp build/xargons-revenge.prg build/platformio/c16/xargons-revenge.prg
-cmp build/xargons-revenge.prg build/platformio/c16_debug/xargons-revenge.prg
+cmp build/xargons-revenge-v1.prg build/platformio/c16/xargons-revenge-v1.prg
+cmp build/xargons-revenge-v2.prg build/platformio/c16_v2/xargons-revenge-v2.prg
 ```
 
-All four entry points produce identical bytes: `build.sh`, `make`, `pio run -e c16` and `pio run -e c16_debug`. The GitHub workflow runs the same comparison.
+All entry points produce identical bytes for both game versions: `build.sh`, `make`, `pio run -e c16`, `pio run -e c16_debug` and `pio run -e c16_v2`. The GitHub workflow compares both versions in every environment.
 
 ---
 
@@ -64,6 +65,16 @@ make probes
 ```
 
 `scripts/probe_gameplay_rules.py` calls single original routines with controlled memory: four score and extra-life cases, `ALIDEF` for every sheet in both versions, `COMPLE` at four points in the game, and resets during play. The results are in [`rule-probes.json`](docs/verification/rule-probes.json) and summarised in [Source and Validation](docs/SOURCE_AND_VALIDATION.md#rule-probes).
+
+---
+
+## Game Version Captures
+
+```bash
+make versions
+```
+
+`scripts/capture_versions.py` plays game v1 and game v2 on each of the 16 sheets: one scripted fire press, `SHEET` set at `STLOOP`, then 48 main-loop passes without input. It fails unless the alien characters in memory are the expected ones for that version and sheet, the ship is still alive, sheets 1–4 are pixel-identical and sheets 5–16 differ. The results are in [`game-versions.json`](docs/verification/game-versions.json) and the screenshots in `docs/images/versions/`.
 
 ---
 

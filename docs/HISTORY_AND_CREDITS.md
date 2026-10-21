@@ -26,10 +26,15 @@ These are what I remember, as I recorded them on 21 October 2026:
 
 - I wrote Xargon Wars, and this game is its sequel.
 - I was always a fan of Scramble, so I wanted to write a scrolling game.
-- "The Mega" in the source header is, I think, a pseudonym for me.
+- "The Mega" in the source header is, I think, a pseudonym for me (see the open questions below).
 - I'm not sure who else helped on this game. When I had help, it would normally be credited in the source, and this source names nobody else.
 - I don't remember when it was finished or released. Games typically took 60 to 90 days.
 - I don't recall the loading screen on the second disk being used.
+
+Later the same day, after seeing the two game versions, I added:
+
+- I have no recollection of why there might be two versions. Maybe Gremlin Graphics, who published the game, gave us some feedback and wanted a different version. This is speculation; [Game Versions](GAME_VERSIONS.md) sets out what the evidence shows.
+- I'm no longer sure that "The Mega" was me.
 
 Beyond that I don't remember much about making it. Anything else in this repository comes from the source, the disks or the packaging, not from memory.
 
@@ -42,6 +47,16 @@ The two development disks are labelled "Revenge of Xargon (Xargon Wars II) (c) M
 The scrolling message in the game credits "Xargon's Revenge © Micro Projects 1985", advertises other Gremlin C16/Plus 4 games (Xargon Wars, Petals of Doom, Tycoon Tex, Dork's Dilemma and Sword of Destiny) and thanks "all those who helped in the production and design of this game" without naming anyone. The sound module's header says it is "an attempt to write a nice routine like our mate Robbie does"; the source doesn't say who Robbie is.
 
 The game was sold on cassette for £6.95 and later appeared on the *C16/Plus 4 Classics II* compilation from Gremlin Graphics, with Blagger, Monkey Magic and Timeslip. The packaging says "96 levels – 16 waves – 3 lives". The surviving source ends the game after 80 waves and starts with 5 lives, as [Codebase Analysis](../CODEBASE_ANALYSIS.md#waves-levels-and-completion) explains; I can't say whether the packaging describes an earlier plan or another release.
+
+---
+
+## Open Questions
+
+**Who was "The Mega"?** The `REVENGE` header says "XARGON II WRITTEN BY THE MEGA BEING HIMSELF !!!". The word recurs as a nickname-style label throughout this source: the `FIRING-MEGA/CODE` module, "MEGA TABLES", "DO MEGA CODE", "TIME FOR A MEGA PLANET" and the completion message "CONGRATULATIONS MEGA PERSON!". The `MEGA-SUPER` hex loader on this disk is also on the Tycoon Tex disk. In my Tycoon Tex source, which credits the programming to Micro Projects, the title-page module says "(C) MEGA-CODER OF M.P.L" (presumably Micro Projects Ltd), and there are modules called `FIRING/MEGACODE` and `DEMO-MEGA/CODE`. No other name appears in this source. That points to the programmer who wrote both games, but it doesn't prove who used the name.
+
+**Which disk is which?** I need to plug in the hardware to check which labelled disk in the photo was captured as which 2026 disk image.
+
+**Why two versions, and why does the packaging say 3 lives and 96 levels?** Neither game version matches the packaging, and nothing on the disks explains it.
 
 ---
 

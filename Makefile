@@ -1,13 +1,16 @@
 PYTHON ?= python3
 NODE ?= node
 
-.PHONY: all run run-original test verify probes clean docs docs-html docs-watch docs-check test-docs
+.PHONY: all run run-v2 run-original test verify probes versions clean docs docs-html docs-watch docs-check test-docs
 
 all:
 	$(PYTHON) scripts/restore_c16.py
 
 run: all
-	$(PYTHON) scripts/run_vice.py
+	$(PYTHON) scripts/run_vice.py --game-version 1
+
+run-v2: all
+	$(PYTHON) scripts/run_vice.py --game-version 2
 
 run-original:
 	$(PYTHON) scripts/run_vice.py --original
@@ -20,6 +23,9 @@ verify: all
 
 probes: verify
 	$(PYTHON) scripts/probe_gameplay_rules.py
+
+versions: all
+	$(PYTHON) scripts/capture_versions.py
 
 docs: all
 	$(PYTHON) scripts/analyze_codebase.py

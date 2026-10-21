@@ -25,10 +25,14 @@ def launch(program, entry=ENTRY):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('program', nargs='?', type=Path, default=ROOT / 'build/xargons-revenge.prg')
+    parser.add_argument('program', nargs='?', type=Path,
+                        help='PRG to run (default: build/xargons-revenge-v<version>.prg)')
+    parser.add_argument('--game-version', type=int, choices=(1, 2), default=1,
+                        help='1 = development (source aliens), 2 = cassette release (shifted aliens)')
     parser.add_argument('--original', action='store_true',
                         help='Run the supplied packed PRG through its BASIC SYS 4109 entry')
     parser.add_argument('--entry', type=lambda s: int(s, 0), default=ENTRY)
     args = parser.parse_args()
     # The packed PRG loads at $1001; its decompressor starts at $100D.
-    launch(REFERENCE if args.original else args.program, 0x100D if args.original else args.entry)
+    program = args.program or ROOT / f'build/xargons-revenge-v{args.game_version}.prg'
+    launch(REFERENCE if args.original else program, 0x100D if args.original else args.entry)

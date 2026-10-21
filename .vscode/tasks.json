@@ -34,13 +34,29 @@
             "problemMatcher": []
         },
         {
-            "label": "PlatformIO: Run in VICE",
+            "label": "PlatformIO: Run Game v1 in VICE",
             "type": "process",
             "command": "pio",
             "args": [
                 "run",
                 "-e",
                 "c16",
+                "-t",
+                "upload"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "PlatformIO: Run Game v2 in VICE",
+            "type": "process",
+            "command": "pio",
+            "args": [
+                "run",
+                "-e",
+                "c16_v2",
                 "-t",
                 "upload"
             ],
@@ -78,11 +94,28 @@
             "problemMatcher": []
         },
         {
-            "label": "Run: Xargon's Revenge in VICE",
+            "label": "Run: Game v1 (development) in VICE",
             "type": "process",
             "command": "python3",
             "args": [
-                "scripts/run_vice.py"
+                "scripts/run_vice.py",
+                "--game-version",
+                "1"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [],
+            "dependsOn": "Build: Xargon's Revenge"
+        },
+        {
+            "label": "Run: Game v2 (cassette release) in VICE",
+            "type": "process",
+            "command": "python3",
+            "args": [
+                "scripts/run_vice.py",
+                "--game-version",
+                "2"
             ],
             "options": {
                 "cwd": "${workspaceFolder}"

@@ -12,12 +12,13 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
 from d64_image import D64Image
 from restore_c16 import (ROOT, IMAGE, OLDER, REFERENCE, build_game, cbm_lines, mos_hex,
-                         pc_lines, prepare_sources)
+                         pc_lines, prepare_sources, version_aliens)
 from source_converter import convert, flatten
 
 FALLBACKS = {'ALI-PRINT&CLEAR', 'COMPLETED-SHEET', 'DATA-LAND/CHARS',
              'FIRING-MEGA/CODE', 'RASTER-ROUTINES', 'WHOOPPEE-MESSAGE'}
 PRG_SHA256 = '32c13c8867ea97bb4fd60ac9a73e5d7a600c04ece5699ac37680143c12adce33'
+PRG_V2_SHA256 = '0ee0a82306583c8bf4a17f44731eaeb411f098ba9c00d20885b26879cd397665'
 
 
 class RestorationTests(unittest.TestCase):
@@ -31,6 +32,7 @@ class RestorationTests(unittest.TestCase):
         cls.before[REFERENCE] = hashlib.sha256(REFERENCE.read_bytes()).hexdigest()
         with contextlib.redirect_stdout(io.StringIO()):
             cls.output = build_game(cls.build).read_bytes()
+        cls.output_v2 = (cls.build / 'xargons-revenge-v2.prg').read_bytes()
         cls.manifest = json.loads((cls.build / 'recovery-manifest.json').read_text())
         cls.comparison = json.loads((cls.build / 'comparison.json').read_text())
         cls.sources, cls.binaries, _ = prepare_sources(cls.build / 'inputs')
@@ -43,6 +45,22 @@ class RestorationTests(unittest.TestCase):
         self.assertEqual(len(self.output), 15362)
         self.assertEqual(self.output[:2], b'\x00\x04')
         self.assertEqual(hashlib.sha256(self.output).hexdigest(), PRG_SHA256)
+
+    def test_game_v2_differs_only_by_the_tape_loader_rule(self):
+        self.assertEqual(hashlib.sha256(self.output_v2).hexdigest(), PRG_V2_SHA256)
+        bjh = self.binaries['BJH'][2:]
+        self.assertEqual(self.output_v2[2:0x402], b''.join(bjh[p:p + 256] for p in range(4)))
+        self.assertEqual(self.output_v2[2:0x402], version_aliens(bjh, 2))
+        self.assertEqual(self.output_v2[0x402:], self.output[0x402:])
+        differing = [a for a, (x, y) in enumerate(zip(self.output, self.output_v2)) if x != y]
+        self.assertEqual(len(differing), 735)
+        self.assertEqual((min(differing) - 2 + 0x400, max(differing) - 2 + 0x400), (0x0501, 0x07FF))
+        # Pages 1-3 repeat page 0's sheet 1-4 designs, raised by 1-3 bytes.
+        for sheet in range(4, 16):
+            page, base = divmod(sheet, 4)
+            alien = self.output_v2[2 + sheet * 64:2 + sheet * 64 + 64]
+            self.assertEqual(alien, bjh[base * 64 + page:base * 64 + page + 64])
+        self.assertIn('ALDATA for game v2', (self.build / 'aliens-v2.s').read_text())
 
     def test_all_object_records_match_assembled_code(self):
         obj = mos_hex(self.sources['OBJ'])

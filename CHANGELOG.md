@@ -4,6 +4,37 @@ All notable changes to the Xargon's Revenge C16 preservation project. Dates are 
 
 ---
 
+## [1.2.0] 21-10-2026
+
+Two playable game versions, built from the same preserved source. Game v1 (development) is unchanged (SHA-256 `32c13c88…adce33`).
+
+### Added
+
+- Game v2 (cassette release), `build/xargons-revenge-v2.prg` (SHA-256 `0ee0a823…397665`): the alien data placed as the release tape loader copied it, derived from `BJH` by rule. In VICE it equals the decompressed running version in the aliens, landscape, code and font.
+- Generated alien data sources `build/aliens-v1.s` and `build/aliens-v2.s`, assembled into the PRGs with per-sheet provenance comments.
+- `docs/GAME_VERSIONS.md`: how the versions arise, the tape loader's copy loop, the sheet-by-sheet effect, what is the same, and open questions.
+- `scripts/capture_versions.py` and `make versions`: VICE captures of both versions on all 16 sheets with identical game state (`docs/images/versions/`, `docs/verification/game-versions.json`); sheets 1–4 are pixel-identical and sheets 5–16 differ.
+- Figures `versions-sheets-01-08.png`, `versions-sheets-09-16.png` and `versions-detail.png`.
+- `docs/verification/release-tape-loader.s`, a disassembly of the loader left at `$0C00` in the running version (evidence only).
+- PlatformIO environment `c16_v2` (upload runs game v2), `run_vice.py --game-version`, `make run-v2`, VS Code tasks for both versions, and a test of the v2 rule.
+- History: answers of 21 October 2026, and open questions on "The Mega", the disk labels and the packaging.
+
+### Changed
+
+- Outputs renamed from `build/xargons-revenge.prg` to `build/xargons-revenge-v1.prg` and `-v2.prg`. CI compares both versions in all three PlatformIO environments.
+- `asset-data.json` key `aliens_running_version` renamed `aliens_v2`.
+
+### Fixed
+
+- v1.1.0 said the running version's aliens on sheets 5–16 were their own designs "shifted". In fact each page copies from `BJH` offset *p*, so sheets 5–16 show the sheet 1–4 designs raised 1–3 rows, and twelve designs never appear. Corrected in the analysis, graphics, validation and README.
+
+### Known limits
+
+- No original cassette has been examined; that v2 is the released game rests on the downloaded copy carrying a tape loader.
+- The packaging's "3 lives" and "96 levels" match neither version.
+
+---
+
 ## [1.1.0] 21-10-2026
 
 Documentation, analysis, graphics and handbook release (commit `5336112`, annotated tag `v1.1.0`). The game PRG is unchanged (SHA-256 `32c13c88…adce33`).

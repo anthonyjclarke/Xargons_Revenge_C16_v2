@@ -24,6 +24,7 @@
   "manual_keyboard_joystick_sound_and_full_playthrough": "not verified",
   "reference_sha256": "8f50988e867e54b2ce77cc1ebd89e4f575adcd69fd026cc836c7ec3940ef3b91",
   "reference_compared_at": "$1800 before the first game instruction",
+  "compared_with_reference": "game v1 (development); see game_v2_vs_running_version for v2",
   "reference_unpacked_sha256": "1b22b632ee826b7825e73b004d2ce02c02e182e4c46e7c6e7d9408c671e4576a",
   "reference_reached_gameplay_loop": true,
   "reference_lives": 5,
@@ -67,6 +68,44 @@
     }
   ],
   "byte_identical_to_running_version": false,
+  "game_v2_vs_running_version": {
+    "differences_by_region": {
+      "colour/screen RAM work area": {
+        "bytes": 1859,
+        "first": "$0804",
+        "last": "$0FFF"
+      },
+      "padding below the font": {
+        "bytes": 87,
+        "first": "$379E",
+        "last": "$37FE"
+      }
+    },
+    "identical_regions": [
+      "$0400-$07FF aliens",
+      "$1000-$17FF landscape",
+      "$1800-$379D code",
+      "$3800-$3FFF font"
+    ],
+    "gameplay_loop_reached": true,
+    "lives": 5,
+    "after_main_loop_passes_lives": 3
+  },
+  "release_tape_loader": {
+    "address": "$0C00",
+    "bytes_sha256": "ad457b5f300b903a3e3fbdda67dac6cb296ac5441912f10656a0c46c1d00977a",
+    "device": 1,
+    "filename_after_last_load": "P5",
+    "copy_loop": {
+      "lda_operand_after_loop": "$0804",
+      "sta_operand_after_loop": "$0800",
+      "inc_targets": [
+        "$0C34",
+        "$0C38"
+      ],
+      "meaning": "INC $0C34 bumps the LDA operand low byte (source +1 per page); INC $0C38 bumps the STA operand high byte (destination +256)"
+    }
+  },
   "loading_screen_files": [
     "002_P1~2F~240C00-~241000.prg",
     "003_P2~2F~240800-~240C00.prg"

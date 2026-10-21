@@ -24,11 +24,11 @@ A **same-platform derivative** keeps the TED, the raster bands and the character
 
 ## Protect the Preservation Build
 
-The verified build is `build/xargons-revenge.prg`, SHA-256 `32c13c88…adce33`, and `make test` fails if a single byte changes. Keep it that way. Proposed workflow for any variant:
+The verified builds are `build/xargons-revenge-v1.prg` (SHA-256 `32c13c88…adce33`) and `build/xargons-revenge-v2.prg` (`0ee0a823…397665`), and `make test` fails if a single byte of either changes. Keep it that way. Proposed workflow for any variant:
 
 1. Leave `Original Source Recovered/` and `scripts/restore_c16.py` untouched.
 2. Add a separate variant definition (for example `variants/<name>/`) holding replacement modules or patches keyed by module name and line number.
-3. Give the variant its own output name and its own tests, and never let it overwrite `build/xargons-revenge.prg`.
+3. Give the variant its own output name and its own tests, and never let it overwrite either `build/xargons-revenge-v1.prg` or `build/xargons-revenge-v2.prg`.
 4. Run the preservation tests on every change, so you know the original still builds.
 
 This variant mechanism is a proposal. It isn't implemented, and none of the existing Make, PlatformIO or CI targets would build a variant today.
@@ -147,20 +147,20 @@ A new shot needs the fire input to change state (`OLDFIR`), so a held button fir
 
 ## Rules That Need an Explicit Compatibility Choice
 
-| Behaviour                       | Source (verified)        | Choice for a derivative          |
-| :------------------------------ | :----------------------- | :------------------------------- |
-| Alien graphics, sheets 5–16     | `BJH` as stored          | Source, or running-version shift |
-| Starting lives                  | 5 (probe, both versions) | 5, or 3 as on the packaging      |
-| Game length                     | 80 waves (probe)         | 80, or 96 as advertised          |
-| Points per alien                | 50–350 by wave (static)  | Keep the table                   |
-| Extra lives                     | Every 50,000 (probe)     | Keep                             |
-| Score after completion replay   | `ATTAK` not reset        | Keep, or reset to 0              |
-| Explosion shapes                | Random per wave          | Random, or fixed frames          |
-| Title row placement             | Shifted one column       | Shifted, or as stored            |
-| Reset key                       | ROM reset in VICE        | Ignore, or show the trap         |
-| Score/pod race in the interrupt | Unprotected              | Serialise updates                |
-| Frame rate                      | PAL 50 Hz                | 50 Hz, or scale tempos           |
-| High score                      | RAM only                 | Volatile, or persist             |
+| Behaviour                       | Source (verified)        | Choice for a derivative     |
+| :------------------------------ | :----------------------- | :-------------------------- |
+| Alien graphics, sheets 5–16     | v1: `BJH` as stored      | Game v1, or v2 (release)    |
+| Starting lives                  | 5 (probe, both versions) | 5, or 3 as on the packaging |
+| Game length                     | 80 waves (probe)         | 80, or 96 as advertised     |
+| Points per alien                | 50–350 by wave (static)  | Keep the table              |
+| Extra lives                     | Every 50,000 (probe)     | Keep                        |
+| Score after completion replay   | `ATTAK` not reset        | Keep, or reset to 0         |
+| Explosion shapes                | Random per wave          | Random, or fixed frames     |
+| Title row placement             | Shifted one column       | Shifted, or as stored       |
+| Reset key                       | ROM reset in VICE        | Ignore, or show the trap    |
+| Score/pod race in the interrupt | Unprotected              | Serialise updates           |
+| Frame rate                      | PAL 50 Hz                | 50 Hz, or scale tempos      |
+| High score                      | RAM only                 | Volatile, or persist        |
 
 Write the choice down in the variant and test it. "Source" is the default for anything that claims to be faithful to this repository.
 

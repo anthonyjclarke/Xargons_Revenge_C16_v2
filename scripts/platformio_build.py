@@ -19,15 +19,21 @@ def assemble(source, target, env):
                     '--build-dir', str(build)], check=True, cwd=str(root))
 
 
+# Every environment builds both game versions; custom_game_version picks which
+# one the upload target runs.
+version = env.GetProjectOption('custom_game_version', '1')
+
+
 def launch(source, target, env):
     subprocess.run([sys.executable, str(root / 'scripts/run_vice.py'),
-                    str(build / 'xargons-revenge.prg')], check=True, cwd=str(root))
+                    str(build / f'xargons-revenge-v{version}.prg')], check=True, cwd=str(root))
 
 
-program = env.Command(str(build / 'xargons-revenge.prg'), [str(p) for p in dependencies],
+outputs = [str(build / f'xargons-revenge-v{v}.prg') for v in (1, 2)]
+program = env.Command(outputs, [str(p) for p in dependencies],
                       env.VerboseAction(assemble, "Assembling and checking original Xargon's Revenge source"))
-env.Replace(PROGNAME='xargons-revenge', PROGPATH=str(build / 'xargons-revenge.prg'))
+env.Replace(PROGNAME=f'xargons-revenge-v{version}', PROGPATH=str(build / f'xargons-revenge-v{version}.prg'))
 env.Alias('buildprog', program)
 env.AddCustomTarget('upload', program, env.VerboseAction(launch, "Launching Xargon's Revenge in VICE"),
-                    title='Run in VICE', description='Run on an emulated 16 KB PAL C16')
+                    title='Run in VICE', description=f'Run game v{version} on an emulated 16 KB PAL C16')
 Default(program)

@@ -39,8 +39,8 @@ Logical lines are CR-separated lines of the preserved module, numbered from 1. M
 
 | Key                        | Contents                                 |
 | :------------------------- | :--------------------------------------- |
-| `aliens`                   | `BJH`, 1,024 bytes at `$0400`            |
-| `aliens_running_version`   | The tape-loader variant of the same      |
+| `aliens`                   | Game v1: `BJH`, 1,024 bytes at `$0400`   |
+| `aliens_v2`                | Game v2 (cassette release) aliens        |
 | `landscape`                | `LANDSCAPE-2`, 256 glyphs at `$1000`     |
 | `landscape_source_variant` | `ASSEM-GRAPHS` output, comparison only   |
 | `font`                     | `FRAK!`, 256 glyphs at `$3800`           |
@@ -63,4 +63,4 @@ python3 scripts/analyze_codebase.py
 .venv/bin/python scripts/render_game_graphics.py
 ```
 
-The analysis reads `build/` and the VICE captures, and fails if the running-version alien rule doesn't match the VICE dump. The renderer fails if the decoded title rows don't match a simulation of the title scroll, or if a rebuilt screen differs from a screenshot for a reason it can't classify. Both are deterministic: the same inputs give the same bytes, and the manifests record input and output hashes.
+The analysis reads `build/` and the VICE captures, and fails if the game v2 alien rule doesn't match the VICE dump of the running version. The renderer fails if the decoded title rows don't match a simulation of the title scroll, or if a rebuilt screen differs from a screenshot for a reason it can't classify. Both are deterministic: the same inputs give the same bytes, and the manifests record input and output hashes.

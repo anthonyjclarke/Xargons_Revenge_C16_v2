@@ -27,12 +27,15 @@ jobs:
         run: python scripts/restore_c16.py
       - name: Test syntax, provenance and object records (VICE tests skip without xplus4)
         run: python -m unittest discover -s test -p 'test_*.py' -v
-      - name: Build both PlatformIO environments
-        run: pio run -e c16 -e c16_debug
-      - name: Check output agreement
+      - name: Build all PlatformIO environments
+        run: pio run -e c16 -e c16_debug -e c16_v2
+      - name: Check output agreement for both game versions
         run: |
-          cmp build/xargons-revenge.prg build/platformio/c16/xargons-revenge.prg
-          cmp build/xargons-revenge.prg build/platformio/c16_debug/xargons-revenge.prg
+          for v in 1 2; do
+            for e in c16 c16_debug c16_v2; do
+              cmp build/xargons-revenge-v$v.prg build/platformio/$e/xargons-revenge-v$v.prg
+            done
+          done
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
@@ -44,7 +47,10 @@ jobs:
         with:
           name: xargons-revenge-c16
           path: |
-            build/xargons-revenge.prg
+            build/xargons-revenge-v1.prg
+            build/xargons-revenge-v2.prg
+            build/aliens-v1.s
+            build/aliens-v2.s
             build/comparison.json
             build/recovery-manifest.json
             build/tool-checks.json

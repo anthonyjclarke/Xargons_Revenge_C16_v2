@@ -1,7 +1,10 @@
 {
     "output": "docs/XARGONS_REVENGE.html",
     "title": "Xargon's Revenge",
-    "brand": ["XARGON'S", "REVENGE"],
+    "brand": [
+        "XARGON'S",
+        "REVENGE"
+    ],
     "description": "Xargon's Revenge C16 restoration: history, packaging, build instructions, validation, source analysis, graphics, porting and reference.",
     "includes": "the artwork, packaging, decoded graphics, diagrams and code reference",
     "groups": [
@@ -16,6 +19,7 @@
                 "docs/BUILD_AND_RUN.md",
                 "TESTING.md",
                 "docs/SOURCE_AND_VALIDATION.md",
+                "docs/GAME_VERSIONS.md",
                 "CODEBASE_ANALYSIS.md",
                 "docs/GRAPHICS.md",
                 "docs/PORTING_GUIDE.md"

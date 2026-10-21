@@ -4,13 +4,14 @@
 
 PAL Commodore 16 (also Plus/4), 16 KB, 6502 + TED. Preservation reassembly of the 1985 Micro Projects / Gremlin Graphics game. Not an ESP32/CYD project: global CYD, TFT_eSPI, `config.h` and `debug.h` rules don't apply here.
 
-- PRG `build/xargons-revenge.prg`: load `$0400`, entry `$1800`, no BASIC stub. Code `$1800–$379D` (8,094 bytes) must match `OBJ`.
+- Two game versions, same code: `build/xargons-revenge-v1.prg` (development, `BJH` as stored) and `-v2.prg` (cassette release: page p of `$0400` = `BJH[p:p+256]`, the release tape loader's copy rule). Load `$0400`, entry `$1800`, no BASIC stub. Code `$1800–$379D` (8,094 bytes) must match `OBJ`.
+- "Game v1/v2" are game versions, not the repo's release tags (`v1.x.y`). Never move a published tag.
 - Layout: `BJH` aliens `$0400`, zero padding `$0800–$0FFF`, `LANDSCAPE-2` `$1000`, code `$1800`, `FRAK!` `$3800`.
 - `xargons_revenge.prg` (project root) is the packed running version: BASIC `SYS 4109`, decruncher at `$100D`.
 
 ## Build Pipeline
 
-Single entry point: `scripts/restore_c16.py`. `build.sh`, `make`, `pio run -e c16|c16_debug` all call it and must produce identical bytes. `config/c16.cfg` is the ld65 layout and is also parsed by `restore_c16.py`. PlatformIO is pinned to `platformio/native@1.2.1` with `scripts/build_6502.py` replacing the builder.
+Single entry point: `scripts/restore_c16.py`, which always builds both versions (alien data via generated `aliens-v1.s`/`aliens-v2.s`). `build.sh`, `make`, `pio run -e c16|c16_debug|c16_v2` all call it and must produce identical bytes; `custom_game_version` only picks what `upload` runs. `config/c16.cfg` is the ld65 layout and is also parsed by `restore_c16.py`. PlatformIO is pinned to `platformio/native@1.2.1` with `scripts/build_6502.py` replacing the builder.
 
 ## Source Priority
 
@@ -22,7 +23,7 @@ Single entry point: `scripts/restore_c16.py`. `build.sh`, `make`, `pio run -e c1
 ## Preservation Rules
 
 - Never modify, rename, re-encode or tidy anything in `Original Source Recovered/`, `Original Artifacts/` or `xargons_revenge.prg`. `.gitattributes` disables text conversion there; tests hash every input.
-- Never copy bytes from the running version into the build. Its shifted aliens are documented, not used.
+- Never copy bytes from the running version into the build. Game v2 is derived from `BJH` by rule and only compared with the running version.
 - Gameplay changes go in a separate variant (not yet implemented), never into the preservation build. Tests fail on any output change by design.
 - `Xargons Revenge Prompt(Claude).md` is a local brief, git-ignored.
 
@@ -32,6 +33,7 @@ Single entry point: `scripts/restore_c16.py`. `build.sh`, `make`, `pio run -e c1
 - The 1992 ZIP uses PKZIP Implode/Shrink; Python `zipfile` can't expand it, so the byte check uses `unzip -p`.
 - `.LIB` names are prefix matches; the build must fail on missing, ambiguous or recursive includes. `LDA` can't be a label, hence `LZA` in `SHEETD`.
 - VICE monitor numbers are hex (`ignore 1 24` = 36). After `delete`, the next breakpoint reuses #1. `BREAK:` lines only echo a set breakpoint; real stops are `#n (Stop on exec xxxx)`.
+- `scripts/capture_versions.py` forces `SHEET` at `STLOOP` and needs ≤48 loop passes so no capture catches a death.
 - VICE screenshots use `-TEDfilter 0`; colours match `docs/verification/ted-palette.json`, not any `.vpl` file.
 - A machine reset ends VICE command playback, so the reset probe exits on its cycle limit (`check=False`).
 - Comments lie: `KEY-SCAN` says A/Z (code uses S/X), pause says HELP (code uses SPACE).

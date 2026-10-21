@@ -31,7 +31,7 @@ def probe(build):
     output = build / 'rule-probes'
     output.mkdir(parents=True, exist_ok=True)
     stop = CALLER + 7
-    source = build / 'xargons-revenge.prg'
+    source = build / 'xargons-revenge-v1.prg'
     reference = build / 'reference-unpacked.prg'
     if not reference.is_file():
         raise ValueError('Run verify_vice.py before probing the running version')

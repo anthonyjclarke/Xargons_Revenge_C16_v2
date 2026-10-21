@@ -1764,7 +1764,7 @@
       "address": "$0400",
       "bytes": 1024,
       "included_in_prg": true,
-      "placement": "dev LOADER loads BJH at $0C00 and copies it to ALDATA ($0400)"
+      "placement": "v1: dev LOADER copies BJH to ALDATA ($0400); v2: release tape-loader rule"
     },
     {
       "name": "LANDSCAPE-2",

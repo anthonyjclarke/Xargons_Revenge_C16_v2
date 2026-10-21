@@ -2,7 +2,7 @@
 
 ## Result – 21 October 2026
 
-The reassembled code matches the original object listing exactly, and the running version I have contains the same code. The rebuild and the running version differ only in their alien graphics and in memory the game overwrites or never uses.
+The reassembled code matches the original object listing exactly, and the running version I have contains the same code. The build produces two playable versions that differ only in their alien graphics: game v1 (development) and game v2 (cassette release). Game v2 matches the decompressed running version in every byte of the aliens, landscape, code and font; [Game Versions](GAME_VERSIONS.md) explains both.
 
 | Check                                | Result                    |
 | :----------------------------------- | :------------------------ |
@@ -10,12 +10,13 @@ The reassembled code matches the original object listing exactly, and the runnin
 | Running version's code vs `OBJ`      | 8,094, all identical      |
 | Landscape `$1000–$17FF` vs running   | Identical (`LANDSCAPE-2`) |
 | Font `$3800–$3FFF` vs running        | Identical (`FRAK!`)       |
-| Aliens `$0400–$07FF` vs running      | 735 bytes differ (loader) |
+| Aliens: game v1 vs running           | 735 bytes differ (loader) |
+| Aliens: game v2 vs running           | Identical                 |
 | Title in VICE                        | Drawn                     |
 | Gameplay in VICE                     | Reached and kept running  |
 | Entry points                         | Identical PRG bytes       |
 
-The PRG is 15,362 bytes, loads at `$0400`, starts at `$1800` and has SHA-256 `32c13c8867ea97bb4fd60ac9a73e5d7a600c04ece5699ac37680143c12adce33`. The evidence is in [`build-comparison.json`](verification/build-comparison.json), [`vice-verification.json`](verification/vice-verification.json) and [`rule-probes.json`](verification/rule-probes.json).
+Each PRG is 15,362 bytes, loads at `$0400` and starts at `$1800`. Game v1 has SHA-256 `32c13c8867ea97bb4fd60ac9a73e5d7a600c04ece5699ac37680143c12adce33` and game v2 `0ee0a82306583c8bf4a17f44731eaeb411f098ba9c00d20885b26879cd397665`. The evidence is in [`build-comparison.json`](verification/build-comparison.json), [`vice-verification.json`](verification/vice-verification.json) and [`rule-probes.json`](verification/rule-probes.json).
 
 ![Restored title](images/restored-title.png) ![Gameplay entry](images/restored-gameplay.png) ![After 256 main-loop passes](images/restored-later.png)
 
@@ -73,11 +74,11 @@ The landscape also exists as source. `ASSEM-GRAPHS` assembles `CHAR#1-BOT` at `$
 | `$379E–$37FF` | 87              | Padding: assembler symbol text    |
 | `$3800–$3FFF` | 0               | Font graphics                     |
 
-The alien difference has a clear mechanism. A tape loader is still sitting in the running version's memory at `$0C00`; it loads files `P1` to `P4` from device 1 and copies four pages to `$0400`. Its copy loop increments the low byte of the source address instead of the high byte, so page *p* at `$0400 + p × 256` receives `BJH` from offset *p*. The verification confirms that page 0 equals `BJH` and pages 1, 2 and 3 equal `BJH` from offsets 1, 2 and 3. The loader on the second 2026 disk has the same structure for device 8, and its loop increments the high bytes correctly.
+The alien difference has a clear mechanism. A tape loader is still sitting in the running version's memory at `$0C00`; it loads files `P1` to `P4` from device 1 and copies four pages to `$0400`. Its copy loop increments the low byte of the source address instead of the high byte, so page *p* at `$0400 + p × 256` receives `BJH` from offset *p*, and sheets 5–16 reuse the sheet 1–4 designs. The verification confirms that page 0 equals `BJH` and pages 1, 2 and 3 equal `BJH` from offsets 1, 2 and 3. The loader on the second 2026 disk has the same structure for device 8, and its loop increments the high bytes correctly.
 
 **Effect in play:** the `alien-characters-per-sheet` probe runs the original `ALIDEF` for all 16 sheets in both versions. Sheets 1–4 produce identical glyphs and sheets 5–16 differ. [Illustrated Graphics](GRAPHICS.md#aliens) shows both sets.
 
-The rebuild keeps the source layout, because that is what my own boot program produced. Anyone who wants the running version's aliens can apply the loader rule to `BJH`; the asset data includes that variant.
+Both layouts are built. Game v1 keeps the source layout, because that is what my own boot program produced. Game v2 applies the tape loader's rule to `BJH` from the source disk; `scripts/verify_vice.py` then confirms it equals the decompressed running version outside the loader residue and padding.
 
 ---
 

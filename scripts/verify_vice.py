@@ -144,6 +144,33 @@ def loading_screen(build):
     return [f.name for f in files]
 
 
+def tape_loader(build, reference):
+    """Disassemble the loader left at $0C00 in the running version (evidence only).
+
+    These bytes come from the downloaded PRG after decompression; they are
+    never placed in either game version.
+    """
+    from restore_c16 import tool
+    raw = reference[0x0C00 - LOAD:0x0C60 - LOAD]
+    (build / 'release-tape-loader.bin').write_bytes(raw)
+    listing = subprocess.run([tool('da65'), '--cpu', '6502', '-S', '0x0c00', '--comments', '0',
+                              str(build / 'release-tape-loader.bin')], capture_output=True, text=True, check=True).stdout
+    listing = '\n'.join(line for line in listing.splitlines() if not line.startswith(('; Created', '; Input file')))
+    (build / 'release-tape-loader.s').write_text(
+        '; Disassembly of $0C00-$0C5F from the decompressed xargons_revenge.prg (running version).\n'
+        '; Evidence only: not source, and not used in either game version.\n' + listing + '\n')
+    name = raw[0x52:0x54].decode('ascii', 'replace')
+    if raw[0x3C:0x42] != bytes((0xEE, 0x34, 0x0C, 0xEE, 0x38, 0x0C)):
+        raise ValueError('Unexpected tape-loader copy loop')
+    return {'address': '$0C00', 'bytes_sha256': digest(raw), 'device': raw[0x0C],
+            'filename_after_last_load': name,
+            'copy_loop': {'lda_operand_after_loop': f'${raw[0x35] << 8 | raw[0x34]:04X}',
+                          'sta_operand_after_loop': f'${raw[0x38] << 8 | raw[0x37]:04X}',
+                          'inc_targets': [f'${raw[0x3E] << 8 | raw[0x3D]:04X}', f'${raw[0x41] << 8 | raw[0x40]:04X}'],
+                          'meaning': 'INC $0C34 bumps the LDA operand low byte (source +1 per page); '
+                                     'INC $0C38 bumps the STA operand high byte (destination +256)'}}
+
+
 def classify(address):
     if 0x0400 <= address < 0x0800:
         return 'alien graphics (ALDATA)'
@@ -177,7 +204,7 @@ def verify(build):
     check = labels['TITTER']
     if code[check - ENTRY:check - ENTRY + 3] != bytes((0x24, labels['JFIRE'], 0x10)):
         raise ValueError('Cannot identify the original title fire test')
-    program = build / 'xargons-revenge.prg'
+    program = build / 'xargons-revenge-v1.prg'
     log, memory, later, reached = play(build, labels, program, 'restored', ENTRY)
     if not reached:
         raise ValueError('VICE did not reach the main game loop')
@@ -227,6 +254,7 @@ def verify(build):
         'manual_keyboard_joystick_sound_and_full_playthrough': 'not verified',
         'reference_sha256': digest(REFERENCE.read_bytes()),
         'reference_compared_at': '$1800 before the first game instruction',
+        'compared_with_reference': 'game v1 (development); see game_v2_vs_running_version for v2',
         'reference_unpacked_sha256': digest(reference),
         'reference_reached_gameplay_loop': ref_reached,
         'reference_lives': ref_play[labels['LIVES']],
@@ -238,6 +266,24 @@ def verify(build):
         'alien_pages_in_reference': alien_shift(restored, reference),
         'byte_identical_to_running_version': not differences,
     }
+    # Game v2 (cassette release) must equal the decompressed running version
+    # everywhere except loader residue and the assembler's leftover text.
+    v2 = (build / 'xargons-revenge-v2.prg').read_bytes()[2:]
+    v2_differences = [a + LOAD for a, (x, y) in enumerate(zip(v2, reference)) if x != y]
+    v2_regions = {}
+    for address in v2_differences:
+        v2_regions.setdefault(classify(address), []).append(address)
+    if set(v2_regions) - {'colour/screen RAM work area', 'padding below the font'}:
+        raise ValueError(f'Game v2 differs from the running version in {sorted(v2_regions)}')
+    _, v2_play, v2_later, v2_reached = play(build, labels, build / 'xargons-revenge-v2.prg', 'restored-v2', ENTRY)
+    report['game_v2_vs_running_version'] = {
+        'differences_by_region': {name: {'bytes': len(found), 'first': f'${found[0]:04X}',
+                                         'last': f'${found[-1]:04X}'} for name, found in v2_regions.items()},
+        'identical_regions': ['$0400-$07FF aliens', '$1000-$17FF landscape', '$1800-$379D code',
+                              '$3800-$3FFF font'],
+        'gameplay_loop_reached': v2_reached, 'lives': v2_play[labels['LIVES']],
+        'after_main_loop_passes_lives': v2_later[labels['LIVES']]}
+    report['release_tape_loader'] = tape_loader(build, reference)
     report['loading_screen_files'] = loading_screen(build)
     try:
         measured = palette(build)

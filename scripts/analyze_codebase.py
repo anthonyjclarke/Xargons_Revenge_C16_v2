@@ -16,7 +16,7 @@ import re
 from pathlib import Path
 from urllib.parse import quote
 
-from restore_c16 import ROOT, LOAD, ENTRY, prepare_sources, mos_hex
+from restore_c16 import ROOT, LOAD, ENTRY, prepare_sources, mos_hex, version_aliens
 from source_converter import OPCODES, flatten, split_comment
 
 BRANCHES = {'JSR', 'JMP', 'BCC', 'BCS', 'BEQ', 'BMI', 'BNE', 'BPL', 'BVC', 'BVS'}
@@ -109,11 +109,6 @@ def atlas(path, title, data, start, mode, first_code, columns=16, note=None):
         out.append(f'<text x="{x}" y="{y+53}" font-family="monospace" font-size="10">{first_code+i:03d} {start+i*8:04X}</text>')
     out.append('</svg>')
     path.write_text('\n'.join(out) + '\n')
-
-
-def running_aliens(aliens):
-    """The running version's tape loader copies page p from source offset p."""
-    return b''.join(aliens[p:p + 0x100] for p in range(4))
 
 
 def analyze(build, output):
@@ -242,7 +237,7 @@ def analyze(build, output):
         if address in instruction_bytes and target and target['kind'] == 'instruction-label':
             self_modifying.append({**patch, 'target_address': address, 'target_symbol': target['symbol']})
     symbols = sorted([d for d in definitions.values() if d['module'] in main], key=lambda d: d['symbol'])
-    prg = (build / 'xargons-revenge.prg').read_bytes()
+    prg = (build / 'xargons-revenge-v1.prg').read_bytes()
     payload = prg[2:]
     data = {
         'method': 'Static module catalogue and direct symbolic transfers; not a complete call graph or cycle profile',
@@ -302,10 +297,12 @@ def analyze(build, output):
     (output / 'CODE_REFERENCE.md').write_text(text.rstrip() + '\n')
 
     aliens = payload[0:0x400]
-    running = running_aliens(aliens)
+    running = version_aliens(aliens, 2)
     reference_dump = build / 'reference-memory.bin'
     if reference_dump.is_file() and reference_dump.read_bytes()[0:0x400] != running:
-        raise ValueError('Running-version alien rule does not match the VICE reference dump')
+        raise ValueError('Game v2 alien rule does not match the VICE dump of the running version')
+    if (build / 'xargons-revenge-v2.prg').read_bytes()[2:0x402] != running:
+        raise ValueError('Game v2 PRG does not hold the v2 aliens')
     landscape_source = (build / 'landscape-1000.bin').read_bytes() + (build / 'landscape-1600.bin').read_bytes()
     capture = (build / 'restored-later-memory.bin').read_bytes()
     title = (build / 'restored-title-memory.bin').read_bytes()
@@ -317,11 +314,13 @@ def analyze(build, output):
         'note': 'Hex payloads keep raw bytes in memory order. Glyphs are 8 bytes, top row first; '
                 'bit 7 is the leftmost pixel; multicolour pairs are bits 7-6 leftmost.',
         'prg_sha256': data['prg_sha256'],
-        'aliens': {'address': ALIEN, 'bytes': 1024, 'source': 'BJH (2026 source disk)', 'layout':
+        'aliens': {'address': ALIEN, 'bytes': 1024, 'game_version': 1,
+                   'source': 'BJH (2026 source disk), as game v1 (development) loads it', 'layout':
                    '16 aliens x 64 bytes: frame 0 = 32 bytes for chars 213-216, frame 1 = 32 bytes for chars 217-220',
                    'hex': aliens.hex()},
-        'aliens_running_version': {'address': ALIEN, 'bytes': 1024, 'source':
-                                   'derived: page p = BJH[p : p+256]; confirmed against the VICE dump of xargons_revenge.prg',
+        'aliens_v2': {'address': ALIEN, 'bytes': 1024, 'game_version': 2,
+                      'source': 'game v2 (cassette release): page p = BJH[p : p+256]; '
+                                'equals the VICE dump of xargons_revenge.prg',
                                    'hex': running.hex()},
         'landscape': {'address': 0x1000, 'glyphs': 256, 'source': 'LANDSCAPE-2 (2026 source disk)', 'hex': payload[0xC00:0x1400].hex()},
         'landscape_source_variant': {'address': 0x1000, 'glyphs': 256, 'source': 'ASSEM-GRAPHS (CHAR#1-BOT, CHAR#1-TOP)',
