@@ -27,13 +27,15 @@ class ViceTests(unittest.TestCase):
             self.assertTrue(report['gameplay_loop_reached'])
             self.assertTrue(report['reference_reached_gameplay_loop'])
             self.assertEqual((report['title_flag'], report['lives']), (0, 5))
+            self.assertGreater(report['after_main_loop_passes']['lives'], 0)
             self.assertEqual(report['initialized_code_differences'], 0)
             self.assertEqual(set(report['differences_by_region']),
                              {'alien graphics (ALDATA)', 'colour/screen RAM work area',
                               'padding below the font'})
             self.assertEqual([p['equals_BJH_offset'] for p in report['alien_pages_in_reference']],
                              ['$000', '$001', '$002', '$003'])
-            for name in ('restored-title.png', 'restored-gameplay.png'):
+            for name in ('restored-title.png', 'restored-gameplay.png', 'restored-later.png',
+                         'loading-screen.png'):
                 self.assertTrue((build / name).read_bytes().startswith(b'\x89PNG'))
 
 

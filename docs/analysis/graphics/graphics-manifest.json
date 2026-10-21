@@ -1,0 +1,112 @@
+{
+  "method": "Original glyph bits and tables; nearest-neighbour enlargement; schematic diagrams.",
+  "asset_data_sha256": "609d026af57bc5983c9f15535322d7b7ddfe55324570d79dfab3af5539da569f",
+  "palette_sha256": "58403385a20f3c8ec19fe2947e987616c010128cc9e9430128930bfbe0274a40",
+  "palette_source": "VICE xplus4 c16pal, -TEDfilter 0, internal palette; ROM code 160 cells with colour RAM 0-127 at screen origin (32, 40)",
+  "screenshot_sha256": "249c4afd3a85e7a51afd9a8e36ce3ffff48ef29cb53182401e3835bacfdcf95d",
+  "title_screenshot_sha256": "d0f6341c4c87102d22ad7cb3c3e3084029dba385bce012939a148abfa7c8a9cb",
+  "pixel_check": [
+    {
+      "band": "Status",
+      "rows": "0-1",
+      "columns": "0-39",
+      "pixels": 5120,
+      "matching_pixels": 4672,
+      "differing_pixels_by_cause": {
+        "score colour cycle (SCORPT)": 448
+      }
+    },
+    {
+      "band": "Play window",
+      "rows": "5-18",
+      "columns": "1-38",
+      "pixels": 34048,
+      "matching_pixels": 33908,
+      "differing_pixels_by_cause": {
+        "star moved one step (STARS in RAST5)": 108,
+        "ship MULTI2 colour cycle (SCORPT)": 32
+      }
+    },
+    {
+      "band": "Title banner",
+      "rows": "5-18",
+      "columns": "1-38",
+      "pixels": 34048,
+      "matching_pixels": 33956,
+      "differing_pixels_by_cause": {
+        "MULTI1 pulse (PULSAT in RAST3)": 72,
+        "star moved one step (STARS in RAST5)": 20
+      },
+      "captured_rows_equal_scrlit_simulation": true,
+      "star_cells_excluded": 7,
+      "first_matching_direction_per_row": [
+        "left",
+        "right",
+        "left",
+        "left",
+        "left",
+        "left",
+        "right",
+        "left",
+        "left",
+        "left",
+        "left",
+        "right",
+        "right",
+        "right",
+        "right",
+        "left"
+      ]
+    }
+  ],
+  "gif_frame_order": [
+    0,
+    1
+  ],
+  "gif_frame_duration_ms": 250,
+  "gif_timing": "Illustration only; aliens change frame every ALISPD (5-8) main-loop passes.",
+  "images": {
+    "alien-animation.gif": {
+      "size": [
+        320,
+        128
+      ],
+      "sha256": "d411af008d3c913bf60b9d0c77b16373ddf45e66f824d72a55d2b30f6ee8dc9f"
+    },
+    "alien-waves.png": {
+      "size": [
+        1200,
+        1180
+      ],
+      "sha256": "206d2c42340e35ff31a7f7e375034b62a7593431378f69d115d99f4cbb051d07"
+    },
+    "landscape-motifs.png": {
+      "size": [
+        1200,
+        1000
+      ],
+      "sha256": "e36985a62dc37042167fd5d9def9a83f2950db90a52c6e5a358e93d094d50057"
+    },
+    "screen-composition.png": {
+      "size": [
+        1200,
+        1050
+      ],
+      "sha256": "0af43f195a5a0be1296a1bae2243985f18fd9abce4c08bba37db3ce1f3017184"
+    },
+    "ship-character.png": {
+      "size": [
+        1200,
+        690
+      ],
+      "sha256": "b995b5aadc58a4e98a9cc67d7ed67bd2951d5822584bbf62797369666f830f5a"
+    },
+    "title-banner.png": {
+      "size": [
+        1200,
+        660
+      ],
+      "sha256": "2c0e599f323e498f795baadce00bd04f28448c6b5f90cfadbbec8cf4f42b8994"
+    }
+  }
+}

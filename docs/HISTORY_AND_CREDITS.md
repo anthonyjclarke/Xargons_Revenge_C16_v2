@@ -1,0 +1,74 @@
+# History and Credits
+
+## Xargon's Revenge
+
+Xargon's Revenge is a 1985 game for the Commodore 16 and Plus/4, written at Micro Projects and published by Gremlin Graphics Software Ltd. of Sheffield. It's the sequel to my earlier game Xargon Wars.
+
+The main source file opens with:
+
+```text
+; XARGON II WRITTEN BY THE MEGA
+; BEING HIMSELF !!!
+;
+; (C) MICRO PROJECTS 1985
+;
+; STARTED ON A DRIZZLY SATURDAY
+; AFTERNOON 30/MARCH AT 5.00 PM
+```
+
+The year isn't written next to the start date, but 30 March 1985 was a Saturday, which fits the 1985 notice. The cassette inlay carries "© 1985 Gremlin Graphics Software Limited".
+
+---
+
+## My Recollections
+
+These are what I remember, as I recorded them on 21 October 2026:
+
+- I wrote Xargon Wars, and this game is its sequel.
+- I was always a fan of Scramble, so I wanted to write a scrolling game.
+- "The Mega" in the source header is, I think, a pseudonym for me.
+- I'm not sure who else helped on this game. When I had help, it would normally be credited in the source, and this source names nobody else.
+- I don't remember when it was finished or released. Games typically took 60 to 90 days.
+- I don't recall the loading screen on the second disk being used.
+
+Beyond that I don't remember much about making it. Anything else in this repository comes from the source, the disks or the packaging, not from memory.
+
+---
+
+## What the Evidence Shows
+
+The two development disks are labelled "Revenge of Xargon (Xargon Wars II) (c) Micro Projects 1985" and "Xargon's Revenge (c) Micro Projects '85". The first suggests the working title. I don't know which label belongs to which 2026 disk image.
+
+The scrolling message in the game credits "Xargon's Revenge © Micro Projects 1985", advertises other Gremlin C16/Plus 4 games (Xargon Wars, Petals of Doom, Tycoon Tex, Dork's Dilemma and Sword of Destiny) and thanks "all those who helped in the production and design of this game" without naming anyone. The sound module's header says it is "an attempt to write a nice routine like our mate Robbie does"; the source doesn't say who Robbie is.
+
+The game was sold on cassette for £6.95 and later appeared on the *C16/Plus 4 Classics II* compilation from Gremlin Graphics, with Blagger, Monkey Magic and Timeslip. The packaging says "96 levels – 16 waves – 3 lives". The surviving source ends the game after 80 waves and starts with 5 lives, as [Codebase Analysis](../CODEBASE_ANALYSIS.md#waves-levels-and-completion) explains; I can't say whether the packaging describes an earlier plan or another release.
+
+---
+
+## Dates
+
+| Date            | Event                                      |
+| :-------------- | :----------------------------------------- |
+| 30 March (1985) | Development started, per the source header |
+| 1985            | Copyright on the source, disks and inlay   |
+| 7 October 1992  | Source disk exported to PC and zipped      |
+| October 2026    | Disks captured and extracted again         |
+| 21 October 2026 | This reassembly and documentation          |
+
+The 1992 and 2026 dates belong to copies of the disks, not to the game's development.
+
+---
+
+## Recovery Background and Build Template
+
+My original C64/1541 development set-up and the later recovery of these disks are written up in the companion [Dorks Dilemma C16 repository](https://github.com/anthonyjclarke/Dorks_Dilemma_C16), especially its [Development History](https://github.com/anthonyjclarke/Dorks_Dilemma_C16/blob/main/docs/DEVELOPMENT_HISTORY.md), which also has the recovery-tool acknowledgements. I haven't repeated that story here.
+
+This project adapts the disk reader, source converter, ca65/ld65 build, PlatformIO integration, VICE-monitor checks and handbook generator from the Dorks Dilemma and Tycoon Tex restorations. Xargon's Revenge's own inputs, memory layout, graphics choices, object listing and comparison with the running version are worked out and checked separately here.
+
+---
+
+## Tool Acknowledgements
+
+The modern build uses the [cc65 toolchain](https://cc65.github.io/), the [VICE emulator](https://vice-emu.sourceforge.io/), [PlatformIO](https://platformio.org/), [Visual Studio Code](https://code.visualstudio.com/), Python, Pillow and Node.js, with [Marked](https://marked.js.org/) and [Mermaid](https://mermaid.js.org/) for the handbook.
+
+The original disk also holds the Commodore 64 editor (© 1982 Commodore Business Machines) and "DOS V5.2 (C) Bugga-Soft 1984", which were part of the 1985 tool set. All historical notices are kept. See [Rights and Preservation](../RIGHTS.md).

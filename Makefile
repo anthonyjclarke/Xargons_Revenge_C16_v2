@@ -21,5 +21,21 @@ verify: all
 probes: verify
 	$(PYTHON) scripts/probe_gameplay_rules.py
 
+docs: all
+	$(PYTHON) scripts/analyze_codebase.py
+	$(NODE) scripts/build_docs.mjs
+
+docs-html:
+	$(NODE) scripts/build_docs.mjs
+
+docs-watch:
+	$(NODE) scripts/build_docs.mjs --watch
+
+docs-check:
+	$(NODE) scripts/build_docs.mjs --check
+
+test-docs:
+	$(NODE) --test test/test_docs.mjs
+
 clean:
 	rm -rf build .pio

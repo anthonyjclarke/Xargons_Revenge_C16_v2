@@ -3,7 +3,7 @@
   "source_prg_sha256": "32c13c8867ea97bb4fd60ac9a73e5d7a600c04ece5699ac37680143c12adce33",
   "running_unpacked_prg_sha256": "5afb77fba3e5e13cccc6a24646eeb4a265e1db60617e4b947ebd5c9020404432",
   "emulator": "VICE xplus4, PAL C16, 16 KB, sound off",
-  "scope": "four score/extra-life observations and the alien character selection for all 16 sheets; not full gameplay, timing, collisions or sound",
+  "scope": "four score/extra-life observations, the alien character selection for all 16 sheets, four wave-completion transitions and two resets during play; not full gameplay, timing, collisions or sound",
   "checks": [
     {
       "probe": "score-49999-plus-1",
@@ -219,6 +219,70 @@
           "identical": false
         }
       ]
+    },
+    {
+      "probe": "wave-completion",
+      "routine": "COMPLE",
+      "sheet_before": 0,
+      "level_before": 0,
+      "sheet_after": 1,
+      "level_after": 0,
+      "attak_after": 1,
+      "message": "ATTACK WAVE 01 COMPLETED",
+      "reached": "next wave (STLOOP)"
+    },
+    {
+      "probe": "wave-completion",
+      "routine": "COMPLE",
+      "sheet_before": 15,
+      "level_before": 0,
+      "sheet_after": 0,
+      "level_after": 1,
+      "attak_after": 16,
+      "message": "ATTACK WAVE 16 COMPLETED",
+      "reached": "next wave (STLOOP)"
+    },
+    {
+      "probe": "wave-completion",
+      "routine": "COMPLE",
+      "sheet_before": 15,
+      "level_before": 3,
+      "sheet_after": 0,
+      "level_after": 4,
+      "attak_after": 64,
+      "message": "ATTACK WAVE 64 COMPLETED",
+      "reached": "next wave (STLOOP)"
+    },
+    {
+      "probe": "wave-completion",
+      "routine": "COMPLE",
+      "sheet_before": 15,
+      "level_before": 4,
+      "sheet_after": 0,
+      "level_after": 5,
+      "attak_after": 80,
+      "message": "ATTACK WAVE 80 COMPLETED",
+      "reached": "completion screen (ENDLVL)"
+    },
+    {
+      "probe": "reset-during-play",
+      "reset": "VICE monitor \"reset 0\" (soft)",
+      "ram_vectors_before": {
+        "nmi": "$1FDB",
+        "reset": "$1FDB"
+      },
+      "resumed_at": "$F2A4",
+      "reached_trap": false
+    },
+    {
+      "probe": "reset-during-play",
+      "reset": "VICE monitor \"reset 1\" (hard)",
+      "ram_vectors_before": {
+        "nmi": "$1FDB",
+        "reset": "$1FDB"
+      },
+      "resumed_at": "$F2A4",
+      "reached_trap": false
     }
   ]
 }

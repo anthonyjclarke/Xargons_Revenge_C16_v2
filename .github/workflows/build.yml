@@ -33,6 +33,13 @@ jobs:
         run: |
           cmp build/xargons-revenge.prg build/platformio/c16/xargons-revenge.prg
           cmp build/xargons-revenge.prg build/platformio/c16_debug/xargons-revenge.prg
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Check the HTML handbook is current
+        run: node scripts/build_docs.mjs --check
+      - name: Test the handbook generator
+        run: node --test test/test_docs.mjs
       - uses: actions/upload-artifact@v4
         with:
           name: xargons-revenge-c16

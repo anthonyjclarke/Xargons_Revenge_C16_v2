@@ -4,20 +4,30 @@
   "ram_kib": 16,
   "sound": "off",
   "warp": true,
+  "rendering_filter": "none (-TEDfilter 0), VICE internal palette",
   "title_rendered": true,
-  "title_passes_before_input": 24,
+  "title_passes_before_input": 36,
+  "main_loop_passes_before_capture": 256,
   "gameplay_loop_reached": true,
   "title_flag": 0,
   "lives": 5,
   "sheet": 0,
   "level": 0,
-  "input": "scripted JFIRE=$80 at the original TITTER BIT test, cleared at LOOP; no instruction patches",
+  "after_main_loop_passes": {
+    "lives": 3,
+    "dead": 0,
+    "aliens_hit": 0,
+    "fuel": 111,
+    "score": "00000000"
+  },
+  "input": "scripted JFIRE=$80 at the original TITTER BIT test, cleared at the first LOOP; no keyboard or joystick input; no instruction patches",
   "manual_keyboard_joystick_sound_and_full_playthrough": "not verified",
   "reference_sha256": "8f50988e867e54b2ce77cc1ebd89e4f575adcd69fd026cc836c7ec3940ef3b91",
   "reference_compared_at": "$1800 before the first game instruction",
   "reference_unpacked_sha256": "1b22b632ee826b7825e73b004d2ce02c02e182e4c46e7c6e7d9408c671e4576a",
   "reference_reached_gameplay_loop": true,
   "reference_lives": 5,
+  "reference_after_main_loop_passes_lives": 3,
   "object_listing_bytes_compared": 8094,
   "initialized_code_differences": 0,
   "total_memory_differences": 2681,
@@ -56,5 +66,10 @@
       "equals_BJH_offset": "$003"
     }
   ],
-  "byte_identical_to_running_version": false
+  "byte_identical_to_running_version": false,
+  "loading_screen_files": [
+    "002_P1~2F~240C00-~241000.prg",
+    "003_P2~2F~240800-~240C00.prg"
+  ],
+  "ted_palette_measured": 120
 }
