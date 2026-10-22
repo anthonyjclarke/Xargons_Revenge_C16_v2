@@ -1,0 +1,266 @@
+; >s:screen-setup
+; put "screen-setup"
+;
+; init screen
+;
+screen
+;
+jsr rusras
+;
+jsr clstop
+jsr titcls    ;* cls window
+;
+; clear the top status lines
+;
+ldx #4
+;
+scrl1
+;
+txa
+clc
+adc #64
+sta $0c00,x    ;* 'score'
+;
+clc
+adc #5
+sta $0c28,x    ;* 'score'
+;
+lda #$56
+sta $0800,x
+;
+lda #$54
+sta $0816,x
+;
+lda #$46
+sta $0828,x
+;
+lda #$44
+sta $083e,x    ;* colours
+;
+cpx #4
+beq scrl1a
+;
+txa
+clc
+adc #74
+sta $0c16,x    ;* 'fuel'
+;
+clc
+adc #4
+sta $0c3e,x    ;* 'fuel'
+;
+scrl1a
+;
+dex
+bpl scrl1
+;
+; print score and fuel
+;
+jsr lancol
+;
+; print 2 land colours
+;
+jsr prtful ;* print fuel gauge
+;
+jsr prlive ;* print # lives
+;
+jsr scorpt ;* print score
+;
+rts
+;
+;---------------------------------
+;
+lancol
+;
+; print the two land colours
+;
+; lancl1 = global colour
+;
+ldx #79
+lda lancl1
+;
+tpcl1
+;
+sta $0850,x
+;
+dex
+bpl tpcl1
+;
+; top done
+;
+ldx #0
+;
+btcl1
+;
+sta $0b20,x
+;
+inx
+cpx #160
+bne btcl1
+;
+rts
+;
+;---------------------------------
+;
+titcls
+;
+; clear title window
+;
+ldx #0
+lda #32
+;
+titer2
+;
+sta $0ca0,x
+sta $0da0,x
+sta $0da0+$7f,x
+;
+inx
+bne titer2
+;
+racial
+;
+jsr random
+and #7
+beq racial
+;
+sta colvar
+;
+ora #$48
+;
+; top half's colour
+;
+ldx #0
+;
+titr1a
+;
+sta $08a0,x
+sta $08a0+$a0,x
+;
+inx
+cpx #$a0
+bne titr1a
+;
+; now bottom half's colour
+;
+and #$0f
+ora #$60
+;
+ldx #0
+;
+titr1b
+;
+sta $08a0+$a0+$a0,x
+sta $08a0+$a0+$a0+$a0,x
+;
+inx
+cpx #$a0
+bne titr1b
+;
+rts
+;
+;---------------------------------
+;
+prsstr
+;
+.byte 0,1,2,3,3,$ff,4,5,1,2,$ff
+.byte 6,7,$ff,3,6,8,1,6
+;
+;---------------------------------
+;
+tittop
+;
+; print the top bit on the title
+; page.
+;
+jsr clstop
+;
+ldx #0
+ldy #0
+;
+scrl3
+;
+lda prsstr,x
+;
+cmp #$ff
+beq scrl4      ;* space
+;
+asl a
+clc
+adc #152       ;* base char
+;
+sta $0c29,y    ;* left half
+clc
+adc #1
+sta $0c2a,y    ;* right half
+;
+scrl4
+;
+iny
+iny
+;
+inx
+cpx #19
+bne scrl3
+;
+ldx #39
+lda #$71
+;
+scrl3a
+;
+sta $0bc0,x
+;
+dex
+bpl scrl3a
+;
+; set ink for bottom line
+;
+rts
+;
+;---------------------------------
+;
+flstop
+;
+; flash the fire to start message
+;
+lda shipc1      ;* pulsate colour
+and #%01110000  ;* luminance
+eor #%01110000  ;* opposite
+ora colvar
+;
+ldx #37
+;
+scrl5
+;
+sta $0829,x
+;
+dex
+bpl scrl5
+;
+rts
+;
+;--------------------------------
+;
+clstop
+;
+ldx #39
+;
+scril
+;
+lda #32
+sta $0c00,x
+sta $0c28,x
+;
+lda #$67
+sta $0800,x
+lda #$57
+sta $0828,x
+;
+dex
+bpl scril
+;
+rts
+;
+;
+;
+.end

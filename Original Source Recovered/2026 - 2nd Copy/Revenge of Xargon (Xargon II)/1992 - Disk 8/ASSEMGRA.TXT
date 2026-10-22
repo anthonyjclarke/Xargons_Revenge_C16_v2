@@ -1,0 +1,15 @@
+; >s:assem-graphs
+; put "assem-graphs"
+;
+;
+*=$1000
+;
+.lib char#1-bot*
+;
+*=$1600
+;
+.lib char#1-top*
+;
+;
+;
+.end

@@ -76,6 +76,6 @@ The [1-bit view](analysis/font-hires.svg) and [2-bit view](analysis/font-multico
 
 ## Loading Screen
 
-![Loading screen from the second disk](images/loading-screen.png)
+![Loading screen from the 5 Lives disk](images/loading-screen.png)
 
-The second 2026 disk image holds a loading screen, files `P1` (screen) and `P2` (colour), plus a loader that expects `P1` to `P4`. This is how the C16 shows those two files, captured in VICE from the preserved bytes. "now loading" flashes; [this capture](images/loading-screen-flash.png) is the other phase. I don't remember it being used, and the disk doesn't hold the rest of the game.
+The first, partial 2026 copy of my 5 Lives disk holds a loading screen, files `P1` (screen) and `P2` (colour), plus a loader that expects `P1` to `P4`. This is how the C16 shows those two files, captured in VICE from the preserved bytes. "now loading" flashes; [this capture](images/loading-screen-flash.png) is the other phase. I don't remember it being used, and the image doesn't hold the rest of the game. Its files are the first three on my 5 Lives development disk, where the loader goes on to load the game (`P3`) and the aliens (`P4`) ([Development Disks](DEVELOPMENT_DISKS.md#xargons-revenge--5-lives-disk10)).

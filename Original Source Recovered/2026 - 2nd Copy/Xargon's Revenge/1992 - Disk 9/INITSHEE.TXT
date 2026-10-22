@@ -1,0 +1,65 @@
+; >s:init-sheet
+; put"init-sheet"
+;
+; set up the alien characters
+; and the explosion at the start
+; of the sheet.
+;
+; aliens have 2 animations = 64
+; bytes and explosions have 4
+;
+alidef
+;
+lda sheet
+and #15
+tax
+lda convtb,x  ;* convert aliens
+pha
+;
+and #3
+clc
+ror a
+ror a
+ror a
+sta work       ;* lo byte
+;
+pla
+and #%00011100
+lsr a
+lsr a
+clc
+sta work+1     ;* hi byte
+;
+lda work
+clc
+adc #<aldata
+sta work
+;
+lda work+1
+adc #>aldata
+sta work+1
+;
+; work points to alien data
+;
+ldy #63
+;
+dif1
+;
+lda (work),y
+sta $3ea8,y    ;* char data
+;
+dey
+bpl dif1       ;* 64 bytes
+;
+jsr calexp     ;* get explosions
+;
+rts
+;
+convtb
+;
+.byte 0,1,2,3,4,5,6,7,8
+.byte 9,10,11,12,13,14,15
+;
+;
+;
+.end

@@ -1,0 +1,118 @@
+; >s:topland-pixel
+; put "topland-pixel"
+;
+topmve
+;
+; move the top & bottom land
+;
+lda topspd
+bne top4
+;
+lda #0
+sta irqwrk
+beq top2
+;
+top4
+;
+cmp #1      ;* half speed
+bne top1
+;
+sta irqwrk
+;
+inc topwrk
+lda topwrk
+and #1
+beq top2
+;
+rts
+;
+top1
+;
+sec
+sbc #1
+sta irqwrk  ;* speed 1-8
+;
+top2
+;
+lda toplx
+sec
+sbc irqwrk  ;* top speed
+;
+tay
+;
+and #7
+sta toplx
+;
+tya
+;
+and #8
+bne hartop ;* need block scroll
+;
+rts
+;
+hartop
+;
+ldx #0
+;
+btl1
+;
+lda $0c51,x
+sta $0c50,x
+;
+lda $0c79,x
+sta $0c78,x
+;
+inx
+cpx #39
+bne btl1
+;
+; now put on the new bit of hill
+;
+dec topcnt
+bpl blink1
+;
+jsr topnew
+;
+blink1
+;
+ldy topchr
+sty $c9f
+;
+iny
+sty $c77
+;
+iny
+sty topchr
+;
+rts
+;
+topnew
+;
+; start a new block
+;
+lda #3
+sta topcnt
+;
+jsr random
+;
+lda rnd
+and #3
+tax
+;
+lda rnd,x
+;
+and #7
+;
+asl a
+asl a
+asl a
+;
+clc
+adc #192     ;* base char
+;
+sta topchr
+;
+rts
+;
+;
+.end

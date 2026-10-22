@@ -1,0 +1,67 @@
+; >s:ali-print&clear
+; put"ali-print&clear"
+;
+rubali
+;
+ldx alx
+ldy aly
+jsr xy2
+;
+ldx #3
+lda #32
+;
+aliclr
+;
+ldy yval1,x
+sta (sl2),y
+;
+dex
+bpl aliclr
+;
+rts
+;
+;---------------
+;
+prtali
+;
+ldx alx
+ldy aly
+jsr xy2
+;
+lda #0
+sta hitit
+lda #192
+sta alchr
+;
+ldx #3
+;
+aliprt
+;
+ldy yval1,x
+;
+lda (sl2),y
+cmp #63
+bne nthit
+;
+lda #1
+sta hitit
+;
+nthit
+;
+lda alchr
+sta (sl2),y
+;
+lda gnkcol
+sta (cl2),y
+;
+dec alchr
+dex
+bpl aliprt
+;
+rts
+;
+;
+;
+;
+;
+.end

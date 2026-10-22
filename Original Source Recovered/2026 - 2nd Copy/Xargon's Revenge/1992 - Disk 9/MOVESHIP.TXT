@@ -1,0 +1,178 @@
+; >s:move-ship
+; put "move-ship"
+;
+ship
+;
+; rubout,move then print
+;
+lda jmove
+bne shipmt ;* has moved
+;
+jmp shipon ;* ship print
+;
+shipmt
+;
+bit jfire    ;* want to fire ?
+bpl nfire
+;
+lda dntfir   ;* allow to fire ?
+bne firout   ;* no
+;
+dec fircnt   ;* fire tempo
+bne firout
+;
+; tempo is ok - yah !
+;
+lda #1
+sta fircnt
+;
+lda jfire
+cmp oldfir   ;* take your finger
+beq firout   ;* off the button !
+;
+sta oldfir
+;
+jsr fire     ;* do mega code
+;
+firout
+;
+lda jup
+ora jdown    ;* want to move ?
+bmi nfire    ;* yes
+;
+jsr shipon   ;* print ship
+;
+rts
+;
+;---------------------------------
+;
+nfire
+;
+jsr chkshp   ;* check ship first
+;
+ldx #11
+;
+shp1
+;
+ldy yship,x  ;* y values
+lda #32      ;* space
+sta (shpscr),y
+;
+dex
+bpl shp1
+;
+; gone now !!
+;
+; lets see if he wants to move now
+;
+bit jup
+bpl noup     ;* not up
+;
+lda #0
+sta pichit
+;
+lda shipy
+bne upok     ;* at top
+;
+lda ypix
+cmp #2
+bcc noup
+;
+; if at top then check if also
+; at pixel top - in which case
+; you cant go up
+;
+upok
+;
+lda ypix     ;* pixel pos (0-7)
+sec
+sbc #2       ;* pixel up
+;
+tay
+;
+and #7
+sta ypix     ;* new pixel pos
+;
+tya
+and #8       ;* need block move ?
+;
+beq noup     ;* get out
+;
+dec shipy    ;* hard char pos
+;
+lda shpscr
+sec
+sbc #40
+sta shpscr
+sta shpcol   ;* up 1 char
+;
+lda shpscr+1
+sbc #0
+sta shpscr+1
+;
+sec
+sbc #4
+sta shpcol+1 ;* colour calc
+;
+noup
+;
+; lets see if he wants to go down
+;
+bit jdown
+bpl nodown   ;* no - go away !
+;
+lda #$80
+sta pichit
+;
+lda shipy    ;* y pos
+cmp #13
+;
+bne dowok    ;* no problems
+;
+lda ypix     ;* if at the bottom
+cmp #6       ;* then check if also
+bcs nodown   ;* at pixel bottom
+;
+dowok
+;
+lda ypix     ;* pixel pos (0-7)
+clc
+adc #2       ;* pixel up
+;
+tay
+;
+and #7
+sta ypix     ;* new pixel pos
+;
+tya
+and #8       ;* need block move ?
+;
+beq nodown   ;* get out
+;
+inc shipy    ;* hard char pos
+;
+lda shpscr
+clc
+adc #40
+sta shpscr
+sta shpcol   ;* up 1 char
+;
+lda shpscr+1
+adc #0
+sta shpscr+1
+;
+sec
+sbc #4
+sta shpcol+1 ;* colour calc
+;
+nodown
+;
+jsr prship   ;* do all pixel calcs
+;
+rts
+;
+;
+;
+;
+;
+.end

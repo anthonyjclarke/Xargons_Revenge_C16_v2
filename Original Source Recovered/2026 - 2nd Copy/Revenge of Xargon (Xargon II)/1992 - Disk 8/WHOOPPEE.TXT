@@ -1,0 +1,18 @@
+; >s:whooppee-message
+; put "whooppee-message"
+;
+;
+;
+;
+;
+messt
+;
+.byte ' xargon',39,'s revenge'
+.byte ' @ micro projects 1985    '
+;
+.byte $ff
+;
+;
+;
+;
+.end

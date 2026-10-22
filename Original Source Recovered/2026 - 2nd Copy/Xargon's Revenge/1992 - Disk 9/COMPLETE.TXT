@@ -1,0 +1,320 @@
+; >s:completed-sheet
+; put"completed-sheet
+;
+; print the box telling you that
+; you have cleared the last sheet.
+;
+comple
+;
+ldx #1
+stx stpstr     ;* stop stars
+stx dntfir     ;* no firing
+stx ctlful     ;* no fuel down
+stx volctl     ;*
+stx killco     ;* no dik.
+;
+dex
+stx lasers
+stx fuelon
+stx dead
+stx jup
+stx jdown
+stx jfire
+;
+jsr endn1      ;* no #1 sound
+jsr endn2      ;* no #2 sound
+jsr clsful     ;* cls fuel
+jsr titcls     ;* cls window
+;
+;---------------------------------
+;
+; next sheet, check for next level
+;
+inc sheet
+;
+lda sheet
+cmp #16
+bne ntronf
+;
+lda #0
+sta sheet       ;* start again
+;
+inc level       ;* next level up
+lda level
+cmp #6
+bne ntronf
+;
+lda #5
+sta level       ;* 0 - 5
+;
+ntronf
+;
+;---------------------------------
+;
+;   set up string to be printed
+;
+lda level
+asl a
+asl a
+asl a
+asl a          ;* x16
+;
+clc
+adc sheet
+sta attak      ;* sheet attak no.
+tax
+;
+lda #0
+sta work
+;
+dio
+;
+sed
+;
+lda work
+clc
+adc #1
+sta work       ;* +1
+;
+cld
+;
+dex
+bne dio
+;
+lda work
+and #$f0
+lsr a
+lsr a
+lsr a
+lsr a
+ora #$30
+sta commes+12  ;* tens
+;
+lda work
+and #$0f
+ora #$30
+sta commes+13  ;* units
+;
+;---------------------------------
+;
+;     print the gloppy box
+;
+jsr glpbox     ;* print sides
+;
+;---------------------------------
+;
+ldx level
+lda bonunt,x
+sta work+5     ;* bonus units
+;
+lda bonten,x
+sta work+6     ;* bonus tens
+;
+ldx #0
+stx stpstr     ;* start stars
+;
+dex
+stx work       ;* loop
+;
+lda fuel
+sta work+1
+;
+compl2
+;
+ldx #$80
+stx jdown      ;* go down
+stx jmove      ;* i wanna move !
+;
+lda work
+bpl donths     ;* done this !
+and #%01100000
+lsr a
+lsr a
+lsr a
+lsr a
+lsr a
+;
+tax
+;
+lda #1
+sta ststop,x   ;* stop stars
+;
+lda spdtop,x
+sta topspd
+;
+lda spdbot,x
+sta botspd     ;* slow down land
+;
+bpl dinths
+;
+donths
+;
+lda #0
+sta botspd     ;* stop land
+;
+dinths
+;
+ldx #23
+;
+compl1
+;
+lda commes,x
+cmp #32
+bne compl3     ;* not space
+;
+lda #136       ;* another space
+bne compl4
+;
+compl3
+;
+and #$3f
+;
+compl4
+;
+sta $0dc0,x    ;* message
+;
+lda shipc2     ;* colour
+sta $09c0,x
+;
+dex
+bpl compl1
+;
+lda fuel
+beq compl8
+;
+dec fuel
+;
+lda work+5
+jsr score
+lda work+6
+ldy #6
+jsr score+2   ;* add bonus points
+;
+lda #0
+sta work+2    ;* high byte
+;
+lda fuel
+;
+asl a
+rol work+2
+asl a
+rol work+2
+;
+sta sou2lo
+;
+lda work+2    ;* high byte
+sta sou2hi
+;
+lda sndflg    ;* sound on ?
+beq compl8
+;
+lda vol
+ora #%00101111
+sta vol        ;* on
+bne compl9
+;
+compl8
+;
+lda #0
+sta vol
+;
+compl9
+;
+jsr rusras
+;
+dec work       ;* count
+beq copl2
+;
+jmp compl2
+;
+copl2
+;
+;---------------------------------
+;
+; get ready to return to play loop
+;
+lda #0
+sta volctl     ;* off
+;
+lda work+1     ;* saved fuel
+clc
+adc fulinc     ;* any saved ?
+clc
+adc #32        ;* bonus fuel
+sta fulinc     ;* up again
+;
+lda sheet
+bne feelin     ;* not at start of
+;              ;* a new level
+;
+jsr levctl     ;* end of level
+;
+feelin
+;
+jmp stloop     ;* start new screen
+;
+;---------------------------------
+;
+glpbox
+;
+lda #242
+sta alchr
+;
+ldx #5
+;
+glp1
+;
+ldy yval1,x
+lda alchr
+;
+sta $0d97,y      ;* left
+;
+clc
+adc #6
+sta $0daf,y      ;* right
+;
+lda #$71
+sta $0997,y
+sta $09af,y      ;* colour
+;
+dec alchr
+dex
+bpl glp1
+;
+; now print top & bottom bars.
+;
+ldx #21
+;
+glp2
+;
+lda #249
+sta $0d99,x      ;* top
+sta $0d99+80,x   ;* bottom
+;
+lda #$71
+sta $0999,x
+sta $0999+80,x   ;* colour
+;
+dex
+bpl glp2
+;
+rts
+;
+;
+;---------------------------------
+;
+commes
+;
+.byte 'attack wave 00 completed'
+;
+bonunt
+;
+.byte 5,5,5,0,0,5
+;
+bonten
+;
+.byte 2,3,4,5,6,7
+;
+;
+;
+.end

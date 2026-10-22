@@ -1,0 +1,56 @@
+; >s:lazer-detection
+; put"lazer-detection
+;
+; do the detection on the lazer
+;
+chklaz
+;
+; sl,sl+1 point to lazers last pos
+;
+ldy #0
+lda (sl),y
+;
+jsr carrie    ;* check it
+;
+lda lasers
+beq isdead    ;* laser dead
+;
+ldy #1
+lda (sl),y
+;
+carrie
+;
+cmp #32
+bne carri1
+;
+isdead
+;
+rts           ;* space is ok
+;
+carri1
+;
+;---------------------------------
+;
+;   first check for a fuel pod.
+;
+cmp #180
+bcc carri2
+;
+cmp #186
+bcs carri2    ;* check for fuel
+;
+ldx #0
+stx lasers    ;* kill laser
+inx
+stx kilful    ;* stop fuel pod
+;
+rts
+;
+;---------------------------------
+;
+carri2
+;
+rts
+;
+;
+.end

@@ -87,147 +87,147 @@ Modules with zero bytes hold only equates, zero-page or `$0200` reservations, or
 
 `ALI-PRINT&CLEAR` – [preserved input](../../Original%20Source%20Recovered/1992/DISK9/ALIPRINT.TXT); 478 raw bytes, 66 logical lines.
 
-`ALIEN-CODE` – [preserved input](../../Original%20Source%20Recovered/2026/Xargons-Revenge-C16-Side2/001_ALIEN-CODE.seq); 4382 raw bytes, 421 logical lines.
+`ALIEN-CODE` – [preserved input](../../Original%20Source%20Recovered/2026%20-%201st%20Copy/Xargon%27s%20Revenge/Xargon%27s%20Revenge%20-%20Extracted/001_ALIEN-CODE.seq); 4382 raw bytes, 421 logical lines.
 
-`ALTERABLES` – [preserved input](../../Original%20Source%20Recovered/2026/Xargons-Revenge-C16-Side2/002_ALTERABLES.seq); 1523 raw bytes, 168 logical lines.
+`ALTERABLES` – [preserved input](../../Original%20Source%20Recovered/2026%20-%201st%20Copy/Xargon%27s%20Revenge/Xargon%27s%20Revenge%20-%20Extracted/002_ALTERABLES.seq); 1523 raw bytes, 168 logical lines.
 
-`ASSEM-GRAPHS` – [preserved input](../../Original%20Source%20Recovered/2026/Xargons-Revenge-C16-Side2/003_ASSEM-GRAPHS.seq); 110 raw bytes, 16 logical lines.
+`ASSEM-GRAPHS` – [preserved input](../../Original%20Source%20Recovered/2026%20-%201st%20Copy/Xargon%27s%20Revenge/Xargon%27s%20Revenge%20-%20Extracted/003_ASSEM-GRAPHS.seq); 110 raw bytes, 16 logical lines.
 
-`BANNER-DATA` – [preserved input](../../Original%20Source%20Recovered/2026/Xargons-Revenge-C16-Side2/004_BANNER-DATA.seq); 1576 raw bytes, 49 logical lines.
+`BANNER-DATA` – [preserved input](../../Original%20Source%20Recovered/2026%20-%201st%20Copy/Xargon%27s%20Revenge/Xargon%27s%20Revenge%20-%20Extracted/004_BANNER-DATA.seq); 1576 raw bytes, 49 logical lines.
 
-`BLOB-MOVE` – [preserved input](../../Original%20Source%20Recovered/2026/Xargons-Revenge-C16-Side2/005_BLOB-MOVE.seq); 830 raw bytes, 99 logical lines.
+`BLOB-MOVE` – [preserved input](../../Original%20Source%20Recovered/2026%20-%201st%20Copy/Xargon%27s%20Revenge/Xargon%27s%20Revenge%20-%20Extracted/005_BLOB-MOVE.seq); 830 raw bytes, 99 logical lines.
 
-`BOTLAND-PIXEL` – [preserved input](../../Original%20Source%20Recovered/2026/Xargons-Revenge-C16-Side2/006_BOTLAND-PIXEL.seq); 968 raw bytes, 136 logical lines.
+`BOTLAND-PIXEL` – [preserved input](../../Original%20Source%20Recovered/2026%20-%201st%20Copy/Xargon%27s%20Revenge/Xargon%27s%20Revenge%20-%20Extracted/006_BOTLAND-PIXEL.seq); 968 raw bytes, 136 logical lines.
 
-`CHAR#1-BOT` – [preserved input](../../Original%20Source%20Recovered/2026/Xargons-Revenge-C16-Side2/007_CHAR~231-BOT.seq); 7308 raw bytes, 260 logical lines.
+`CHAR#1-BOT` – [preserved input](../../Original%20Source%20Recovered/2026%20-%201st%20Copy/Xargon%27s%20Revenge/Xargon%27s%20Revenge%20-%20Extracted/007_CHAR~231-BOT.seq); 7308 raw bytes, 260 logical lines.
 
-`CHAR#1-TOP` – [preserved input](../../Original%20Source%20Recovered/2026/Xargons-Revenge-C16-Side2/008_CHAR~231-TOP.seq); 2554 raw bytes, 118 logical lines.
+`CHAR#1-TOP` – [preserved input](../../Original%20Source%20Recovered/2026%20-%201st%20Copy/Xargon%27s%20Revenge/Xargon%27s%20Revenge%20-%20Extracted/008_CHAR~231-TOP.seq); 2554 raw bytes, 118 logical lines.
 
-`CHAR-ANIM` – [preserved input](../../Original%20Source%20Recovered/2026/Xargons-Revenge-C16-Side2/009_CHAR-ANIM.seq); 249 raw bytes, 35 logical lines.
+`CHAR-ANIM` – [preserved input](../../Original%20Source%20Recovered/2026%20-%201st%20Copy/Xargon%27s%20Revenge/Xargon%27s%20Revenge%20-%20Extracted/009_CHAR-ANIM.seq); 249 raw bytes, 35 logical lines.
 
 `COMPLETED-SHEET` – [preserved input](../../Original%20Source%20Recovered/1992/DISK9/COMPLETE.TXT); 3746 raw bytes, 321 logical lines.
 
 `DATA-LAND/CHARS` – [preserved input](../../Original%20Source%20Recovered/1992/DISK9/DATALAND.TXT); 398 raw bytes, 21 logical lines.
 
-`DEATH-CODE` – [preserved input](../../Original%20Source%20Recovered/2026/Xargons-Revenge-C16-Side2/010_DEATH-CODE.seq); 721 raw bytes, 51 logical lines.
+`DEATH-CODE` – [preserved input](../../Original%20Source%20Recovered/2026%20-%201st%20Copy/Xargon%27s%20Revenge/Xargon%27s%20Revenge%20-%20Extracted/010_DEATH-CODE.seq); 721 raw bytes, 51 logical lines.
 
-`EXPLOSIONS` – [preserved input](../../Original%20Source%20Recovered/2026/Xargons-Revenge-C16-Side2/072_EXPLOSIONS.seq); 855 raw bytes, 95 logical lines.
+`EXPLOSIONS` – [preserved input](../../Original%20Source%20Recovered/2026%20-%201st%20Copy/Xargon%27s%20Revenge/Xargon%27s%20Revenge%20-%20Extracted/072_EXPLOSIONS.seq); 855 raw bytes, 95 logical lines.
 
-`EXTRA-MEMORY` – [preserved input](../../Original%20Source%20Recovered/2026/Xargons-Revenge-C16-Side2/011_EXTRA-MEMORY.seq); 442 raw bytes, 42 logical lines.
+`EXTRA-MEMORY` – [preserved input](../../Original%20Source%20Recovered/2026%20-%201st%20Copy/Xargon%27s%20Revenge/Xargon%27s%20Revenge%20-%20Extracted/011_EXTRA-MEMORY.seq); 442 raw bytes, 42 logical lines.
 
 `FIRING-MEGA/CODE` – [preserved input](../../Original%20Source%20Recovered/1992/DISK9/FIRINGME.TXT); 1466 raw bytes, 146 logical lines.
 
-`FIZZLE` – [preserved input](../../Original%20Source%20Recovered/2026/Xargons-Revenge-C16-Side2/012_FIZZLE.seq); 777 raw bytes, 83 logical lines.
+`FIZZLE` – [preserved input](../../Original%20Source%20Recovered/2026%20-%201st%20Copy/Xargon%27s%20Revenge/Xargon%27s%20Revenge%20-%20Extracted/012_FIZZLE.seq); 777 raw bytes, 83 logical lines.
 
-`FUEL-CHAR/DATA` – [preserved input](../../Original%20Source%20Recovered/2026/Xargons-Revenge-C16-Side2/013_FUEL-CHAR~2FDATA.seq); 292 raw bytes, 16 logical lines.
+`FUEL-CHAR/DATA` – [preserved input](../../Original%20Source%20Recovered/2026%20-%201st%20Copy/Xargon%27s%20Revenge/Xargon%27s%20Revenge%20-%20Extracted/013_FUEL-CHAR~2FDATA.seq); 292 raw bytes, 16 logical lines.
 
-`FUEL-CODE` – [preserved input](../../Original%20Source%20Recovered/2026/Xargons-Revenge-C16-Side2/014_FUEL-CODE.seq); 2433 raw bytes, 258 logical lines.
+`FUEL-CODE` – [preserved input](../../Original%20Source%20Recovered/2026%20-%201st%20Copy/Xargon%27s%20Revenge/Xargon%27s%20Revenge%20-%20Extracted/014_FUEL-CODE.seq); 2433 raw bytes, 258 logical lines.
 
-`FUEL-GAUGE` – [preserved input](../../Original%20Source%20Recovered/2026/Xargons-Revenge-C16-Side2/015_FUEL-GAUGE.seq); 2357 raw bytes, 240 logical lines.
+`FUEL-GAUGE` – [preserved input](../../Original%20Source%20Recovered/2026%20-%201st%20Copy/Xargon%27s%20Revenge/Xargon%27s%20Revenge%20-%20Extracted/015_FUEL-GAUGE.seq); 2357 raw bytes, 240 logical lines.
 
-`GAME-OVER` – [preserved input](../../Original%20Source%20Recovered/2026/Xargons-Revenge-C16-Side2/016_GAME-OVER.seq); 931 raw bytes, 94 logical lines.
+`GAME-OVER` – [preserved input](../../Original%20Source%20Recovered/2026%20-%201st%20Copy/Xargon%27s%20Revenge/Xargon%27s%20Revenge%20-%20Extracted/016_GAME-OVER.seq); 931 raw bytes, 94 logical lines.
 
-`HIGH-SCORE` – [preserved input](../../Original%20Source%20Recovered/2026/Xargons-Revenge-C16-Side2/017_HIGH-SCORE.seq); 695 raw bytes, 87 logical lines.
+`HIGH-SCORE` – [preserved input](../../Original%20Source%20Recovered/2026%20-%201st%20Copy/Xargon%27s%20Revenge/Xargon%27s%20Revenge%20-%20Extracted/017_HIGH-SCORE.seq); 695 raw bytes, 87 logical lines.
 
-`INIT-SHEET` – [preserved input](../../Original%20Source%20Recovered/2026/Xargons-Revenge-C16-Side2/038_INIT-SHEET.seq); 678 raw bytes, 66 logical lines.
+`INIT-SHEET` – [preserved input](../../Original%20Source%20Recovered/2026%20-%201st%20Copy/Xargon%27s%20Revenge/Xargon%27s%20Revenge%20-%20Extracted/038_INIT-SHEET.seq); 678 raw bytes, 66 logical lines.
 
-`IRQ` – [preserved input](../../Original%20Source%20Recovered/2026/Xargons-Revenge-C16-Side2/019_IRQ.seq); 845 raw bytes, 115 logical lines.
+`IRQ` – [preserved input](../../Original%20Source%20Recovered/2026%20-%201st%20Copy/Xargon%27s%20Revenge/Xargon%27s%20Revenge%20-%20Extracted/019_IRQ.seq); 845 raw bytes, 115 logical lines.
 
-`JOYSTIK` – [preserved input](../../Original%20Source%20Recovered/2026/Xargons-Revenge-C16-Side2/020_JOYSTIK.seq); 550 raw bytes, 73 logical lines.
+`JOYSTIK` – [preserved input](../../Original%20Source%20Recovered/2026%20-%201st%20Copy/Xargon%27s%20Revenge/Xargon%27s%20Revenge%20-%20Extracted/020_JOYSTIK.seq); 550 raw bytes, 73 logical lines.
 
-`KEY-SCAN` – [preserved input](../../Original%20Source%20Recovered/2026/Xargons-Revenge-C16-Side2/021_KEY-SCAN.seq); 600 raw bytes, 68 logical lines.
+`KEY-SCAN` – [preserved input](../../Original%20Source%20Recovered/2026%20-%201st%20Copy/Xargon%27s%20Revenge/Xargon%27s%20Revenge%20-%20Extracted/021_KEY-SCAN.seq); 600 raw bytes, 68 logical lines.
 
-`LAND-GO` – [preserved input](../../Original%20Source%20Recovered/2026/Xargons-Revenge-C16-Side2/022_LAND-GO.seq); 190 raw bytes, 25 logical lines.
+`LAND-GO` – [preserved input](../../Original%20Source%20Recovered/2026%20-%201st%20Copy/Xargon%27s%20Revenge/Xargon%27s%20Revenge%20-%20Extracted/022_LAND-GO.seq); 190 raw bytes, 25 logical lines.
 
-`LEVEL-CODE` – [preserved input](../../Original%20Source%20Recovered/2026/Xargons-Revenge-C16-Side2/033_LEVEL-CODE.seq); 3651 raw bytes, 322 logical lines.
+`LEVEL-CODE` – [preserved input](../../Original%20Source%20Recovered/2026%20-%201st%20Copy/Xargon%27s%20Revenge/Xargon%27s%20Revenge%20-%20Extracted/033_LEVEL-CODE.seq); 3651 raw bytes, 322 logical lines.
 
-`MAIN-VARS` – [preserved input](../../Original%20Source%20Recovered/2026/Xargons-Revenge-C16-Side2/024_MAIN-VARS.seq); 695 raw bytes, 64 logical lines.
+`MAIN-VARS` – [preserved input](../../Original%20Source%20Recovered/2026%20-%201st%20Copy/Xargon%27s%20Revenge/Xargon%27s%20Revenge%20-%20Extracted/024_MAIN-VARS.seq); 695 raw bytes, 64 logical lines.
 
-`MESSAGE-STUFF` – [preserved input](../../Original%20Source%20Recovered/2026/Xargons-Revenge-C16-Side2/025_MESSAGE-STUFF.seq); 496 raw bytes, 74 logical lines.
+`MESSAGE-STUFF` – [preserved input](../../Original%20Source%20Recovered/2026%20-%201st%20Copy/Xargon%27s%20Revenge/Xargon%27s%20Revenge%20-%20Extracted/025_MESSAGE-STUFF.seq); 496 raw bytes, 74 logical lines.
 
-`MOVE-SHIP` – [preserved input](../../Original%20Source%20Recovered/2026/Xargons-Revenge-C16-Side2/026_MOVE-SHIP.seq); 2013 raw bytes, 179 logical lines.
+`MOVE-SHIP` – [preserved input](../../Original%20Source%20Recovered/2026%20-%201st%20Copy/Xargon%27s%20Revenge/Xargon%27s%20Revenge%20-%20Extracted/026_MOVE-SHIP.seq); 2013 raw bytes, 179 logical lines.
 
-`PAUSE/ESCAPE` – [preserved input](../../Original%20Source%20Recovered/2026/Xargons-Revenge-C16-Side2/027_PAUSE~2FESCAPE.seq); 1340 raw bytes, 149 logical lines.
+`PAUSE/ESCAPE` – [preserved input](../../Original%20Source%20Recovered/2026%20-%201st%20Copy/Xargon%27s%20Revenge/Xargon%27s%20Revenge%20-%20Extracted/027_PAUSE~2FESCAPE.seq); 1340 raw bytes, 149 logical lines.
 
-`PLANETS` – [preserved input](../../Original%20Source%20Recovered/2026/Xargons-Revenge-C16-Side2/028_PLANETS.seq); 481 raw bytes, 56 logical lines.
+`PLANETS` – [preserved input](../../Original%20Source%20Recovered/2026%20-%201st%20Copy/Xargon%27s%20Revenge/Xargon%27s%20Revenge%20-%20Extracted/028_PLANETS.seq); 481 raw bytes, 56 logical lines.
 
-`PLAY-GAME` – [preserved input](../../Original%20Source%20Recovered/2026/Xargons-Revenge-C16-Side2/029_PLAY-GAME.seq); 1341 raw bytes, 104 logical lines.
+`PLAY-GAME` – [preserved input](../../Original%20Source%20Recovered/2026%20-%201st%20Copy/Xargon%27s%20Revenge/Xargon%27s%20Revenge%20-%20Extracted/029_PLAY-GAME.seq); 1341 raw bytes, 104 logical lines.
 
-`PRINT-LIVES` – [preserved input](../../Original%20Source%20Recovered/2026/Xargons-Revenge-C16-Side2/030_PRINT-LIVES.seq); 602 raw bytes, 71 logical lines.
+`PRINT-LIVES` – [preserved input](../../Original%20Source%20Recovered/2026%20-%201st%20Copy/Xargon%27s%20Revenge/Xargon%27s%20Revenge%20-%20Extracted/030_PRINT-LIVES.seq); 602 raw bytes, 71 logical lines.
 
-`PULSATE` – [preserved input](../../Original%20Source%20Recovered/2026/Xargons-Revenge-C16-Side2/031_PULSATE.seq); 278 raw bytes, 30 logical lines.
+`PULSATE` – [preserved input](../../Original%20Source%20Recovered/2026%20-%201st%20Copy/Xargon%27s%20Revenge/Xargon%27s%20Revenge%20-%20Extracted/031_PULSATE.seq); 278 raw bytes, 30 logical lines.
 
 `RASTER-ROUTINES` – [preserved input](../../Original%20Source%20Recovered/1992/DISK9/RASTERRO.TXT); 2592 raw bytes, 206 logical lines.
 
-`RESET-CODE` – [preserved input](../../Original%20Source%20Recovered/2026/Xargons-Revenge-C16-Side2/032_RESET-CODE.seq); 941 raw bytes, 104 logical lines.
+`RESET-CODE` – [preserved input](../../Original%20Source%20Recovered/2026%20-%201st%20Copy/Xargon%27s%20Revenge/Xargon%27s%20Revenge%20-%20Extracted/032_RESET-CODE.seq); 941 raw bytes, 104 logical lines.
 
-`REVENGE` – [preserved input](../../Original%20Source%20Recovered/2026/Xargons-Revenge-C16-Side2/023_REVENGE.seq); 2748 raw bytes, 124 logical lines.
+`REVENGE` – [preserved input](../../Original%20Source%20Recovered/2026%20-%201st%20Copy/Xargon%27s%20Revenge/Xargon%27s%20Revenge%20-%20Extracted/023_REVENGE.seq); 2748 raw bytes, 124 logical lines.
 
-`SCORE-ROUTINES` – [preserved input](../../Original%20Source%20Recovered/2026/Xargons-Revenge-C16-Side2/034_SCORE-ROUTINES.seq); 1419 raw bytes, 154 logical lines.
+`SCORE-ROUTINES` – [preserved input](../../Original%20Source%20Recovered/2026%20-%201st%20Copy/Xargon%27s%20Revenge/Xargon%27s%20Revenge%20-%20Extracted/034_SCORE-ROUTINES.seq); 1419 raw bytes, 154 logical lines.
 
-`SCREEN-SETUP` – [preserved input](../../Original%20Source%20Recovered/2026/Xargons-Revenge-C16-Side2/035_SCREEN-SETUP.seq); 2277 raw bytes, 267 logical lines.
+`SCREEN-SETUP` – [preserved input](../../Original%20Source%20Recovered/2026%20-%201st%20Copy/Xargon%27s%20Revenge/Xargon%27s%20Revenge%20-%20Extracted/035_SCREEN-SETUP.seq); 2277 raw bytes, 267 logical lines.
 
-`SET-SHEET` – [preserved input](../../Original%20Source%20Recovered/2026/Xargons-Revenge-C16-Side2/037_SET-SHEET.seq); 1985 raw bytes, 202 logical lines.
+`SET-SHEET` – [preserved input](../../Original%20Source%20Recovered/2026%20-%201st%20Copy/Xargon%27s%20Revenge/Xargon%27s%20Revenge%20-%20Extracted/037_SET-SHEET.seq); 1985 raw bytes, 202 logical lines.
 
-`SHEET1` – [preserved input](../../Original%20Source%20Recovered/2026/Xargons-Revenge-C16-Side2/039_SHEET1.seq); 253 raw bytes, 22 logical lines.
+`SHEET1` – [preserved input](../../Original%20Source%20Recovered/2026%20-%201st%20Copy/Xargon%27s%20Revenge/Xargon%27s%20Revenge%20-%20Extracted/039_SHEET1.seq); 253 raw bytes, 22 logical lines.
 
-`SHEET2` – [preserved input](../../Original%20Source%20Recovered/2026/Xargons-Revenge-C16-Side2/040_SHEET2.seq); 253 raw bytes, 22 logical lines.
+`SHEET2` – [preserved input](../../Original%20Source%20Recovered/2026%20-%201st%20Copy/Xargon%27s%20Revenge/Xargon%27s%20Revenge%20-%20Extracted/040_SHEET2.seq); 253 raw bytes, 22 logical lines.
 
-`SHEET3` – [preserved input](../../Original%20Source%20Recovered/2026/Xargons-Revenge-C16-Side2/041_SHEET3.seq); 280 raw bytes, 24 logical lines.
+`SHEET3` – [preserved input](../../Original%20Source%20Recovered/2026%20-%201st%20Copy/Xargon%27s%20Revenge/Xargon%27s%20Revenge%20-%20Extracted/041_SHEET3.seq); 280 raw bytes, 24 logical lines.
 
-`SHEET4` – [preserved input](../../Original%20Source%20Recovered/2026/Xargons-Revenge-C16-Side2/042_SHEET4.seq); 272 raw bytes, 23 logical lines.
+`SHEET4` – [preserved input](../../Original%20Source%20Recovered/2026%20-%201st%20Copy/Xargon%27s%20Revenge/Xargon%27s%20Revenge%20-%20Extracted/042_SHEET4.seq); 272 raw bytes, 23 logical lines.
 
-`SHEET5` – [preserved input](../../Original%20Source%20Recovered/2026/Xargons-Revenge-C16-Side2/044_SHEET5.seq); 312 raw bytes, 25 logical lines.
+`SHEET5` – [preserved input](../../Original%20Source%20Recovered/2026%20-%201st%20Copy/Xargon%27s%20Revenge/Xargon%27s%20Revenge%20-%20Extracted/044_SHEET5.seq); 312 raw bytes, 25 logical lines.
 
-`SHEET6` – [preserved input](../../Original%20Source%20Recovered/2026/Xargons-Revenge-C16-Side2/043_SHEET6.seq); 280 raw bytes, 23 logical lines.
+`SHEET6` – [preserved input](../../Original%20Source%20Recovered/2026%20-%201st%20Copy/Xargon%27s%20Revenge/Xargon%27s%20Revenge%20-%20Extracted/043_SHEET6.seq); 280 raw bytes, 23 logical lines.
 
-`SHEET7` – [preserved input](../../Original%20Source%20Recovered/2026/Xargons-Revenge-C16-Side2/045_SHEET7.seq); 278 raw bytes, 24 logical lines.
+`SHEET7` – [preserved input](../../Original%20Source%20Recovered/2026%20-%201st%20Copy/Xargon%27s%20Revenge/Xargon%27s%20Revenge%20-%20Extracted/045_SHEET7.seq); 278 raw bytes, 24 logical lines.
 
-`SHEET8` – [preserved input](../../Original%20Source%20Recovered/2026/Xargons-Revenge-C16-Side2/046_SHEET8.seq); 271 raw bytes, 23 logical lines.
+`SHEET8` – [preserved input](../../Original%20Source%20Recovered/2026%20-%201st%20Copy/Xargon%27s%20Revenge/Xargon%27s%20Revenge%20-%20Extracted/046_SHEET8.seq); 271 raw bytes, 23 logical lines.
 
-`SHEET9` – [preserved input](../../Original%20Source%20Recovered/2026/Xargons-Revenge-C16-Side2/047_SHEET9.seq); 268 raw bytes, 23 logical lines.
+`SHEET9` – [preserved input](../../Original%20Source%20Recovered/2026%20-%201st%20Copy/Xargon%27s%20Revenge/Xargon%27s%20Revenge%20-%20Extracted/047_SHEET9.seq); 268 raw bytes, 23 logical lines.
 
-`SHEETA` – [preserved input](../../Original%20Source%20Recovered/2026/Xargons-Revenge-C16-Side2/048_SHEETA.seq); 282 raw bytes, 23 logical lines.
+`SHEETA` – [preserved input](../../Original%20Source%20Recovered/2026%20-%201st%20Copy/Xargon%27s%20Revenge/Xargon%27s%20Revenge%20-%20Extracted/048_SHEETA.seq); 282 raw bytes, 23 logical lines.
 
-`SHEETB` – [preserved input](../../Original%20Source%20Recovered/2026/Xargons-Revenge-C16-Side2/049_SHEETB.seq); 274 raw bytes, 23 logical lines.
+`SHEETB` – [preserved input](../../Original%20Source%20Recovered/2026%20-%201st%20Copy/Xargon%27s%20Revenge/Xargon%27s%20Revenge%20-%20Extracted/049_SHEETB.seq); 274 raw bytes, 23 logical lines.
 
-`SHEETC` – [preserved input](../../Original%20Source%20Recovered/2026/Xargons-Revenge-C16-Side2/050_SHEETC.seq); 276 raw bytes, 23 logical lines.
+`SHEETC` – [preserved input](../../Original%20Source%20Recovered/2026%20-%201st%20Copy/Xargon%27s%20Revenge/Xargon%27s%20Revenge%20-%20Extracted/050_SHEETC.seq); 276 raw bytes, 23 logical lines.
 
-`SHEETD` – [preserved input](../../Original%20Source%20Recovered/2026/Xargons-Revenge-C16-Side2/051_SHEETD.seq); 272 raw bytes, 23 logical lines.
+`SHEETD` – [preserved input](../../Original%20Source%20Recovered/2026%20-%201st%20Copy/Xargon%27s%20Revenge/Xargon%27s%20Revenge%20-%20Extracted/051_SHEETD.seq); 272 raw bytes, 23 logical lines.
 
-`SHEETE` – [preserved input](../../Original%20Source%20Recovered/2026/Xargons-Revenge-C16-Side2/052_SHEETE.seq); 287 raw bytes, 23 logical lines.
+`SHEETE` – [preserved input](../../Original%20Source%20Recovered/2026%20-%201st%20Copy/Xargon%27s%20Revenge/Xargon%27s%20Revenge%20-%20Extracted/052_SHEETE.seq); 287 raw bytes, 23 logical lines.
 
-`SHEETF` – [preserved input](../../Original%20Source%20Recovered/2026/Xargons-Revenge-C16-Side2/053_SHEETF.seq); 281 raw bytes, 23 logical lines.
+`SHEETF` – [preserved input](../../Original%20Source%20Recovered/2026%20-%201st%20Copy/Xargon%27s%20Revenge/Xargon%27s%20Revenge%20-%20Extracted/053_SHEETF.seq); 281 raw bytes, 23 logical lines.
 
-`SHEETG` – [preserved input](../../Original%20Source%20Recovered/2026/Xargons-Revenge-C16-Side2/054_SHEETG.seq); 255 raw bytes, 22 logical lines.
+`SHEETG` – [preserved input](../../Original%20Source%20Recovered/2026%20-%201st%20Copy/Xargon%27s%20Revenge/Xargon%27s%20Revenge%20-%20Extracted/054_SHEETG.seq); 255 raw bytes, 22 logical lines.
 
-`SHIP-CALCS` – [preserved input](../../Original%20Source%20Recovered/2026/Xargons-Revenge-C16-Side2/055_SHIP-CALCS.seq); 1470 raw bytes, 143 logical lines.
+`SHIP-CALCS` – [preserved input](../../Original%20Source%20Recovered/2026%20-%201st%20Copy/Xargon%27s%20Revenge/Xargon%27s%20Revenge%20-%20Extracted/055_SHIP-CALCS.seq); 1470 raw bytes, 143 logical lines.
 
-`SHIP-DEF` – [preserved input](../../Original%20Source%20Recovered/2026/Xargons-Revenge-C16-Side2/056_SHIP-DEF.seq); 357 raw bytes, 18 logical lines.
+`SHIP-DEF` – [preserved input](../../Original%20Source%20Recovered/2026%20-%201st%20Copy/Xargon%27s%20Revenge/Xargon%27s%20Revenge%20-%20Extracted/056_SHIP-DEF.seq); 357 raw bytes, 18 logical lines.
 
-`SHTABLE` – [preserved input](../../Original%20Source%20Recovered/2026/Xargons-Revenge-C16-Side2/057_SHTABLE.seq); 3458 raw bytes, 221 logical lines.
+`SHTABLE` – [preserved input](../../Original%20Source%20Recovered/2026%20-%201st%20Copy/Xargon%27s%20Revenge/Xargon%27s%20Revenge%20-%20Extracted/057_SHTABLE.seq); 3458 raw bytes, 221 logical lines.
 
-`SOUND-EFFECTS` – [preserved input](../../Original%20Source%20Recovered/2026/Xargons-Revenge-C16-Side2/058_SOUND-EFFECTS.seq); 3977 raw bytes, 409 logical lines.
+`SOUND-EFFECTS` – [preserved input](../../Original%20Source%20Recovered/2026%20-%201st%20Copy/Xargon%27s%20Revenge/Xargon%27s%20Revenge%20-%20Extracted/058_SOUND-EFFECTS.seq); 3977 raw bytes, 409 logical lines.
 
-`STAR-CODE` – [preserved input](../../Original%20Source%20Recovered/2026/Xargons-Revenge-C16-Side2/059_STAR-CODE.seq); 2430 raw bytes, 235 logical lines.
+`STAR-CODE` – [preserved input](../../Original%20Source%20Recovered/2026%20-%201st%20Copy/Xargon%27s%20Revenge/Xargon%27s%20Revenge%20-%20Extracted/059_STAR-CODE.seq); 2430 raw bytes, 235 logical lines.
 
-`STARTER` – [preserved input](../../Original%20Source%20Recovered/2026/Xargons-Revenge-C16-Side2/060_STARTER.seq); 1592 raw bytes, 153 logical lines.
+`STARTER` – [preserved input](../../Original%20Source%20Recovered/2026%20-%201st%20Copy/Xargon%27s%20Revenge/Xargon%27s%20Revenge%20-%20Extracted/060_STARTER.seq); 1592 raw bytes, 153 logical lines.
 
-`TABLES` – [preserved input](../../Original%20Source%20Recovered/2026/Xargons-Revenge-C16-Side2/018_TABLES.seq); 527 raw bytes, 57 logical lines.
+`TABLES` – [preserved input](../../Original%20Source%20Recovered/2026%20-%201st%20Copy/Xargon%27s%20Revenge/Xargon%27s%20Revenge%20-%20Extracted/018_TABLES.seq); 527 raw bytes, 57 logical lines.
 
-`TITLE-GENERATE` – [preserved input](../../Original%20Source%20Recovered/2026/Xargons-Revenge-C16-Side2/062_TITLE-GENERATE.seq); 500 raw bytes, 49 logical lines.
+`TITLE-GENERATE` – [preserved input](../../Original%20Source%20Recovered/2026%20-%201st%20Copy/Xargon%27s%20Revenge/Xargon%27s%20Revenge%20-%20Extracted/062_TITLE-GENERATE.seq); 500 raw bytes, 49 logical lines.
 
-`TITLE-LOOP` – [preserved input](../../Original%20Source%20Recovered/2026/Xargons-Revenge-C16-Side2/061_TITLE-LOOP.seq); 938 raw bytes, 88 logical lines.
+`TITLE-LOOP` – [preserved input](../../Original%20Source%20Recovered/2026%20-%201st%20Copy/Xargon%27s%20Revenge/Xargon%27s%20Revenge%20-%20Extracted/061_TITLE-LOOP.seq); 938 raw bytes, 88 logical lines.
 
-`TITLE-WORK` – [preserved input](../../Original%20Source%20Recovered/2026/Xargons-Revenge-C16-Side2/064_TITLE-WORK.seq); 2228 raw bytes, 239 logical lines.
+`TITLE-WORK` – [preserved input](../../Original%20Source%20Recovered/2026%20-%201st%20Copy/Xargon%27s%20Revenge/Xargon%27s%20Revenge%20-%20Extracted/064_TITLE-WORK.seq); 2228 raw bytes, 239 logical lines.
 
-`TOPLAND-PIXEL` – [preserved input](../../Original%20Source%20Recovered/2026/Xargons-Revenge-C16-Side2/065_TOPLAND-PIXEL.seq); 833 raw bytes, 119 logical lines.
+`TOPLAND-PIXEL` – [preserved input](../../Original%20Source%20Recovered/2026%20-%201st%20Copy/Xargon%27s%20Revenge/Xargon%27s%20Revenge%20-%20Extracted/065_TOPLAND-PIXEL.seq); 833 raw bytes, 119 logical lines.
 
-`TV-PICTURE` – [preserved input](../../Original%20Source%20Recovered/2026/Xargons-Revenge-C16-Side2/066_TV-PICTURE.seq); 1090 raw bytes, 107 logical lines.
+`TV-PICTURE` – [preserved input](../../Original%20Source%20Recovered/2026%20-%201st%20Copy/Xargon%27s%20Revenge/Xargon%27s%20Revenge%20-%20Extracted/066_TV-PICTURE.seq); 1090 raw bytes, 107 logical lines.
 
-`UTILS` – [preserved input](../../Original%20Source%20Recovered/2026/Xargons-Revenge-C16-Side2/067_UTILS.seq); 1195 raw bytes, 156 logical lines.
+`UTILS` – [preserved input](../../Original%20Source%20Recovered/2026%20-%201st%20Copy/Xargon%27s%20Revenge/Xargon%27s%20Revenge%20-%20Extracted/067_UTILS.seq); 1195 raw bytes, 156 logical lines.
 
-`VARS` – [preserved input](../../Original%20Source%20Recovered/2026/Xargons-Revenge-C16-Side2/068_VARS.seq); 3813 raw bytes, 180 logical lines.
+`VARS` – [preserved input](../../Original%20Source%20Recovered/2026%20-%201st%20Copy/Xargon%27s%20Revenge/Xargon%27s%20Revenge%20-%20Extracted/068_VARS.seq); 3813 raw bytes, 180 logical lines.
 
 `WHOOPPEE-MESSAGE` – [preserved input](../../Original%20Source%20Recovered/1992/DISK9/WHOOPPEE.TXT); 528 raw bytes, 22 logical lines.
 

@@ -1,0 +1,28 @@
+; >s:shtable
+; put "shtable"
+;
+; alien sheet table
+;
+;
+shtabl
+;
+;--------
+;
+; sheet1
+;
+;--------
+;
+.word patd1     ;* movement data
+.byte la1       ;* land col 3
+.byte la2       ;* land col 2
+.byte la3       ;* land col 3
+.byte ba1       ;* bakcol
+.byte 0,0       ;* spare
+;
+;--------
+;
+; sheet2
+;
+;--------
+;
+.end

@@ -1,0 +1,257 @@
+; >s:fuel-code
+; put "fuel-code"
+;
+fulcod
+;
+; do all the moving,printing etc.
+;
+lda dntfir
+bne nofulp     ;* no fuel
+;
+lda fuelon
+bne itoonf     ;* one on
+;
+dec fueltm     ;* tempo
+beq stfuel     ;* start a fuel
+;
+nofulp
+;
+rts
+;
+stfuel
+;
+lda #1
+sta fuelon     ;* one's on now
+;
+lda ted
+and #%00011111
+ora #%11100000
+sta fueltm     ;* reset tempo
+;
+jsr num1t7
+ora #$68
+sta fulcol     ;* colour
+;
+getfly
+;
+lda ted+1
+;
+and #7
+clc
+adc #4
+;
+asl a
+asl a
+asl a
+sta fuely
+;
+lda #$98
+sta fuelx       ;* set x pos
+;
+lda ted+2
+and #$80
+sta fuldir      ;* set direction
+;
+itoonf
+;
+jsr calcfl      ;* calc screen
+;
+ldx #5
+lda #32
+;
+ful4
+;
+ldy fuelyp,x
+sta (sl),y
+;
+dex
+bpl ful4
+;
+; rub out last one
+;
+jsr clsful   ;* clear chars
+;
+;---------------------------------
+;
+;     now lets move the fuel
+;
+lda kilful    ;* req to stop fuel
+bne stpful
+;
+bit fuldir
+bpl fulup     ;* going up
+;
+lda fuely
+clc
+adc #3
+sta fuely
+;
+cmp #120
+bcc fuout     ;* still ok
+;
+lda fuldir
+eor #$80
+sta fuldir    ;* change direction
+;
+bne fuout
+;
+fulup         ;* going up
+;
+lda fuely
+sec
+sbc #3
+sta fuely
+;
+cmp #3
+bcs fuout     ;* still ok
+;
+lda fuldir
+eor #$80
+sta fuldir    ;* change direction
+;
+fuout
+;
+dec fuelx     ;* accross 1 pix
+dec fuelx     ;* accross 1 pix
+bne fuok
+;
+stipit
+;
+lda #0
+sta fuelon    ;* fuel off
+;
+rts
+;
+stpful        ;* stop fuel
+;
+lda #3
+jsr sfx       ;* pow sfx
+;
+lda #0
+sta kilful    ;* zero request
+;
+lda #16
+sta fulinc    ;* add some fuel
+;
+lda #5
+ldy #6
+jsr score+2
+lda #2
+ldy #5
+jsr score+2   ;* add 250 points
+;
+jmp stipit    ;* go & stop fuel
+;
+fuok
+;
+;---------------------------------
+;
+lda fuelx
+lsr a
+and #1
+tax
+;
+ldy tim24,x       ;* x 24
+;
+lda fuely
+and #7
+tax               ;* y pos
+;
+lda #7
+sta irqwrk        ;* count
+;
+ful2
+;
+lda fuelda,y
+sta fulchr,x
+;
+lda fuelda+8,y
+sta fulchr+16,x
+;
+lda fuelda+16,y
+sta fulchr+32,x   ;* 3 columns
+;
+inx
+iny
+;
+dec irqwrk
+bpl ful2
+;
+jsr calcfl
+;
+;  now print it to the screen
+;
+ldx #5
+;
+ful3
+;
+lda fuelch,x
+ldy fuelyp,x
+;
+sta (sl),y
+;
+lda fulcol
+sta (cl),y
+;
+dex
+bpl ful3         ;* all 6 chars on
+;
+rts
+;
+;---------------------------------
+;
+calcfl
+;
+; calc screen address
+;
+lda fuelx
+lsr a
+lsr a
+tax
+;
+lda fuely
+lsr a
+lsr a
+lsr a
+;
+jsr starxy
+;
+txa
+clc
+adc sl
+sta sl
+sta cl
+;
+lda sl+1
+adc #0
+sta sl+1
+;
+sec
+sbc #4
+sta cl+1
+;
+rts
+;
+;---------------------------------
+;
+clsful
+;
+; rub out last one
+;
+ldx #47
+lda #0
+;
+ful1
+;
+sta fulchr,x
+;
+dex
+bpl ful1
+;
+; clear fuel chars
+;
+rts
+;
+;
+;
+.end

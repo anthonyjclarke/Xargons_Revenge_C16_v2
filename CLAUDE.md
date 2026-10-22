@@ -15,10 +15,12 @@ Single entry point: `scripts/restore_c16.py`, which always builds both versions 
 
 ## Source Priority
 
-1. `Original Source Recovered/2026/Xargon'sRevenge-C16.d64`, read directly and checked against `Xargons-Revenge-C16-Side2/` and its `manifest.json`.
+1. `Original Source Recovered/2026 - 1st Copy/Xargon's Revenge/Xargon's Revenge.d64`, read directly and checked against `Xargon's Revenge - Extracted/` and its `manifest.json`.
 2. Only modules absent from that disk come from `Original Source Recovered/1992/DISK9/` via `INDEX` – exactly six: `ALI-PRINT&CLEAR`, `COMPLETED-SHEET`, `DATA-LAND/CHARS`, `FIRING-MEGA/CODE`, `RASTER-ROUTINES`, `WHOOPPEE-MESSAGE`.
 3. Graphics: `BJH`, `LANDSCAPE-2`, `FRAK!` as chosen by the original `C16` boot program and `LOADER`. `CHAR#1-*` source is an older landscape (comparison only).
-- `XargonsRevenge-C16.d64` (Side 1) is a loading screen; verified, never a build input.
+- `2026 - 1st Copy/Xargons Revenge - 5 Lives/…(partial).d64` is the first three files of the 5 Lives disk (a loading screen); verified, never a build input.
+- Renamed 22-10-2026 (contents unchanged): `2026/Xargon'sRevenge-C16.d64` + `Xargons-Revenge-C16-Side2/` and `2026/XargonsRevenge-C16.d64` + `-Side1/`. All disks are single-sided; "Side 1/2" meant the two disks. Recorded in `docs/SOURCE_INVENTORY.md`.
+- `2026 - 2nd Copy/` holds d64copy sector copies of DISK8, DISK9, DISK10 with photos and 1992 exports; verified by `scripts/verify_second_copy.py`, never a build input. Its DISK9 copy holds the six fallback modules, identical to the 1992 text, so the build is unaffected.
 
 ## Preservation Rules
 
@@ -36,10 +38,13 @@ Single entry point: `scripts/restore_c16.py`, which always builds both versions 
 - VICE monitor numbers are hex (`ignore 1 24` = 36). After `delete`, the next breakpoint reuses #1. `BREAK:` lines only echo a set breakpoint; real stops are `#n (Stop on exec xxxx)`.
 - `scripts/capture_versions.py` forces `SHEET` at `STLOOP` and needs ≤48 loop passes so no capture catches a death.
 - VICE screenshots use `-TEDfilter 0`; colours match `docs/verification/ted-palette.json`, not any `.vpl` file.
+- The `2026 - 1st Copy` images are CBMXfer rebuilds (header `TITLE`/`ID`): CBMXfer drops 15–16-character names and its folder export also drops names with `/`. The 2nd-copy CBMXfer `.d64` files are blank. Trust the d64copy images.
+- 1992 exports: BASIC listings drop PETSCII control codes in strings; DISK8 `LANDSCA2.BIN` wrongly duplicates `LANDSCA1.BIN`.
+- d64copy error maps: 1 = good, 0 = free sector not read, other = read error. Some sectors reported good on the 5 Lives disk are still decayed.
 - VICE `-autostart` doesn't press Play for C16 tapes: attach with `-1`, type `LOAD` via `-keybuf`, then `tapectrl 1` in the monitor (`compare_other_versions.py`).
 - A machine reset ends VICE command playback, so the reset probe exits on its cycle limit (`check=False`).
 - Comments lie: `KEY-SCAN` says A/Z (code uses S/X), pause says HELP (code uses SPACE).
-- Packaging says 3 lives / 96 levels; code gives 5 lives and ends after 80 waves (probed).
+- Packaging says 3 lives / 96 levels; code gives 5 lives and ends after 80 waves (probed). The earlier DISK8 build has 3 lives.
 
 ## Docs
 

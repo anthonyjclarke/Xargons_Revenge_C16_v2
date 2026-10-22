@@ -1,0 +1,103 @@
+; >s:reset-code
+; put "reset-code"
+;
+reset
+;
+; nop
+; nop
+; nop
+;
+; sta $ff3e
+; jmp $f2a4         ;* boring !
+;
+sei
+;
+lda #$38
+sta ted+19        ;* char $3800
+;
+lda #0
+sta border
+sta backgr        ;* black
+;
+ldx #7
+ldy #0
+lda #1
+;
+ress1a
+;
+sta $3da0,x
+sta $3da8,y
+;
+asl a
+;
+iny
+dex
+bpl ress1a        ;* prog chars
+;
+ldx #0
+;
+ress1
+;
+lda #180
+sta $0c00,x
+sta $0d00,x
+;
+lda #181
+sta $0e00,x
+sta $0f00,x
+;
+lda #$71
+sta $0800,x
+sta $0900,x
+sta $0a00,x
+sta $0b00,x
+;
+inx
+bne ress1         ;* scroll chars
+;
+ldx #39
+;
+ress2
+;
+lda resmes,x      ;* message
+and #$3f
+sta $0de0,x
+;
+lda #$67
+sta $09e0,x       ;* colour
+;
+dex
+bpl ress2
+;
+ress4
+;
+jsr rusras        ;* poll
+;
+ldx #15
+;
+ress5
+;
+lsr $3da0,x
+;
+bcc ress6
+;
+lda $3da0,x
+ora #$80
+sta $3da0,x       ;* scroll
+;
+ress6
+;
+dex
+bpl ress5         ;* 2 chars
+;
+jmp ress4         ;* go for it !
+;
+;---------------------------------
+;
+resmes
+;
+.byte ' that was a very silly thing to do !!!! '
+;
+;
+;
+.end

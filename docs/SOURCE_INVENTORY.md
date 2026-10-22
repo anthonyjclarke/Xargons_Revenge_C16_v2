@@ -2,22 +2,34 @@
 
 ## Preserved Collections
 
-| Path                                    | Contents                         |
-| :-------------------------------------- | :------------------------------- |
-| `Original Source Recovered/2026/`       | Two disk images and extractions  |
-| `Original Source Recovered/1992/DISK9/` | My 1992 PC export, extracted     |
-| `Original Source Recovered/1992/*.ZIP`  | The same export as a 1992 ZIP    |
-| `Original Artifacts/`                   | Packaging, scans, leaflet, photo |
-| `xargons_revenge.prg`                   | Compressed running version       |
-| `Other Versions/`                       | Plus/4 World downloads, compared |
+| Path                                         | Contents                          |
+| :------------------------------------------- | :-------------------------------- |
+| `Original Source Recovered/2026 - 1st Copy/` | Two disk images and extractions   |
+| `…/2026 - 2nd Copy/`                         | Three disks: copies, photos, 1992 |
+| `Original Source Recovered/1992/DISK9/`      | My 1992 PC export, extracted      |
+| `Original Source Recovered/1992/*.ZIP`       | The same export as a 1992 ZIP     |
+| `Original Artifacts/`                        | Packaging, scans, leaflet, photo  |
+| `xargons_revenge.prg`                        | Compressed running version        |
+| `Other Versions/`                            | Plus/4 World downloads, compared  |
 
-`Xargon'sRevenge-C16.d64` is the source disk: 94 files in its live directory, 69 sequential and 25 program files. `Xargons-Revenge-C16-Side2/` is its 2026 extraction, with one file per directory entry and a `manifest.json` of hashes. Both 2026 images have the disk name `TITLE`. The 1992 `INDEX` lists the same disk as `XARGON'S REVENGE`, ID `MP`, with 100 files.
+`Xargon's Revenge/Xargon's Revenge.d64` is the source disk: 94 files in its live directory, 69 sequential and 25 program files. `Xargon's Revenge - Extracted/` is its 2026 extraction, with one file per directory entry and a `manifest.json` of hashes. Both 2026 images have the disk name `TITLE`, ID `ID`. The 1992 `INDEX` lists the same disk as `XARGON'S REVENGE`, ID `MP`, with 100 files. The blank header shows these images are CBMXfer rebuilds, file by file, not sector copies; CBMXfer drops files whose names are 15 or 16 characters long, which is why six modules are missing ([Development Disks](DEVELOPMENT_DISKS.md#what-the-copying-tools-did)).
 
-`XargonsRevenge-C16.d64` and `Xargons-Revenge-C16-Side1/` hold three files: `LOADER` at `$0300`, `P1/$0C00-$1000` and `P2/$0800-$0C00`. They make a loading screen that says "written by micro projects limited", and the loader expects `P3` and `P4`, which aren't there. The build checks this disk against its extraction but doesn't use it.
+`Xargons Revenge - 5 Lives/Xargons Revenge - 5 Lives (partial).d64` and its `- Extracted/` folder hold three files: `LOADER` at `$0300`, `P1/$0C00-$1000` and `P2/$0800-$0C00`. They make a loading screen that says "written by micro projects limited", and the loader expects `P3` and `P4`, which aren't there. They are byte-identical to the first three files of my 5 Lives disk (1992 `DISK10`), which has read errors from `P3` on. The build checks this disk against its extraction but doesn't use it.
 
 `DISK9 - Xargon's Revenge.ZIP` is a PKZIP 1.x archive (Implode and Shrink) dated 7 October 1992. It is also published as `DISK9.ZIP` in Mark Hardisty's Gremlin Graphics Archive, with the same CRC-32 and size ([Gremlin Archive and the Book](GREMLIN_ARCHIVE.md#in-this-project)). Its 101 members are byte-identical to the 101 files in `DISK9/`, ignoring `.DS_Store`. The build checks this with `unzip -p`, or by CRC-32 and length when `unzip` isn't installed, and says which method it used. Text exports in `DISK9/` are lower case with CRLF line endings; the build normalises them in memory only.
 
 `Other Versions/` holds six copies downloaded from Plus/4 World, including a tape of the original release, and a VICE snapshot of one of them. They are compared only, never used to build. [Other Versions](OTHER_VERSIONS.md) gives the source link and hash of each file.
+
+`2026 - 2nd Copy/` holds the second copy of all three development disks, made on 22 October 2026: for each, a photo, the 1992 export, a `d64copy` sector image and a CBMXfer export. The CBMXfer `.d64` files are blank. `scripts/verify_second_copy.py` checks them; [Development Disks](DEVELOPMENT_DISKS.md) reports what they show. They are verified, never build inputs.
+
+On 22 October 2026 the first-copy files were renamed, contents unchanged, so their names match the disks and the second copy. All three disks are single-sided; "Side 1" and "Side 2" only told the two working disks apart. Each `manifest.json` still records the original capture path.
+
+| Old name (`2026/`)           | New name (`2026 - 1st Copy/`)                        |
+| :--------------------------- | :--------------------------------------------------- |
+| `Xargon'sRevenge-C16.d64`    | `Xargon's Revenge/Xargon's Revenge.d64`              |
+| `Xargons-Revenge-C16-Side2/` | `Xargon's Revenge/Xargon's Revenge - Extracted/`     |
+| `XargonsRevenge-C16.d64`     | `Xargons Revenge - 5 Lives/… (partial).d64`          |
+| `Xargons-Revenge-C16-Side1/` | `Xargons Revenge - 5 Lives/… (partial) - Extracted/` |
 
 Host metadata (`.DS_Store`) is left out of every manifest and comparison.
 
@@ -36,7 +48,7 @@ Host metadata (`.DS_Store`) is left out of every manifest and comparison.
 
 ## Fallback Modules
 
-These six modules aren't on the 2026 disk. Each is chosen explicitly through the 1992 `INDEX`, which maps the original name to the shortened PC filename.
+These six modules aren't in the first 2026 image. Each is chosen explicitly through the 1992 `INDEX`, which maps the original name to the shortened PC filename. The second 2026 copy, a `d64copy` sector copy of the same disk, does hold all six, and each matches its 1992 export line for line, so the fallback changes no byte of the build ([`second-copy.json`](verification/second-copy.json)).
 
 | Commodore module   | 1992 file      | Bytes |
 | :----------------- | :------------- | :---- |

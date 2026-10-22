@@ -16,11 +16,14 @@ This runs `python3 -m unittest discover -s test -p 'test_*.py' -v`. `test/test_r
 | Fresh modules and fallbacks | 94 disk files, exactly six fallbacks     |
 | Older export agreement      | One comment byte, ZIP equals folder      |
 | Graphics provenance         | `BJH`, `LANDSCAPE-2`, `FRAK!` placement  |
+| Second disk copy            | 100 files, early build, 5 Lives sectors  |
 | Inputs unchanged            | Hashes of every preserved file           |
 | Includes                    | Missing, ambiguous, recursive fail       |
 | Historical syntax           | Labels, equates, strings, reservations   |
 | Conversion hazards          | CR-only splitting, case folding          |
 | Malformed inputs            | Bad hex records, cyclic or short disks   |
+
+The second-copy test runs `scripts/verify_second_copy.py` checks against `Original Source Recovered/2026 - 2nd Copy/` and is skipped when that folder or `Other Versions/` is absent.
 
 `test/test_vice.py` builds into a temporary folder and runs the whole VICE verification. When `xplus4` isn't installed it is reported as **skipped**, never as passed, and the skip message says the title, gameplay and reference checks weren't run.
 

@@ -1,0 +1,420 @@
+; >s:alien-code
+; put "alien-code"
+;
+; do all the alien move code
+;
+aliens
+;
+jsr rusras     ;* raster poll
+;
+lda #1
+;
+dec altem      ;* move tempo
+bne mveall
+;
+lda alispd
+sta altem      ;* reset tempo
+;
+lda #0         ;* move
+;
+mveall
+;
+sta nobbo
+;
+; rub,move then reprint
+;
+lda #0
+sta alipnt     ;* pointer
+;
+alilop
+;
+ldx alipnt
+;
+lda alixps,x   ;* x pos
+sta alx
+;
+lda aliyps,x   ;* y pos
+sta aly
+;
+lda alstat,x
+cmp #$ff
+bne notgon
+;
+jmp aldead     ;* dead
+;
+notgon
+;
+and #$80
+beq notexp     ;* not explsosion
+;
+jsr upexpl     ;* do explosion
+jmp drno       ;* print it
+;
+notexp
+;
+lda alstat,x   ;* animation
+and #1
+;
+asl a
+asl a
+;
+clc
+adc #213+3
+sta alchr
+;
+lda alicol,x
+sta gnkcol     ;* alien colour
+;
+; calc base char for ali-print
+;
+lda nobbo      ;* just print ?
+bne m10
+;
+; if nobbo is '1' then just
+; print him & do the checking
+; for the laser
+;
+lda alstat,x
+eor #1
+sta alstat,x   ;* next anim.
+;
+lda aliind,x   ;* move index
+tay
+;
+lda (patd),y   ;* move data
+sta alidir
+;
+iny
+lda (patd),y   ;* next movement
+;
+cmp #$ff
+bne ntenda
+;
+ldy #0
+;
+ntenda
+;
+tya
+sta aliind,x   ;* update index
+;
+drno
+;
+jsr rubali
+;
+; rub him out
+;
+ldx alipnt
+lda alstat,x   ;* status
+cmp #$ff       ;* now dead ?
+bne armat      ;* ok
+;
+; he might have just died in the
+; update explosion routine.
+;
+jsr newali     ;* start new alien
+;
+armat
+;
+lda #1
+bit alidir     ;* up
+beq noalup
+;
+jsr alup
+;
+noalup
+;
+lda #2
+bit alidir     ;* right
+beq noalri
+;
+jsr alri
+;
+noalri
+;
+lda #4
+bit alidir     ;* down
+beq noaldo
+;
+jsr aldo
+;
+noaldo
+;
+lda #8
+bit alidir     ;* left
+beq noalle
+;
+jsr alle
+;
+noalle
+;
+ldx alipnt
+;
+lda alx
+sta alixps,x
+lda aly
+sta aliyps,x
+;
+; alx,aly now point to new pos
+;
+m10
+;
+jsr prtali        ;* now print it
+;
+lda hitit
+beq aldead        ;* not hit
+;
+lda #1
+jsr sfx           ;* hit sfx
+;
+ldx alipnt        ;* pointer
+lda #%10000111
+sta alstat,x      ;* set dead
+;
+lda ted
+and #3
+tay
+;
+lda sttdir,y      ;* get direction
+sta alicol,x      ;* colour = dir
+;
+ldx attak
+cpx #7
+bcc brains
+;
+ldx #7
+;
+brains
+;
+stx work
+lda alsc1,x
+ldy #7
+jsr score+2       ;* units
+;
+ldx work
+lda alsc2,x
+ldy #6
+jsr score+2       ;* tens
+;
+ldx work
+lda alsc3,x
+ldy #5
+jsr score+2       ;* hundreds
+;
+lda #0
+sta lasers        ;* stop laser
+;
+tay
+lda #32
+sta (las),y       ;* cls laser
+;
+aldead
+;
+inc alipnt        ;* pointer
+;
+lda alipnt
+cmp #alinum
+beq aliend
+;
+jmp alilop     ;* do next one
+;
+aliend
+;
+rts
+;
+;
+;-------------------------------
+;
+alup
+;
+; move alien up
+;
+lda aly
+bne alyok1
+;
+rts
+;
+alyok1
+;
+dec aly
+;
+rts
+;
+;*****************
+;
+alri
+;
+; move alien right
+;
+lda alx
+cmp #39
+bcc alxok1
+;
+rts
+;
+alxok1
+;
+inc alx
+;
+rts
+;
+;*****************
+;
+aldo
+;
+; move alien down
+;
+lda aly
+cmp #14
+bcc alyok2
+;
+rts
+;
+alyok2
+;
+inc aly
+;
+rts
+;
+;*****************
+;
+; move alien left
+;
+alle
+;
+ldx alx
+dex
+bpl alxok2
+;
+ldx #39
+;
+alxok2
+;
+stx alx
+;
+rts
+;
+;---------------------------------
+;
+upexpl
+;
+; update the explosion
+;
+lda alstat,x    ;* status
+pha
+and #%11111000
+sta work+1
+pla
+;
+and #7
+sec
+sbc #1          ;* life count
+sta work
+bcs explok      ;* still on
+;
+inc alihit
+lda alihit
+cmp numali        ;* # to kill
+bne ntovb
+;
+jmp comple        ;* cleared level
+;
+ntovb
+;
+lda #$ff
+sta alstat,x    ;* now dead
+;
+rts
+;
+explok
+;
+tay
+lda expchr,y    ;* get base char
+sta alchr       ;* ready to print
+;
+lda work+1      ;* dead flag
+ora work        ;* anim. count
+sta alstat,x    ;* to table
+;
+jsr num1t7
+ora #$48        ;* luminence+mc
+;
+sta gnkcol      ;* flash colour
+;
+lda alicol,x
+sta alidir      ;* direction
+;
+rts             ;* go and print it
+;
+;---------------------------------
+;
+sttdir
+;
+.byte 1,2,4,2
+;
+expchr
+;
+.byte 224,224,228,228
+.byte 232,232,236,236
+;
+;---------------------------------
+;
+newali
+;
+; the current alien was dead so
+; lets decide whether we should
+; start a new one.
+;
+dec regen       ;* # to restart
+bpl starmz      ;* start one
+;
+nomore
+;
+pla
+pla
+;
+jmp aldead      ;* bak to loop
+;
+starmz
+;
+jsr alrndp      ;* positions
+;
+lda #38
+sta alixps,x
+sta alx         ;* x pos
+;
+lda temp2
+sta aliyps,x
+sta aly         ;* y pos
+;
+lda temp3
+sta aliind,x    ;* pattern offset
+;
+lda temp4
+sta alicol,x    ;* colour
+;
+lda #0
+sta alstat,x
+sta alidir      ;* no direction
+;
+lda #213+3
+sta alchr       ;* base char
+;
+rts             ;* start him
+;
+;---------------------------------
+;
+alsc1
+;
+.byte 0,5,0,0,0,0,0,0
+;
+alsc2
+;
+.byte 5,7,0,5,0,5,0,5
+;
+alsc3
+;
+.byte 0,0,1,1,2,2,3,3
+;
+;
+;
+.end

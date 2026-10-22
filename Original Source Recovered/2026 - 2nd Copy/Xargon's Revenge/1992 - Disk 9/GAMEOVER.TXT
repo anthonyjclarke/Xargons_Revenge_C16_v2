@@ -1,0 +1,93 @@
+; >s:game-over
+; put "game-over"
+;
+; print game over and flash a bit!
+;
+gamovr
+;
+lda #1
+sta stpstr       ;* stop stars
+;
+ldx #0
+;
+ovr1
+;
+txa
+clc
+adc #186
+sta $0d9f,x      ;* top row
+;
+clc
+adc #9
+sta $0d9f+40,x   ;* next
+;
+clc
+adc #9
+sta $0d9f+80,x   ;* and bottom row
+;
+lda #$49
+sta $099f,x
+sta $099f+40,x
+sta $099f+80,x   ;* colour
+;
+inx
+cpx #9
+bne ovr1
+;
+jsr high         ;* high score ?
+;
+lda #$71
+sta shipc2
+;
+eric
+;
+lda ted
+and #15
+;
+beq eric         ;* no black
+;
+sta work+1
+;
+lda #0
+sta stpstr
+lda #192
+sta work         ;* loop
+;
+ovr2
+;
+jsr pulsat
+and #%11110000   ;* luminence
+ora work+1       ;* our colour
+sta shipc1       ;* flash colours
+;
+lda work+2
+beq ovr4         ;* no high score
+;
+lda work
+lsr a
+lsr a
+lsr a
+;
+and #1           ;* 0 or 1
+ora #$70         ;* luminence
+;
+ldx #38
+;
+ovr3
+;
+sta $0a31,x
+;
+dex
+bpl ovr3         ;* whole line
+;
+ovr4
+;
+jsr rusras
+;
+dec work
+bne ovr2         ;* wait
+;
+jmp titlop
+;
+;
+.end

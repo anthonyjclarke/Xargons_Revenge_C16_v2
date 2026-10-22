@@ -29,7 +29,7 @@ These are what I remember, as I recorded them on 21 October 2026:
 - "The Mega" in the source header is, I think, a pseudonym for me (see the open questions below).
 - I'm not sure who else helped on this game. When I had help, it would normally be credited in the source, and this source names nobody else.
 - I don't remember when it was finished or released. Games typically took 60 to 90 days.
-- I don't recall the loading screen on the second disk being used.
+- I don't recall the loading screen on the second disk being used. (It turned out to be the start of my 5 Lives disk; see [Development Disks](DEVELOPMENT_DISKS.md#xargons-revenge--5-lives-disk10).)
 
 Later the same day, after seeing the two game versions, I added:
 
@@ -48,11 +48,11 @@ Mark Hardisty's book *A Gremlin in the Works* (Bitmap Books), the officially end
 
 ## What the Evidence Shows
 
-The two development disks are labelled "Revenge of Xargon (Xargon Wars II) (c) Micro Projects 1985" and "Xargon's Revenge (c) Micro Projects '85". The first suggests the working title. I don't know which label belongs to which 2026 disk image.
+Three development disks survive, labelled "Revenge of Xargon (Xargon Wars II) (c) Micro Projects 1985", "Xargon's Revenge – 5 Lives" and "Xargon's Revenge (c) Micro Projects '85". In that order they hold three stages of the game: an early build with 3 lives and no planets, a build with 5 lives and harder waves, and the final source whose code is on the released cassette. The first label suggests the working title. [Development Disks](DEVELOPMENT_DISKS.md) has the evidence.
 
 The scrolling message in the game credits "Xargon's Revenge © Micro Projects 1985", advertises other Gremlin C16/Plus 4 games (Xargon Wars, Petals of Doom, Tycoon Tex, Dork's Dilemma and Sword of Destiny) and thanks "all those who helped in the production and design of this game" without naming anyone. The sound module's header says it is "an attempt to write a nice routine like our mate Robbie does"; the source doesn't say who Robbie is.
 
-The game was sold on cassette for £6.95 and later appeared on the *C16/Plus 4 Classics II* compilation from Gremlin Graphics, with Blagger, Monkey Magic and Timeslip. The packaging says "96 levels – 16 waves – 3 lives". The surviving source ends the game after 80 waves and starts with 5 lives, as [Codebase Analysis](../CODEBASE_ANALYSIS.md#waves-levels-and-completion) explains; I can't say whether the packaging describes an earlier plan or another release.
+The game was sold on cassette for £6.95 and later appeared on the *C16/Plus 4 Classics II* compilation from Gremlin Graphics, with Blagger, Monkey Magic and Timeslip. The packaging says "96 levels – 16 waves – 3 lives". The final source ends the game after 80 waves and starts with 5 lives, as [Codebase Analysis](../CODEBASE_ANALYSIS.md#waves-levels-and-completion) explains. The earlier Revenge of Xargon build starts with 3 lives, so the packaging text was probably written from it; nothing yet explains "96 levels".
 
 ---
 
@@ -60,9 +60,9 @@ The game was sold on cassette for £6.95 and later appeared on the *C16/Plus 4 C
 
 **Who was "The Mega"?** The `REVENGE` header says "XARGON II WRITTEN BY THE MEGA BEING HIMSELF !!!". The word recurs as a nickname-style label throughout this source: the `FIRING-MEGA/CODE` module, "MEGA TABLES", "DO MEGA CODE", "TIME FOR A MEGA PLANET" and the completion message "CONGRATULATIONS MEGA PERSON!". The `MEGA-SUPER` hex loader on this disk is also on the Tycoon Tex disk. In my Tycoon Tex source, which credits the programming to Micro Projects, the title-page module says "(C) MEGA-CODER OF M.P.L" (presumably Micro Projects Ltd), and there are modules called `FIRING/MEGACODE` and `DEMO-MEGA/CODE`. No other name appears in this source. That points to the programmer who wrote both games, but it doesn't prove who used the name.
 
-**Which disk is which?** I need to plug in the hardware to check which labelled disk in the photo was captured as which 2026 disk image.
+**Which disk is which?** Answered on 22 October 2026 by the second copy and its photos ([Development Disks](DEVELOPMENT_DISKS.md#the-three-disks)). The first 2026 copies, once called "Side 1" and "Side 2", are the 5 Lives disk (partial) and the source disk; all three disks are single-sided.
 
-**Why two versions, and why does the packaging say 3 lives and 96 levels?** Neither game version matches the packaging, and nothing on the disks explains it.
+**Why two versions, and why does the packaging say 96 levels?** The cassette's own loader copies the aliens wrongly ([Game Versions](GAME_VERSIONS.md)). "3 lives" matches the earlier Revenge of Xargon build; "96 levels" matches no build I have.
 
 ---
 

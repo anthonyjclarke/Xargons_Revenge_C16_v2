@@ -1,0 +1,155 @@
+; >s:utils
+; put "utils"
+;
+;**************************
+;
+;        utilities
+;
+;**************************
+;
+random
+;
+lda ted
+and rnd+2
+adc ted+2
+asl a
+asl a
+rol rnd+3
+rol rnd+2
+rol rnd+1
+rol rnd
+;
+; ^ acornsoft rnd#
+;
+clc
+ldy #$29
+ldx #$fc
+;
+ranlop
+;
+tya
+ldy rnd+4,x
+adc rnd+4,x
+sta rnd+4,x
+inx
+bne ranlop
+;
+rts
+;
+;******************************
+;
+delay
+;
+ldx #$20
+;
+ldy #$00
+;
+dellop
+;
+nop
+nop
+nop
+;
+dey
+bne dellop
+;
+dex
+bne dellop
+;
+rts
+;
+;*****************************
+;
+clvars
+;
+lda #0
+ldx #18
+;
+cllop
+;
+sta $00,x
+;
+inx
+bne cllop
+;
+rts
+;
+;****************************
+;
+xy
+;
+tya
+asl a
+tay
+;
+lda scrpos,y
+sta scr
+lda scrpos+1,y
+sta scr+1
+;
+txa
+clc
+adc scr
+sta scr
+sta col
+;
+lda scr+1
+adc #0
+sta scr+1
+;
+sec
+sbc #4
+sta col+1
+;
+rts
+;
+scrpos
+;
+.word $ca0
+.word $cc8,$cf0,$d18,$d40,$d68
+.word $d90,$db8,$de0,$e08,$e30
+.word $e58,$e80,$ea8,$ed0,$ef8
+;
+;
+;-----------------------------
+;
+rusras
+;
+lda rasthi
+and #1
+bne rusras
+;
+russer
+;
+lda rasthi
+and #1
+beq russer
+;
+rts
+;
+;---------------------------------
+;
+num1t7
+;
+; get a number 1 to 7
+;
+stx xtemp
+;
+jsr random
+lda rnd
+and #15
+tax
+;
+lda lookup,x     ;* 1 to 7
+;
+ldx xtemp
+;
+rts
+;
+lookup
+;
+.byte 1,2,3,4,5,6,7,4
+.byte 2,3,7,6,5,4,3,2
+;
+;
+.end

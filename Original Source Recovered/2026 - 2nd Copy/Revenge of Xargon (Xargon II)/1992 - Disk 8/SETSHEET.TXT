@@ -1,0 +1,131 @@
+; >s:set-sheet
+; put "set-sheet"
+;
+; set up all info for screen to be
+; played
+;
+setsht
+;
+lda sheet
+;
+asl a
+asl a
+asl a
+;
+; x8
+;
+tax
+;
+lda shtabl,x
+sta patd
+lda shtabl+1,x
+sta patd+1
+;
+; move-ment data
+;
+lda shtabl+2,x
+sta lancl1
+;
+lda shtabl+3,x
+sta lancl2
+;
+lda shtabl+4,x
+sta lancl3
+;
+; colours for the land
+;
+lda shtabl+5,x
+sta bakcol
+;
+; background colour
+;
+lda shtabl+6,x
+lda shtabl+7,x
+;
+; un-used at present
+;
+;---------------------------------
+;
+; now lets set alien positions
+;
+ldx #alinum-1
+;
+fltb
+;
+lda #0
+sta alstat,x  ;* it's alive
+;
+jsr alrndp    ;* get random pos
+;
+lda temp1
+sta alixps,x
+;
+lda temp2
+sta aliyps,x
+;
+lda temp3
+sta aliind,x
+;
+dex
+bpl fltb
+;
+; fill status table
+;
+lda #16
+sta numali
+;
+; thats the positions done
+;
+rts
+;
+;------------------------------
+;
+alrndp
+;
+; calculate a random pos for a
+; new alien .
+;
+; temp1 = x pos
+; temp2 = y pos
+; temp3 = index
+;
+txa
+pha
+;
+doctor
+;
+jsr random
+;
+lda rnd+1
+and #31
+cmp #24
+bcs doctor
+;
+clc
+adc #14
+;
+sta temp1       ;* x pos
+;
+gobak
+;
+jsr random
+;
+lda rnd+2
+and #15
+cmp #14
+bcs gobak
+;
+sta temp2       ;* y pos
+;
+lda rnd+2
+and #7
+sta temp3
+;
+pla
+tax
+;
+rts
+;
+;
+;
+.end

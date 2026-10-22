@@ -1,0 +1,152 @@
+; >s:starter
+; put "starter"
+;
+;     another idea ripped off
+;     xargon wars.
+;
+starte
+;
+lda #1
+ldx #3
+;
+pre1
+;
+sta ststop,x
+;
+dex
+bpl pre1         ;* stop all stars
+;
+lda #0
+sta stpstr       ;* stars go
+sta work         ;* messages count
+;
+starlp
+;
+lda stflag       ;* do message ?
+beq shame
+;
+jsr prtesc       ;* print message
+;
+shame
+;
+ldx work
+lda #0
+sta ststop,x     ;* start stars
+;
+lda spdtop,x
+sta topspd
+lda spdbot,x
+sta botspd       ;* land speed
+;
+lda work
+cmp #3           ;* no delay on
+beq kansas       ;* last one .
+;
+ldx #128
+;
+lda stflag
+beq fatse
+;
+ldx #0           ;* first time
+;
+fatse
+;
+jsr delay+2
+;
+kansas
+;
+inc work
+lda work
+cmp #4
+bne starlp       ;* all 4 speeds
+;
+rts
+;
+;---------------------------------
+;
+tesco
+;
+; ready
+;
+.byte 0,0,1,2,8,9,10,0,0
+;
+; steady
+;
+.byte 0,0,3,6,2,8,9,10,0
+;
+; go for it
+;
+.byte 11,7,0,4,7,1,0,5,6
+;
+; '         '
+;
+.byte 0,0,0,0,0,0,0,0,0
+;
+;---------------------------------
+;
+prtesc
+;
+ldy work
+ldx tim9,y      ;* start of mess.
+;
+ldy #0
+;
+esc1
+;
+lda tesco,x     ;* char
+bne esc2        ;* not space
+;
+lda #32         ;* 32/2
+;
+esc2
+;
+cmp #32
+beq esc4
+;
+asl a
+clc
+adc #152        ;* base char
+;
+esc4
+;
+sta wright,y    ;* l.h.char
+;
+cmp #32
+beq esc3
+;
+clc
+adc #1
+;
+esc3
+;
+sta wright+1,y  ;* r.h.char
+;
+stx work+1
+;
+ldx work
+lda starcl,x    ;* colour
+;                 
+sta wright-$400,y
+sta wright-$3ff,y
+;
+ldx work+1
+;
+inx             ;* next letter
+;
+iny
+iny
+cpy #18
+bne esc1        ;* whole message
+;
+rts
+;
+;---------------------------------
+;
+starcl .byte $52,$54,$56,$71
+;
+spdtop .byte 0,1,2,3
+;
+spdbot .byte 1,2,3,4
+;
+;
+.end

@@ -1,0 +1,35 @@
+; >s:death-code
+; put "death-code"
+;
+death
+;
+; has died !
+;
+ldx #1
+stx stop        ;* stop it all
+;
+dex
+stx dead
+stx lasers      ;* laser off
+;
+jsr fizzle      ;* die !
+;
+dec lives       ;* 1 life less
+lda lives
+beq allovr      ;* lost all lives
+;
+lda #0
+sta stop
+;
+jmp stloop      ;* back to game
+;
+allovr
+;
+jsr screen      ;* cls
+;
+jmp gamovr      ;* game over
+;
+;
+;
+;
+.end

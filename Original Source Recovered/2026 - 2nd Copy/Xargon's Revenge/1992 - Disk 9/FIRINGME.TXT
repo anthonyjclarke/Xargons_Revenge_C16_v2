@@ -1,0 +1,145 @@
+; >s:firing-mega/code
+; put "firing-mega/code"
+;
+pink    .byte 0,1,1,1
+floyd   .byte 6,0,2,4
+;
+fire
+;
+lda lasers   ;* # on
+beq newlaz
+;
+; lazer is on
+;
+shine
+;
+rts
+;
+newlaz
+;
+lda dead
+bne shine       ;* died
+;
+lda #0
+jsr sfx         ;* start sfx
+;
+lda ypix
+lsr a
+tax             ;* table pointer
+;
+lda shipy
+clc
+adc pink,x      ;* start y val
+sta lazy
+;
+lda #4
+sta lazx
+;
+jsr lazclr      ;* clear char
+;
+ldy floyd,x
+;
+lda #$ff
+sta lazchr,y
+;
+; programmes the lazer char
+;
+inc fuldwn
+lda fuldwn
+and #1
+bne dgodwn
+;
+jsr shotfl      ;* fuel down
+;
+dgodwn
+;
+lda #1
+sta lasers
+;
+rts
+;
+;---------------------------------
+;
+mvelaz
+;
+; move the laser
+;
+lda lasers     ;* one on ?
+bne gfit
+;
+rts
+;
+gfit
+;
+lda lazy
+jsr starxy
+;
+;---------------------------------
+;
+lda #32
+ldy lazx
+sta (sl),y     ;* rub it out
+;
+inc lazx       ;* x pos
+lda lazx
+cmp #39
+bne lazatl
+;
+; time to stop this one
+;
+lda #0
+sta lasers     ;* gone
+;
+nowded
+;
+rts
+;
+lazatl
+;
+lda #63        ;* laz char
+;
+iny
+sta (sl),y     ;* on it goes
+;
+tya
+clc
+adc sl
+sta las        ;* lo bytes
+;
+lda sl+1
+adc #0
+sta las+1      ;* hi byte
+;
+lda sl+1
+sec
+sbc #4
+sta sl+1
+;
+lda #$61
+sta (sl),y     ;* colour
+;
+rts
+;
+;---------------------------------
+;
+; now calc char
+;
+lazclr
+;
+ldy #7
+lda #0
+;
+clrlaz
+;
+sta lazchr,y
+;
+dey
+bpl clrlaz
+;
+; clear lazer char
+;
+rts
+;
+;
+;
+.end

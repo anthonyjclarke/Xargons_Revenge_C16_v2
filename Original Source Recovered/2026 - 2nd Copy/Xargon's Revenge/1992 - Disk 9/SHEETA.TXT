@@ -1,0 +1,22 @@
+; >s:sheeta
+; put "sheeta"
+;
+; info for sheet 10
+;
+patda
+;
+.byte 8,8,8,8,8,1,9,1,9,1,9
+.byte 12,12,12,12,12,12,4,4,8,8
+.byte $ff
+;
+; movement data
+;
+laa = 77   ;* foreground
+lab = 241  ;* outline
+lac = 199  ;* 2nd depth col
+;
+; 3 land colours
+;
+bab = $00  ;* background col.
+;
+.end

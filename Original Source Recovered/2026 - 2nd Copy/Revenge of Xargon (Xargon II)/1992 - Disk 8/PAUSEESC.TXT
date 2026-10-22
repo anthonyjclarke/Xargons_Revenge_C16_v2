@@ -1,0 +1,76 @@
+; >s:pause/escape
+; put"pause/escape"
+;
+; scan pause and escape keys
+;
+chkesc
+;
+; escape
+;
+lda #$10
+ldy #$7f
+jmp keyit  ;* scan key
+;
+;---------------------------------
+;
+chkpas
+;
+; pause
+;
+jsr scanp
+bcs la     ;* help to pause
+;
+rts        ;* not pressed
+;
+la
+;
+ldx #1
+stx pause
+stx stop
+stx stpstr ;* stop stars
+;
+dex
+stx jup
+stx jdown
+stx jfire  ;* kill all move
+;
+lda vol
+sta work   ;* save volume stat.
+;
+stx vol    ;* snd off
+;
+nyc1
+;
+jsr scang
+bcc nyc1   ;* g to go again
+;
+lda #0
+sta stop
+sta pause
+sta stpstr ;* stars go again
+;
+lda work
+sta vol    ;* sound on again
+;
+rts        ;* all over !
+;
+;---------------------------------
+;
+scanp
+;
+lda #$02
+ldy #$df
+jmp keyit
+;
+;---------------------------------
+;
+scang
+;
+lda #$04
+ldy #$f7
+jmp keyit
+;
+;---------------------------------
+;
+;
+.end

@@ -24,9 +24,9 @@ Each PRG is 15,362 bytes, loads at `$0400` and starts at `$1800`. Game v1 has SH
 
 ## Source Selection and Assembly
 
-The source disk `Xargon'sRevenge-C16.d64` is read directly by `scripts/d64_image.py`. All 94 live files are compared byte for byte with the 2026 extraction and its `manifest.json`, and the image hash must match the manifest's `source_sha256`. The loading-screen disk is checked the same way.
+The source disk `Xargon's Revenge.d64` (first 2026 copy) is read directly by `scripts/d64_image.py`. All 94 live files are compared byte for byte with the 2026 extraction and its `manifest.json`, and the image hash must match the manifest's `source_sha256`. The partial copy of the 5 Lives disk, with the loading screen, is checked the same way.
 
-`REVENGE` includes 67 modules through `.LIB`, so the main program is built from 68. 62 come from the 2026 disk and six from the 1992 export, chosen through its `INDEX` because they aren't on the 2026 disk: `ALI-PRINT&CLEAR`, `COMPLETED-SHEET`, `DATA-LAND/CHARS`, `FIRING-MEGA/CODE`, `RASTER-ROUTINES` and `WHOOPPEE-MESSAGE`. The 2026 disk has exactly 36 more free blocks than the 1992 directory listing, which is the combined size of those six files.
+`REVENGE` includes 67 modules through `.LIB`, so the main program is built from 68. 62 come from the 2026 disk and six from the 1992 export, chosen through its `INDEX` because they aren't on the 2026 disk: `ALI-PRINT&CLEAR`, `COMPLETED-SHEET`, `DATA-LAND/CHARS`, `FIRING-MEGA/CODE`, `RASTER-ROUTINES` and `WHOOPPEE-MESSAGE`. The 2026 disk has exactly 36 more free blocks than the 1992 directory listing, which is the combined size of those six files. The image is a CBMXfer rebuild that drops 15- and 16-character names; a later `d64copy` sector copy of the same disk holds all six, identical to the 1992 text ([Development Disks](DEVELOPMENT_DISKS.md#what-the-copying-tools-did)).
 
 Every module present in both collections agrees after normalising the 1992 export's lower case and CRLF line endings, except one character in a comment of `CHAR#1-BOT`: the 2026 disk has PETSCII `$AF` where the 1992 export has a space. That comment isn't assembled.
 

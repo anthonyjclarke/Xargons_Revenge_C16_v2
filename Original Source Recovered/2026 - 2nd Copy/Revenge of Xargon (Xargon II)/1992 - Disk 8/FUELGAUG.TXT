@@ -1,0 +1,172 @@
+; >s:fuel-gauge
+; put"fuel-gauge"
+;
+;----------------
+;
+; fuel bar stuff
+;
+;----------------
+;
+fulbas = 106      ;*base char
+;
+prtful   ;*print energy bars
+;
+ldx #12
+;
+pren2
+;
+lda #fulbas
+sta $0c1b,x
+;
+lda #fulbas+9
+sta $0c1b+40,x
+;
+lda ross,x
+sta $081b,x
+sta $081b+40,x
+;
+dex
+;
+bpl pren2
+;
+rts
+;
+;--------------------------------
+;
+upfuel      ;* print fuel gauge
+;
+ldy #0
+;
+lda fuel
+cmp #8
+bcc midsta ;*is fuel value <8
+;
+and #%11111000
+lsr a
+lsr a
+lsr a
+tax        ;*how many solid chars
+;
+diff1
+;
+lda #fulbas+8
+;
+jsr mprint
+iny
+dex
+bne diff1  ;*print solid bit
+;
+midsta
+;
+lda fuel
+and #%00000111
+clc
+adc #fulbas
+jsr mprint
+;
+teste
+;
+iny
+cpy #12
+bcs endne
+;
+lda #fulbas
+jsr mprint
+jmp teste
+;
+endne
+;
+rts
+;
+mprint
+;
+sta $c1b,y
+pha
+tya
+;
+clc
+adc #40
+tay
+pla
+clc
+adc #9
+sta $c1b,y
+;
+tya
+sec
+sbc #40
+tay
+;
+rts
+;
+;--------------------------------
+;
+fueldo
+;
+dec futem      ;* tempo
+bne hmmm
+;
+lda #32
+sta futem      ;* reset tempo
+;
+lda fuel
+beq hmmm       ;* at zero
+;
+dec fuel       ;* down 1 pix
+;
+hmmm
+;
+lda fuel
+;
+cmp #16
+bcs night
+;
+lda #2
+jsr sfx       ;* low fuel sfx
+;
+jsr pulsat
+and #%11110000
+ora #%00001010 ;* red
+sta shpink
+;
+jmp day
+;
+night
+;
+lda #$79
+sta shpink    ;* reset ship colour
+;
+jsr endn1     ;* low fuel fx off
+;
+day
+;
+rts
+;
+;---------------------------------
+;
+adfuel     ;* add acc to fuel
+;
+clc
+adc fuel
+cmp #96
+bcc adoky  ;* still ok
+;
+lda #96
+;
+sta fuel   ;* full up
+;
+adoky
+;
+sta fuel
+;
+rts
+;
+;---------------------------------
+;
+;* colour for fuel gauge
+;
+ross .byt $22,$32,$32,$42,$42
+     .byt $42,$52,$52,$52,$62
+     .byt $62,$62,$62
+;
+.end

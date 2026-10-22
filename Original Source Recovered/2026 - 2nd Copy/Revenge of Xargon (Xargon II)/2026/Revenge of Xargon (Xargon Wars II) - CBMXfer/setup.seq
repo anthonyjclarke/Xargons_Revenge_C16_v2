@@ -1,0 +1,1 @@
+; >S:SETUP; PUT "SETUP";;*****************************;; INITIALISE ALL POINTERS ETC.;;*****************************;SETUP;LDA TED+18AND #%11111011 ;* CHARS FROM RAMSTA TED+18;LDA TED+7ORA #$80STA TED+7;; 256 CHARS PLEASE;LDX #3RNLLDA RASCOM  ;* TIMERS AS RND #STA RND,XDEXBPL RNL;;*SEED;RTS;;;.END

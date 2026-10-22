@@ -1,0 +1,145 @@
+; >s:vars
+; put "vars"
+;
+;
+*=$02
+;
+mesl    *=*+2    ;* message point
+messx   *=*+1    ;* message pixel
+intype  *=*+1    ;* irq number
+;
+toplx   *=*+1    ;* top pixel
+botlx   *=*+1    ;* bottom pixel
+;
+topwrk  *=*+1
+botwrk  *=*+1
+;
+topcnt  *=*+1    ;* top width
+botcnt  *=*+1    ;* bottom width
+topchr  *=*+1    ;* top char cnt
+botchr  *=*+1    ;* bot char cnt
+;
+landan  *=*+1    ;* land anim#
+;
+bakcol  *=*+1    ;* backgr colour
+;
+dntfir  *=*+1    ;* disable fire
+;
+colvar  *=*+1    ;* pulsate col.
+;
+jup     *=*+1    ;* move up
+jdown   *=*+1    ;* move down
+jfire   *=*+1    ;* fired
+jmove   *=*+1    ;* movement ?
+;
+pause   *=*+1    ;* pause on ?
+;
+dead    *=*+1    ;* died ?
+;
+stop    *=*+1    ;* stop all
+title   *=*+1    ;* title page
+scrdir  *=*+1    ;* scroll dir.
+;
+shpink  *=*+1    ;* ship ink col.
+;
+rnd     *=*+4    ;* random number
+pulse   *=*+1    ;* pulse count
+;
+scradd  *=*+1    ;* add to score
+;
+sl      *=*+2    ;* screen pointer
+sl2     *=*+2    ;* screen pointer
+cl      *=*+2    ;* colour pointer
+cl2     *=*+2    ;* colour pointer
+;
+irqwrk  *=*+8    ;* irq work vars
+work    *=*+10   ;* bas. work vars
+;
+laston  *=*+1    ;* last hill used
+pichit  *=*+1    ;* picture vars
+;
+cly     *=*+1    ;* temp y
+;
+lives   *=*+1    ;* lives
+;
+point   *=*+1    ;* star tab point
+tx      *=*+1    ;* temp x
+ty      *=*+1    ;* temp y
+speed   *=*+1    ;* star speed
+numb    *=*+1    ;* number count
+stcol   *=*+1    ;* star colour
+stpstr  *=*+1    ;* stop stars ?
+;
+ypix    *=*+1    ;* ship pixel
+shipy   *=*+1    ;* y pos
+char    *=*+1    ;* char count
+shipc1  *=*+1    ;* aux col 1
+shipc2  *=*+1    ;* aux col 2
+shpscr  *=*+2    ;* screen address
+shpcol  *=*+2    ;* colour address
+;
+lasers  *=*+1    ;* # of lazers
+lazx    *=*+1    ;* x pos
+lazy    *=*+1    ;* y pos
+fircnt  *=*+1    ;* fire de-bounc
+oldfir  *=*+1    ;* fire toggle
+;
+fuelx   *=*+1    ;* x pos
+fuely   *=*+1    ;* y pos
+fuelon  *=*+1    ;* on ?
+fuldir  *=*+1    ;* direction
+fueltm  *=*+1    ;* tempo
+kilful  *=*+1    ;* stop fuel
+;
+lancl1  *=*+1    ;* colour 1
+lancl2  *=*+1    ;* colour 2
+lancl3  *=*+1    ;* colour 3
+;
+fuel    *=*+1    ;* amount of fuel
+futem   *=*+1    ;* tempo
+;
+dl      *=*+2    ;* data
+patd    *=*+2    ;* pattern point
+numali  *=*+1    ;* # of aliens
+sheet   *=*+1    ;* sheet number
+;
+altem   *=*+1    ;* move tempo
+nobbo   *=*+1    ;* print only
+alipnt  *=*+1    ;* pointer
+alidir  *=*+1    ;* direction
+alx     *=*+1    ;* x pos
+aly     *=*+1    ;* y pos
+alchr   *=*+1    ;* char count
+gnkcol  *=*+1    ;* colour
+;
+hitit   *=*+1    ;* hit blob
+;
+temp1   *=*+1    ;* temp
+temp2   *=*+1    ;* temp
+temp3   *=*+1    ;* temp
+;
+messpd  *=*+1    ;* message speed
+topspd  *=*+1    ;* top land speed
+botspd  *=*+1    ;* bot land speed
+;
+scrbuf  *=*+8    ;* score buffer
+;
+ststop  *=*+4    ;* stop stars ?
+;
+fxnumb  *=*+1    ;* sfx #
+fxcont  *=*+1    ;* time count
+fxtemp  *=*+1    ;* tempo
+fxwork  *=*+2    ;* work var
+;
+;
+;
+;
+;
+;
+;
+;
+;
+;
+;
+;
+.end

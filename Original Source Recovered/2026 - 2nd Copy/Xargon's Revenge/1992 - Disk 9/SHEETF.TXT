@@ -1,0 +1,22 @@
+; >s:sheetf
+; put "sheetf"
+;
+; info for sheet 15
+;
+patdf
+;
+.byte 8,8,8,12,12,12,12,8,8,8
+.byte 9,9,9,9,1,1,1,12,12,12
+.byte $ff
+;
+; movement data
+;
+lfa = 58   ;* foreground
+lfb = 241  ;* outline
+lfc = 203  ;* 2nd depth col
+;
+; 3 land colours
+;
+bfb = $00  ;* background col.
+;
+.end

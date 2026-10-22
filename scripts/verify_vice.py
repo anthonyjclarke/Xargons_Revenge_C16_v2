@@ -115,7 +115,7 @@ def palette(build):
 
 
 def loading_screen(build):
-    """Show the Side 1 disk's P1 (screen) and P2 (colour) files as the C16 would.
+    """Show the 5 Lives disk's P1 (screen) and P2 (colour) files (first 2026 copy) as the C16 would.
 
     The files load at their saved addresses ($0C00 and $0800). The loader on
     that disk sets a black background and border; the text is lower case, so

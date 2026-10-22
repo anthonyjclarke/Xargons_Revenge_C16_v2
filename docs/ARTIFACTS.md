@@ -34,7 +34,7 @@ All the images in `Original Artifacts/` show Xargon's Revenge. I checked each on
 
 ![The two development disks](../Original%20Artifacts/Xargon's%20Revenge%20Disks.jpg)
 
-**`Xargon's Revenge Disks.jpg`** (2,016 × 1,512, added 21 October 2026) shows two 5¼-inch disks with handwritten labels. One, in front of a Control Data sleeve, reads "Revenge of Xargon (Xargon Wars II) (c) Micro Projects 1985"; the other, a Memorex disk, reads "Xargon's Revenge (c) Micro Projects '85". Which label belongs to which 2026 disk image isn't recorded.
+**`Xargon's Revenge Disks.jpg`** (2,016 × 1,512, added 21 October 2026) shows two 5¼-inch disks with handwritten labels. One, in front of a Control Data sleeve, reads "Revenge of Xargon (Xargon Wars II) (c) Micro Projects 1985"; the other, a Memorex disk, reads "Xargon's Revenge (c) Micro Projects '85". The second 2026 copy, with a photo of each disk, matched them: the Control Data disk is my 1992 `DISK8` and the Memorex disk the source disk, `DISK9` ([Development Disks](DEVELOPMENT_DISKS.md#the-three-disks)). A third disk, "Xargon's Revenge – 5 Lives", is photographed there too.
 
 **[`C16_Classics_II_English.pdf`](../Original%20Artifacts/C16_Classics_II_English.pdf)** is a one-page scan of the folded instruction leaflet for Gremlin's *C16/Plus 4 Classics II*, which collected Xargon's Revenge with Blagger, Monkey Magic and Timeslip. Its Xargon's Revenge panel repeats the inlay text with © 1985 Gremlin Graphics Software Limited. The other three panels belong to the other games and their publishers. The PDF wrapper was generated on 21 October 2026; the scan inside is the historical item.
 
@@ -44,7 +44,7 @@ All the images in `Original Artifacts/` show Xargon's Revenge. I checked each on
 
 `xargons_revenge.prg`, in the project root, is the compressed running version. I downloaded it and don't know who prepared it; its file is dated 10 August 2014. It is byte-identical to the main download on the [Plus/4 World entry](https://plus4world.powweb.com/software/Xargons_Revenge) for the game, checked by SHA-256 on 22 October 2026 ([Other Versions, A1](OTHER_VERSIONS.md#a1-download)). Decompressed, it matches the original release tape at the game's entry apart from 19 bytes of screen RAM, so it is a packed copy of the released game. It runs in VICE, and [Source and Validation](SOURCE_AND_VALIDATION.md#comparison-with-the-running-version) compares it with the rebuild.
 
-The [loading screen](images/loading-screen.png) is rendered from the second 2026 disk image in VICE; it isn't a separate artifact file. See [Illustrated Graphics](GRAPHICS.md#loading-screen).
+The [loading screen](images/loading-screen.png) is rendered in VICE from the first, partial 2026 copy of the 5 Lives disk; it isn't a separate artifact file. See [Illustrated Graphics](GRAPHICS.md#loading-screen).
 
 ---
 

@@ -4,6 +4,33 @@ All notable changes to the Xargon's Revenge C16 preservation project. Dates are 
 
 ---
 
+## [1.4.0] 22-10-2026
+
+Second 2026 copy of all three development disks, verified and documented. Game v1 and v2 are unchanged (SHA-256 `32c13c88…adce33` and `0ee0a823…397665`).
+
+### Added
+
+- `Original Source Recovered/2026 - 2nd Copy/`: the Xargon's Revenge (`DISK9`), Revenge of Xargon (`DISK8`) and 5 Lives (`DISK10`) disks, each with a photo, `d64copy` sector images, CBMXfer output and the matching 1992 export. Preserved as supplied; verified, never a build input.
+- `docs/DEVELOPMENT_DISKS.md`: what each disk holds, what the copying tools did, the damaged 5 Lives disk sector by sector, and how the builds fit together (`DISK8` → `DISK10` → `DISK9` → the 1985 cassette).
+- `scripts/verify_second_copy.py` and `docs/verification/second-copy.json`: tolerant D64 reading with error maps, 1992 comparison (text, bytes, detokenized BASIC), deleted entries, `OBJ` remnants in free sectors, and a merged 5 Lives image in `build/second-copy/` for analysis.
+- A regression test for the second copy (skipped when the folder or `Other Versions/` is absent).
+
+### Changed
+
+- The six fallback modules are confirmed on a 2026 sector copy of the source disk, identical to their 1992 text. The first 2026 images are CBMXfer rebuilds that drop 15- and 16-character file names; the build keeps its inputs and output.
+- The disk labels are matched to the disks and 1992 exports, closing that open question. The first 2026 "Side 1" image is the start of the 5 Lives disk, and "Side 2" is the source disk; all three disks are single-sided.
+- Renamed the first 2026 copies, contents byte-identical, into `Original Source Recovered/2026 - 1st Copy/` with the second copy's disk names: `Xargon's Revenge/Xargon's Revenge.d64` and `- Extracted/` (were `2026/Xargon'sRevenge-C16.d64` and `Xargons-Revenge-C16-Side2/`), and `Xargons Revenge - 5 Lives/Xargons Revenge - 5 Lives (partial).d64` and `(partial) - Extracted/` (were `2026/XargonsRevenge-C16.d64` and `Xargons-Revenge-C16-Side1/`). Build paths, tests, generated references and docs updated; the build output is unchanged.
+- Plus/4 World's "early stages" is traced to the `DISK8` build (`OBJ`, `FRAK!`, `LANDSCAPE-1`), and its loading-picture disk to `DISK10`.
+- The packaging's "3 lives" is explained by the earlier `DISK8` build; "96 levels" remains open.
+- Game Versions, Other Versions, Gremlin Archive, Source Inventory, Source and Validation, Artifacts, History and Credits, Graphics, Codebase Analysis, README, `src/README.md`, TESTING and `CLAUDE.md` updated to match, and the comparison page regenerated.
+
+### Known limits
+
+- The 5 Lives disk has 40 unreadable sectors in both reads and nine decayed ones; the 1992 export is its complete copy.
+- The source of the cassette's tape loader isn't on any development disk.
+
+---
+
 ## [1.3.0] 22-10-2026
 
 Comparison with copies of the game downloaded from Plus/4 World, including a tape of the original 1985 cassette, and the Gremlin Archive reference. Game v1 and v2 are unchanged (SHA-256 `32c13c88…adce33` and `0ee0a823…397665`).

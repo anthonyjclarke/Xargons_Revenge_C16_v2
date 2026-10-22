@@ -1,0 +1,215 @@
+; >s:alien-code
+; put "alien-code"
+;
+; do all the alien move code
+;
+aliens
+;
+lda #1
+;
+dec altem      ;* move tempo
+bne mveall
+;
+lda #64
+sta altem      ;* reset tempo
+;
+lda #0         ;* move
+;
+mveall
+;
+sta nobbo
+;
+; rub,move then reprint
+;
+lda #0
+sta alipnt     ;* pointer
+;
+alilop
+;
+ldx alipnt
+;
+lda alstat,x   ;* status
+cmp #$ff
+beq aldead     ;* this one's dead
+;
+and #$80
+beq notexp     ;* not explsosion
+;
+; jsr upexpl     ;* do explosion
+jmp aldead     ;* next one
+;
+notexp
+;
+lda alixps,x   ;* x pos
+sta alx
+;
+lda aliyps,x   ;* y pos
+sta aly
+;
+lda nobbo      ;* just print ?
+bne m10
+;
+; if nobbo is '1' then just
+; print him & do the checking
+; for the laser
+;
+lda aliind,x   ;* move index
+tay
+;
+lda (patd),y   ;* move data
+sta alidir
+;
+iny
+lda (patd),y   ;* next movement
+;
+cmp #$ff
+bne ntenda
+;
+ldy #0
+;
+ntenda
+;
+tya
+;
+sta aliind,x   ;* update index
+;
+jsr rubali
+;
+; rub him out
+;
+lda #1
+bit alidir     ;* up
+beq noalup
+;
+jsr alup
+;
+noalup
+;
+lda #2
+bit alidir     ;* right
+beq noalri
+;
+jsr alri
+;
+noalri
+;
+lda #4
+bit alidir     ;* down
+beq noaldo
+;
+jsr aldo
+;
+noaldo
+;
+lda #8
+bit alidir     ;* left
+beq noalle
+;
+jsr alle
+;
+noalle
+;
+ldx alipnt
+;
+lda alx
+sta alixps,x
+lda aly
+sta aliyps,x
+;
+; alx,aly now point to new pos
+;
+m10
+;
+jsr prtali
+;
+; print him
+;
+aldead
+;
+inc alipnt     ;* pointer
+;
+lda alipnt
+cmp #alinum
+bne alilop
+;
+rts
+;
+;
+;-------------------------------
+;
+alup
+;
+; move alien up
+;
+lda aly
+bne alyok1
+;
+rts
+;
+alyok1
+;
+dec aly
+;
+rts
+;
+;*****************
+;
+alri
+;
+; move alien right
+;
+ldx alx
+inx
+cpx #39
+bcc alxok1
+;
+ldx #0
+;
+alxok1
+;
+stx alx
+;
+rts
+;
+;*****************
+;
+aldo
+;
+; move alien down
+;
+lda aly
+cmp #14
+bcc alyok2
+;
+rts
+;
+alyok2
+;
+inc aly
+;
+rts
+;
+;*****************
+;
+; move alien left
+;
+alle
+;
+ldx alx
+dex
+bpl alxok2
+;
+ldx #39
+;
+alxok2
+;
+stx alx
+;
+rts
+;
+;
+;
+;
+;
+;
+.end

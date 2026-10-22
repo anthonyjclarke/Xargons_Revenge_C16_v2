@@ -1,0 +1,85 @@
+0 "XARGON'S REVENGE" MP 2A
+9    "REVENGE"          SEQ         REVENGE  TXT     2133   7-10-92  17:52
+5    "IRQ"              SEQ         IRQ      TXT     1308   7-10-92  17:52
+3    "JOYSTIK"          SEQ         JOYSTIK  TXT      578   7-10-92  17:52
+3    "KEY-SCAN"         SEQ         KEYSCAN  TXT      672   7-10-92  17:52
+3    "LAZER-DETECTION"  SEQ         LAZERDET TXT      642   7-10-92  17:52
+10   "RASTER-ROUTINES"  SEQ         RASTERRO TXT     2526   7-10-92  17:52
+8    "ALIEN-CODE"       SEQ         ALIENCOD TXT     2018   7-10-92  17:52
+4    "PAUSE/ESCAPE"     SEQ         PAUSEESC TXT      875   7-10-92  17:52
+3    "INKEY"            SEQ         INKEY    TXT      829   7-10-92  17:52
+1    "SHEET1"           SEQ         SHEET1   TXT      274   7-10-92  17:52
+3    "MAIN-VARS"        SEQ         MAINVARS TXT      680   7-10-92  17:53
+2    "MESSAGE-STUFF"    SEQ         MESSAGES TXT      569   7-10-92  17:53
+6    "PLAY-GAME"        SEQ         PLAYGAME TXT     1410   7-10-92  17:53
+6    "UTILS"            SEQ         UTILS    TXT     1533   7-10-92  17:53
+7    "BANNER-DATA"      SEQ         BANNERDA TXT     1624   7-10-92  17:53
+12   "VARS"             SEQ         VARS     TXT     3090   7-10-92  17:53
+1    "WHOOPPEE-MESSAGE" SEQ         WHOOPPEE TXT      174   7-10-92  17:53
+2    "SETUP"            SEQ         SETUP    TXT      368   7-10-92  17:53
+10   "STAR-CODE"        SEQ         STARCODE TXT     2581   7-10-92  17:53
+2    "C16"              PRG         C16      BAS      357   7-10-92  17:53
+5    "FIRING-MEGA/CODE" SEQ         FIRINGME TXT     1175   7-10-92  17:53
+7    "EDITOR64"         PRG         EDITOR64 BIN     1612   7-10-92  17:53
+3    "EXTRA-MEMORY"     SEQ         EXTRAMEM TXT      641   7-10-92  17:53
+1    "BOOT ALL"         PRG         BOOTALL  BAS      292   7-10-92  17:53
+4    "BOTLAND-PIXEL"    SEQ         BOTLANDP TXT     1103   7-10-92  17:53
+4    "TOPLAND-PIXEL"    SEQ         TOPLANDP TXT      951   7-10-92  17:53
+5    "SET-SHEET"        SEQ         SETSHEET TXT     1273   7-10-92  17:53
+8    "MOVE-SHIP"        SEQ         MOVESHIP TXT     2143   7-10-92  17:54
+6    "SHIP-CALCS"       SEQ         SHIPCALC TXT     1440   7-10-92  17:54
+2    "TABLES"           SEQ         TABLES   TXT      479   7-10-92  17:54
+7    "FUEL-GAUGE"       SEQ         FUELGAUG TXT     1748   7-10-92  17:54
+9    "SCREEN-SETUP"     SEQ         SCREENSE TXT     2418   7-10-92  17:54
+28   "XARGII BOT LAND"  PRG         XARGIIBO BAS     7438   7-10-92  17:54
+9    "LANDSCAPE-2"      PRG         LANDSCA2 BIN     2050   7-10-92  17:56
+29   "CHAR#1-BOT"       SEQ         CHAR1BOT TXT     7567   7-10-92  17:55
+1    "ASSEM-GRAPHS"     SEQ         ASSEMGRA TXT      125   7-10-92  17:55
+4    "BLOB-MOVE"        SEQ         BLOBMOVE TXT      928   7-10-92  17:55
+1    "ENERGY CHRS"      PRG         ENERGYCH BIN      146   7-10-92  17:55
+2    "PLANETS"          SEQ         PLANETS  TXT      536   7-10-92  17:55
+2    "ALI-PRINT&CLEAR"  SEQ         ALIPRINT TXT      501   7-10-92  17:55
+9    "Z II ROOF"        PRG         ZIIROOF  BAS     2402   7-10-92  17:55
+3    "SCORE-ROUTINES"   SEQ         SCOREROU TXT      631   7-10-92  17:55
+8    "ROOFY"            PRG         ROOFY    BAS     2060   7-10-92  17:55
+11   "CHAR#1-TOP"       SEQ         CHAR1TOP TXT     2671   7-10-92  17:55
+21   "SET#1"            SEQ         SET1     TXT     5227   7-10-92  17:55
+1    "COMP-DATA"        PRG         COMPDATA BIN       98   7-10-92  17:55
+2    "SHIP-DEF"         SEQ         SHIPDEF  TXT      413   7-10-92  17:55
+4    "DOS5.2"           PRG         DOS52    BIN      866   7-10-92  17:55
+3    "DOUBLE-GENERATOR" PRG         DOUBLEGE BAS      802   7-10-92  17:55
+2    "SHTABLE"          SEQ         SHTABLE  TXT      343   7-10-92  17:55
+9    "FRAK!"            PRG         FRAK     BIN     2050   7-10-92  17:56
+9    "LANDSCAPE-1"      PRG         LANDSCA1 BIN     2050   7-10-92  18:03
+5    "MEGA-SUPER"       PRG         MEGASUPE BIN     1026   7-10-92  17:56
+4    "SUPER-LOAD"       PRG         SUPERLOA BIN      946   7-10-92  17:56
+41   "ASM.C64"          PRG         ASMC64   BAS    44844   7-10-92  17:56
+5    "TV-PICTURE"       SEQ         TVPICTUR TXT     1302   7-10-92  17:56
+15   "SOUND-EFFECTS"    SEQ         SOUNDEFF TXT     4172   7-10-92  17:57
+4    "TITLE-LOOP"       SEQ         TITLELOO TXT     1097   7-10-92  17:57
+2    "BIG-PRINT"        PRG         BIGPRINT BAS      493   7-10-92  17:57
+5    "XARG-SCREEN"      PRG         XARGSCRE BIN     1026   7-10-92  17:57
+5    "DESIGNER"         PRG         DESIGNER BAS     1449   7-10-92  17:57
+3    "TITLE-DATA"       PRG         TITLEDAT BIN      754   7-10-92  17:57
+2    "COMPACTOR"        PRG         COMPACTO BAS      349   7-10-92  17:57
+2    "PULSATE"          SEQ         PULSATE  TXT      307   7-10-92  17:57
+2    "TITLE-GENERATE"   SEQ         TITLEGEN TXT      548   7-10-92  17:57
+9    "TITLE-WORK"       SEQ         TITLEWOR TXT     2460   7-10-92  17:57
+9    "FUEL-CODE"        SEQ         FUELCODE TXT     2447   7-10-92  17:57
+2    "DOUBLE-WIDTH"     PRG         DOUBLEWI BAS      579   7-10-92  17:57
+2    "FUEL-CHAR/DATA"   SEQ         FUELCHAR TXT      309   7-10-92  17:57
+3    "PRINT-LIVES"      SEQ         PRINTLIV TXT      580   7-10-92  17:57
+1    "LAND-GO"          SEQ         LANDGO   TXT      190   7-10-92  17:57
+7    "STARTER"          SEQ         STARTER  TXT     1668   7-10-92  17:57
+9    "CAMEL"            PRG         CAMEL    BIN     2050   7-10-92  17:57
+7    "ALTERABLES"       SEQ         ALTERABL TXT     1780   7-10-92  17:57
+2    "SND"              PRG         SND      BIN      258   7-10-92  17:57
+3    "HIGH-SCORE"       SEQ         HIGHSCOR TXT      781   7-10-92  17:58
+2    "DATA-LAND/CHARS"  SEQ         DATALAND TXT      398   7-10-92  17:58
+2    "CHAR-ANIM"        SEQ         CHARANIM TXT      314   7-10-92  17:58
+2    "DEATH-CODE"       SEQ         DEATHCOD TXT      411   7-10-92  17:58
+4    "GAME-OVER"        SEQ         GAMEOVER TXT     1014   7-10-92  17:58
+3    "FIZZLE"           SEQ         FIZZLE   TXT      790   7-10-92  17:58
+52   "OBJ"              SEQ         OBJ      TXT    13307   7-10-92  17:58
+130 BLOCKS FREE.                           85 File(s)
+

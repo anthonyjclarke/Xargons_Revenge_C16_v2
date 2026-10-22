@@ -2,7 +2,7 @@
 
 ## Build Inputs
 
-The game's source is kept under `Original Source Recovered/`, exactly as recovered. The build reads the 2026 source disk image first and takes the six modules it lacks from the 1992 export. `REVENGE` is the main assembly file; the 1992 `INDEX` maps its `.LIB` names to the shortened PC filenames.
+The game's source is kept under `Original Source Recovered/`, exactly as recovered. The build reads the 2026 source disk image first and takes the six modules it lacks from the 1992 export. A later sector copy of the same disk confirms those six are identical to the 1992 text. `REVENGE` is the main assembly file; the 1992 `INDEX` maps its `.LIB` names to the shortened PC filenames.
 
 The ca65 source is generated as `build/revenge.s`, with the landscape comparison in `build/landscape.s`. Both keep `; SOURCE: module:line` markers, so any converted line can be traced back. Listings, labels, maps and debug files are written next to them.
 

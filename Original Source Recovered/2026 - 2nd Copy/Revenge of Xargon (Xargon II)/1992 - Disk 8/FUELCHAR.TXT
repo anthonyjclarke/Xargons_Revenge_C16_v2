@@ -1,0 +1,16 @@
+; >s:fuel-char/data
+; put"fuel-char/data
+;
+fuelda
+;
+.byte $0a,$2b,$2d,$2d,$2d,$2d,$2b,$0a
+.byte $aa,$fe,$57,$f7,$f7,$57,$fe,$aa
+.byte $00,$80,$80,$80,$80,$80,$80,$00
+;
+.byte $00,$02,$02,$02,$02,$02,$02,$00
+.byte $aa,$bf,$d5,$df,$df,$d5,$bf,$aa
+.byte $a0,$e8,$78,$78,$78,$78,$e8,$a0
+;
+;
+;
+.end

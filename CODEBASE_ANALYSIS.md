@@ -119,7 +119,7 @@ Fire is tested at three places: `TITTER` in the wait loop, `BRING` while a row s
 
 **Instruction:** `START` clears zero page again, sets the ship to row 7, pixel 3, and sets `LIVES` to 5 and `FULINC` to 111. `REPLAY` zeroes `SHEET` and `LEVEL`. `STLOOP`, used at the start of every wave and after every death, calls `SETSHT`, `ALIDEF`, `SCREEN` and `PRSHIP`, clears `DEAD`, `ALIHIT` and `FUELTM`, and runs `STARTE`, which shows READY, STEADY and GO FOR IT on the first wave only (`STFLAG`).
 
-**Observed:** at the first main-loop pass the rebuild has `TITLE=0`, `LIVES=5`, `SHEET=0` and `LEVEL=0`, and the running version has `LIVES=5` too. The cassette inlay and the *C16 Classics II* leaflet both say "3 lives". `PRLIVE` never draws more than three ship icons, which may explain the printed figure, but that is an inference.
+**Observed:** at the first main-loop pass the rebuild has `TITLE=0`, `LIVES=5`, `SHEET=0` and `LEVEL=0`, and the running version has `LIVES=5` too. The cassette inlay and the *C16 Classics II* leaflet both say "3 lives". That matches the earlier development build on my Revenge of Xargon disk, whose `PLAY-GAME` sets 3 ([Development Disks](docs/DEVELOPMENT_DISKS.md#revenge-of-xargon-disk8)); the packaging text was evidently written from it. `PRLIVE` never draws more than three ship icons.
 
 ### Main Loop
 
@@ -614,7 +614,7 @@ Verified:
 Open:
 
 - Real-hardware behaviour of the reset trap, timing and sound.
-- Whether the packaging's "3 lives" and "96 levels" reflect an earlier design or another release.
+- Where the packaging's "96 levels" comes from. Its "3 lives" matches the earlier Revenge of Xargon build.
 - Keyboard and joystick feel, alien scoring in play and a full play-through.
 
 Next experiments: a probe that fires at an alien on wave 1 and wave 8 to confirm 50 and 350 points; a scripted run through a whole wave to `COMPLE`; and recording the sound.

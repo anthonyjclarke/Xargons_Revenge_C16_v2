@@ -1,0 +1,115 @@
+; >s:firing-mega/code
+; put "firing-mega/code"
+;
+fire
+;
+lda lasers   ;* # on
+beq newlaz
+;
+; lazer is on
+;
+rts
+;
+newlaz
+;
+lda #0
+jsr sfx         ;* start sfx
+;
+lda shipy
+clc
+adc #1
+sta lazy
+;
+lda #4
+sta lazx
+;
+; now calc char
+;
+ldx #7
+lda #0
+;
+clrlaz
+;
+sta lazchr,x
+;
+dex
+bpl clrlaz
+;
+; clear lazer char
+;
+lda ypix
+;
+and #%00000110
+tay
+;
+lda #$ff
+sta lazchr,y
+sta lazchr+1,y
+;
+; programmes the lazer char
+;
+lda #1
+sta lasers
+;
+rts
+;
+;---------------------------------
+;
+mvelaz
+;
+; move the laser
+;
+lda lasers     ;* one on ?
+bne gfit
+;
+rts
+;
+gfit
+;
+ldx lazx
+ldy lazy
+;
+jsr xy
+;
+;---------------------------------
+; before rubbing out the lazer -
+; lets see if it has hit anything
+; either here or in its new pos,
+; which is one to the right.
+;
+; jsr chklaz
+;
+lda #32
+ldy #0
+sta (sl),y     ;* rub it out
+;
+inc lazx       ;* x pos
+lda lazx
+cmp #39
+bne lazatl
+;
+; time to stop this one
+;
+lda #0
+sta lasers     ;* gone
+;
+nowded
+;
+rts
+;
+lazatl
+;
+lda #63        ;* laz char
+;
+ldy #1
+sta (sl),y     ;* on it goes
+;
+lda #$71
+sta (cl),y     ;* colour
+;
+rts
+;
+;
+;
+;
+.end

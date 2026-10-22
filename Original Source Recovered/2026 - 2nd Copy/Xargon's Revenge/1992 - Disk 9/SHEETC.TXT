@@ -1,0 +1,22 @@
+; >s:sheetc
+; put "sheetc"
+;
+; info for sheet 12
+;
+patdc
+;
+.byte 12,12,12,12,12,12,8,8,8
+.byte 9,9,9,1,1,8,8,8,8
+.byte $ff
+;
+; movement data
+;
+lca = 63   ;* foreground
+lcb = 225  ;* outline
+lcc = 200  ;* 2nd depth col
+;
+; 3 land colours
+;
+bcb = $00  ;* background col.
+;
+.end

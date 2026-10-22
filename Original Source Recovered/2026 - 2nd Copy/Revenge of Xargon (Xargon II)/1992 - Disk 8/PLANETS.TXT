@@ -1,0 +1,55 @@
+; >s:planets
+; put "planets"
+;
+;
+; do the random planet
+;
+blobs
+;
+dec anttem       ;* overall tempo
+bne gplt
+;
+lda #0
+sta anttem
+;
+; lets try to start a planet
+;
+dec plttem       ;* tempo
+bne pltg
+;
+gplt
+;
+rts
+;
+pltg
+;
+; time for a mega planet
+;
+lda planon        ;* one on
+bne gplt
+;
+; right lets set a new one up
+;
+toomch
+;
+jsr random
+lda rnd+1
+and #15
+;
+cmp #15
+bcs toomch
+;
+sta plany         ;* y pos
+;
+lda #39
+sta planx         ;* s pos
+;
+lda #1
+sta planon
+;
+rts
+;
+;
+;
+;
+.end

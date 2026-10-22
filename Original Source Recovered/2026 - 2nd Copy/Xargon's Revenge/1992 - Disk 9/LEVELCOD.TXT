@@ -1,0 +1,321 @@
+; >s:level-code
+; put "level-code"
+;
+; just completed a level so do all
+; the whoopee stuff.
+;
+levctl
+;
+lda #1
+sta stpstr    ;* stop stars
+;
+jsr titcls    ;* clear window
+;
+lda level
+cmp #5
+bne notenl    ;* not last level
+;
+jmp endlvl
+;
+;---------------------------------
+;
+notenl
+;
+tay
+dey
+ldx tim6,y
+;
+ldy #0
+;
+hate1
+;
+lda plannm,x
+sta nobbe1+30,y ;* planet done.
+;
+lda plannm+6,x
+sta nobbe2+30,y ;* next one
+;
+inx
+iny
+cpy #6
+bne hate1
+;
+; put names of planets in string
+;
+lda #<$0cf0
+sta scr
+lda #>$0cf0
+sta scr+1      ;* screen pointer
+;
+lda #<lvl1
+sta work
+lda #>lvl1
+sta work+1     ;* message pointer
+;
+jsr prtmes     ;* print message
+;
+lda #<$0ccc
+sta work
+lda #>$0ccc
+sta work+1
+;
+jsr medal      ;* print medal
+;
+lda #<$0cea
+sta work
+lda #>$0cea
+sta work+1
+;
+jsr medal      ;* print medal
+;
+lda #5
+ldy #4
+jsr score+2    ;* 5000 points
+;
+jsr bonlif     ;* extra life
+;
+lda #0
+sta stpstr     ;* stars go
+;
+lda #8
+sta work
+;
+dodo1
+;
+ldx #0
+jsr delay+2
+;
+dec work
+bne dodo1
+;
+lda #111
+sta fulinc
+;
+rts            ;* bak to the game
+;
+;---------------------------------
+;
+endlvl
+;
+lda #<$0ca0
+sta scr
+lda #>$0ca0
+sta scr+1      ;* screen pointer
+;
+lda #<lvl2
+sta work
+lda #>lvl2
+sta work+1     ;* message pointer
+;
+jsr prtmes     ;* print message
+;
+lda #$77
+sta alchr
+;
+ldx #9
+;
+endit1
+;
+ldy yval1,x
+lda alchr
+sta $0de0+32,y
+;
+lda #$67
+sta $09e0+32,y
+;
+dec alchr
+dex
+bpl endit1
+;
+lda #0     ;* ok to use now.
+sta killco
+sta jdown
+sta jfire
+sta stpstr ;* stars go
+;
+trokit
+;
+bit jfire
+bmi againp
+;
+bit jdown
+bpl trokit
+;
+lda #1
+sta stop
+;
+jsr clrshp  ;* rub out ship
+jmp allovr  ;* tired
+;
+againp
+;
+jmp replay  ;* play again
+;
+;---------------------------------
+;
+plannm
+;
+; 6 planet names
+;
+.byte 'magnum'
+.byte 'kaylih'
+.byte 'nebula'
+.byte 'nilbeg'
+.byte 'xargon'
+;
+;---------------------------------
+;
+lvl1
+;
+.byte '         well done space cadet!',0
+.byte '         ----------------------',0
+.byte 0
+;
+nobbe1
+;
+.byte '    you have conquered planet .......',0,0
+.byte '    for this you receive a bonus life',0
+.byte '   and a gold medal worth 5000 points.',0
+.byte 0,0
+;
+nobbe2
+;
+.byte '     prepare to attack planet .......'
+;
+.byte $ff
+;
+;---------------------------------
+;
+lvl2
+;
+.byte '      congratulations mega person!',0
+.byte '      ----------------------------',0,0
+.byte '    you have defeated planet xargon.',0,0
+.byte '       you are now decorated as:-',0,0
+.byte '   the best hyper galactic zapper ever!',0,0
+.byte '         here is your award :-',0,0,0
+.byte '   press fire to restart or down to end.',0
+.byte $ff
+;
+;---------------------------------
+;
+prtmes
+;
+jsr niwcol
+;
+mesp1
+;
+ldx #16
+jsr delay+2
+;
+jsr rusras       ;* raster poll
+;
+ldy #0
+;
+lda (work),y
+cmp #$ff         ;* end of message
+bne mesp2
+;
+rts
+;
+mesp2
+;
+cmp #0
+beq newlin       ;* cr.
+;
+ldy work+2
+;
+and #$3f
+sta (scr),y
+;
+lda scr+1
+pha
+;
+sec
+sbc #4
+sta scr+1        ;* colour add.
+;
+lda work+3       ;* colour
+sta (scr),y
+;
+pla
+sta scr+1
+;
+inc work+2       ;* screen pointer
+;
+mesp3
+;
+inc work
+bne mesp4
+;
+inc work+1
+;
+mesp4            ;* data pointer
+;
+jmp mesp1        ;* loop
+;
+newlin           ;* new line
+;
+lda scr
+clc
+adc #40
+sta scr          ;* next line down
+;
+lda scr+1
+adc #0
+sta scr+1          
+;
+jsr niwcol       ;* new colour
+;
+jmp mesp3        ;* start again
+;
+;---------------------------------
+;
+niwcol
+;
+lda #0
+sta work+2       ;* screen pointer
+;
+jsr num1t7
+ora #$60
+sta work+3       ;* colour
+;
+rts
+;
+;---------------------------------
+;
+medal
+;
+lda #$7b
+sta alchr
+;
+ldx #5
+;
+med1
+;
+ldy yval1,x
+lda alchr
+sta (work),y
+;
+lda work+1
+pha
+;
+sec
+sbc #4
+sta work+1
+;
+lda #$67
+sta (work),y
+;
+pla
+sta work+1
+;
+dec alchr
+dex
+bpl med1
+;
+rts
+;
+;
+;
+.end

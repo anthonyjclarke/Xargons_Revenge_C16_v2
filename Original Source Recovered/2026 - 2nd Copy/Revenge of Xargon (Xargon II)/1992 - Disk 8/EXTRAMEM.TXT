@@ -1,0 +1,65 @@
+; >s:extra-memory
+; put "extra-memory"
+;
+; find some room for some tables
+;
+;  memory free       # of bytes
+;
+;  $0200-$07b8       1464
+;  $0be8-$0bff         24
+;  $0fe8-$0fff         24
+;
+*=$200
+;
+startb
+;
+; star table
+;
+*=*+64
+;
+;------------------
+;
+alixps
+;
+*=*+16
+;
+; alien x positions
+;
+;------------------
+;
+aliyps
+;
+*=*+16
+;
+; alien y positions
+;
+;------------------
+;
+aliind
+;
+*=*+16
+;
+; alien index to data
+;
+;------------------
+;
+alstat
+;
+*=*+16
+;
+; alien status register
+;
+;------------------
+;
+bigbuf
+;
+*=*+96
+;
+; save ship char data for fizzle
+;
+;
+;
+;
+;
+;
+.end

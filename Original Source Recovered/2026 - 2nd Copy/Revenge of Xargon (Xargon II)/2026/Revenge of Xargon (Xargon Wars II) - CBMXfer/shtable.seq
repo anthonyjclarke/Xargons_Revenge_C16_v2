@@ -1,0 +1,1 @@
+; >S:SHTABLE; PUT "SHTABLE";; ALIEN SHEET TABLE;;SHTABL;;--------;; SHEET1;;--------;.WORD PATD1     ;* MOVEMENT DATA.BYTE LA1       ;* LAND COL 3.BYTE LA2       ;* LAND COL 2.BYTE LA3       ;* LAND COL 3.BYTE BA1       ;* BAKCOL.BYTE 0,0       ;* SPARE;;--------;; SHEET2;;--------;.END

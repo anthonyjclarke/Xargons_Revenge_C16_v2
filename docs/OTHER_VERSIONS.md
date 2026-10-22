@@ -18,7 +18,7 @@ The original release tape is the site's `xargons_revenge.tap`, which I renamed l
 
 The development copies have a second source. Plus/4 World built them from my 1992 export of the development disks, which Mark Hardisty publishes in the [Gremlin Graphics Archive](https://www.gremlinarchive.com/). [Gremlin Archive and the Book](GREMLIN_ARCHIVE.md) describes that archive, his book *A Gremlin in the Works*, and which archive disk each copy matches.
 
-`scripts/compare_other_versions.py` places each copy in memory the way its own loader would, compares it with game v1 and v2 and with `BJH`, `LANDSCAPE-1`, `LANDSCAPE-2` and `FRAK!` from my 2026 Side 2 disk, and writes the [comparison page](analysis/other-versions.html). That page decodes the aliens for all 16 sheets, both landscape banks, both fonts, the title banner and the ship for every copy. It never modifies an input.
+`scripts/compare_other_versions.py` places each copy in memory the way its own loader would, compares it with game v1 and v2 and with `BJH`, `LANDSCAPE-1`, `LANDSCAPE-2` and `FRAK!` from my source disk, and writes the [comparison page](analysis/other-versions.html). That page decodes the aliens for all 16 sheets, both landscape banks, both fonts, the title banner and the ship for every copy. It never modifies an input.
 
 ```bash
 python3 scripts/compare_other_versions.py
@@ -41,7 +41,7 @@ Both tapes are loaded in VICE and read when the game starts at `$1800`. VICE's `
 | C16 Classics II tape  | v2: 4 designs  | `LANDSCAPE-2` | `FRAK!`           | `OBJ`          |
 | Early stages          | None in file   | `LANDSCAPE-1` | 105 glyphs differ | Early build    |
 
-**The released game is v2.** When the original 1985 cassette starts the game, its aliens, landscape, code and font are byte-identical to game v2. No copy shows graphics redrawn by someone else. Apart from the early build's font, every graphic in every copy is byte-identical to a file on my 2026 Side 2 disk.
+**The released game is v2.** When the original 1985 cassette starts the game, its aliens, landscape, code and font are byte-identical to game v2. No copy shows graphics redrawn by someone else. Every graphic in every copy is byte-identical to a file on one of my development disks; the early build's font is the older `FRAK!` on my Revenge of Xargon disk.
 
 ### Original Release Tape
 
@@ -61,13 +61,15 @@ One `",8,1"` file from `$0322` to `$3FFF`, plus `BJH`. A small loader at `$0340`
 
 ### Loading-Picture Disk
 
-Its `LOADER` and `P1`–`P4` are byte-identical to the archive's `DISK10`, which my 1992 `READ.ME` names "Xargon's Revenge – 5 lives" ([Gremlin Archive](GREMLIN_ARCHIVE.md#in-this-project)). `LOADER`, `P1` and `P2` are also identical to my 2026 Side 1 disk (`XargonsRevenge-C16.d64`), which lacks `P3` and `P4`. `P4` is byte-identical to `BJH`, and the loader increments both high bytes in its copy loop, so the aliens arrive unchanged.
+Its `LOADER` and `P1`–`P4` are byte-identical to the archive's `DISK10`, which my 1992 `READ.ME` names "Xargon's Revenge – 5 lives" ([Gremlin Archive](GREMLIN_ARCHIVE.md#in-this-project)). `LOADER`, `P1` and `P2` are also identical to my first, partial 2026 copy of that disk, which lacks `P3` and `P4`. `P4` is byte-identical to `BJH`, and the loader increments both high bytes in its copy loop, so the aliens arrive unchanged.
 
-The graphics match game v1, but the code in `P3` is a different revision, 11 bytes shorter. `TOKILL` asks for 32, 40, 48, 56, 64 and 72 aliens per level instead of 24, 24, 32, 32, 48 and 48. The "first sheet: only 16 aliens" case in `SET-SHEET` is also missing. Every table after that point sits 11 bytes lower, with the same bytes. Like the release, it starts with 5 lives. The release has the easier waves, so this is a development revision that wasn't shipped.
+The graphics match game v1, but the code in `P3` is a different revision, 11 bytes shorter. `TOKILL` asks for 32, 40, 48, 56, 64 and 72 aliens per level instead of 24, 24, 32, 32, 48 and 48. The "first sheet: only 16 aliens" case in `SET-SHEET` is also missing. Every table after that point sits 11 bytes lower, with the same bytes. Like the release, it starts with 5 lives. The release has the easier waves, so this is a development revision that wasn't shipped. My own 5 Lives disk, read again in 2026, matches it wherever it can still be read, and the source disk's free sectors hold this build's old object listing, so it came before the final code ([Development Disks](DEVELOPMENT_DISKS.md#how-the-builds-fit-together)).
 
 ### Early Stages
 
-One file from `$1000` to `$3FFF`, started with `G 1800`. About 80% of the code differs from `OBJ`. The landscape is exactly my `LANDSCAPE-1`, and the font differs from `FRAK!` in 105 glyphs: another alphabet (codes 64–101), fuel-bar glyphs (106–123), and solid blocks where the aliens were later placed (213–255). There's no alien data, as the file doesn't reach `$0400`. It has the same title banner and `CHR87`/`CHR91` animations as the release, stored lower down, but not the release ship table. Its scroller reads "Micro Projects 1985" instead of advertising other Gremlin games. It doesn't match any single file in the archive; Plus/4 World says it was rebuilt from the source.
+One file from `$1000` to `$3FFF`, started with `G 1800`. About 80% of the code differs from `OBJ`. The landscape is exactly my `LANDSCAPE-1`, and the font differs from `FRAK!` in 105 glyphs: another alphabet (codes 64–101), fuel-bar glyphs (106–123), and solid blocks where the aliens were later placed (213–255). There's no alien data, as the file doesn't reach `$0400`. It has the same title banner and `CHR87`/`CHR91` animations as the release, stored lower down, but not the release ship table. Its scroller reads "Micro Projects 1985" instead of advertising other Gremlin games.
+
+It is the build on my Revenge of Xargon disk (1992 `DISK8`). Its code is byte-identical to that disk's `OBJ` (`$1800–$2C6D`), its font is that disk's `FRAK!` and its landscape `LANDSCAPE-1`. The rest of the file is only `$00` and `$FF`, an emulator's power-on memory. That build starts with 3 lives, as the cassette inlay says ([Development Disks](DEVELOPMENT_DISKS.md#revenge-of-xargon-disk8)).
 
 ---
 
@@ -97,7 +99,7 @@ These are VICE (C16 PAL, `-TEDfilter 0`) captures of each copy, run as it is. Ba
 
 The two families are the two versions this project builds. The original release, the compilation and the running version all hold v2, and all three carry the same faulty loader. The disk copies hold v1, but they were built from my development disks in the Gremlin Archive, not from anything Gremlin sold.
 
-So v2 is what players got in 1985, and it stayed that way on *C16 Classics II*. The sixteen alien designs in my source, game v1, were never seen in a released copy. The fault is a single `INC` operand in the release tape loader, not a change Gremlin asked for.
+So v2 is what players got in 1985, and it stayed that way on *C16 Classics II*. The sixteen alien designs in my source, game v1, were never seen in a released copy. The fault is a single `INC` operand in the release tape loader; nothing on my development disks suggests a deliberate change.
 
 Plus/4 World's bug notes say that, even in the original game, the enemy graphics degrade until a new planet's mission restores them after 16 waves. That is v2: sheets 5–16 show the first four designs shifted further each page, and sheet 1 of the next planet is correct again.
 
@@ -105,7 +107,7 @@ Plus/4 World's bug notes say that, even in the original game, the enemy graphics
 
 ## Still to Check
 
-Next I'll image my own original Commodore disks and compare them with these copies, the 2026 images and the Gremlin Archive disks, as a final check. Two archive disks not yet in this project are worth including: `DISK8` ("Revenge of Xargon (Xargon II)") and `DISK10` ("Xargon's Revenge – 5 lives"). The site's other entries are listed in [Appendix B](#appendix-b-listed-but-not-examined).
+Done 22 October 2026: I copied my three original development disks again, and [Development Disks](DEVELOPMENT_DISKS.md) compares them with these copies, the first 2026 images and the 1992 exports. Every development copy on Plus/4 World is now traced to one of them: the early stages to `DISK8`, the loading-picture disk to `DISK10`, and the disk version to `DISK9`'s `BJH` with the final code. The site's other entries are listed in [Appendix B](#appendix-b-listed-but-not-examined).
 
 ---
 

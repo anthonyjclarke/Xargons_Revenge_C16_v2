@@ -1,0 +1,86 @@
+; >s:high-score
+; put "high-score"
+;
+;   see if the last score was
+; good enough for the high score
+;
+high
+;
+ldx #7
+;
+hlp1a
+;
+lda tpbuff+32,x
+and #15
+sta work,x
+;
+dex
+bpl hlp1a
+;
+; put high score into buffer
+;
+ldx #8
+ldy #8
+;
+sec
+;
+hlp1
+;
+lda work-1,x
+sbc scrbuf-1,y
+;
+dex
+dey
+bne hlp1
+;
+bcc itsin ;* good score nobber
+;
+lda #0
+sta work+2
+;
+rts
+;
+;---------------------------------
+;
+itsin
+;
+;   put score into high score
+;
+ldx #7
+;
+hlp2
+;
+lda scrbuf,x
+ora #$30
+sta tpbuff+32,x
+;
+dex
+bpl hlp2
+;
+ldx #38
+;
+hlp3
+;
+lda congra,x
+and #$3f
+sta $0e31,x
+;
+lda #$71
+sta $0a31,x
+;
+dex
+bpl hlp3
+;
+; print message
+;
+lda #1
+sta work+2
+;
+rts
+;
+congra
+;
+.byte 'well done, you now have the high-score'
+;
+;
+.end

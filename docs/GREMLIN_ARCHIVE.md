@@ -76,10 +76,10 @@ Each disk ZIP includes an `INDEX` listing the original Commodore directory next 
 
 The 1992 source in `Original Source Recovered/1992/` is the archive's `DISK9`. `DISK9 - Xargon's Revenge.ZIP` has the same CRC-32 (`c2a053f4`) and size (94,636 bytes) as `Disk 7-11/DISK9.ZIP` in the archive. The 101 extracted files match the archive's `DISK9/` folder, except the empty `LOADER.BIN` noted above.
 
-Two other archive disks bear on this game, and neither is in this project yet:
+Two other archive disks are earlier stages of this game. Both are now in `Original Source Recovered/2026 - 2nd Copy/`, with a 2026 sector copy of the physical disk; their 1992 folders match the archive's file for file ([Development Disks](DEVELOPMENT_DISKS.md)):
 
-- **`DISK10`**, "Xargon's Revenge – 5 lives", is the source of Plus/4 World's loading-picture disk. Its `LOADER.BIN`, `P10C0010.BIN`, `P208000C.BIN`, `P3100040.BIN` and `P4040008.BIN` are byte-identical to that disk's `LOADER` and `P1`–`P4`. Its `P3` is the code revision with harder waves described in [Other Versions](OTHER_VERSIONS.md#loading-picture-disk). Every build I have starts with 5 lives, so the label doesn't explain the packaging's "3 lives".
-- **`DISK8`**, "Revenge of Xargon (Xargon II)", matches the name on one of my development disk labels. It holds a boot program, `LANDSCA1`/`LANDSCA2`, `TITLEDAT`, `XARGSCRE` and the roof utilities `ROOFY` and `ZIIROOF`.
+- **`DISK8`**, "Revenge of Xargon (Xargon II)", is the early build with 3 lives. Its `OBJ` is the code of Plus/4 World's "early stages" download. In this disk's 1992 export, `LANDSCA2.BIN` has the same bytes as `LANDSCA1.BIN`; the disk itself holds the real `LANDSCAPE-2`.
+- **`DISK10`**, "Xargon's Revenge – 5 lives", is the source of Plus/4 World's loading-picture disk. Its `LOADER.BIN`, `P10C0010.BIN`, `P208000C.BIN`, `P3100040.BIN` and `P4040008.BIN` are byte-identical to that disk's `LOADER` and `P1`–`P4`. Its `P3` is the build with 5 lives and harder waves. The physical disk now has 40 unreadable sectors, so the 1992 export is the complete copy.
 
 The Plus/4 World disk version's `BJH` is byte-identical to `DISK9/BJH.BIN`.
 

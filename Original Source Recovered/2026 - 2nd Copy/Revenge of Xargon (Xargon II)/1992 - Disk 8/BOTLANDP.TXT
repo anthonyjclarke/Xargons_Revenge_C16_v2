@@ -1,0 +1,135 @@
+; >s:botland-pixel
+; put "botland-pixel"
+;
+;
+botmve
+;
+; move the bottom land
+;
+lda botspd
+bne bot4
+;
+lda #0
+sta irqwrk
+beq bot2
+;
+bot4
+;
+cmp #1
+bne bot1
+;
+sta irqwrk
+;
+inc botwrk
+lda botwrk
+and #1
+bne bot2
+;
+rts
+;
+bot1
+;
+sec
+sbc #1
+sta irqwrk
+;
+bot2
+;
+lda botlx
+sec
+sbc irqwrk ;* speed
+;
+tay
+;
+and #7
+sta botlx
+;
+tya
+;
+and #8
+bne harbot ;* need block scroll
+;
+rts
+;
+harbot
+;
+ldx #0
+;
+btl2
+;
+lda $0f21,x
+sta $0f20,x
+;
+lda $0f49,x
+sta $0f48,x
+;
+lda $0f71,x
+sta $0f70,x
+;
+lda $0f99,x
+sta $0f98,x
+;
+inx
+cpx #39
+bne btl2
+;
+; now put on the new bit of hill
+;
+dec botcnt
+bpl blink2
+;
+jsr botnew
+;
+blink2
+;
+ldx #3
+;
+blink3
+;
+ldy yhil,x
+lda botchr
+;
+sta $f47,y
+;
+inc botchr
+dex
+bpl blink3
+;
+rts
+;
+botnew
+;
+; start a new block
+;
+lda #7
+sta botcnt
+;
+blink4
+;
+jsr random
+;
+lda rnd
+and #7
+cmp #6
+bcs blink4
+;
+cmp laston
+beq blink4
+;
+; don't choose same one again
+;
+sta laston
+;
+tax
+lda botst,x
+;
+sta botchr
+;
+rts
+;
+;
+botst .byte 0,32,64,96,128,160
+;
+yhil  .byte 0,40,80,120
+;
+.end

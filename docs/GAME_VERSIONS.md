@@ -63,7 +63,7 @@ L0C33:  LDA $0800,X     ; operand bytes at $0C34 (low) and $0C35 (high)
 
 After one page the source is `$0801` instead of `$0900`, while the destination correctly moves to `$0500`. So page *p* of the aliens gets the 256 bytes that start at `BJH` offset *p*. The operands left in memory, `LDA $0804,X` and `STA $0800,X`, show exactly that end state. `scripts/verify_vice.py` checks them in [`vice-verification.json`](verification/vice-verification.json).
 
-The loading-screen disk (`XargonsRevenge-C16.d64`) holds a loader with the same structure for device 8, files `P1*` to `P4*`. Its loop increments both high bytes, so it would copy correctly. No source for either the disk or the tape loader has survived.
+My 5 Lives development disk holds a loader with the same structure for device 8, files `P1*` to `P4*` (my first, partial 2026 copy of it has the first three files). Its loop increments both high bytes, so it copies correctly. No source for either the disk or the tape loader is on any of my development disks ([Development Disks](DEVELOPMENT_DISKS.md)).
 
 ---
 
@@ -107,7 +107,7 @@ Full screenshots of every sheet in both versions are in `docs/images/versions/`,
 | Extra lives, scoring | Identical code            |
 | Collisions           | By screen code, not shape |
 
-Collisions are decided by character codes, not by pixels, so the different shapes don't change how the game plays. The packaging's "3 lives" and "96 levels" don't match either version.
+Collisions are decided by character codes, not by pixels, so the different shapes don't change how the game plays. The packaging's "3 lives" and "96 levels" don't match either version; "3 lives" matches the earlier Revenge of Xargon build.
 
 ---
 
@@ -121,7 +121,7 @@ The evidence shows:
 - The v1 copies on Plus/4 World were built from my development disks in the Gremlin Archive ([Gremlin Archive and the Book](GREMLIN_ARCHIVE.md)), so they don't show that v1 was ever sold. [Other Versions](OTHER_VERSIONS.md) has the comparison, with the source of each file.
 - The difference comes from one `INC` operand in that loader. It looks like a typing slip rather than a deliberate change: the rest of the game is identical, and the source has sixteen designs that v2 never shows.
 
-As I recorded on 21 October 2026, I have no recollection of why there might be two versions. Maybe Gremlin Graphics, who published the game, gave us some feedback and wanted a different version. That is my speculation, not evidence; nothing in the source or on the disks shows a second build.
+As I recorded on 21 October 2026, I have no recollection of why there might be two versions. Maybe Gremlin Graphics, who published the game, gave us some feedback and wanted a different version. That is my speculation, not evidence. My three development disks show earlier builds of the game ([Development Disks](DEVELOPMENT_DISKS.md#how-the-builds-fit-together)), but every one of them copies the aliens correctly; none has the tape loader.
 
 Game v1 stays the default because it is the source as written. Game v2 is preserved because it is what people actually played.
 
@@ -129,7 +129,7 @@ Game v1 stays the default because it is the source as written. Game v2 is preser
 
 ## Open Questions
 
-- Which development disk label goes with which 2026 disk image. I need to plug the hardware in and check.
-- Answered 22 October 2026: the original release tape shows the v2 aliens. Imaging my own original disks is the final check ([Still to Check](OTHER_VERSIONS.md#still-to-check)).
+- Answered 22 October 2026: the original release tape shows the v2 aliens, and the disk photos show which label goes with which disk image ([Development Disks](DEVELOPMENT_DISKS.md#the-three-disks)).
 - Plus/4 World lists an original and an alternative Gremlin cassette release; which one the tape image is, isn't recorded.
-- Why the packaging says 3 lives and 96 levels. My 1992 archive names one disk "Xargon's Revenge – 5 lives", which suggests a version with a different number of lives existed, but every build I have starts with 5.
+- Why the packaging says 96 levels. Its "3 lives" is explained: the earlier Revenge of Xargon build starts with 3, and the next disk is labelled "5 Lives".
+- Where and by whom the cassette's tape loader was written. Its source isn't on any of my disks.

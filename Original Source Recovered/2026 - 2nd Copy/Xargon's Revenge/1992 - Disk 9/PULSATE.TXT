@@ -1,0 +1,29 @@
+; >s:pulsate
+; put "pulsate"
+;
+pulsat
+;
+; pulsate and leave luminence in
+; acc.
+;
+inc pulse
+lda pulse
+lsr a
+;
+and #15
+tax
+;
+lda #1        ;* white pulsate
+;
+ora luminx,x
+;
+rts
+;
+luminx
+;
+.byte $00,$10,$20,$30,$40,$50,$60
+.byte $70,$70,$70,$60,$50,$40,$30
+.byte $20,$10
+;
+;
+.end

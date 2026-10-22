@@ -1,0 +1,22 @@
+; >s:sheet8
+; put "sheet8"
+;
+; info for sheet8
+;
+patd8
+;
+.byte 8,8,8,8,12,12,12,12,12
+.byte 1,1,9,9,9,9,8,8
+.byte $ff
+;
+; movement data
+;
+l8a = 25   ;* foreground
+l8b = $71  ;* outline
+l8c = 199  ;* 2nd depth col
+;
+; 3 land colours
+;
+b8b = $31  ;* background col.
+;
+.end

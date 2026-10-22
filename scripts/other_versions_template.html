@@ -82,7 +82,7 @@ ul { margin: 8px 0; padding-left: 22px; } li { margin: 4px 0; max-width: 78ch; }
 <div class="panel callout">
 <p><strong>Short answer.</strong> Game v1 and game v2 differ <em>only</em> in the alien graphics at <code>$0400–$07FF</code>. Code, landscape and font are byte-identical. The difference comes from a cassette loader that copies <code>BJH</code> wrongly: source +1 byte per page instead of +256. That leaves 4 alien designs, shifted up, where there should be 16.</p>
 <p><strong>The original 1985 release tape is game v2.</strong> At the game's entry (<code>$1800</code>) its aliens, landscape, code and font match game v2 byte for byte. Its own loader at <code>$0C00</code> loads <code>BJH</code> unchanged to <code>$0800</code> and then makes the faulty copy, so v2 is what Gremlin shipped.</p>
-<p>The downloads split into the same two families. The <strong>disk version</strong> and the <strong>loading-picture disk</strong> hold your <code>BJH</code> unchanged and copy it correctly (v1 aliens). The <strong>original release tape</strong>, the <strong>C16 Classics II tape</strong> and the <strong>running version</strong> show the tape-copy aliens (v2). The <strong>early stages</strong> file is an earlier development build with no aliens, your <code>LANDSCAPE-1</code> and a different font. No copy shows signs of someone else redrawing graphics. Apart from the early build's font, every graphic traces back to a file on your 2026 Side 2 disk.</p>
+<p>The downloads split into the same two families. The <strong>disk version</strong> and the <strong>loading-picture disk</strong> hold your <code>BJH</code> unchanged and copy it correctly (v1 aliens). The <strong>original release tape</strong>, the <strong>C16 Classics II tape</strong> and the <strong>running version</strong> show the tape-copy aliens (v2). The <strong>early stages</strong> file is an earlier development build with no aliens, your <code>LANDSCAPE-1</code> and a different font. No copy shows signs of someone else redrawing graphics. Every graphic traces back to a file on one of your three development disks (see <code>docs/DEVELOPMENT_DISKS.md</code>).</p>
 </div>
 
 <h2>Summary</h2>
@@ -99,14 +99,14 @@ ul { margin: 8px 0; padding-left: 22px; } li { margin: 4px 0; max-width: 78ch; }
 <div class="panel scroll"><table class="aliens" id="aliens"></table></div>
 
 <h2>Landscape Bank</h2>
-<p>256 multicolour characters at <code>$1000</code>, drawn with the gameplay colours. Two banks exist across all copies, and both are files on your 2026 Side 2 disk. Glyphs outlined in red differ between them.</p>
+<p>256 multicolour characters at <code>$1000</code>, drawn with the gameplay colours. Two banks exist across all copies, and both are files on your Xargon's Revenge source disk. Glyphs outlined in red differ between them.</p>
 <div class="panel" id="motifs"></div>
 <h3>Full banks</h3>
 <div class="legend"><span><span class="swatch"></span>differs from the other bank</span></div>
 <div class="atlases" id="land"></div>
 
 <h2>Font Bank</h2>
-<p>256 hires characters at <code>$3800</code>. Every copy except the early build has <code>FRAK!</code> exactly. The early build differs in the glyphs outlined: a different alphabet (codes 64–101), fuel-bar glyphs (106–123) and solid blocks where the aliens would later go (213–255).</p>
+<p>256 hires characters at <code>$3800</code>. Every copy except the early build has <code>FRAK!</code> exactly. The early build has the older <code>FRAK!</code> from your Revenge of Xargon disk, which differs in the glyphs outlined: a different alphabet (codes 64–101), fuel-bar glyphs (106–123) and solid blocks where the aliens would later go (213–255).</p>
 <div class="atlases" id="font"></div>
 
 <h2>Title Banner and Ship</h2>
@@ -116,11 +116,11 @@ ul { margin: 8px 0; padding-left: 22px; } li { margin: 4px 0; max-width: 78ch; }
 
 <h2>Notes Beyond Graphics</h2>
 <ul>
-<li><strong>Loading-picture disk, P3.</strong> Same graphics, but the code is a different revision (11 bytes shorter). <code>TOKILL</code> is 32, 40, 48, 56, 64, 72 aliens per level instead of 24, 24, 32, 32, 48, 48, and the "first sheet: only 16 aliens" special case in <code>SET-SHEET</code> is missing. Everything after it moves 11 bytes. Its LOADER, P1 and P2 are byte-identical to your Side 1 disk, so this looks like a fuller copy of the same disk. P3 is either an earlier build from before the difficulty was eased, or a later one where it was raised. The bytes don't say which.</li>
+<li><strong>Loading-picture disk, P3.</strong> Same graphics, but the code is a different revision (11 bytes shorter). <code>TOKILL</code> is 32, 40, 48, 56, 64, 72 aliens per level instead of 24, 24, 32, 32, 48, 48, and the "first sheet: only 16 aliens" special case in <code>SET-SHEET</code> is missing. Everything after it moves 11 bytes. All of LOADER and P1–P4 are your 5 Lives development disk (1992 <code>DISK10</code>); your first, partial 2026 copy of that disk has its first three files. P3 is the earlier build: the source disk's free sectors still hold its old object listing, which the final <code>OBJ</code> replaced.</li>
 <li><strong>Tape loader.</strong> The original release, the Classics II tape and the running version carry the same 96-byte loader at <code>$0C00</code>, byte for byte. It reads <code>P1</code>–<code>P4</code> from the cassette, and its <code>INC $0C34</code> bumps the low byte of the source address. Tracing the original tape in VICE catches it writing the second alien page with <code>LDA $0801,X</code> / <code>STA $0500,X</code>. The loading-picture disk's loader has the same structure for device 8 and correctly bumps both high bytes (<code>INC $0371</code>, <code>INC $0374</code>).</li>
 <li><strong>Original release and Classics II.</strong> At <code>$1800</code> the two tapes differ from each other only in 7 bytes of screen RAM, and from the running version only in 19 and 12 screen-RAM bytes. The running version is a packed copy of the released game. The <code>.vsf</code> snapshot of the Classics II tape agrees with the tape, apart from bytes the game rewrites while running.</li>
 <li><strong>Disk version.</strong> Identical to game v1 in aliens, landscape, code and font. Only 50 unused bytes between the code end (<code>$379E</code>) and the font differ.</li>
-<li><strong>Early stages.</strong> About 80% of the code differs; tables appear about 2.1–2.6 KB lower. It has the title banner and the <code>CHR87</code>/<code>CHR91</code> animations, but not the ship table at the later layout. Its scroller reads "Micro Projects 1985" rather than advertising Gremlin titles.</li>
+<li><strong>Early stages.</strong> The build on your Revenge of Xargon disk (1992 <code>DISK8</code>): its code is byte-identical to that disk's <code>OBJ</code> (<code>$1800–$2C6D</code>), its font is that disk's <code>FRAK!</code> and its landscape <code>LANDSCAPE-1</code>. It starts with 3 lives, as the cassette inlay says. Its scroller reads "Micro Projects 1985" rather than advertising Gremlin titles.</li>
 </ul>
 
 <h2 id="appendix">Appendix A: Download Sources</h2>
@@ -128,7 +128,7 @@ ul { margin: 8px 0; padding-left: 22px; } li { margin: 4px 0; max-width: 78ch; }
 <div class="panel scroll"><table id="sources"></table></div>
 
 <h2>Method</h2>
-<p>Memory images: game v1/v2 from <code>build/</code>; the running version from VICE after decompression (<code>build/reference-memory.bin</code>); D64 files read with <code>scripts/d64_image.py</code> and placed as their own loaders place them; both tapes loaded in VICE (attached with <code>-1</code>, <code>LOAD</code> typed, datasette started with the monitor's <code>tapectrl 1</code>) and saved at the break on <code>$1800</code>; the <code>.vsf</code> RAM, from its <code>PLUS4MEM</code> module, only as a cross-check. Graphics are compared with <code>BJH</code>, <code>LANDSCAPE-1</code>, <code>LANDSCAPE-2</code> and <code>FRAK!</code> from your 2026 Side 2 disk. The palette is <code>docs/verification/ted-palette.json</code>. No input file is modified.</p>
+<p>Memory images: game v1/v2 from <code>build/</code>; the running version from VICE after decompression (<code>build/reference-memory.bin</code>); D64 files read with <code>scripts/d64_image.py</code> and placed as their own loaders place them; both tapes loaded in VICE (attached with <code>-1</code>, <code>LOAD</code> typed, datasette started with the monitor's <code>tapectrl 1</code>) and saved at the break on <code>$1800</code>; the <code>.vsf</code> RAM, from its <code>PLUS4MEM</code> module, only as a cross-check. Graphics are compared with <code>BJH</code>, <code>LANDSCAPE-1</code>, <code>LANDSCAPE-2</code> and <code>FRAK!</code> from your Xargon's Revenge source disk. The palette is <code>docs/verification/ted-palette.json</code>. No input file is modified.</p>
 <p class="small">SHA-256 of each input is listed in the summary table.</p>
 </main>
 <script>

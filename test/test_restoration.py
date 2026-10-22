@@ -15,6 +15,8 @@ from restore_c16 import (ROOT, IMAGE, OLDER, REFERENCE, build_game, cbm_lines, m
                          pc_lines, prepare_sources, version_aliens)
 from source_converter import convert, flatten
 
+SECOND_COPY = ROOT / 'Original Source Recovered/2026 - 2nd Copy'
+EARLY_STAGES = ROOT / 'Other Versions/xargons_revenge_early_stages_g1800.prg'
 FALLBACKS = {'ALI-PRINT&CLEAR', 'COMPLETED-SHEET', 'DATA-LAND/CHARS',
              'FIRING-MEGA/CODE', 'RASTER-ROUTINES', 'WHOOPPEE-MESSAGE'}
 PRG_SHA256 = '32c13c8867ea97bb4fd60ac9a73e5d7a600c04ece5699ac37680143c12adce33'
@@ -101,6 +103,31 @@ class RestorationTests(unittest.TestCase):
         land = self.comparison['landscape_comparison']
         self.assertEqual(len(land['differences_vs_LANDSCAPE-2']), 29)
         self.assertEqual(len(land['differences_vs_LANDSCAPE-1']), 7)
+
+    @unittest.skipUnless(SECOND_COPY.is_dir() and EARLY_STAGES.is_file(), 'second disk copy or Other Versions absent')
+    def test_second_copy_of_development_disks(self):
+        from verify_second_copy import verify
+        report = verify(self.build / 'second-copy', self.build / 'xargons-revenge-v1.prg')
+        source = report['xargons_revenge']
+        # The sector copy holds the six fallback modules, identical to their 1992 text.
+        self.assertEqual(source['live_files'], 100)
+        self.assertEqual(set(source['vs_first_2026_image']['only_on_sector_copy']), FALLBACKS)
+        self.assertTrue(all(source['fallback_six_vs_1992'].values()))
+        self.assertEqual(source['vs_first_2026_image']['differing'], [])
+        self.assertTrue(source['second_1992_copy_identical_to_project_DISK9'])
+        self.assertTrue(report['cbmxfer_images']['identical'])
+        self.assertEqual(report['cbmxfer_images']['live_files'], 0)
+        # Revenge of Xargon is the early-stages build, with 3 lives; the final source has 5.
+        early = report['revenge_of_xargon']
+        self.assertTrue(early['obj']['equals_plus4world_early_stages_code'])
+        self.assertEqual((early['starting_lives'], source['starting_lives']), (3, 5))
+        # The 5 Lives disk: every placed, readable sector matches DISK10 except decayed ones.
+        five = report['five_lives']
+        self.assertTrue(all(five['first_2026_partial_copy_matches_disk10'].values()))
+        verified = {name: r['verified'] for name, r in five['per_file_vs_1992_disk10'].items()}
+        self.assertEqual(verified, {'LOADER': 1, 'P1/$0C00-$1000': 5, 'P2/$0800-$0C00': 4, 'P3/$1000-$4000': 39,
+                                    'P4/$0400-$0800': 4, 'S3': 160, 'XARGON WARS-1C80': 38})
+        self.assertEqual(len(five['allocated_sectors_unreadable_in_both_reads']), 40)
 
     def test_inputs_are_unchanged_by_build(self):
         after = {p: hashlib.sha256(p.read_bytes()).hexdigest() for p in self.before}

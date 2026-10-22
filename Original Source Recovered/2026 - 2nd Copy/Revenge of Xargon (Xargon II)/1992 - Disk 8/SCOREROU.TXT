@@ -1,0 +1,68 @@
+; >s:score-routines
+; put "score-routines"
+;
+;
+score
+;
+ldy #7       ;* lsb digit
+;
+; second entry point
+;
+sta scradd
+;
+addlop
+;
+lda scradd
+;
+madona
+;
+clc
+adc scrbuf,y
+cmp #10
+bmi scorel
+;
+sec
+sbc #10
+sta scrbuf,y
+;
+lda #1
+dey
+bpl madona
+;
+scorel
+;
+sta scrbuf,y
+;
+;---------------------------------
+;
+; now print scrbuf to the screen.
+;
+scorpt
+;
+ldx #7
+;
+scrprt
+;
+lda scrbuf,x
+asl a
+clc
+adc #82
+sta scorps,x      ;* top half
+;
+clc
+adc #1
+sta scorps+40,x   ;* bottom bit.
+;
+lda #$55
+sta scorps-$400,x
+lda #$45
+sta scorps-$400+40,x
+;
+dex
+bpl scrprt
+;
+rts
+;
+;
+;
+.end

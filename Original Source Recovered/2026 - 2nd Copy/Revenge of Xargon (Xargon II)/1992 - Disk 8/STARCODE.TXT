@@ -1,0 +1,225 @@
+; >s:star-code
+; put "star-code"
+;
+;*********************************
+;
+; all those wonderfull
+;  3 - speed stars
+;
+;*********************************
+;
+;     init & define star table
+;
+;*********************************
+;
+; table format :-
+;
+; byte #
+;
+;   0     x position 0-159
+;   1     y position 5-21
+;
+;
+instar
+;
+lda #0    ;* star count
+sta numb
+;
+st1
+;
+jsr random
+;
+lda numb
+asl a           ;* pointer * 2
+tax
+;
+lda rnd+1
+cmp #159        ;* x co-ord
+bcs st1         ;* 0-160 only
+sta startb,x
+;
+lda rnd+2
+and #$f         ;* 0 - 15
+;
+clc
+adc #4          ;* top of screen
+;
+sta startb+1,x  ;* y pos
+;
+inc numb
+lda numb
+cmp #starnm
+;
+bne st1
+;
+rts
+;
+;***************************
+;
+; rubout,move and print stars
+;
+;***************************
+;
+stars
+;
+lda stpstr      ;* stars ?
+beq gostar
+;
+rts
+;
+gostar
+;
+lda #0
+sta numb
+;
+mvestr
+;
+lda numb
+pha
+asl a
+sta point       ;* table pointer
+;
+pla
+and #3
+pha             ;* save for later
+tax
+;
+lda stcols,x    ;* star colors
+sta stcol
+;
+inx
+stx speed       ;* 1,2,3,4 speed
+;
+ldx point
+lda startb+1,x  ;* y pos
+sta ty
+;
+jsr starxy      ;* get screen add.
+;
+lda startb,x    ;* x pos
+sta tx
+;
+pla
+tax
+;
+lda ststop,x
+bne statnw      ;* stop this one
+;
+lda tx
+lsr a
+lsr a
+tay
+;
+lda (sl),y
+cmp #102
+bcc fukoff
+;
+cmp #106
+bcs fukoff
+;
+lda #32
+sta (sl),y     ;* rub it out
+;
+fukoff
+;
+lda tx         ;* x pos
+sec
+sbc speed
+sta tx
+;
+cmp #4
+bcs statnw     ;* start new ?
+;
+; start a new star
+;
+jsr random
+;
+lda rnd+1
+and #15
+clc
+adc #4
+sta ty         ;* new y pos
+;
+lda #159       ;* x to right
+sta tx
+;
+statnw
+;
+ldx point
+;
+lda tx
+sta startb,x
+;
+lda ty
+sta startb+1,x
+;
+; new values into table
+;
+jsr starxy    ;* calc column
+;
+lda tx        ;* x pos
+lsr a
+lsr a         ;* /4
+tay
+;
+lda (sl),y
+cmp #32
+beq prtit     ;* print star
+;
+cmp #102
+bcc dntprt    ;* dont print
+;
+cmp #106
+bcs dntprt    ;* too big
+;
+prtit
+;
+lda tx        ;* from the lowest
+and #3        ;* 3 bits calculate
+clc           ;* the star char.
+adc #102      ;* = base char
+sta (sl),y
+;
+lda sl+1
+sec
+sbc #4
+sta sl+1      ;* calc colour
+;
+lda stcol     ;* star colour
+sta (sl),y
+;
+dntprt
+;
+inc numb
+lda numb
+cmp #starnm
+beq mveend
+;
+jmp mvestr
+;
+mveend
+;
+rts
+;
+;---------------------------------
+;
+starxy
+;
+asl a
+tay
+;
+lda scrpos,y
+sta sl
+;
+lda scrpos+1,y
+sta sl+1
+;
+rts
+;
+;---------------------------------
+;
+stcols
+;
+.byte $41,$51,$61,$71
+;
+.end

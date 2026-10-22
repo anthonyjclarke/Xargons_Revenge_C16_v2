@@ -1,0 +1,35 @@
+; >s:setup
+; put "setup"
+;
+;*****************************
+;
+; initialise all pointers etc.
+;
+;*****************************
+;
+setup
+;
+lda ted+18
+and #%11111011 ;* chars from ram
+sta ted+18
+;
+lda ted+7
+ora #$80
+sta ted+7
+;
+; 256 chars please
+;
+ldx #3
+rnl
+lda rascom  ;* timers as rnd #
+sta rnd,x
+dex
+bpl rnl
+;
+;*seed
+;
+rts
+;
+;
+;
+.end

@@ -1,0 +1,70 @@
+; >s:print-lives
+; put "print-lives"
+;
+; print no. of live chars
+;
+prlive
+;
+ldx lives
+beq clliv      ;* rub them out
+;
+livlp1
+;
+txa
+;
+cmp #3
+bcc notall     ;* if lives>3
+;              ;* then lives=3
+lda #3
+;
+notall
+;
+asl a
+jsr prtliv     ;* print char
+;
+dex
+bne livlp1
+;
+rts
+;
+;---------------------------------
+;
+clliv
+;
+ldx #5
+lda #32
+;
+livlp2
+;
+sta $0c0f,x
+sta $0c37,x
+;
+dex
+bpl livlp2
+;
+rts
+;
+; rub out all lives
+;
+;---------------------------------
+;
+prtliv
+;
+tay            ;* tl corner
+;
+lda #176
+sta $0c0d,y
+;
+lda #177
+sta $0c0e,y
+;
+lda #178
+sta $0c35,y
+;
+lda #179
+sta $0c36,y
+;
+rts
+;
+;
+.end

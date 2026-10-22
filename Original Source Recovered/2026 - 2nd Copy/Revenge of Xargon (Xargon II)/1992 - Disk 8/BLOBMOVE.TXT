@@ -1,0 +1,98 @@
+; >s:blob-move
+; put "blob-move"
+;
+; move the planet or the meteor
+; if they are on
+;
+mveblb
+;
+lda planon      ;* planet on
+bne ntpn1
+;
+rts
+;
+; lets move it then
+;
+ntpn1
+;
+ldx planx
+ldy plany
+jsr xy
+;
+ldx #3
+lda #32
+;
+pln1
+;
+ldy yval1,x
+sta (sl),y
+;
+dex
+bpl pln1
+;
+; rubbed it out
+;
+dec planx
+lda planx
+bne ntfin1         ;* ok
+;
+lda #0
+sta planon
+;
+lda ted
+and #$3f
+adc #$c0
+sta plttem
+;
+rts                ;* get out
+;
+ntfin1
+;
+tax
+ldy plany
+jsr xy
+;
+; new screen pos
+;
+lda #191
+sta char           ;* last char
+;
+ldx #3
+;
+pln2
+;
+ldy yval1,x
+lda (sl),y
+cmp #32
+beq cc10
+;
+cmp #148           ;* star char
+bcc cc11
+;
+cmp #152           ;* star char
+bcs cc11
+;
+cc10
+;
+lda char
+sta (sl),y
+;
+lda #placol
+sta (cl),y
+;
+cc11               ;* dont print
+;
+dex
+bpl pln2
+;
+rts
+;
+;---------------------------------
+;
+mvemet
+;
+rts
+;
+;
+;
+.end

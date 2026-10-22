@@ -1,0 +1,89 @@
+; >s:title-loop
+; put "title-loop"
+;
+titlop
+;
+sei
+;
+jsr clvars
+;
+ldx #1
+stx stop
+stx title
+stx messpd
+stx stpstr     ;* stop stars
+;
+inx
+stx topspd
+;
+inx
+stx botspd
+;
+lda #$5f
+sta lancl1     ;* land ink col
+lda #$70
+sta lancl2     ;* multi1
+lda #$42
+sta lancl3     ;* multi2
+;
+jsr setup      ;* init ted
+jsr lancol     ;* print land cols
+jsr tittop     ;* title at top
+;
+jsr setirq     ;* irq's on
+;
+titlp
+;
+lda #1
+sta stpstr     ;* stop stars
+;
+jsr titcls     ;* cls & new col.
+and #$07
+ora #$20
+sta bakcol     ;* window cols
+;
+jsr revtit     ;* title on
+;
+jsr instar     ;* init stars
+;
+lda #0
+sta stpstr     ;* start stars
+;
+lda #6
+sta work       ;* long delay
+;
+titter
+;
+bit jfire
+bpl tutter
+;
+jmp ready      ;* start game
+;
+tutter
+;
+ldx #0
+jsr delay+2
+;
+dec work
+bne titter     ;* loop
+;
+jsr fadoff     ;* get rid - title
+;
+jmp titlp
+;
+;---------------------------------
+;
+ready
+;
+;      go and start the game
+;
+lda #1
+sta stpstr     ;* stop stars
+;
+jsr titcls
+;
+jmp start      ;* go to game
+;
+;
+;
+.end

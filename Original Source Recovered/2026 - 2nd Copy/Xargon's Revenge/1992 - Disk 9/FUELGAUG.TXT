@@ -1,0 +1,239 @@
+; >s:fuel-gauge
+; put"fuel-gauge"
+;
+;---------------------------------
+;
+;         fuel bar stuff
+;
+;---------------------------------
+;
+prtful
+;
+ldx #13
+;
+pren2
+;
+lda #108        ;* empty
+sta $0c1a,x
+;
+lda ross1,x
+sta $081a,x     ;* colour
+;
+lda #109
+sta $0c1a+40,x  ;* scale
+;
+lda ross2,x
+sta $081a+40,x
+;
+dex
+bpl pren2
+;
+rts
+;
+;--------------------------------
+;
+upfuel      ;* print fuel gauge
+;
+ldx #2
+;
+lda fuel
+cmp #24
+bcc hiwire  ;* <24 = red
+;
+ldx #7
+;
+cmp #72
+bcc hiwire  ;* >24 & <72 = yellow
+;
+ldx #5
+;
+hiwire
+;
+stx irqwrk  ;* bar colour
+;
+ldx #13
+;
+morgan
+;
+lda #108
+sta $0c1a,x
+;
+lda $081a,x
+and #%11110000
+ora irqwrk
+sta $081a,x ;* put colour in
+;
+dex
+bpl morgan
+;
+; always clear gauge first
+;
+lda fuel
+and #7
+tax
+lda endbit,x
+;
+ldy #7
+;
+morg1
+;
+sta $3b58,y
+;
+dey
+bne morg1     ;* prog end char
+;
+lda fuel
+lsr a
+lsr a
+lsr a
+;
+tax           ;* no. of full chars
+;
+lda #107      ;* end piece
+;
+morg2
+;
+sta $0c1a,x
+;
+lda #106      ;* full now
+;
+dex
+bpl morg2     ;* bak to start
+;
+rts
+;
+;--------------------------------
+;
+fueldo
+;
+lda fulinc
+bne moon       ;* cant go down
+;
+lda ctlful     ;* do fuel stuff
+beq doitya
+;
+moon
+;
+rts
+;
+doitya
+;
+dec futem      ;* tempo
+bne hmmm
+;
+lda mpgval     ;* tempo
+sta futem      ;* reset tempo
+;
+lda dead
+bne hmmm
+;
+shotfl         ;* shoot fuel
+;
+dec fuel
+bne hmmm
+;
+lda #1
+sta dead
+rts
+;
+hmmm
+;
+lda fuel
+cmp #24
+bcs night
+;
+lda fxnumb    ;* sound already on
+bmi byesnd
+;
+; start the fuel low sound.
+;
+lda #2
+jsr sfx       ;* low fuel sfx
+;
+byesnd
+;
+jsr pulsat
+and #%11110000
+ora #%00001010 ;* red
+sta shpink
+;
+jmp day
+;
+night
+;
+lda #colsh1
+sta shpink    ;* reset ship colour
+;
+jsr endn1     ;* low fuel fx off
+;
+day
+;
+rts
+;
+;---------------------------------
+;
+adfuel
+;
+lda ctlful
+bne wanna
+;
+lda fulinc ;* any to add ?
+bne adde1
+;
+wanna
+;
+rts
+;
+adde1
+;
+lda fuel
+clc
+adc #1
+cmp #111
+bcc adoky  ;* still ok
+;
+lda #111
+sta fuel   ;* full up
+;
+lda #0
+sta fulinc ;* stop going up
+;
+rts
+;
+adoky
+;
+sta fuel
+;
+dec fulinc ;* request
+;
+rts
+;
+;---------------------------------
+;
+; colour for fuel gauge
+;
+ross1
+;
+.byte $16,$16,$26,$26,$36,$36
+.byte $46,$46,$56,$56,$66,$66
+.byte $76,$76
+;
+ross2
+;
+.byte $42,$42,$42,$67,$67,$67,$67
+.byte $67,$67,$55,$55,$55,$55,$55
+;
+endbit
+;
+.byte %00000000
+.byte %10000000
+.byte %11000000
+.byte %11100000
+.byte %11110000
+.byte %11111000
+.byte %11111100
+.byte %11111110
+;
+;
+;
+.end

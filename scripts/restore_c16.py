@@ -15,10 +15,13 @@ from source_converter import convert, flatten
 
 ROOT = Path(__file__).resolve().parents[1]
 INPUTS = ROOT / 'Original Source Recovered'
-IMAGE = INPUTS / "2026/Xargon'sRevenge-C16.d64"
-EXTRACTED = INPUTS / '2026/Xargons-Revenge-C16-Side2'
-SCREEN_IMAGE = INPUTS / '2026/XargonsRevenge-C16.d64'
-SCREEN_EXTRACTED = INPUTS / '2026/Xargons-Revenge-C16-Side1'
+# First 2026 copies (file-level rebuilds); the second, sector-level copies are in
+# '2026 - 2nd Copy' and are verified separately by verify_second_copy.py.
+FIRST_COPY = INPUTS / '2026 - 1st Copy'
+IMAGE = FIRST_COPY / "Xargon's Revenge/Xargon's Revenge.d64"
+EXTRACTED = FIRST_COPY / "Xargon's Revenge/Xargon's Revenge - Extracted"
+SCREEN_IMAGE = FIRST_COPY / 'Xargons Revenge - 5 Lives/Xargons Revenge - 5 Lives (partial).d64'
+SCREEN_EXTRACTED = FIRST_COPY / 'Xargons Revenge - 5 Lives/Xargons Revenge - 5 Lives (partial) - Extracted'
 OLDER = INPUTS / '1992/DISK9'
 ARCHIVE = INPUTS / "1992/DISK9 - Xargon's Revenge.ZIP"
 REFERENCE = ROOT / 'xargons_revenge.prg'

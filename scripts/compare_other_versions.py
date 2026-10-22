@@ -2,7 +2,7 @@
 """Compare the graphics of downloaded Xargon's Revenge copies with game v1 and v2.
 
 Reads the files in `Other Versions/` (never modifies them), the two rebuilt
-game versions and the preserved Side 2 graphics files, then writes a single
+game versions and the preserved graphics files of the source disk, then writes a single
 self-contained page, docs/analysis/other-versions.html, that decodes the
 aliens, landscape bank, font bank, title banner and ship of every copy.
 
@@ -30,7 +30,7 @@ from d64_image import D64Image  # noqa: E402
 from restore_c16 import tool  # noqa: E402
 
 OTHER = ROOT / 'Other Versions'
-SIDE2 = ROOT / 'Original Source Recovered/2026/Xargons-Revenge-C16-Side2'
+SOURCE_DISK = ROOT / "Original Source Recovered/2026 - 1st Copy/Xargon's Revenge/Xargon's Revenge - Extracted"
 BUILD = ROOT / 'build'
 SHOTS = BUILD / 'other-versions'
 OUTPUT = ROOT / 'docs/analysis/other-versions.html'
@@ -67,7 +67,7 @@ def place(memory, data):
 
 
 def side2(name):
-    return prg((SIDE2 / name).read_bytes())[1]
+    return prg((SOURCE_DISK / name).read_bytes())[1]
 
 
 def disk_files(path):
@@ -230,8 +230,8 @@ def main():
         dict(id='picture', name='Loading-picture disk', file='Other Versions/xargons_revenge_loader_picture.d64',
              memory=picture_version(),
              shots=[('Loading screen', SHOTS / 'picture-loading.png'), ('Title', SHOTS / 'picture-title.png')],
-             origin='Downloaded. LOADER, P1 and P2 are byte-identical to your 2026 Side 1 disk; this copy also '
-                    'has P3 (game, $1000-$3FFF) and P4 (aliens = BJH). The loader copies correctly.'),
+             origin='Downloaded. LOADER and P1-P4 are your 5 Lives development disk (1992 DISK10): P3 is the '
+                    'game ($1000-$3FFF), P4 the aliens (= BJH). The loader copies correctly.'),
         dict(id='v2', name='Game v2', file='build/xargons-revenge-v2.prg', memory=build_version(2),
              origin='Rebuilt here from your source, with BJH placed by the release tape loader\'s copy rule.',
              shots=[('Title', BUILD / 'restored-v2-title.png'),
@@ -252,7 +252,8 @@ def main():
                     '$1800; same $0C00 loader as the original release. The .vsf snapshot of it agrees.'),
         dict(id='early', name='Early stages', file='Other Versions/xargons_revenge_early_stages_g1800.prg',
              memory=early_version(), shots=[('Title', SHOTS / 'early-title.png')],
-             origin='Downloaded. One file $1000-$3FFF, started with G 1800. No alien data: $0400 is not in the file.'),
+             origin='Downloaded. One file $1000-$3FFF, started with G 1800: the OBJ, FRAK! and LANDSCAPE-1 of your '
+                    'Revenge of Xargon disk (1992 DISK8). No alien data: $0400 is not in the file.'),
     ]
     other_copy = OTHER / 'xargons_revenge.prg'
     assert other_copy.read_bytes() == (ROOT / 'xargons_revenge.prg').read_bytes()
