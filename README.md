@@ -1,6 +1,31 @@
 # Xargon's Revenge C16
 
-This project reassembles the surviving **Xargon's Revenge** source for the Commodore 16 and Plus/4 using PlatformIO, VS Code and the cc65 toolchain. I wrote the game at Micro Projects as the sequel to my Xargon Wars, and Gremlin Graphics published it in 1985.
+[![Release](https://img.shields.io/badge/release-v1.4.1-informational)](https://github.com/anthonyjclarke/Xargons_Revenge_C16_v2/tags)
+[![Rights](https://img.shields.io/badge/rights-see%20RIGHTS.md-blue)](RIGHTS.md)
+![Target](https://img.shields.io/badge/target-Commodore%20C16%20%2F%20%2B4-orange)
+![CPU](https://img.shields.io/badge/CPU-6502-lightgrey)
+![Assembler](https://img.shields.io/badge/assembler-ca65%20%2F%20ld65-lightgrey)
+![Build](https://img.shields.io/badge/build-PlatformIO-orange)
+![Emulator](https://img.shields.io/badge/tested%20with-VICE%203.10-green)
+![OBJ match](https://img.shields.io/badge/OBJ%20match-8%2C094%20bytes-brightgreen)
+
+This project reassembles the surviving **Xargon's Revenge** source for the Commodore 16 and Plus/4 using PlatformIO, VS Code and the cc65 toolchain. I wrote the game at Micro Projects in 1985 as the follow-up to my [Xargon Wars](https://github.com/anthonyjclarke/Xargon_Wars_C16), and Gremlin Graphics published it on cassette. The source calls it "Xargon II", and my earliest development disk is labelled "Revenge of Xargon (Xargon Wars II)".
+
+---
+
+## Two Versions of One Game
+
+When I rebuilt the game from my own disks, it didn't quite match the copy people had played for decades. The code, landscape and font were identical, but from the fifth wave of each planet the aliens looked different. For a while it wasn't clear which was the real game. The answer is that both are. My source has sixteen alien designs, one per wave. The 1985 Gremlin cassette has the same code, but its loader copies the alien graphics into place with a one-byte slip: each 256-byte page starts one byte further on instead of 256 bytes further. Players saw only the first four designs, shifted up a few pixel rows, and twelve of my designs never appeared. I've confirmed this on a tape of the original release, on the *C16 Classics II* compilation and against all three of my development disks. So this project builds both: **game v1** is the game as I wrote it, and **game v2** is the game as it was sold. Both come from the same source; v2 applies the cassette's copy rule and never copies a byte from a downloaded copy. [Game Versions](docs/GAME_VERSIONS.md) shows the difference wave by wave, [Development Disks](docs/DEVELOPMENT_DISKS.md) traces the builds from my earliest disk to the cassette, and [Other Versions](docs/OTHER_VERSIONS.md) compares every copy I could find.
+
+---
+
+## Related Repositories
+
+[Xargon Wars C16](https://github.com/anthonyjclarke/Xargon_Wars_C16) is the reconstruction of the game this one follows on from. A copy of Xargon Wars also sits on my "Xargon's Revenge – 5 Lives" development disk, whose label names both games.
+
+[Xargons_Revenge_C16](https://github.com/anthonyjclarke/Xargons_Revenge_C16) is my first restoration of this game, released as v1.0.0 and v1.1.0 on 21 October 2026. It builds a single PRG from my first 2026 disk images, byte-identical to game v1 here (SHA-256 `32c13c88…adce33`), and records the different aliens in the downloaded copy as unexplained. This repository, Xargons_Revenge_C16_v2, starts from the same preserved inputs and carries the work on: it builds both game versions, explains the difference by the cassette loader, compares six downloaded copies including the original release tape, adds sector copies and photos of all three development disks, and references Mark Hardisty's [Gremlin Graphics Archive](docs/GREMLIN_ARCHIVE.md). The first repository stays as the record of that first restoration.
+
+---
 
 Open the [complete HTML handbook](docs/XARGONS_REVENGE.html) for the history, artwork, build guides, validation, code analysis, graphics and reference in one offline document. It's generated from the Markdown files, which stay the source of truth; [Maintaining the HTML Documentation](docs/HTML_DOCUMENTATION.md) explains how.
 

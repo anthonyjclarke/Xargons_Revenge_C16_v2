@@ -111,6 +111,8 @@ export function buildHandbook(root = ROOT, configFile = 'docs/handbook.json') {
             return `<a href="${escape(url)}"${extra}${title ? ` title="${escape(title)}"` : ''}>${label}</a>`;
         };
         renderer.image = ({ href, text, title }) => {
+            // README status badges come from shields.io; offline, show their text instead.
+            if (/^https:\/\/img\.shields\.io\//.test(href)) return `<span class="badge">${escape(text)}</span>`;
             if (external(href)) throw new Error(`Remote image prevents offline export: ${href}`);
             const { target } = localPath(doc.source, href);
             if (!media.has(target)) {

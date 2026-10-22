@@ -4,6 +4,21 @@ All notable changes to the Xargon's Revenge C16 preservation project. Dates are 
 
 ---
 
+## [1.4.1] 22-10-2026
+
+README context. Game v1 and v2 are unchanged.
+
+### Added
+
+- README badges (release, rights, target, CPU, assembler, build, emulator, `OBJ` match).
+- README sections up front: "Two Versions of One Game", summarising why two versions exist and how the evidence settled it, and "Related Repositories", linking Xargon Wars C16 and explaining how this repository differs from the first restoration, Xargons_Revenge_C16.
+
+### Changed
+
+- `scripts/build_docs.mjs` shows shields.io badges as text labels in the offline handbook instead of rejecting them as remote images.
+
+---
+
 ## [1.4.0] 22-10-2026
 
 Second 2026 copy of all three development disks, verified and documented (commit `a76a1ae`, annotated tag `v1.4.0`). Game v1 and v2 are unchanged (SHA-256 `32c13c88…adce33` and `0ee0a823…397665`).
