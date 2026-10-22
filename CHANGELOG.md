@@ -6,7 +6,7 @@ All notable changes to the Xargon's Revenge C16 preservation project. Dates are 
 
 ## [1.4.0] 22-10-2026
 
-Second 2026 copy of all three development disks, verified and documented. Game v1 and v2 are unchanged (SHA-256 `32c13c88…adce33` and `0ee0a823…397665`).
+Second 2026 copy of all three development disks, verified and documented (commit `a76a1ae`, annotated tag `v1.4.0`). Game v1 and v2 are unchanged (SHA-256 `32c13c88…adce33` and `0ee0a823…397665`).
 
 ### Added
 
@@ -33,7 +33,7 @@ Second 2026 copy of all three development disks, verified and documented. Game v
 
 ## [1.3.0] 22-10-2026
 
-Comparison with copies of the game downloaded from Plus/4 World, including a tape of the original 1985 cassette, and the Gremlin Archive reference. Game v1 and v2 are unchanged (SHA-256 `32c13c88…adce33` and `0ee0a823…397665`).
+Comparison with copies of the game downloaded from Plus/4 World, including a tape of the original 1985 cassette, and the Gremlin Archive reference (commit `bc16973`, annotated tag `v1.3.0`). Game v1 and v2 are unchanged (SHA-256 `32c13c88…adce33` and `0ee0a823…397665`).
 
 ### Added
 
