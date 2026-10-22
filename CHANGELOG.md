@@ -6,7 +6,7 @@ All notable changes to the Xargon's Revenge C16 preservation project. Dates are 
 
 ## [1.4.1] 22-10-2026
 
-README context. Game v1 and v2 are unchanged.
+README context (commit `5384b72`, annotated tag `v1.4.1`). Game v1 and v2 are unchanged.
 
 ### Added
 
