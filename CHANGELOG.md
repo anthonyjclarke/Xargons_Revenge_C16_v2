@@ -4,6 +4,27 @@ All notable changes to the Xargon's Revenge C16 preservation project. Dates are 
 
 ---
 
+## [1.5.0] 23-10-2026
+
+Structure and documentation release that aligns this repository with my Dork's Dilemma, Tycoon Tex, Xargon Wars and first Xargon's Revenge repositories. Both game builds are unchanged.
+
+### Added
+
+- `Other Versions/` is now tracked in Git. It holds the downloaded copies compared in `docs/OTHER_VERSIONS.md`, read-only, and `.gitattributes` and `.editorconfig` protect it like the other preserved folders.
+- The changelog is a chapter in the HTML handbook's reference group, as in my other restorations.
+- Clone or Update and Version Tags sections in `docs/SHARING_ON_GITHUB.md`.
+
+### Changed
+
+- The running copy `xargons_revenge.prg` moved from the repository root to `Original Artifacts/`, unchanged. The build, the other-versions comparison and the docs use the new path.
+- README badges are local SVGs in `docs/images/badges/` instead of shields.io images, so the offline handbook shows them as images.
+- The handbook generator, template, stylesheet and documentation tests are shared with my other restorations. The generator renders local badge images; the shields.io fallback is gone.
+- Links to Dork's Dilemma's history point at its renamed `docs/HISTORY_AND_CREDITS.md`.
+- Common `.gitignore`, `.gitattributes` and `.editorconfig` across the restorations.
+- Quick Start's last section is called Controls and Checks, as in the other repositories.
+
+---
+
 ## [1.4.1] 22-10-2026
 
 README context (commit `5384b72`, annotated tag `v1.4.1`). Game v1 and v2 are unchanged.
@@ -37,7 +58,7 @@ Second 2026 copy of all three development disks, verified and documented (commit
 - Renamed the first 2026 copies, contents byte-identical, into `Original Source Recovered/2026 - 1st Copy/` with the second copy's disk names: `Xargon's Revenge/Xargon's Revenge.d64` and `- Extracted/` (were `2026/Xargon'sRevenge-C16.d64` and `Xargons-Revenge-C16-Side2/`), and `Xargons Revenge - 5 Lives/Xargons Revenge - 5 Lives (partial).d64` and `(partial) - Extracted/` (were `2026/XargonsRevenge-C16.d64` and `Xargons-Revenge-C16-Side1/`). Build paths, tests, generated references and docs updated; the build output is unchanged.
 - Plus/4 World's "early stages" is traced to the `DISK8` build (`OBJ`, `FRAK!`, `LANDSCAPE-1`), and its loading-picture disk to `DISK10`.
 - The packaging's "3 lives" is explained by the earlier `DISK8` build; "96 levels" remains open.
-- Game Versions, Other Versions, Gremlin Archive, Source Inventory, Source and Validation, Artifacts, History and Credits, Graphics, Codebase Analysis, README, `src/README.md`, TESTING and `CLAUDE.md` updated to match, and the comparison page regenerated.
+- Game Versions, Other Versions, Gremlin Archive, Source Inventory, Source and Validation, Artifacts, History and Credits, Graphics, Codebase Analysis, README, `src/README.md` and TESTING updated to match, and the comparison page regenerated.
 
 ### Known limits
 
@@ -56,7 +77,7 @@ Comparison with copies of the game downloaded from Plus/4 World, including a tap
 - `docs/GREMLIN_ARCHIVE.md`: Mark Hardisty's book *A Gremlin in the Works* and his Gremlin Graphics Archive, the 1992 disk list from the archive's `READ.ME`, how to cite them, and how this project's files match the archive's `DISK9` and `DISK10`. The first five sections are written for reuse in the other Micro Projects reconstructions.
 - `scripts/compare_other_versions.py` and `scripts/other_versions_template.html`: place each copy in memory as its own loader would, load both tapes in VICE to the game's entry, and write `docs/analysis/other-versions.html`, a self-contained page decoding the aliens, landscape, font, banner and ship of every copy.
 - VICE captures of every copy, including both Novaload loading screens, in `docs/images/other-versions/`.
-- The `Other Versions/` folder as a read-only comparison input (`CLAUDE.md`, Source Inventory), and a `CLAUDE.md` note on loading C16 tapes in VICE.
+- The `Other Versions/` folder as a read-only comparison input (Source Inventory).
 - History: a section on the Gremlin Archive and the book.
 
 ### Changed
@@ -113,7 +134,7 @@ Documentation, analysis, graphics and handbook release (commit `5336112`, annota
 - `docs/PORTING_GUIDE.md`: compatibility contracts, a proposed portable state model and interfaces, timing domains, a compatibility-choice table, milestones, trace format and conformance tests.
 - `docs/GRAPHICS.md` and `docs/analysis/graphics/`: decoded aliens (source against running version), ship, landscape, title banner and screen composition, an alien animation and `graphics-manifest.json` with input and output hashes and pixel checks.
 - `docs/analysis/`: generated `CODE_REFERENCE.md`, `codebase-index.json`, `asset-data.json` (graphics, 56 tables, movement patterns, VICE captures, banner provenance) and four SVG glyph atlases.
-- Guides: `QUICKSTART.md`, `TESTING.md`, `RIGHTS.md`, `CLAUDE.md`, `src/README.md`, and under `docs/` the Artifact Catalogue, Build and Run, History and Credits, Source and Validation, Source Inventory, Sharing on GitHub and HTML documentation guide.
+- Guides: `QUICKSTART.md`, `TESTING.md`, `RIGHTS.md`, `src/README.md`, and under `docs/` the Artifact Catalogue, Build and Run, History and Credits, Source and Validation, Source Inventory, Sharing on GitHub and HTML documentation guide.
 - `docs/XARGONS_REVENGE.html`: offline handbook of 17 chapters, generated by `scripts/build_docs.mjs` from `docs/handbook.json` with the Tycoon Tex templates (now parameterised) and vendored Marked 17.0.5 and Mermaid 10.9.3.
 - `scripts/analyze_codebase.py`, `scripts/render_game_graphics.py` (Pillow 10.1 or later), `test/test_docs.mjs`, and Makefile targets `docs`, `docs-html`, `docs-watch`, `docs-check` and `test-docs`.
 - Rule probes for wave completion (the game ends after wave 80) and for resets during play (VICE resumes in ROM at `$F2A4`, not at the reset trap).

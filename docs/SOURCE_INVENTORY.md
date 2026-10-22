@@ -9,7 +9,7 @@
 | `Original Source Recovered/1992/DISK9/`      | My 1992 PC export, extracted      |
 | `Original Source Recovered/1992/*.ZIP`       | The same export as a 1992 ZIP     |
 | `Original Artifacts/`                        | Packaging, scans, leaflet, photo  |
-| `xargons_revenge.prg`                        | Compressed running version        |
+| `Original Artifacts/xargons_revenge.prg`     | Compressed running version        |
 | `Other Versions/`                            | Plus/4 World downloads, compared  |
 
 `Xargon's Revenge/Xargon's Revenge.d64` is the source disk: 94 files in its live directory, 69 sequential and 25 program files. `Xargon's Revenge - Extracted/` is its 2026 extraction, with one file per directory entry and a `manifest.json` of hashes. Both 2026 images have the disk name `TITLE`, ID `ID`. The 1992 `INDEX` lists the same disk as `XARGON'S REVENGE`, ID `MP`, with 100 files. The blank header shows these images are CBMXfer rebuilds, file by file, not sector copies; CBMXfer drops files whose names are 15 or 16 characters long, which is why six modules are missing ([Development Disks](DEVELOPMENT_DISKS.md#what-the-copying-tools-did)).

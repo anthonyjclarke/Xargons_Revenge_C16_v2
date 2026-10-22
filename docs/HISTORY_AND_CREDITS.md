@@ -82,7 +82,7 @@ The 1992 and 2026 dates belong to copies of the disks, not to the game's develop
 
 ## Recovery Background and Build Template
 
-My original C64/1541 development set-up and the later recovery of these disks are written up in the companion [Dorks Dilemma C16 repository](https://github.com/anthonyjclarke/Dorks_Dilemma_C16), especially its [Development History](https://github.com/anthonyjclarke/Dorks_Dilemma_C16/blob/main/docs/DEVELOPMENT_HISTORY.md), which also has the recovery-tool acknowledgements. I haven't repeated that story here.
+My original C64/1541 development set-up and the later recovery of these disks are written up in the companion [Dorks Dilemma C16 repository](https://github.com/anthonyjclarke/Dorks_Dilemma_C16), especially its [History and Credits](https://github.com/anthonyjclarke/Dorks_Dilemma_C16/blob/main/docs/HISTORY_AND_CREDITS.md), which also has the recovery-tool acknowledgements. I haven't repeated that story here.
 
 This project adapts the disk reader, source converter, ca65/ld65 build, PlatformIO integration, VICE-monitor checks and handbook generator from the Dorks Dilemma and Tycoon Tex restorations. Xargon's Revenge's own inputs, memory layout, graphics choices, object listing and comparison with the running version are worked out and checked separately here.
 

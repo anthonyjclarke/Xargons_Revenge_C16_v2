@@ -20,9 +20,9 @@
                 "TESTING.md",
                 "docs/SOURCE_AND_VALIDATION.md",
                 "docs/GAME_VERSIONS.md",
-    "docs/DEVELOPMENT_DISKS.md",
-    "docs/OTHER_VERSIONS.md",
-    "docs/GREMLIN_ARCHIVE.md",
+                "docs/DEVELOPMENT_DISKS.md",
+                "docs/OTHER_VERSIONS.md",
+                "docs/GREMLIN_ARCHIVE.md",
                 "CODEBASE_ANALYSIS.md",
                 "docs/GRAPHICS.md",
                 "docs/PORTING_GUIDE.md"
@@ -34,6 +34,7 @@
             "sources": [
                 "docs/SOURCE_INVENTORY.md",
                 "RIGHTS.md",
+                "CHANGELOG.md",
                 "docs/SHARING_ON_GITHUB.md",
                 "src/README.md",
                 "docs/analysis/README.md",

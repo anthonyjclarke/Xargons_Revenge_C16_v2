@@ -14,7 +14,7 @@ On 21 and 22 October 2026 I downloaded six copies of Xargon's Revenge from the [
 | `xargons_revenge_early_stages_g1800.prg` | Early stages        | [A4](#a4-early-stages)        |
 | `xargons_revenge_loader_picture.d64`     | With loading screen | [A5](#a5-with-loading-screen) |
 
-The original release tape is the site's `xargons_revenge.tap`, which I renamed locally. `xargons_revenge.prg` is byte-identical to the running version in the project root, so that file also comes from [A1](#a1-download). The `.vsf` is a VICE snapshot of the Classics II tape, taken at the title screen; it is kept only as a cross-check.
+The original release tape is the site's `xargons_revenge.tap`, which I renamed locally. `xargons_revenge.prg` is byte-identical to the running version in `Original Artifacts/`, so that file also comes from [A1](#a1-download). The `.vsf` is a VICE snapshot of the Classics II tape, taken at the title screen; it is kept only as a cross-check.
 
 The development copies have a second source. Plus/4 World built them from my 1992 export of the development disks, which Mark Hardisty publishes in the [Gremlin Graphics Archive](https://www.gremlinarchive.com/). [Gremlin Archive and the Book](GREMLIN_ARCHIVE.md) describes that archive, his book *A Gremlin in the Works*, and which archive disk each copy matches.
 

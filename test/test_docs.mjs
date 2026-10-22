@@ -8,7 +8,7 @@ import { buildHandbook, writeHandbook, ROOT } from '../scripts/build_docs.mjs';
 
 let root;
 before(() => {
-    root = fs.mkdtempSync(path.join(os.tmpdir(), 'xargon-docs-'));
+    root = fs.mkdtempSync(path.join(os.tmpdir(), 'xargons-revenge-v2-docs-'));
     fs.cpSync(path.join(ROOT, 'scripts'), path.join(root, 'scripts'), { recursive: true });
     fs.mkdirSync(path.join(root, 'docs'), { recursive: true });
     fs.writeFileSync(path.join(root, 'docs/handbook.json'), JSON.stringify({
@@ -91,13 +91,23 @@ test('escapes raw HTML from document content', () => {
 test('the complete repository handbook builds with all current links resolved', () => {
     const { html, sources, warnings } = buildHandbook();
     assert(sources.includes('docs/PORTING_GUIDE.md'));
+    assert(sources.includes('docs/GRAPHICS.md'));
+    assert(sources.includes('docs/GREMLIN_ARCHIVE.md'));
+    assert.match(html, /<title>Xargon&#39;s Revenge – Complete Documentation<\/title>/);
     assert(sources.includes('CODEBASE_ANALYSIS.md'));
     assert(sources.includes('docs/analysis/CODE_REFERENCE.md'));
-    assert(sources.includes('docs/GRAPHICS.md'));
-    assert.match(html, /<title>Xargon&#39;s Revenge – Complete Documentation<\/title>/);
     assert.match(html, /data:image\/svg\+xml;base64/);
+    assert.match(html, /class="mermaid"/);
+    assert.match(html, /<img class="badge" src="data:image\/svg\+xml;base64/);
+    assert.match(html, /data:image\/gif;base64/);
+    assert.match(html, /data:image\/jpeg;base64/);
     assert.equal(warnings.length, 0);
+    assert(warnings.every(warning => !warning.startsWith('CODEBASE_ANALYSIS.md:')));
     assert.equal((html.match(/class="document(?: historical)?"/g) || []).length, sources.length);
+});
+
+test('the saved repository handbook is current', () => {
+    assert.doesNotThrow(() => writeHandbook({ check: true }));
 });
 
 test('watch mode regenerates the saved handbook after a Markdown edit', async () => {

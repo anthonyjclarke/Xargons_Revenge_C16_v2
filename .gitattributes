@@ -22,8 +22,14 @@ Makefile text eol=lf
 *.ZIP binary
 *.d64 binary
 *.seq binary
+*.tap binary
+*.vsf binary
 
 # These override generic rules for every preserved input and reference.
 "/Original Source Recovered/**" -text -whitespace -diff
 "/Original Artifacts/**" -text -whitespace
-/xargons_revenge.prg binary
+"/Other Versions/**" -text -whitespace -diff
+
+# Keep pinned library text and the generated handbook intact.
+/scripts/vendor/** -whitespace
+/docs/*.html -whitespace

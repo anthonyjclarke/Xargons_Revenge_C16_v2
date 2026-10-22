@@ -113,4 +113,4 @@ Still to do: testing the keyboard and a joystick by hand, listening to the sound
 
 ## Recovery Background
 
-How the 1985 disks were recovered is told in the [Dorks Dilemma C16 repository](https://github.com/anthonyjclarke/Dorks_Dilemma_C16) and its [Development History](https://github.com/anthonyjclarke/Dorks_Dilemma_C16/blob/main/docs/DEVELOPMENT_HISTORY.md). [Source Inventory](SOURCE_INVENTORY.md) lists this game's inputs.
+How the 1985 disks were recovered is told in the [Dorks Dilemma C16 repository](https://github.com/anthonyjclarke/Dorks_Dilemma_C16) and its [History and Credits](https://github.com/anthonyjclarke/Dorks_Dilemma_C16/blob/main/docs/HISTORY_AND_CREDITS.md). [Source Inventory](SOURCE_INVENTORY.md) lists this game's inputs.

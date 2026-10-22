@@ -24,7 +24,7 @@ SCREEN_IMAGE = FIRST_COPY / 'Xargons Revenge - 5 Lives/Xargons Revenge - 5 Lives
 SCREEN_EXTRACTED = FIRST_COPY / 'Xargons Revenge - 5 Lives/Xargons Revenge - 5 Lives (partial) - Extracted'
 OLDER = INPUTS / '1992/DISK9'
 ARCHIVE = INPUTS / "1992/DISK9 - Xargon's Revenge.ZIP"
-REFERENCE = ROOT / 'xargons_revenge.prg'
+REFERENCE = ROOT / 'Original Artifacts/xargons_revenge.prg'
 MAIN = 'REVENGE'
 LOAD, ENTRY = 0x0400, 0x1800
 # Two playable game versions share every assembled byte except ALDATA:

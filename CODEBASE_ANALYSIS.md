@@ -467,7 +467,7 @@ The source disk carries the 1985 toolchain alongside the game. None of it is use
 | `BIG-PRINT`        | C64 BASIC: prints the title in large blocks   |
 | `COMPACTOR`        | C64 BASIC: packs `TITLE-DATA` into the banner |
 
-**Inference:** the source was edited and assembled on a C64 with the Commodore assembler, which writes the MOS hex `OBJ` file. That file was then loaded on the C16 by `MEGA-SUPER` through the F1 key macro in `C16`. The same set-up is described in the Dorks Dilemma [Development History](https://github.com/anthonyjclarke/Dorks_Dilemma_C16/blob/main/docs/DEVELOPMENT_HISTORY.md).
+**Inference:** the source was edited and assembled on a C64 with the Commodore assembler, which writes the MOS hex `OBJ` file. That file was then loaded on the C16 by `MEGA-SUPER` through the F1 key macro in `C16`. The same set-up is described in the Dorks Dilemma [History and Credits](https://github.com/anthonyjclarke/Dorks_Dilemma_C16/blob/main/docs/HISTORY_AND_CREDITS.md).
 
 ---
 

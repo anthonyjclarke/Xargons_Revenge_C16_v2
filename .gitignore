@@ -1,4 +1,4 @@
-# Generated output only. Original PRGs, BINs, disk images and art are preserved.
+# Generated output only. Original PRGs, BINs, disk images, archives and art are preserved.
 /build/
 /.pio/
 /.pioenvs/
@@ -15,9 +15,3 @@ __pycache__/
 
 # VICE may create this before its explicit log path is applied.
 /monitor.log
-
-# Working brief for this restoration; kept locally, not published.
-/Xargons Revenge Prompt(Claude).md
-
-# Local Claude Code preview configuration.
-/.claude/

@@ -1,13 +1,12 @@
 # Xargon's Revenge C16
 
-[![Release](https://img.shields.io/badge/release-v1.4.1-informational)](https://github.com/anthonyjclarke/Xargons_Revenge_C16_v2/tags)
-[![Rights](https://img.shields.io/badge/rights-see%20RIGHTS.md-blue)](RIGHTS.md)
-![Target](https://img.shields.io/badge/target-Commodore%20C16%20%2F%20%2B4-orange)
-![CPU](https://img.shields.io/badge/CPU-6502-lightgrey)
-![Assembler](https://img.shields.io/badge/assembler-ca65%20%2F%20ld65-lightgrey)
-![Build](https://img.shields.io/badge/build-PlatformIO-orange)
-![Emulator](https://img.shields.io/badge/tested%20with-VICE%203.10-green)
-![OBJ match](https://img.shields.io/badge/OBJ%20match-8%2C094%20bytes-brightgreen)
+![Release v1.5.0](docs/images/badges/release.svg)
+![Platform Commodore 16 / Plus/4](docs/images/badges/platform.svg)
+![Byte match 8,094 of 8,094](docs/images/badges/byte-match.svg)
+![Toolchain cc65](docs/images/badges/toolchain.svg)
+![PlatformIO 6.1](docs/images/badges/platformio.svg)
+![Emulator VICE 3.10](docs/images/badges/emulator.svg)
+![Status preservation](docs/images/badges/status.svg)
 
 This project reassembles the surviving **Xargon's Revenge** source for the Commodore 16 and Plus/4 using PlatformIO, VS Code and the cc65 toolchain. I wrote the game at Micro Projects in 1985 as the follow-up to my [Xargon Wars](https://github.com/anthonyjclarke/Xargon_Wars_C16), and Gremlin Graphics published it on cassette. The source calls it "Xargon II", and my earliest development disk is labelled "Revenge of Xargon (Xargon Wars II)".
 
@@ -85,7 +84,7 @@ The keys are **S** up, **X** down and **Return** fire, or a joystick in either p
 
 `Original Source Recovered/2026 - 1st Copy/` holds the two disk images I captured first in 2026 and their extractions. `Xargon's Revenge/Xargon's Revenge.d64` is the source disk and the main build input. `Xargons Revenge - 5 Lives/Xargons Revenge - 5 Lives (partial).d64` holds the first three files of the 5 Lives disk, a loading screen and loader, which the build checks but doesn't use. `Original Source Recovered/1992/` holds my 1992 PC export of the source disk, both as the original ZIP and extracted. The six modules missing from that first 2026 image come from there, through its original `INDEX`. `Original Source Recovered/2026 - 2nd Copy/` holds sector copies of all three development disks with photos and their 1992 exports; [Development Disks](docs/DEVELOPMENT_DISKS.md) explains what each holds and how the builds fit together.
 
-`Original Artifacts/` has the cassette inlay, the cover painting, a second cover layout, a gameplay screenshot, a title picture, the *C16 Classics II* leaflet and a photo of the two development disks. The running PRG, `xargons_revenge.prg`, is in the project root. Everything generated goes into `build/`, and the original inputs stay byte for byte as they were.
+`Original Artifacts/` has the cassette inlay, the cover painting, a second cover layout, a gameplay screenshot, a title picture, the *C16 Classics II* leaflet and a photo of the two development disks, and the running PRG, `xargons_revenge.prg`. `Other Versions/` holds the downloaded copies I compared, read-only. Everything generated goes into `build/`, and the original inputs stay byte for byte as they were.
 
 [Source Inventory](docs/SOURCE_INVENTORY.md) lists every input and dependency, and the [Artifact Catalogue](docs/ARTIFACTS.md) describes the artwork.
 
@@ -95,7 +94,7 @@ The keys are **S** up, **X** down and **Return** fire, or a joystick in either p
 
 I was always a fan of Scramble, so I wanted to write a scrolling game, and this became the sequel to Xargon Wars. The source header says it was "written by the Mega" (possibly a pseudonym for me; I'm not sure) and started "on a drizzly Saturday afternoon, 30 March". [History and Credits](docs/HISTORY_AND_CREDITS.md) separates what I remember from what the disks and packaging show.
 
-The recovery story, my original development set-up and the recovery-tool acknowledgements are in my companion [Dorks Dilemma C16 repository](https://github.com/anthonyjclarke/Dorks_Dilemma_C16), especially its [Development History](https://github.com/anthonyjclarke/Dorks_Dilemma_C16/blob/main/docs/DEVELOPMENT_HISTORY.md). This project reuses that restoration's build approach, so I haven't repeated the story here.
+The recovery story, my original development set-up and the recovery-tool acknowledgements are in my companion [Dorks Dilemma C16 repository](https://github.com/anthonyjclarke/Dorks_Dilemma_C16), especially its [History and Credits](https://github.com/anthonyjclarke/Dorks_Dilemma_C16/blob/main/docs/HISTORY_AND_CREDITS.md). This project reuses that restoration's build approach, so I haven't repeated the story here.
 
 ---
 

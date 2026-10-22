@@ -28,7 +28,7 @@ The first upload runs game v1 and the second game v2. `pio run -e c16_debug` giv
 
 ---
 
-## Play and Check
+## Controls and Checks
 
 Fire starts the game. Keys are **S** up, **X** down and **Return** fire, or use a joystick; SPACE pauses, G resumes and ESC returns to the title. On the title page J and K choose joystick or keyboard, and S and Q sound on or off.
 

@@ -27,7 +27,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'scripts'))
 from d64_image import D64Image  # noqa: E402
-from restore_c16 import tool  # noqa: E402
+from restore_c16 import REFERENCE, tool  # noqa: E402
 
 OTHER = ROOT / 'Other Versions'
 SOURCE_DISK = ROOT / "Original Source Recovered/2026 - 1st Copy/Xargon's Revenge/Xargon's Revenge - Extracted"
@@ -256,11 +256,11 @@ def main():
                     'Revenge of Xargon disk (1992 DISK8). No alien data: $0400 is not in the file.'),
     ]
     other_copy = OTHER / 'xargons_revenge.prg'
-    assert other_copy.read_bytes() == (ROOT / 'xargons_revenge.prg').read_bytes()
+    assert other_copy.read_bytes() == REFERENCE.read_bytes()
 
     hashes = {
         'disk': digest(DISK.read_bytes()), 'picture': digest(PICTURE.read_bytes()),
-        'prg': digest((ROOT / 'xargons_revenge.prg').read_bytes()), 'early': digest(EARLY.read_bytes()),
+        'prg': digest(REFERENCE.read_bytes()), 'early': digest(EARLY.read_bytes()),
         'original': digest(ORIGINAL.read_bytes()),
         'classics': digest(TAP.read_bytes()) + ' (tap)<br>' + digest(VSF.read_bytes()) + ' (vsf)',
         'v1': digest((BUILD / 'xargons-revenge-v1.prg').read_bytes()),

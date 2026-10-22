@@ -111,8 +111,6 @@ export function buildHandbook(root = ROOT, configFile = 'docs/handbook.json') {
             return `<a href="${escape(url)}"${extra}${title ? ` title="${escape(title)}"` : ''}>${label}</a>`;
         };
         renderer.image = ({ href, text, title }) => {
-            // README status badges come from shields.io; offline, show their text instead.
-            if (/^https:\/\/img\.shields\.io\//.test(href)) return `<span class="badge">${escape(text)}</span>`;
             if (external(href)) throw new Error(`Remote image prevents offline export: ${href}`);
             const { target } = localPath(doc.source, href);
             if (!media.has(target)) {
@@ -120,6 +118,7 @@ export function buildHandbook(root = ROOT, configFile = 'docs/handbook.json') {
                 if (!mime) throw new Error(`Unsupported image: ${target}`);
                 media.set(target, `data:${mime};base64,${read(target).toString('base64')}`);
             }
+            if (target.includes('/badges/')) return `<img class="badge" src="${media.get(target)}" alt="${escape(text)}">`;
             return `<img class="zoomable" src="${media.get(target)}" alt="${escape(text)}"${title ? ` title="${escape(title)}"` : ''} tabindex="0" role="button" aria-label="Enlarge: ${escape(text)}">`;
         };
         renderer.code = ({ text, lang }) => {
